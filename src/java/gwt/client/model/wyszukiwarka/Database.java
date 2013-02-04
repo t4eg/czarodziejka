@@ -2770,7 +2770,7 @@ public class Database {
         dodaj(new Strój(687).setZdjęcie(1110).setNazwa("kotek").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKO_MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Zwierzęta).setRozmiar(
                 new Rozmiar(Wzrost.cm_128, Wzrost.cm_134)));
 
-        dodaj(new Strój(688).setZdjęcie(1111).setNazwa("avatar jake sully").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKO_MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena).setRozmiar(
+        dodaj(new Strój(688).setZdjęcie(1111).setNazwa("avatar jake sully").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena).setRozmiar(
                 new Rozmiar(Wzrost.cm_170, Wzrost.cm_176, Pas.S, Pas.M)));
 
         dodaj(new Strój(689).setZdjęcie(1112).setNazwa("lew").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Zwierzęta).setRozmiar(
@@ -2813,7 +2813,7 @@ public class Database {
                 new Rozmiar(Wzrost.cm_140),
                 new Rozmiar(Wzrost.cm_152)));
 
-        dodaj(new Strój(698).setZdjęcie(1127).setNazwa("avatar neytiri").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena).setRozmiar(
+        dodaj(new Strój(698).setZdjęcie(1127, 1111).setNazwa("avatar neytiri").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.XS, Pas.S),
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.S, Pas.M)));
 
@@ -2883,7 +2883,7 @@ public class Database {
 
         dodaj(new Strój(718).setZdjęcie(1152, 1153).setNazwa("pirat").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Pirackie).setRozmiar(
                 new Rozmiar(Wzrost.cm_104),
-                new Rozmiar(Wzrost.cm_110)));
+                new Rozmiar(Wzrost.cm_98)));
 
         dodaj(new Strój(719).setZdjęcie(1154).setNazwa("król").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Jasełka).setKategoria(Kategoria.Historyczne).setRozmiar(
                 new Rozmiar(Wzrost.cm_116)));

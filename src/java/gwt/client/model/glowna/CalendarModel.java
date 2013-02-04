@@ -117,7 +117,7 @@ public class CalendarModel {
     }
 
     private boolean isCarnival(Date date) {
-        return isBetween(date, "2012.12.25", "2013.02.12")
+        return isBetween(date, "2012.12.25", "2013.02.16")
                 || isBetween(date, "2013.12.25", "2014.03.04");
     }
 
