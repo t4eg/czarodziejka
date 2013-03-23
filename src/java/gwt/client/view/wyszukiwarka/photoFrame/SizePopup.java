@@ -17,7 +17,7 @@ public class SizePopup extends DecoratedPopupPanel {
         setWidth("220px");
 
         VerticalPanel panel = new VerticalPanel();
-        panel.add(new Label("Posiadamy następujące rozmiary:"));
+//        panel.add(new Label("Posiadamy następujące rozmiary:"));
         panel.add(getGrid(stroj.getRozmiar(), stroj.getWiek() != Wiek.DZIECKO));
 
         add(panel);

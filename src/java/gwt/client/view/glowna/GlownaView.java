@@ -16,7 +16,7 @@ public class GlownaView extends VerticalPanel implements CanShow {
                 + "<p>Spora część kostiumów to własne wzory uwzględniające sugestie i potrzeby klientów.</p>"
                 + "<p>Prezentowane zdjęcia są częścią tego co możecie Państwo u nas wypożyczyć. Na bieżąco powiększamy naszą kolekcję, aby sprostać oczekiwaniom dzieci i dorosłych.</p>"
                 + "<p style=\"width:600px;font-size:21px; color:red;font-weight:bold;text-align:center;\">"
-                + "Wypożyczalnia przeniesiona została na<BR> ul. Popularną 29A, Warszawa-Włochy.</p>"
+                + "Istnieje możliwość rezerwacji strojów.</p>"
                 + "<p>Godziny pracy:<br>"));
         add(new Calendar());
     }

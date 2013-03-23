@@ -36,6 +36,7 @@ public class Frame extends DecoratorPanel {
             layout.add(new ForWho(stroj));
         }
         layout.add(rozmiary);
+        rozmiary.setStylePrimaryName("frameRozmiary");
         rozmiary.addClickHandler(new RozmiaryClickHandler(stroj));
     }
 

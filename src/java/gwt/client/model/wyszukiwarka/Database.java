@@ -542,7 +542,9 @@ public class Database {
                 new Rozmiar(Wzrost.cm_116),
                 new Rozmiar(Wzrost.cm_128),
                 new Rozmiar(Wzrost.cm_140),
-                new Rozmiar(Wzrost.cm_146)));
+                new Rozmiar(Wzrost.cm_146),
+                new Rozmiar(Wzrost.cm_158),
+                new Rozmiar(Wzrost.cm_164)));
 
         dodaj(new Strój(154).setZdjęcie(159).setNazwa("książe").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Historyczne, Kategoria.Bajki).setRozmiar(
                 new Rozmiar(Wzrost.cm_116),
@@ -941,7 +943,7 @@ public class Database {
                 new Rozmiar(Wzrost.cm_146)));
 
         dodaj(new Strój(233).setZdjęcie(275).setNazwa("cyganka").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe).setRozmiar(
-                new Rozmiar(Wzrost.cm_146, Wzrost.cm_152)));
+                new Rozmiar(Wzrost.cm_140)));
 
         dodaj(new Strój(234).setZdjęcie(277).setNazwa("jasmina").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Narodowościowe).setRozmiar(
                 new Rozmiar(Wzrost.cm_116),
@@ -949,8 +951,7 @@ public class Database {
 
         dodaj(new Strój(235).setZdjęcie(281).setNazwa("jasmina").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Narodowościowe).setRozmiar(
                 new Rozmiar(Wzrost.cm_116),
-                new Rozmiar(Wzrost.cm_128),
-                new Rozmiar(Wzrost.cm_140)));
+                new Rozmiar(Wzrost.cm_128)));
 
         dodaj(new Strój(237).setZdjęcie(278).setNazwa("orzeł").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKO_MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Zwierzęta).setRozmiar(
                 new Rozmiar(Wzrost.cm_104, Wzrost.cm_110),
@@ -985,7 +986,6 @@ public class Database {
                 new Rozmiar(Wzrost.cm_116)));
 
         dodaj(new Strój(245).setZdjęcie(289).setNazwa("dama").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Historyczne).setRozmiar(
-                new Rozmiar(Wzrost.cm_116),
                 new Rozmiar(Wzrost.cm_128),
                 new Rozmiar(Wzrost.cm_140)));
 
@@ -1166,7 +1166,6 @@ public class Database {
                 new Rozmiar(Wzrost.cm_104),
                 new Rozmiar(Wzrost.cm_116),
                 new Rozmiar(Wzrost.cm_128),
-                new Rozmiar(Wzrost.cm_140),
                 new Rozmiar(Wzrost.cm_122),
                 new Rozmiar(Wzrost.cm_134)));
 
@@ -1479,7 +1478,7 @@ public class Database {
                 new Rozmiar(Wzrost.cm_140)));
 
         dodaj(new Strój(350).setZdjęcie(426).setNazwa("Aladyn").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Narodowościowe).setRozmiar(
-                new Rozmiar(Wzrost.cm_140)));
+                new Rozmiar(Wzrost.cm_146)));
 
         dodaj(new Strój(351).setZdjęcie(428).setNazwa("diabliczka").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Halloween).setKategoria(Kategoria.Bajki, Kategoria.Narodowościowe).setRozmiar(
                 new Rozmiar(Wzrost.cm_98),
@@ -1496,7 +1495,8 @@ public class Database {
                 new Rozmiar(Wzrost.cm_116, Wzrost.cm_122),
                 new Rozmiar(Wzrost.cm_128, Wzrost.cm_134),
                 new Rozmiar(Wzrost.cm_140, Wzrost.cm_146),
-                new Rozmiar(Wzrost.cm_152, Wzrost.cm_158)));
+                new Rozmiar(Wzrost.cm_152, Wzrost.cm_158),
+                new Rozmiar(Wzrost.cm_164)));
 
         dodaj(new Strój(355).setZdjęcie(438).setNazwa("ułan").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Historyczne).setRozmiar(
                 new Rozmiar(Wzrost.cm_116),
@@ -2085,9 +2085,9 @@ public class Database {
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.L)));
 
         dodaj(new Strój(512).setZdjęcie(893).setNazwa("turek").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe).setRozmiar(
+                new Rozmiar(Wzrost.cm_104),
                 new Rozmiar(Wzrost.cm_116),
-                new Rozmiar(Wzrost.cm_128),
-                new Rozmiar(Wzrost.cm_140)));
+                new Rozmiar(Wzrost.cm_128)));
 
         dodaj(new Strój(513).setZdjęcie(894).setNazwa("buzz astral").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki).setRozmiar(
                 new Rozmiar(Wzrost.cm_116)));
@@ -2107,7 +2107,7 @@ public class Database {
                 new Rozmiar(Wzrost.cm_140)));
 
         dodaj(new Strój(517).setZdjęcie(900, 901).setNazwa("batman").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Super_bohaterowie).setRozmiar(
-                new Rozmiar(Wzrost.cm_116),
+                new Rozmiar(Wzrost.cm_122),
                 new Rozmiar(Wzrost.cm_128),
                 new Rozmiar(Wzrost.cm_140)));
 
@@ -2345,7 +2345,7 @@ public class Database {
                 new Rozmiar(Wzrost.cm_128, Wzrost.cm_140)));
 
         dodaj(new Strój(575).setZdjęcie(971).setNazwa("księżniczka").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Historyczne).setRozmiar(
-                new Rozmiar(Wzrost.cm_128, Wzrost.cm_134)));
+                new Rozmiar(Wzrost.cm_122)));
 
         dodaj(new Strój(576).setZdjęcie(972).setNazwa("wróbelek").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKO_MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Zwierzęta).setRozmiar(
                 new Rozmiar(Wzrost.cm_116, Wzrost.cm_122),
@@ -2777,10 +2777,10 @@ public class Database {
                 new Rozmiar(Wzrost.cm_128, Wzrost.cm_134)));
 
         dodaj(new Strój(690).setZdjęcie(1113).setNazwa("król").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Jasełka).setKategoria(Kategoria.Inne).setRozmiar(
-                new Rozmiar(Wzrost.cm_104, Wzrost.cm_110),
-                new Rozmiar(Wzrost.cm_116, Wzrost.cm_122),
-                new Rozmiar(Wzrost.cm_128, Wzrost.cm_134),
-                new Rozmiar(Wzrost.cm_140, Wzrost.cm_146)));
+                new Rozmiar(Wzrost.cm_98),
+                new Rozmiar(Wzrost.cm_104),
+                new Rozmiar(Wzrost.cm_116),
+                new Rozmiar(Wzrost.cm_128)));
 
         dodaj(new Strój(691).setZdjęcie(1114).setNazwa("batman").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena).setRozmiar(
                 new Rozmiar(Wzrost.cm_176, Wzrost.cm_182, Pas.M, Pas.L)));
