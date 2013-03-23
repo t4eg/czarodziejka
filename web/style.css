@@ -92,16 +92,14 @@
 .photoNumber {top:206px;}
 .photoNumberLower {top:226px;}
 .photoPhoto {cursor: pointer;}
-.photoSize {width: 100%;margin-top: 2px;}
-.photoSize * {font-size: 13px;font-family: 'Comic Sans MS';}
-.photoSizeHeight img {margin-left: 4px;margin-right: 9px;cursor: pointer;}
-.photoSizeBelt img {margin-right: 4px;cursor: pointer;margin-top: 5px;}
-.photoSizeZoom {margin-top: 10px;vertical-align: middle;text-align: center;cursor: pointer;}
 .photoForWho, .photoForWhoLower {float: left;position: absolute; right:5px;height: 28px;}
 .photoForWho {top:198px;}
 .photoForWhoLower {top:218px;}
 .photoForWho td, .photoForWhoLower td {vertical-align: bottom !important;}
 .photoForWho img, .photoForWhoLower img {cursor: pointer;border: 1px solid white;background-color: white;}
+
+div.frameRozmiary {font-family: 'Book Antiqua';font-size: 15px;text-align: center; cursor: pointer; text-decoration: underline;color: #001433;}
+div.frameRozmiary:hover {color:#811522;}
 
 .photoFrame .topCenter {
     border-top: 1px solid #bbb;
