@@ -117,6 +117,7 @@ public class WyszukiwarkaModel {
         view.getOcasion().setSelectedAll();
         WyszukiwarkaPresenter.getInstance().refreshComponents();
         view.setRecordsCount(WyszukiwarkaModel.getInstance().findMachingRecords().size());
+        view.getClothCountInfo().setInfo(Database.getInstance().getStroje().size());
     }
 
     private void setValues(SelectOne box, Object[] values) {

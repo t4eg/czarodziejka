@@ -34,6 +34,7 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
     private SelectMany category = new SelectMany();
     private Paginator paginator = new Paginator();
     private Grid table = new Grid();
+    private ClothCountInfo clothCountInfo = new ClothCountInfo();
 
     public static WyszukiwarkaView getInstance() {
         if (instance == null) {
@@ -60,7 +61,7 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
 
         add(getFiltersPanel());
         add(bottom);
-        add(new ClothCountInfo());
+        add(clothCountInfo);
         add(new HTML("<hr width=\"628px\"/>"));
         add(table);
         add(paginator);
@@ -265,5 +266,9 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
 
     public CheckBox getNoPair() {
         return noPair;
+    }
+
+    public ClothCountInfo getClothCountInfo() {
+        return clothCountInfo;
     }
 }

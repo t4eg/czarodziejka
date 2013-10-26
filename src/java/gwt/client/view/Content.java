@@ -2,6 +2,8 @@ package gwt.client.view;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
+import gwt.client.model.wyszukiwarka.WyszukiwarkaModel;
+import gwt.client.presenter.wyszukiwarka.WyszukiwarkaPresenter;
 import gwt.client.view.dojazd.DojazdView;
 import gwt.client.view.dorosli.DorosliView;
 import gwt.client.view.dzieci.DzieciView;
@@ -42,6 +44,10 @@ public class Content extends FlowPanel {
 
     public void show(Page page) {
         if (page != shown) {
+            if (page == Page.WYSZUKIWARKA) {
+                WyszukiwarkaPresenter.getInstance();
+                WyszukiwarkaModel.getInstance().setData();
+            }
             super.remove(pages.get(shown));
             super.add(pages.get(page));
             ((CanShow) pages.get(page)).onShow();

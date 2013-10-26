@@ -1,5 +1,6 @@
 package gwt.client.model.wyszukiwarka;
 
+import com.google.gwt.user.client.Timer;
 import gwt.client.model.wyszukiwarka.stroj.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,21 +13,42 @@ import java.util.List;
 public class Database {
 
     private static Database instance;
-    private List<Strój> stroje = new ArrayList<Strój>();
+    private List<Strój> stroje = new ArrayList<Strój>(692);
 
     public static Database getInstance() {
         if (instance == null) {
             instance = new Database();
-            Collections.sort(instance.stroje, new StrójComparator());
 //            DatabaseTest test = new DatabaseTest(instance.stroje);
         }
         return instance;
     }
 
     private Database() {
-        addData1();
-        addData2();
-        addData3();
+        final Timer t3 = new Timer() {
+
+            @Override
+            public void run() {
+                addData3();
+                Collections.sort(instance.stroje, new StrójComparator());
+            }
+        };
+        final Timer t2 = new Timer() {
+
+            @Override
+            public void run() {
+                addData2();
+                t3.schedule(10);
+            }
+        };
+        final Timer t1 = new Timer() {
+
+            @Override
+            public void run() {
+                addData1();
+                t2.schedule(10);
+            }
+        };
+        t1.schedule(10);
     }
 
     private void addData1() {
@@ -2817,10 +2839,10 @@ public class Database {
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.XS, Pas.S),
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.S, Pas.M)));
 
-        dodaj(new Strój(87).setZdjęcie(1122).setNazwa("superman").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena, Kategoria.Super_bohaterowie).setRozmiar(
+        dodaj(new Strój(87).setZdjęcie(1122).setNazwa("superman").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena, Kategoria.Super_bohaterowie).setDlaPary().setRozmiar(
                 new Rozmiar(Wzrost.cm_182, Wzrost.cm_188, Pas.M, Pas.L)));
 
-        dodaj(new Strój(699).setZdjęcie(1122).setNazwa("supergirl").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena, Kategoria.Super_bohaterowie).setRozmiar(
+        dodaj(new Strój(699).setZdjęcie(1122).setNazwa("supergirl").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena, Kategoria.Super_bohaterowie).setDlaPary().setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.M, Pas.L)));
 
         dodaj(new Strój(700).setZdjęcie(1124).setNazwa("wonder women").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena, Kategoria.Super_bohaterowie).setRozmiar(

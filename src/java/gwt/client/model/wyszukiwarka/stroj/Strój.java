@@ -131,8 +131,8 @@ public class Strój {
         return dlaPary;
     }
 
-    public Strój setDlaPary(boolean dlaPary) {
-        this.dlaPary = dlaPary;
+    public Strój setDlaPary() {
+        this.dlaPary = true;
         return this;
     }
 }

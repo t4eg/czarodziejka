@@ -1,7 +1,6 @@
 package gwt.client.view.wyszukiwarka;
 
 import com.google.gwt.user.client.ui.HTML;
-import gwt.client.model.wyszukiwarka.Database;
 
 /**
  *
@@ -11,13 +10,15 @@ public class ClothCountInfo extends HTML {
 
     public ClothCountInfo() {
         super.setStylePrimaryName("clothCountInfo");
-        super.setText("Do wyszukiwarki dodanych mamy " + getStrojeCountText() + " spośród około 900 dostępnych w wypożyczalni. "
+    }
+
+    public void setInfo(int strojeCount) {
+        super.setText("Do wyszukiwarki dodanych mamy " + getStrojeCountText(strojeCount) + " spośród około 900 dostępnych w wypożyczalni. "
                 + "Jeśli nie możecie Państwo znaleść odpowiedniego stroju prosimy o kontakt.");
     }
 
-    private String getStrojeCountText() {
-        int count = Database.getInstance().getStroje().size();
-        String lastLetter = Integer.toString(count);
+    private String getStrojeCountText(int strojeCount) {
+        String lastLetter = Integer.toString(strojeCount);
         lastLetter = lastLetter.substring(lastLetter.length() - 1);
         int lastNumber = Integer.valueOf(lastLetter);
         switch (lastNumber) {
@@ -28,12 +29,12 @@ public class ClothCountInfo extends HTML {
             case 7:
             case 8:
             case 9:
-                return count + " strojów";
+                return strojeCount + " strojów";
             case 2:
             case 3:
             case 4:
             default:
-                return count + " stroje";
+                return strojeCount + " stroje";
         }
     }
 }
