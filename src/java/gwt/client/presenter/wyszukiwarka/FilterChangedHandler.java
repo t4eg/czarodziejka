@@ -1,7 +1,9 @@
 package gwt.client.presenter.wyszukiwarka;
 
-import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.dom.client.*;
+import com.google.gwt.event.dom.client.ChangeEvent;
+import com.google.gwt.event.dom.client.ChangeHandler;
+import com.google.gwt.event.dom.client.KeyPressEvent;
+import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
@@ -32,7 +34,6 @@ public class FilterChangedHandler implements KeyPressHandler, ChangeHandler, Val
         private void refreshRecordsCount() {
             int recordsCount = WyszukiwarkaModel.getInstance().findMachingRecords().size();
             WyszukiwarkaView.getInstance().setRecordsCount(recordsCount);
-            GWT.log("uruchamiam wyszukowanie: " + System.currentTimeMillis(), null);
         }
 
         @Override

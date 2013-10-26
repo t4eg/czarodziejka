@@ -2,7 +2,6 @@ package gwt.client.presenter.wyszukiwarka;
 
 import gwt.client.model.wyszukiwarka.WyszukiwarkaModel;
 import gwt.client.model.wyszukiwarka.stroj.Pas;
-import gwt.client.model.wyszukiwarka.stroj.Wzrost;
 import gwt.client.view.wyszukiwarka.WyszukiwarkaView;
 
 /**
@@ -37,6 +36,10 @@ public class WyszukiwarkaPresenter {
         view.getMale().addKeyPressHandler(filterChanged);
         view.getFemale().addValueChangeHandler(filterChanged);
         view.getFemale().addKeyPressHandler(filterChanged);
+        view.getForPair().addValueChangeHandler(filterChanged);
+        view.getForPair().addKeyPressHandler(filterChanged);
+        view.getNoPair().addValueChangeHandler(filterChanged);
+        view.getNoPair().addKeyPressHandler(filterChanged);
         view.getHeightFrom().addChangeHandler(filterChanged);
         view.getHeightFrom().addKeyPressHandler(filterChanged);
         view.getHeightTo().addChangeHandler(filterChanged);
