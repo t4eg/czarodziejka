@@ -1,6 +1,7 @@
 package gwt.client.view;
 
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.Widget;
 import gwt.client.view.dojazd.DojazdView;
 import gwt.client.view.dorosli.DorosliView;
 import gwt.client.view.dzieci.DzieciView;

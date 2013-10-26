@@ -24,6 +24,8 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
     private CheckBox adult = new CheckBox("dorosłego");
     private CheckBox male = new CheckBox("męski");
     private CheckBox female = new CheckBox("damski");
+    private CheckBox forPair = new CheckBox("dla pary");
+    private CheckBox noPair = new CheckBox("bez pary");
     private SelectOne heightFrom = new SelectOne();
     private SelectOne heightTo = new SelectOne();
     private SelectOne beltFrom = new SelectOne();
@@ -39,6 +41,7 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
         }
         return instance;
     }
+
     private WyszukiwarkaView() {
         setStylePrimaryName("wyszukiwarka");
         show.setPixelSize(70, 24);
@@ -86,7 +89,7 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
         result.setHorizontalAlignment(ALIGN_CENTER);
         result.add(getCol1());
         result.add(getCol2());
-        result.add(new TitleVeritcalPanel("Okazja", ocasion));
+        result.add(getCol3());
         result.add(new TitleVeritcalPanel("Kategoria", category));
         ocasion.setWidth("140px");
         ocasion.setHeight("50px");
@@ -166,6 +169,22 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
         return result;
     }
 
+    private VerticalPanel getCol3() {
+        VerticalPanel result = new VerticalPanel();
+        result.add(new TitleVeritcalPanel("Okazja", ocasion));
+
+        VerticalPanel pairsPanel = new VerticalPanel();
+        pairsPanel.setStylePrimaryName("row");
+        pairsPanel.add(new HTML("Pary:"));
+        pairsPanel.add(forPair);
+        pairsPanel.add(noPair);
+        forPair.setStylePrimaryName("selectManyCheckbox");
+        noPair.setStylePrimaryName("selectManyCheckbox");
+        result.add(pairsPanel);
+
+        return result;
+    }
+
     public Button getSearch() {
         return show;
     }
@@ -236,5 +255,13 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
 
     public Paginator getPaginator() {
         return paginator;
+    }
+
+    public CheckBox getForPair() {
+        return forPair;
+    }
+
+    public CheckBox getNoPair() {
+        return noPair;
     }
 }
