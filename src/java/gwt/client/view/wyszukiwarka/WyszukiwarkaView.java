@@ -171,7 +171,9 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
 
     private VerticalPanel getCol3() {
         VerticalPanel result = new VerticalPanel();
-        result.add(new TitleVeritcalPanel("Okazja", ocasion));
+        TitleVeritcalPanel okazja = new TitleVeritcalPanel("Okazja", ocasion);
+        okazja.setStylePrimaryName("row3");
+        result.add(okazja);
 
         VerticalPanel pairsPanel = new VerticalPanel();
         pairsPanel.setStylePrimaryName("row");
