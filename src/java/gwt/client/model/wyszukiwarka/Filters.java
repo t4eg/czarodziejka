@@ -15,6 +15,8 @@ public class Filters {
     private Boolean dorosly;
     private Boolean male;
     private Boolean female;
+    private Boolean forPair;
+    private Boolean noPair;
     private Integer heightFrom;
     private Integer heightTo;
     private Integer beltFrom;
@@ -116,5 +118,21 @@ public class Filters {
 
     public void setBeltTo(Integer beltTo) {
         this.beltTo = beltTo;
+    }
+
+    public Boolean getForPair() {
+        return forPair;
+    }
+
+    public void setForPair(Boolean forPair) {
+        this.forPair = forPair;
+    }
+
+    public Boolean getNoPair() {
+        return noPair;
+    }
+
+    public void setNoPair(Boolean noPair) {
+        this.noPair = noPair;
     }
 }

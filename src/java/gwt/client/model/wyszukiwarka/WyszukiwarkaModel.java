@@ -59,6 +59,8 @@ public class WyszukiwarkaModel {
         filtry.setDorosly(view.getAdult().getValue());
         filtry.setDziecko(view.getChild().getValue());
         filtry.setFemale(view.getFemale().getValue());
+        filtry.setForPair(view.getForPair().getValue());
+        filtry.setNoPair(view.getNoPair().getValue());
         filtry.setMale(view.getMale().getValue());
         if (!view.getHeightFrom().getSelected().isEmpty()) {
             filtry.setHeightFrom(Integer.parseInt(view.getHeightFrom().getSelected()));
@@ -82,6 +84,8 @@ public class WyszukiwarkaModel {
         view.getChild().setValue(true);
         view.getFemale().setValue(true);
         view.getMale().setValue(true);
+        view.getForPair().setValue(true);
+        view.getNoPair().setValue(true);
         view.getBeltFrom().clear();
         view.getBeltTo().clear();
         view.getHeightFrom().clear();
@@ -97,6 +101,8 @@ public class WyszukiwarkaModel {
         view.getChild().setValue(true);
         view.getFemale().setValue(true);
         view.getMale().setValue(true);
+        view.getForPair().setValue(true);
+        view.getNoPair().setValue(true);
         setValues(view.getBeltFrom(), Pas.values());
         view.getBeltFrom().setSelectedIndex(0);
         setValues(view.getBeltTo(), Pas.values());

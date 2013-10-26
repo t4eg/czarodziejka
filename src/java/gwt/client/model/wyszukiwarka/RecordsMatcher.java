@@ -38,6 +38,7 @@ public class RecordsMatcher {
                     && isNumberOk()
                     && isOcasionOk()
                     && isSexOk()
+                    && isPairOk()
                     && isSizeOk()
                     && isAgeOk()) {
                 result.add(stroj);
@@ -106,6 +107,10 @@ public class RecordsMatcher {
                 return filters.getMale();
         }
         return true;
+    }
+
+    private boolean isPairOk() {
+        return (stroj.isDlaPary() && filters.getForPair()) || (!stroj.isDlaPary() && filters.getNoPair());
     }
 
     private boolean isSizeOk() {

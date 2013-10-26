@@ -16,6 +16,7 @@ public class Strój {
     private Rozmiar[] rozmiar;
     private String order;
     private boolean długaNazwa;
+    private boolean dlaPary;
 
     public Strój(Integer numer) {
         this.numer = numer;
@@ -124,5 +125,14 @@ public class Strój {
 
     public boolean isDługaNazwa() {
         return długaNazwa;
+    }
+
+    public boolean isDlaPary() {
+        return dlaPary;
+    }
+
+    public Strój setDlaPary(boolean dlaPary) {
+        this.dlaPary = dlaPary;
+        return this;
     }
 }

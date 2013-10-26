@@ -43,6 +43,8 @@ public class DorosliModel {
         filtry.setDziecko(false);
         filtry.setFemale(true);
         filtry.setMale(true);
+        filtry.setForPair(true);
+        filtry.setNoPair(true);
         filtry.setHeightFrom(Wzrost.getMin().getHeight());
         filtry.setHeightTo(Wzrost.getMax().getHeight());
         filtry.setKategoria(Kategoria.values());

@@ -41,8 +41,10 @@ public class DzieciModel {
         filtry.setBeltTo(Pas.XXL.getNr());
         filtry.setDorosly(false);
         filtry.setDziecko(true);
-        filtry.setFemale(true);
+        filtry.setForPair(true);
+        filtry.setNoPair(true);
         filtry.setMale(true);
+        filtry.setFemale(true);
         filtry.setHeightFrom(Wzrost.getMin().getHeight());
         filtry.setHeightTo(Wzrost.getMax().getHeight());
         filtry.setKategoria(Kategoria.values());
