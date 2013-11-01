@@ -2869,7 +2869,7 @@ public class Database {
         dodaj(new Strój(706).setZdjęcie(1135).setNazwa("ogień").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Inne).setRozmiar(
                 new Rozmiar(Wzrost.cm_158, Wzrost.cm_164, Pas.S)));
 
-        dodaj(new Strój(707).setZdjęcie(1136, 1137).setNazwa("żyrafa").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Zwierzęta).setRozmiar(
+        dodaj(new Strój(707).setZdjęcie(1136, 1137).setNazwa("Żyrafa").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Zwierzęta).setRozmiar(
                 new Rozmiar(Wzrost.cm_128, Wzrost.cm_134)));
 
         dodaj(new Strój(708).setZdjęcie(1139, 1140).setNazwa("lis").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKO_MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Zwierzęta).setRozmiar(
