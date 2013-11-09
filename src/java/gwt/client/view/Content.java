@@ -4,6 +4,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
 import gwt.client.model.wyszukiwarka.WyszukiwarkaModel;
 import gwt.client.presenter.wyszukiwarka.WyszukiwarkaPresenter;
+import gwt.client.view.dodajStroj.DodajStrojView;
 import gwt.client.view.dojazd.DojazdView;
 import gwt.client.view.dorosli.DorosliView;
 import gwt.client.view.dzieci.DzieciView;
@@ -37,6 +38,7 @@ public class Content extends FlowPanel {
         pages.put(Page.WYSZUKIWARKA, WyszukiwarkaView.getInstance());
         pages.put(Page.DOJAZD, new DojazdView());
         pages.put(Page.KONTAKT, new KontaktView());
+        pages.put(Page.DODAJ_STROJ, new DodajStrojView());
 
         shown = Page.GLOWNA;
         super.add(pages.get(shown));

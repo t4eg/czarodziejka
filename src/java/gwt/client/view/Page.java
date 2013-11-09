@@ -11,5 +11,6 @@ public enum Page {
     DLA_DOROSLYCH,
     WYSZUKIWARKA,
     DOJAZD,
-    KONTAKT;
+    KONTAKT,
+    DODAJ_STROJ;
 }
