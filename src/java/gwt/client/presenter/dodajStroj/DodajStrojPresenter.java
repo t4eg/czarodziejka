@@ -27,18 +27,16 @@ public class DodajStrojPresenter {
             }
         });
         view.getNumber().addKeyPressHandler(new NumberChangedHandler());
+        view.getSave().addClickHandler(new ClickHandler() {
+
+            @Override
+            public void onClick(ClickEvent event) {
+                view.getModel().saveData();
+            }
+        });
     }
 
     public final void refreshComponents() {
-//        if (view.getAdult().getValue()) {
-//            view.getBeltFrom().setEnabled(true);
-//            view.getBeltTo().setEnabled(true);
-//        } else {
-//            view.getBeltFrom().setEnabled(false);
-//            view.getBeltTo().setEnabled(false);
-//        }
-//
-//        WyszukiwarkaModel.getInstance().setHeightTo(Integer.valueOf(view.getHeightFrom().getSelected()));
-//        WyszukiwarkaModel.getInstance().setBeltTo(Pas.getNr(view.getBeltFrom().getSelected()));
+
     }
 }

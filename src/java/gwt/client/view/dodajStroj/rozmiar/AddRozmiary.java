@@ -55,7 +55,7 @@ public class AddRozmiary extends VerticalPanel {
     public String getRozmiary() {
         String result = "";
         for (int i = 0; i < list.size(); i++) {
-            result += list.get(i).getRozmiar();
+            result += "\t\t" + list.get(i).getRozmiar();
             if (i < list.size() - 1) {
                 result += ",\n";
             }

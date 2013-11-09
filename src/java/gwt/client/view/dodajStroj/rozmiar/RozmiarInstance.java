@@ -91,9 +91,26 @@ public class RozmiarInstance extends HorizontalPanel {
     }
 
     public String getRozmiar() {
-        String result = "new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.M, Pas.L)";
-        if (heightFrom.isEnabled()) {
+        String result = "new Rozmiar(";
+
+        String h1 = heightFrom.getSelected() == null ? "" : heightFrom.getSelected();
+        String h2 = heightTo.getSelected() == null ? "" : heightTo.getSelected();
+        String w1 = beltFrom.getSelected() == null ? "" : beltFrom.getSelected();
+        String w2 = beltTo.getSelected() == null ? "" : beltTo.getSelected();
+        if (h1.equals(h2) || h2.isEmpty()) {
+            result += "Wzrost.cm_" + h1;
+        } else {
+            result += "Wzrost.cm_" + h1 + ", Wzrost.cm_" + h2;
         }
+        if (w1.isEmpty() && w2.isEmpty()) {
+            //do nothing
+        } else if (w1.equals(w2) || w2.isEmpty()) {
+            result += ", Pas." + w1;
+        } else {
+            result += ", Pas." + w1 + ", Pas." + w2;
+        }
+
+        result += ")";
         return result;
     }
 
