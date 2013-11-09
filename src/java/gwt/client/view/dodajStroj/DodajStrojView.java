@@ -1,11 +1,11 @@
 package gwt.client.view.dodajStroj;
 
-import gwt.client.view.dodajStroj.image.AddImages;
-import gwt.client.view.dodajStroj.rozmiar.AddRozmiary;
 import com.google.gwt.user.client.ui.*;
 import gwt.client.model.dodajStroj.DodajStrojModel;
 import gwt.client.view.CanShow;
 import gwt.client.view.dodajStroj.components.SelectManySimple;
+import gwt.client.view.dodajStroj.image.AddImages;
+import gwt.client.view.dodajStroj.rozmiar.AddRozmiary;
 import gwt.client.view.wyszukiwarka.components.TitleVeritcalPanel;
 
 /**

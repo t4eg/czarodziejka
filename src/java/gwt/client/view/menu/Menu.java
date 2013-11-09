@@ -29,7 +29,7 @@ public class Menu extends VerticalPanel {
         add(dojazd);
         add(contact);
         add(dodajStroj);
-        dodajStroj.setWidth("150px");
+        dodajStroj.setWidth("106px");
 //        add(new VSpace(50));
 //        add(new FacebookLikeButton());
 

@@ -20,6 +20,7 @@ public class AddRozmiary extends VerticalPanel {
     private HorizontalPanel addRemove = new HorizontalPanel();
 
     public AddRozmiary() {
+        super.setSpacing(2);
         super.add(rozmiaryPanel);
         super.add(addRemove);
 
