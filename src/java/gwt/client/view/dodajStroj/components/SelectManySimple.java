@@ -1,4 +1,4 @@
-package gwt.client.view.wyszukiwarka.components;
+package gwt.client.view.dodajStroj.components;
 
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.VerticalPanel;

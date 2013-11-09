@@ -1,7 +1,11 @@
 package gwt.client.view.menu;
 
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import gwt.client.view.Page;
+import com.google.gwt.user.client.ui.Button;
+import gwt.client.presenter.menu.ShowPageClickHandler;
 
 /**
  *
@@ -15,6 +19,7 @@ public class Menu extends VerticalPanel {
     private ImageButton search = new ImageButton("Wyszukiwarka", Page.WYSZUKIWARKA);
     private ImageButton dojazd = new ImageButton("Dojazd", Page.DOJAZD);
     private ImageButton contact = new ImageButton("Kontakt", Page.KONTAKT);
+    private Button dodajStroj = new Button("Dodaj strój");
 
     public Menu() {
         add(main);
@@ -23,8 +28,10 @@ public class Menu extends VerticalPanel {
         add(search);
         add(dojazd);
         add(contact);
+        add(dodajStroj);
+        dodajStroj.setWidth("150px");
 //        add(new VSpace(50));
-        add(new FacebookLikeButton());
+//        add(new FacebookLikeButton());
 
         main.setSize("232px", "47px");
         kids.setSize("151px", "42px");
@@ -39,5 +46,7 @@ public class Menu extends VerticalPanel {
         search.setStylePrimaryName("s3");
         dojazd.setStylePrimaryName("s4");
         contact.setStylePrimaryName("s5");
+
+        dodajStroj.addClickHandler(new ShowPageClickHandler(Page.DODAJ_STROJ));
     }
 }

@@ -48,6 +48,7 @@ public class Content extends FlowPanel {
         if (page != shown) {
             if (page == Page.WYSZUKIWARKA) {
                 WyszukiwarkaPresenter.getInstance();
+                WyszukiwarkaModel.getInstance().clearData();
                 WyszukiwarkaModel.getInstance().setData();
             }
             super.remove(pages.get(shown));
