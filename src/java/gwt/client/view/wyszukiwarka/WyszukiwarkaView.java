@@ -64,8 +64,8 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
         add(clothCountInfo);
         add(new HTML("<hr width=\"628px\"/>"));
         add(table);
-        add(paginator);
-        paginator.setVisible(false);
+//        add(paginator);
+//        paginator.setVisible(false);
 
         super.setWidth("647px");
         setTabOrder();
