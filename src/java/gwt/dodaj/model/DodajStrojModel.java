@@ -4,6 +4,7 @@ import gwt.czarodziejka.model.wyszukiwarka.stroj.Kategoria;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Okazja;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Płeć;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Wiek;
+import gwt.dodaj.MainEntryPoint;
 import gwt.dodaj.presenter.DodajStrojPresenter;
 import gwt.dodaj.view.DodajStrojView;
 import gwt.dodaj.view.components.SelectManySimple;
@@ -13,16 +14,16 @@ import gwt.dodaj.view.components.SelectManySimple;
  * @author Administrator
  */
 public class DodajStrojModel {
-    
+
     private final DodajStrojView view;
     private final DodajStrojPresenter presenter;
     private Integer strojNumber;
-    
+
     public DodajStrojModel(DodajStrojView view) {
         this.view = view;
         this.presenter = new DodajStrojPresenter(view);
     }
-    
+
     public void clearData() {
         view.getAddImages().reset();
         view.getNumber().setValue(null);
@@ -36,24 +37,24 @@ public class DodajStrojModel {
         view.getCategory().clear();
         view.getAddRozmiary().reset();
     }
-    
+
     public void setData() {
         view.getNumber().setValue(strojNumber == null ? null : strojNumber.toString());
         setValues(view.getCategory(), Kategoria.values());
         setValues(view.getOcasion(), Okazja.values());
-        
+
         presenter.refreshComponents();
     }
-    
+
     private void setValues(SelectManySimple box, Object[] values) {
         for (Object v : values) {
             box.add(v.toString());
         }
     }
-    
+
     public void saveData() {
-        StringBuilder sb = new StringBuilder(view.getJavaCode().getValue());
-        
+        StringBuilder sb = new StringBuilder(MainEntryPoint.getJavaCode().getValue());
+
         sb.append("dodaj(");
         sb.append("new Strój(").append(view.getNumber().getValue()).append(")");
         sb.append(".setZdjęcie(").append(view.getAddImages().getPhotoNumbers()).append(")");
@@ -65,12 +66,12 @@ public class DodajStrojModel {
         }
         sb.append(".setOkazja(").append(getFromArray("Okazja.", view.getOcasion().getSelected())).append(")");
         sb.append(".setKategoria(").append(getFromArray("Kategoria.", view.getCategory().getSelected())).append(")");
-        sb.append(".setRozmiar(\n").append(view.getAddRozmiary().getRozmiary()).append("\n)");
+        sb.append(".setRozmiar(\n").append(view.getAddRozmiary().getRozmiary()).append(")");
         sb.append(");\n\n");
-        
-        view.getJavaCode().setValue(sb.toString());
+
+        MainEntryPoint.getJavaCode().setValue(sb.toString());
     }
-    
+
     private String getFromArray(String sup, String[] array) {
         String result = "";
         for (int i = 0; i < array.length; i++) {
@@ -81,7 +82,7 @@ public class DodajStrojModel {
         }
         return result;
     }
-    
+
     private String getWiek() {
         Boolean adult = view.getAdult().getValue();
         Boolean child = view.getChild().getValue();
@@ -94,7 +95,7 @@ public class DodajStrojModel {
         }
         return null;
     }
-    
+
     private String getPlec() {
         Boolean female = view.getFemale().getValue();
         Boolean male = view.getMale().getValue();

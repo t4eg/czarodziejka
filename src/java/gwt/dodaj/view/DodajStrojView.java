@@ -1,7 +1,6 @@
 package gwt.dodaj.view;
 
 import com.google.gwt.user.client.ui.*;
-import gwt.czarodziejka.view.CanShow;
 import gwt.czarodziejka.view.wyszukiwarka.components.TitleVeritcalPanel;
 import gwt.dodaj.model.DodajStrojModel;
 import gwt.dodaj.view.components.SelectManySimple;
@@ -12,7 +11,7 @@ import gwt.dodaj.view.rozmiar.AddRozmiary;
  *
  * @author Administrator
  */
-public class DodajStrojView extends VerticalPanel implements CanShow {
+public class DodajStrojView extends VerticalPanel {
 
     private AddImages addImages = new AddImages();
     private AddRozmiary addRozmiary = new AddRozmiary();
@@ -25,7 +24,6 @@ public class DodajStrojView extends VerticalPanel implements CanShow {
     private CheckBox forPair = new CheckBox("dla pary");
     private SelectManySimple ocasion = new SelectManySimple();
     private SelectManySimple category = new SelectManySimple();
-    private TextArea javaCode = new TextArea();
     private Button save = new Button();
     private Button reset = new Button();
     private DodajStrojModel model;
@@ -38,7 +36,6 @@ public class DodajStrojView extends VerticalPanel implements CanShow {
         reset.setText("Reset");
 
         HorizontalPanel bottom = new HorizontalPanel();
-        bottom.setStylePrimaryName("searchBottom");
         bottom.setSpacing(10);
         bottom.add(save);
         bottom.add(reset);
@@ -49,12 +46,11 @@ public class DodajStrojView extends VerticalPanel implements CanShow {
         add(new HTML("Rozmiary:"));
         add(addRozmiary);
         add(bottom);
-        add(new HTML("<hr width=\"100%\"/>"));
-        add(javaCode);
 
-        javaCode.setWidth("635px");
-        javaCode.setHeight("300px");
         super.setWidth("647px");
+
+        model = new DodajStrojModel(this);
+        model.setData();
     }
 
     private HorizontalPanel getFiltersPanel() {
@@ -131,14 +127,6 @@ public class DodajStrojView extends VerticalPanel implements CanShow {
         return result;
     }
 
-    @Override
-    public void onShow() {
-        if (model == null) {
-            model = new DodajStrojModel(this);
-            model.setData();
-        }
-    }
-
     public AddImages getAddImages() {
         return addImages;
     }
@@ -181,10 +169,6 @@ public class DodajStrojView extends VerticalPanel implements CanShow {
 
     public SelectManySimple getCategory() {
         return category;
-    }
-
-    public TextArea getJavaCode() {
-        return javaCode;
     }
 
     public Button getSave() {
