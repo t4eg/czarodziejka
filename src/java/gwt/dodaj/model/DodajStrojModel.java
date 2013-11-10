@@ -1,12 +1,12 @@
-package gwt.dodaj.model.dodajStroj;
+package gwt.dodaj.model;
 
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Kategoria;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Okazja;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Płeć;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Wiek;
-import gwt.dodaj.presenter.dodajStroj.DodajStrojPresenter;
-import gwt.dodaj.view.dodajStroj.DodajStrojView;
-import gwt.dodaj.view.dodajStroj.components.SelectManySimple;
+import gwt.dodaj.presenter.DodajStrojPresenter;
+import gwt.dodaj.view.DodajStrojView;
+import gwt.dodaj.view.components.SelectManySimple;
 
 /**
  *

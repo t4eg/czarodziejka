@@ -1,12 +1,12 @@
-package gwt.dodaj.view.dodajStroj;
+package gwt.dodaj.view;
 
 import com.google.gwt.user.client.ui.*;
 import gwt.czarodziejka.view.CanShow;
 import gwt.czarodziejka.view.wyszukiwarka.components.TitleVeritcalPanel;
-import gwt.dodaj.model.dodajStroj.DodajStrojModel;
-import gwt.dodaj.view.dodajStroj.components.SelectManySimple;
-import gwt.dodaj.view.dodajStroj.image.AddImages;
-import gwt.dodaj.view.dodajStroj.rozmiar.AddRozmiary;
+import gwt.dodaj.model.DodajStrojModel;
+import gwt.dodaj.view.components.SelectManySimple;
+import gwt.dodaj.view.image.AddImages;
+import gwt.dodaj.view.rozmiar.AddRozmiary;
 
 /**
  *

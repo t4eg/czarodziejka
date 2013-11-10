@@ -1,4 +1,4 @@
-package gwt.dodaj.view.dodajStroj.image;
+package gwt.dodaj.view.image;
 
 import com.google.gwt.event.dom.client.KeyUpEvent;
 import com.google.gwt.event.dom.client.KeyUpHandler;

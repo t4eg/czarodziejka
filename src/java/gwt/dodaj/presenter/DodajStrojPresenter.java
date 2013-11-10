@@ -1,11 +1,11 @@
-package gwt.dodaj.presenter.dodajStroj;
+package gwt.dodaj.presenter;
 
 import gwt.czarodziejka.presenter.wyszukiwarka.NumberChangedHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import gwt.czarodziejka.model.wyszukiwarka.WyszukiwarkaModel;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Pas;
-import gwt.dodaj.view.dodajStroj.DodajStrojView;
+import gwt.dodaj.view.DodajStrojView;
 import gwt.czarodziejka.view.wyszukiwarka.WyszukiwarkaView;
 
 /**

@@ -1,4 +1,4 @@
-package gwt.dodaj.view.dodajStroj.components;
+package gwt.dodaj.view.components;
 
 import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.VerticalPanel;

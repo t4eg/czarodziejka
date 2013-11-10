@@ -1,4 +1,4 @@
-package gwt.dodaj.view.dodajStroj.rozmiar;
+package gwt.dodaj.view.image;
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
@@ -11,17 +11,16 @@ import java.util.ArrayList;
  *
  * @author Administrator
  */
-public class AddRozmiary extends VerticalPanel {
+public class AddImages extends HorizontalPanel {
 
-    private ArrayList<RozmiarInstance> list = new ArrayList<RozmiarInstance>();
+    private ArrayList<ImageInstance> list = new ArrayList<ImageInstance>();
     private Button add = new Button("+");
     private Button remove = new Button("-");
-    private VerticalPanel rozmiaryPanel = new VerticalPanel();
-    private HorizontalPanel addRemove = new HorizontalPanel();
+    private HorizontalPanel imagesPanel = new HorizontalPanel();
+    private VerticalPanel addRemove = new VerticalPanel();
 
-    public AddRozmiary() {
-        super.setSpacing(2);
-        super.add(rozmiaryPanel);
+    public AddImages() {
+        super.add(imagesPanel);
         super.add(addRemove);
 
         addRemove.setSpacing(10);
@@ -34,9 +33,9 @@ public class AddRozmiary extends VerticalPanel {
 
             @Override
             public void onClick(ClickEvent event) {
-                RozmiarInstance rozm = new RozmiarInstance();
-                rozmiaryPanel.add(rozm);
-                list.add(rozm);
+                ImageInstance newImg = new ImageInstance();
+                imagesPanel.add(newImg);
+                list.add(newImg);
             }
         });
         remove.addClickHandler(new ClickHandler() {
@@ -44,20 +43,20 @@ public class AddRozmiary extends VerticalPanel {
             @Override
             public void onClick(ClickEvent event) {
                 if (!list.isEmpty()) {
-                    RozmiarInstance toRemove = list.get(list.size() - 1);
-                    rozmiaryPanel.remove(toRemove);
+                    ImageInstance toRemove = list.get(list.size() - 1);
+                    imagesPanel.remove(toRemove);
                     list.remove(list.size() - 1);
                 }
             }
         });
     }
 
-    public String getRozmiary() {
+    public String getPhotoNumbers() {
         String result = "";
         for (int i = 0; i < list.size(); i++) {
-            result += "\t\t" + list.get(i).getRozmiar();
+            result += list.get(i).getPhotoNumber();
             if (i < list.size() - 1) {
-                result += ",\n";
+                result += ", ";
             }
         }
         return result;
@@ -65,9 +64,9 @@ public class AddRozmiary extends VerticalPanel {
 
     public final void reset() {
         list.clear();
-        rozmiaryPanel.clear();
-        RozmiarInstance first = new RozmiarInstance();
+        imagesPanel.clear();
+        ImageInstance first = new ImageInstance();
         list.add(first);
-        rozmiaryPanel.add(first);
+        imagesPanel.add(first);
     }
 }
