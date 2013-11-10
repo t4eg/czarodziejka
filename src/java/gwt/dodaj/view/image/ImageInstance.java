@@ -18,7 +18,7 @@ public class ImageInstance extends VerticalPanel {
     private Image image = new Image("http://czarodziejka.com.pl/img/noPhotoMan.png");
     private TextBox photoNumber = new TextBox();
     private ErrorImage img = new ErrorImage();
-    private double powieksz = 1.1;
+    public static final double POWIEKSZENIE = 1.4;
 
     public ImageInstance() {
         HorizontalPanel err = new HorizontalPanel();
@@ -31,10 +31,10 @@ public class ImageInstance extends VerticalPanel {
         add(err);
         add(image);
 
-        image.setWidth((int) (133 * powieksz) + "px");
-        image.setHeight((int) (200 * powieksz) + "px");
+        image.setWidth((int) (133 * POWIEKSZENIE) + "px");
+        image.setHeight((int) (200 * POWIEKSZENIE) + "px");
 
-        photoNumber.setWidth((int) (133 * powieksz + 1) + "px");
+        photoNumber.setWidth((int) (133 * POWIEKSZENIE + 1) + "px");
         photoNumber.addKeyPressHandler(new NumberChangedHandler());
         photoNumber.addKeyUpHandler(new KeyUpHandler() {
 
@@ -57,11 +57,11 @@ public class ImageInstance extends VerticalPanel {
     public boolean validate() {
         String value = photoNumber.getValue();
         if (value == null || value.isEmpty()) {
-            photoNumber.setWidth((int) (133 * powieksz + 1 - 26) + "px");
+            photoNumber.setWidth((int) (133 * POWIEKSZENIE + 1 - 26) + "px");
             img.setVisible(true);
             return false;
         } else {
-            photoNumber.setWidth((int) (133 * powieksz + 1) + "px");
+            photoNumber.setWidth((int) (133 * POWIEKSZENIE + 1) + "px");
             img.setVisible(false);
             return true;
         }

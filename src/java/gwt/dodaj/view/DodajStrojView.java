@@ -39,7 +39,7 @@ public class DodajStrojView extends VerticalPanel {
     private DodajStrojModel model;
 
     public DodajStrojView() {
-        setStylePrimaryName("dodajStroj");
+        setStylePrimaryName("marginAuto");
         save.setPixelSize(70, 24);
         save.setText("Zapisz");
         reset.setPixelSize(70, 24);
