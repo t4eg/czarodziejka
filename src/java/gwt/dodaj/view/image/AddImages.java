@@ -22,7 +22,7 @@ public class AddImages extends HorizontalPanel {
     public AddImages() {
         super.add(imagesPanel);
         super.add(addRemove);
-        super.setHeight((int)(114 + 200 * ImageInstance.POWIEKSZENIE) + "px");
+        super.setHeight((int)(37 + 200 * ImageInstance.POWIEKSZENIE) + "px");
 
         addRemove.setSpacing(10);
         addRemove.add(add);

@@ -78,7 +78,7 @@ public class AddRozmiary extends VerticalPanel {
     public boolean validate() {
         boolean result = true;
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).validate()) {
+            if (!list.get(i).validate()) {
                 result = false;
             }
         }
