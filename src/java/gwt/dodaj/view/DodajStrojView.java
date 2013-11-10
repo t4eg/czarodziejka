@@ -14,7 +14,7 @@ import gwt.dodaj.view.rozmiar.AddRozmiary;
 public class DodajStrojView extends VerticalPanel {
 
     private AddImages addImages = new AddImages();
-    private AddRozmiary addRozmiary = new AddRozmiary();
+    private AddRozmiary addRozmiary = new AddRozmiary(this);
     private TextBox number = new TextBox();
     private TextBox name = new TextBox();
     private CheckBox child = new CheckBox("dziecka");
@@ -26,7 +26,16 @@ public class DodajStrojView extends VerticalPanel {
     private SelectManySimple category = new SelectManySimple();
     private Button save = new Button();
     private Button reset = new Button();
+    private VerticalPanel agePanel = new VerticalPanel();
+    private VerticalPanel sexPanel = new VerticalPanel();
+    private TitleVeritcalPanelError zdjeciaPanel = new TitleVeritcalPanelError("Zdjęcia", addImages);
     private TitleVeritcalPanelError numberPanel = new TitleVeritcalPanelError("Numer", number);
+    private TitleVeritcalPanelError namePanel = new TitleVeritcalPanelError("Nazwa", name);
+    private TitleVeritcalPanelError okazjaPanel = new TitleVeritcalPanelError("Okazja", ocasion);
+    private TitleVeritcalPanelError kategoriaPanel = new TitleVeritcalPanelError("Kategoria", category);
+    private TitleVeritcalPanelError wiekPanel = new TitleVeritcalPanelError("Dla", agePanel);
+    private TitleVeritcalPanelError plecPanel = new TitleVeritcalPanelError("Strój", sexPanel);
+    private TitleVeritcalPanelError rozmiaryPanel = new TitleVeritcalPanelError("Rozmiary", addRozmiary);
     private DodajStrojModel model;
 
     public DodajStrojView() {
@@ -41,11 +50,9 @@ public class DodajStrojView extends VerticalPanel {
         bottom.add(save);
         bottom.add(reset);
 
-        add(new HTML("Zdjęcia:"));
-        add(addImages);
+        add(zdjeciaPanel);
         add(getFiltersPanel());
-        add(new HTML("Rozmiary:"));
-        add(addRozmiary);
+        add(rozmiaryPanel);
         add(bottom);
 
         super.setWidth("647px");
@@ -55,23 +62,69 @@ public class DodajStrojView extends VerticalPanel {
     }
 
     public boolean validate() {
-        boolean result = true;
+        boolean result = addImages.validate() & addRozmiary.validate();
+
         if (number.getValue() == null || number.getValue().isEmpty()) {
-            numberPanel.showError("Musisz wpisać numer stroju.");
+            numberPanel.showError("Wpisz numer stroju.");
             result = false;
         } else {
             numberPanel.hideError();
         }
         if (name.getValue() == null || name.getValue().isEmpty()) {
-            numberPanel.showError("Musisz wpisać numer stroju.");
+            namePanel.showError("Wpisz nazwę stroju.");
             result = false;
         } else {
-            numberPanel.hideError();
+            namePanel.hideError();
+        }
+        if (ocasion.getSelected().length == 0) {
+            okazjaPanel.showError("Zaznacz co najmniej jedną okazję.");
+            result = false;
+        } else {
+            okazjaPanel.hideError();
+        }
+        if (category.getSelected().length == 0) {
+            kategoriaPanel.showError("Zaznacz co najmniej jedną kategorię.");
+            result = false;
+        } else {
+            kategoriaPanel.hideError();
+        }
+        boolean childSelected = child.getValue() != null && child.getValue();
+        boolean adultSelected = adult.getValue() != null && adult.getValue();
+        if (!childSelected && !adultSelected) {
+            wiekPanel.showError("Zaznacz co najmniej jeden.");
+            result = false;
+        } else {
+            wiekPanel.hideError();
+        }
+        boolean maleSelected = male.getValue() != null && male.getValue();
+        boolean femaleSelected = female.getValue() != null && female.getValue();
+        if (!maleSelected && !femaleSelected) {
+            plecPanel.showError("Zaznacz co najmniej jeden.");
+            result = false;
+        } else {
+            plecPanel.hideError();
+        }
+        if (addRozmiary.getRozmiary().trim().isEmpty()) {
+            rozmiaryPanel.showError("Dodaj rozmiar.");
+            result = false;
+        } else {
+            rozmiaryPanel.hideError();
         }
 
         return result;
     }
-    private TitleVeritcalPanelError kategoriaPanel = new TitleVeritcalPanelError("Kategoria", category);
+
+    public void clearErrors() {
+        addImages.clearErrors();
+        addRozmiary.clearErrors();
+        numberPanel.hideError();
+        namePanel.hideError();
+        okazjaPanel.hideError();
+        kategoriaPanel.hideError();
+        wiekPanel.hideError();
+        plecPanel.hideError();
+        rozmiaryPanel.hideError();
+    }
 
     private HorizontalPanel getFiltersPanel() {
         HorizontalPanel result = new HorizontalPanel();
@@ -97,18 +150,15 @@ public class DodajStrojView extends VerticalPanel {
         numberPanel.setStylePrimaryName("row");
         result.add(numberPanel);
 
-        VerticalPanel agePanel = new VerticalPanel();
         agePanel.setStylePrimaryName("row");
-        agePanel.add(new HTML("Dla:"));
         agePanel.add(child);
         agePanel.add(adult);
         child.setStylePrimaryName("selectManyCheckbox");
         adult.setStylePrimaryName("selectManyCheckbox");
-        result.add(agePanel);
+        result.add(wiekPanel);
 
         return result;
     }
-    private TitleVeritcalPanelError namePanel = new TitleVeritcalPanelError("Nazwa", name);
 
     private VerticalPanel getCol2() {
         VerticalPanel result = new VerticalPanel();
@@ -118,23 +168,20 @@ public class DodajStrojView extends VerticalPanel {
         name.setWidth("145px");
         result.add(namePanel);
 
-        VerticalPanel sexPanel = new VerticalPanel();
         sexPanel.setStylePrimaryName("row");
-        sexPanel.add(new HTML("Strój:"));
         sexPanel.add(female);
         sexPanel.add(male);
         female.setStylePrimaryName("selectManyCheckbox");
         male.setStylePrimaryName("selectManyCheckbox");
-        result.add(sexPanel);
+        result.add(plecPanel);
 
         return result;
     }
-    private TitleVeritcalPanelError okazja = new TitleVeritcalPanelError("Okazja", ocasion);
 
     private VerticalPanel getCol3() {
         VerticalPanel result = new VerticalPanel();
-        okazja.setStylePrimaryName("row3");
-        result.add(okazja);
+        okazjaPanel.setStylePrimaryName("row3");
+        result.add(okazjaPanel);
 
         VerticalPanel pairsPanel = new VerticalPanel();
         pairsPanel.setStylePrimaryName("row");

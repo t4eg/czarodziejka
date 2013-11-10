@@ -5,6 +5,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import gwt.dodaj.view.DodajStrojView;
 import java.util.ArrayList;
 
 /**
@@ -18,8 +19,10 @@ public class AddRozmiary extends VerticalPanel {
     private Button remove = new Button("-");
     private VerticalPanel rozmiaryPanel = new VerticalPanel();
     private HorizontalPanel addRemove = new HorizontalPanel();
+    private final DodajStrojView view;
 
-    public AddRozmiary() {
+    public AddRozmiary(DodajStrojView viewS) {
+        this.view = viewS;
         super.setSpacing(2);
         super.add(rozmiaryPanel);
         super.add(addRemove);
@@ -34,7 +37,7 @@ public class AddRozmiary extends VerticalPanel {
 
             @Override
             public void onClick(ClickEvent event) {
-                RozmiarInstance rozm = new RozmiarInstance();
+                RozmiarInstance rozm = new RozmiarInstance(view);
                 rozmiaryPanel.add(rozm);
                 list.add(rozm);
             }
@@ -55,8 +58,9 @@ public class AddRozmiary extends VerticalPanel {
     public String getRozmiary() {
         String result = "";
         for (int i = 0; i < list.size(); i++) {
-            result += "\t\t" + list.get(i).getRozmiar();
-            if (i < list.size() - 1) {
+            String rozm = list.get(i).getRozmiar();
+            result += "\t\t" + rozm;
+            if (!rozm.isEmpty() && i < list.size() - 1) {
                 result += ",\n";
             }
         }
@@ -66,8 +70,24 @@ public class AddRozmiary extends VerticalPanel {
     public final void reset() {
         list.clear();
         rozmiaryPanel.clear();
-        RozmiarInstance first = new RozmiarInstance();
+        RozmiarInstance first = new RozmiarInstance(view);
         list.add(first);
         rozmiaryPanel.add(first);
+    }
+
+    public boolean validate() {
+        boolean result = true;
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).validate()) {
+                result = false;
+            }
+        }
+        return result;
+    }
+
+    public void clearErrors() {
+        for (int i = 0; i < list.size(); i++) {
+            list.get(i).clearError();
+        }
     }
 }

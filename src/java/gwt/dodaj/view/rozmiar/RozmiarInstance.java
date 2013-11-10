@@ -9,6 +9,8 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Pas;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Wzrost;
 import gwt.czarodziejka.view.wyszukiwarka.components.SelectOne;
+import gwt.dodaj.view.DodajStrojView;
+import gwt.dodaj.view.components.ErrorImage;
 import java.util.ArrayList;
 
 /**
@@ -21,15 +23,24 @@ public class RozmiarInstance extends HorizontalPanel {
     private SelectOne heightTo = new SelectOne();
     private SelectOne beltFrom = new SelectOne();
     private SelectOne beltTo = new SelectOne();
+    private ErrorImage wzrostErr = new ErrorImage();
+    private ErrorImage rozmiarErr = new ErrorImage();
+    private final DodajStrojView view;
 
-    public RozmiarInstance() {
+    public RozmiarInstance(DodajStrojView view) {
         String width = "50px";
         heightFrom.setWidth(width);
         heightTo.setWidth(width);
         beltFrom.setWidth(width);
         beltTo.setWidth(width);
 
+        wzrostErr.setVisible(false);
+        rozmiarErr.setVisible(false);
+        wzrostErr.setTitle("Wybierz wzrost.");
+        rozmiarErr.setTitle("Strój jest tylko dla dzieci, więc nie można wybrać rozmiaru.");
+
         super.setStylePrimaryName("selectManyCheckbox");
+        super.add(wzrostErr);
         super.add(new HTML("Wzrost od&nbsp;"));
         super.add(heightFrom);
 
@@ -38,7 +49,9 @@ public class RozmiarInstance extends HorizontalPanel {
         super.add(heightTo);
 
         super.setStylePrimaryName("selectManyCheckbox");
-        super.add(new HTML("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rozmiar od&nbsp;"));
+        super.add(new HTML("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"));
+        super.add(rozmiarErr);
+        super.add(new HTML("Rozmiar od&nbsp;"));
         super.add(beltFrom);
 
         super.setStylePrimaryName("selectManyCheckbox");
@@ -79,6 +92,7 @@ public class RozmiarInstance extends HorizontalPanel {
                 setHeightTo(Integer.valueOf(heightFrom.getSelected()));
             }
         });
+        this.view = view;
     }
 
     private void setValues(SelectOne box, Object[] values) {
@@ -152,5 +166,28 @@ public class RozmiarInstance extends HorizontalPanel {
         } else {
             beltTo.setSelectedIndex(0);
         }
+    }
+
+    boolean validate() {
+        boolean result = true;
+        if (heightFrom.getSelected().isEmpty()) {
+            wzrostErr.setVisible(true);
+            result = false;
+        } else {
+            wzrostErr.setVisible(false);
+        }
+        boolean isChildOnly = view.getChild().getValue() && !view.getAdult().getValue();
+        if (isChildOnly && !beltFrom.getSelected().isEmpty()) {
+            rozmiarErr.setVisible(true);
+            result = false;
+        } else {
+            rozmiarErr.setVisible(false);
+        }
+        return result;
+    }
+
+    void clearError() {
+        wzrostErr.setVisible(false);
+        rozmiarErr.setVisible(false);
     }
 }

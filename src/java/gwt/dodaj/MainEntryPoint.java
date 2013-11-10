@@ -21,7 +21,7 @@ public class MainEntryPoint implements EntryPoint {
         RootPanel.get().add(new HTML("<hr width=\"100%\"/>"));
         RootPanel.get().add(javaCode);
 
-        javaCode.setWidth("100%");
+        javaCode.setWidth("90%");
         javaCode.setHeight("300px");
     }
 

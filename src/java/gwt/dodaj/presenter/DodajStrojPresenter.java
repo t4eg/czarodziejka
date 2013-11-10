@@ -21,6 +21,7 @@ public class DodajStrojPresenter {
             public void onClick(ClickEvent event) {
                 view.getModel().clearData();
                 view.getModel().setData();
+                view.clearErrors();
             }
         });
         view.getNumber().addKeyPressHandler(new NumberChangedHandler());
