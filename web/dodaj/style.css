@@ -1,6 +1,6 @@
 
 .bg {background-color: #CCE0FE;font-family: 'comic sans ms';font-size: 16px;}
-.dodajStroj {margin-left: auto;margin-right: auto;}
+.marginAuto {margin-left: auto;margin-right: auto;}
 .selectManyCheckbox, .selectManyCheckboxBold {margin-left: 15px;font-size: 14px;}
 .selectManyCheckboxBold {font-weight: bold;}
 
