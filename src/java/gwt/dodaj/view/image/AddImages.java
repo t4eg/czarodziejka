@@ -54,8 +54,9 @@ public class AddImages extends HorizontalPanel {
     public String getPhotoNumbers() {
         String result = "";
         for (int i = 0; i < list.size(); i++) {
-            result += list.get(i).getPhotoNumber();
-            if (i < list.size() - 1) {
+            String photoNumber = list.get(i).getPhotoNumber();
+            result += photoNumber;
+            if (photoNumber != null && !photoNumber.isEmpty() && i < list.size() - 1) {
                 result += ", ";
             }
         }

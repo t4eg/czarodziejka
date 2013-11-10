@@ -39,11 +39,9 @@ public class DodajStrojModel {
     }
 
     public void setData() {
-        view.getNumber().setValue(strojNumber == null ? null : strojNumber.toString());
+        view.getNumber().setValue(strojNumber == null ? null : (++strojNumber).toString());
         setValues(view.getCategory(), Kategoria.values());
         setValues(view.getOcasion(), Okazja.values());
-
-        presenter.refreshComponents();
     }
 
     private void setValues(SelectManySimple box, Object[] values) {
@@ -53,11 +51,16 @@ public class DodajStrojModel {
     }
 
     public void saveData() {
+        strojNumber = Integer.parseInt(view.getNumber().getValue());
+
         StringBuilder sb = new StringBuilder(MainEntryPoint.getJavaCode().getValue());
 
         sb.append("dodaj(");
         sb.append("new Strój(").append(view.getNumber().getValue()).append(")");
-        sb.append(".setZdjęcie(").append(view.getAddImages().getPhotoNumbers()).append(")");
+        String photoNumbers = view.getAddImages().getPhotoNumbers();
+        if (!photoNumbers.isEmpty()) {
+            sb.append(".setZdjęcie(").append(photoNumbers).append(")");
+        }
         sb.append(".setNazwa(\"").append(view.getName().getValue().trim()).append("\")");
         sb.append(".setWiek(Wiek.").append(getWiek()).append(")");
         sb.append(".setPłeć(Płeć.").append(getPlec()).append(")");

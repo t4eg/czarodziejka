@@ -1,9 +1,9 @@
 package gwt.dodaj.view;
 
 import com.google.gwt.user.client.ui.*;
-import gwt.czarodziejka.view.wyszukiwarka.components.TitleVeritcalPanel;
 import gwt.dodaj.model.DodajStrojModel;
 import gwt.dodaj.view.components.SelectManySimple;
+import gwt.dodaj.view.components.TitleVeritcalPanelError;
 import gwt.dodaj.view.image.AddImages;
 import gwt.dodaj.view.rozmiar.AddRozmiary;
 
@@ -26,6 +26,7 @@ public class DodajStrojView extends VerticalPanel {
     private SelectManySimple category = new SelectManySimple();
     private Button save = new Button();
     private Button reset = new Button();
+    private TitleVeritcalPanelError numberPanel = new TitleVeritcalPanelError("Numer", number);
     private DodajStrojModel model;
 
     public DodajStrojView() {
@@ -53,6 +54,25 @@ public class DodajStrojView extends VerticalPanel {
         model.setData();
     }
 
+    public boolean validate() {
+        boolean result = true;
+        if (number.getValue() == null || number.getValue().isEmpty()) {
+            numberPanel.showError("Musisz wpisać numer stroju.");
+            result = false;
+        } else {
+            numberPanel.hideError();
+        }
+        if (name.getValue() == null || name.getValue().isEmpty()) {
+            numberPanel.showError("Musisz wpisać numer stroju.");
+            result = false;
+        } else {
+            numberPanel.hideError();
+        }
+
+        return result;
+    }
+    private TitleVeritcalPanelError kategoriaPanel = new TitleVeritcalPanelError("Kategoria", category);
+
     private HorizontalPanel getFiltersPanel() {
         HorizontalPanel result = new HorizontalPanel();
         result.setSpacing(10);
@@ -60,7 +80,7 @@ public class DodajStrojView extends VerticalPanel {
         result.add(getCol1());
         result.add(getCol2());
         result.add(getCol3());
-        result.add(new TitleVeritcalPanel("Kategoria", category));
+        result.add(kategoriaPanel);
         ocasion.setWidth("140px");
         ocasion.setHeight("50px");
         category.setWidth("160px");
@@ -72,7 +92,6 @@ public class DodajStrojView extends VerticalPanel {
     private VerticalPanel getCol1() {
         VerticalPanel result = new VerticalPanel();
 
-        TitleVeritcalPanel numberPanel = new TitleVeritcalPanel("Numer", number);
         number.setWidth("145px");
         number.setStylePrimaryName("inputText");
         numberPanel.setStylePrimaryName("row");
@@ -89,11 +108,11 @@ public class DodajStrojView extends VerticalPanel {
 
         return result;
     }
+    private TitleVeritcalPanelError namePanel = new TitleVeritcalPanelError("Nazwa", name);
 
     private VerticalPanel getCol2() {
         VerticalPanel result = new VerticalPanel();
 
-        TitleVeritcalPanel namePanel = new TitleVeritcalPanel("Nazwa", name);
         namePanel.setStylePrimaryName("row");
         name.setStylePrimaryName("inputText");
         name.setWidth("145px");
@@ -110,10 +129,10 @@ public class DodajStrojView extends VerticalPanel {
 
         return result;
     }
+    private TitleVeritcalPanelError okazja = new TitleVeritcalPanelError("Okazja", ocasion);
 
     private VerticalPanel getCol3() {
         VerticalPanel result = new VerticalPanel();
-        TitleVeritcalPanel okazja = new TitleVeritcalPanel("Okazja", ocasion);
         okazja.setStylePrimaryName("row3");
         result.add(okazja);
 

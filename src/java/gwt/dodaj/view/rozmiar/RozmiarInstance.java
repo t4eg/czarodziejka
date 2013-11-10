@@ -32,15 +32,13 @@ public class RozmiarInstance extends HorizontalPanel {
         super.setStylePrimaryName("selectManyCheckbox");
         super.add(new HTML("Wzrost od&nbsp;"));
         super.add(heightFrom);
-        super.add(new HTML("cm"));
 
         super.setStylePrimaryName("selectManyCheckbox");
         super.add(new HTML("&nbsp;do&nbsp;"));
         super.add(heightTo);
-        super.add(new HTML("cm"));
 
         super.setStylePrimaryName("selectManyCheckbox");
-        super.add(new HTML("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rozmiar od&nbsp;"));
+        super.add(new HTML("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rozmiar od&nbsp;"));
         super.add(beltFrom);
 
         super.setStylePrimaryName("selectManyCheckbox");
