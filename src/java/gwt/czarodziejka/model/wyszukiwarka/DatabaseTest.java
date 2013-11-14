@@ -4,9 +4,9 @@ import gwt.czarodziejka.model.wyszukiwarka.stroj.Kategoria;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Okazja;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Rozmiar;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 
 /**
  *
@@ -16,7 +16,7 @@ public class DatabaseTest {
 
     StringBuilder raport = new StringBuilder();
 
-    public DatabaseTest(List<Strój> stroje) {
+    public DatabaseTest(ArrayList<Strój> stroje) {
         testNiewykorzystanyNrStroju(stroje);
 
         testCzyJestUstawionaKategoria(stroje);
@@ -41,7 +41,7 @@ public class DatabaseTest {
         rap = null;
     }
 
-    private void testNiewykorzystanyNrStroju(List<Strój> stroje) {
+    private void testNiewykorzystanyNrStroju(ArrayList<Strój> stroje) {
         raport.append("======start testNiewykorzystanyNrStroju\n");
         Integer maxNumer = 0;
         HashSet<Integer> all = new HashSet<Integer>();
@@ -61,7 +61,7 @@ public class DatabaseTest {
         raport.append("======stop testNiewykorzystanyNrStroju\n\n");
     }
 
-    private void testCzyNieJedynaOkazjaInne(List<Strój> stroje) {
+    private void testCzyNieJedynaOkazjaInne(ArrayList<Strój> stroje) {
         raport.append("======start testCzyNieJedynaOkazjaInne\n");
         for (Strój stroj : stroje) {
             Okazja[] kat = stroj.getOkazja();
@@ -74,7 +74,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyNieJedynaOkazjaInne\n\n");
     }
 
-    private void testCzyNieJedynaKategoriaInne(List<Strój> stroje) {
+    private void testCzyNieJedynaKategoriaInne(ArrayList<Strój> stroje) {
         raport.append("======start testCzyNieJedynaKategoriaInne\n");
         for (Strój stroj : stroje) {
             Kategoria[] kat = stroj.getKategoria();
@@ -87,7 +87,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyNieJedynaKategoriaInne\n\n");
     }
 
-    private void testCzyZdjecieSiePowtarza(List<Strój> stroje) { //w calej bazie
+    private void testCzyZdjecieSiePowtarza(ArrayList<Strój> stroje) { //w calej bazie
         raport.append("======start testCzyZdjecieSiePowtarza\n");
         HashSet<Integer> set = new HashSet<Integer>();
         for (Strój stroj : stroje) { //TODO: zakomentowalem to bo nie chcialo mi sie poprawiac errorow
@@ -109,7 +109,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyZdjecieSiePowtarza\n\n");
     }
 
-    private void testCzyOkazjaSiePowtarza(List<Strój> stroje) {
+    private void testCzyOkazjaSiePowtarza(ArrayList<Strój> stroje) {
         raport.append("======start testCzyOkazjaSiePowtarza\n");
         for (Strój stroj : stroje) {
             HashSet<String> set = new HashSet<String>();
@@ -129,7 +129,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyOkazjaSiePowtarza\n\n");
     }
 
-    private void testCzyKategoriaSiePowtarza(List<Strój> stroje) {
+    private void testCzyKategoriaSiePowtarza(ArrayList<Strój> stroje) {
         raport.append("======start testCzyKategoriaSiePowtarza\n");
         for (Strój stroj : stroje) {
             HashSet<String> set = new HashSet<String>();
@@ -149,7 +149,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyKategoriaSiePowtarza\n\n");
     }
 
-    private void testCzyRozmiarSiePowtarza(List<Strój> stroje) {
+    private void testCzyRozmiarSiePowtarza(ArrayList<Strój> stroje) {
         raport.append("======start testCzyRozmiarSiePowtarza\n");
         for (Strój stroj : stroje) {
             HashSet<String> set = new HashSet<String>();
@@ -170,7 +170,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyRozmiarSiePowtarza\n\n");
     }
 
-    private void testCzyNumberSiePowtarza(List<Strój> stroje) {
+    private void testCzyNumberSiePowtarza(ArrayList<Strój> stroje) {
         raport.append("======start testCzyNumberSiePowtarza\n");
         HashSet<Integer> set = new HashSet<Integer>(stroje.size());
         for (Strój stroj : stroje) {
@@ -187,7 +187,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyNumberSiePowtarza\n\n");
     }
 
-    private void testCzyNazwaSieTrimuje(List<Strój> stroje) {
+    private void testCzyNazwaSieTrimuje(ArrayList<Strój> stroje) {
         raport.append("======start testCzyNazwaSieTrimuje\n");
         for (Strój stroj : stroje) {
             if (stroj.getNazwa().length() != stroj.getNazwa().trim().length()) {
@@ -199,7 +199,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyNazwaSieTrimuje\n\n");
     }
 
-    private void testCzyJestUstawionaKategoria(List<Strój> stroje) {
+    private void testCzyJestUstawionaKategoria(ArrayList<Strój> stroje) {
         raport.append("======start testCzyJestUstawionaKategoria\n");
         for (Strój stroj : stroje) {
             if (stroj.getKategoria() == null || stroj.getKategoria().length == 0) {
@@ -211,7 +211,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyJestUstawionaKategoria\n\n");
     }
 
-    private void testCzyJestUstawionaOkazja(List<Strój> stroje) {
+    private void testCzyJestUstawionaOkazja(ArrayList<Strój> stroje) {
         raport.append("======start testCzyJestUstawionaOkazja\n");
         for (Strój stroj : stroje) {
             if (stroj.getOkazja() == null || stroj.getOkazja().length == 0) {
@@ -223,7 +223,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyJestUstawionaOkazja\n\n");
     }
 
-    private void testCzyJestUstawionyRozmiar(List<Strój> stroje) {
+    private void testCzyJestUstawionyRozmiar(ArrayList<Strój> stroje) {
         raport.append("======start testCzyJestUstawionyRozmiar\n");
         for (Strój stroj : stroje) {
             if (stroj.getRozmiar() == null || stroj.getRozmiar().length == 0) {
@@ -235,7 +235,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyJestUstawionyRozmiar\n\n");
     }
 
-    private void testCzyJestUstawionaPlec(List<Strój> stroje) {
+    private void testCzyJestUstawionaPlec(ArrayList<Strój> stroje) {
         raport.append("======start testCzyJestUstawionaPlec\n");
         for (Strój stroj : stroje) {
             if (stroj.getPłeć() == null) {
@@ -247,7 +247,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyJestUstawionaPlec\n\n");
     }
 
-    private void testCzyJestUstawionyWiek(List<Strój> stroje) {
+    private void testCzyJestUstawionyWiek(ArrayList<Strój> stroje) {
         raport.append("======start testCzyJestUstawionyWiek\n");
         for (Strój stroj : stroje) {
             if (stroj.getWiek() == null) {
@@ -259,7 +259,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyJestUstawionyWiek\n\n");
     }
 
-    private void testCzyJestUstawionaNazwa(List<Strój> stroje) {
+    private void testCzyJestUstawionaNazwa(ArrayList<Strój> stroje) {
         raport.append("======start testCzyJestUstawionaNazwa\n");
         for (Strój stroj : stroje) {
             if (stroj.getNazwa() == null) {
@@ -271,7 +271,7 @@ public class DatabaseTest {
         raport.append("======stop testCzyJestUstawionaNazwa\n\n");
     }
 
-    private void testCzyJestUstawioneZdjecie(List<Strój> stroje) {
+    private void testCzyJestUstawioneZdjecie(ArrayList<Strój> stroje) {
         raport.append("======start testCzyJestUstawioneZdjecie\n");
         for (Strój stroj : stroje) {
             if (stroj.getZdjęcie() == null || stroj.getZdjęcie().length == 0) {

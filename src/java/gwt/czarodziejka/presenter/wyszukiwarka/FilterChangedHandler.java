@@ -32,7 +32,7 @@ public class FilterChangedHandler implements KeyPressHandler, ChangeHandler, Val
         }
 
         private void refreshRecordsCount() {
-            int recordsCount = WyszukiwarkaModel.getInstance().findMachingRecords().size();
+            int recordsCount = WyszukiwarkaModel.getInstance().findMachingStroj().size();
             WyszukiwarkaView.getInstance().setRecordsCount(recordsCount);
         }
 

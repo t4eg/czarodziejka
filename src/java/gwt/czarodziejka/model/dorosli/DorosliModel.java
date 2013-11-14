@@ -5,7 +5,7 @@ import gwt.czarodziejka.model.wyszukiwarka.RecordsMatcher;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.*;
 import gwt.czarodziejka.view.dorosli.DorosliView;
 import gwt.czarodziejka.view.wyszukiwarka.photoFrame.Frame;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,7 +14,7 @@ import java.util.List;
 public class DorosliModel {
 
     private DorosliView view;
-    private List<Strój> matchingRecords;
+    private ArrayList<Strój> matchingRecords;
 
     public DorosliModel(DorosliView view) {
         this.view = view;

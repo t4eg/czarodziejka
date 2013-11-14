@@ -1,7 +1,6 @@
 package gwt.czarodziejka.model.wyszukiwarka.stroj;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -35,7 +34,7 @@ public enum Kategoria {
     }
 
     public static Kategoria[] get(String[] name) {
-        List<Kategoria> result = new ArrayList<Kategoria>();
+        ArrayList<Kategoria> result = new ArrayList<Kategoria>();
         for (String s : name) {
             result.add(get(s));
         }

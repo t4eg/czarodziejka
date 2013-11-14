@@ -7,6 +7,7 @@ import gwt.czarodziejka.view.CanShow;
 import gwt.czarodziejka.view.wyszukiwarka.components.SelectMany;
 import gwt.czarodziejka.view.wyszukiwarka.components.SelectOne;
 import gwt.czarodziejka.view.wyszukiwarka.components.TitleVeritcalPanel;
+import gwt.czarodziejka.view.wyszukiwarka.photosTable.PhotosTable;
 
 /**
  *
@@ -32,9 +33,8 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
     private SelectOne beltTo = new SelectOne();
     private SelectMany ocasion = new SelectMany();
     private SelectMany category = new SelectMany();
-    private Paginator paginator = new Paginator();
-    private Grid table = new Grid();
     private ClothCountInfo clothCountInfo = new ClothCountInfo();
+    private PhotosTable photosTable = new PhotosTable();
 
     public static WyszukiwarkaView getInstance() {
         if (instance == null) {
@@ -63,9 +63,7 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
         add(bottom);
         add(clothCountInfo);
         add(new HTML("<hr width=\"628px\"/>"));
-        add(table);
-//        add(paginator);
-//        paginator.setVisible(false);
+        add(photosTable);
 
         super.setWidth("647px");
         setTabOrder();
@@ -196,10 +194,6 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
         return name;
     }
 
-    public Grid getResultTable() {
-        return table;
-    }
-
     public final void setRecordsCount(int recordsCount) {
         this.recordsCount.setText("Znaleziono strojów: " + recordsCount);
     }
@@ -256,10 +250,6 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
     public void onShow() {
     }
 
-    public Paginator getPaginator() {
-        return paginator;
-    }
-
     public CheckBox getForPair() {
         return forPair;
     }
@@ -270,5 +260,9 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
 
     public ClothCountInfo getClothCountInfo() {
         return clothCountInfo;
+    }
+
+    public PhotosTable getPhotosTable() {
+        return photosTable;
     }
 }

@@ -5,7 +5,7 @@ import gwt.czarodziejka.model.wyszukiwarka.RecordsMatcher;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.*;
 import gwt.czarodziejka.view.dzieci.DzieciView;
 import gwt.czarodziejka.view.wyszukiwarka.photoFrame.Frame;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,7 +14,7 @@ import java.util.List;
 public class DzieciModel {
 
     private DzieciView view;
-    private List<Strój> matchingRecords;
+    private ArrayList<Strój> matchingRecords;
 
     public DzieciModel(DzieciView view) {
         this.view = view;

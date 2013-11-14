@@ -5,7 +5,6 @@ import gwt.czarodziejka.model.wyszukiwarka.stroj.Okazja;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Rozmiar;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -27,10 +26,10 @@ public class RecordsMatcher {
     private RecordsMatcher() {
     }
 
-    public List<Strój> match(Filters filters) {
+    public ArrayList<Strój> match(Filters filters) {
         this.filters = filters;
-        List<Strój> result = new ArrayList<Strój>();
-        List<Strój> stroje = Database.getInstance().getStroje();
+        ArrayList<Strój> result = new ArrayList<Strój>();
+        ArrayList<Strój> stroje = Database.getInstance().getStroje();
         for (Strój str : stroje) {
             stroj = str;
             if (isCategoryOk()

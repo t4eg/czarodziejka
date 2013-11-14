@@ -1,0 +1,16 @@
+package gwt.czarodziejka.view.wyszukiwarka.photosTable.paginator;
+
+import com.google.gwt.user.client.ui.Button;
+import gwt.czarodziejka.model.wyszukiwarka.photosTable.PhotosTableModel;
+import gwt.czarodziejka.presenter.wyszukiwarka.photosTable.paginator.PaginatorButtonClickHandler;
+
+/**
+ *
+ * @author Administrator
+ */
+class PaginatorButton extends Button {
+
+    public PaginatorButton(PhotosTableModel model, int i) {
+        this.addClickHandler(new PaginatorButtonClickHandler(model, i));
+    }
+}

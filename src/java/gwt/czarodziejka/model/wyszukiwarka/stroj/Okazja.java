@@ -5,7 +5,7 @@
 package gwt.czarodziejka.model.wyszukiwarka.stroj;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,7 +24,7 @@ public enum Okazja {
     }
 
     public static Okazja[] get(String[] name) {
-        List<Okazja> result = new ArrayList<Okazja>();
+        ArrayList<Okazja> result = new ArrayList<Okazja>();
         for (String s : name) {
             result.add(valueOf(s));
         }

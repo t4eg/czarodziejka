@@ -52,7 +52,7 @@ public class WyszukiwarkaPresenter {
         view.getCategory().addValueChangeHandler(filterChanged);
 
         view.getReset().addClickHandler(new ResetClickHandler());
-        view.getSearch().addClickHandler(new SzukajClickHandler());
+        view.getSearch().addClickHandler(new PokazClickHandler());
     }
 
     public final void refreshComponents() {

@@ -1,14 +1,11 @@
 package gwt.czarodziejka.model.wyszukiwarka;
 
-import com.google.gwt.user.client.ui.Grid;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.*;
 import gwt.czarodziejka.presenter.wyszukiwarka.WyszukiwarkaPresenter;
 import gwt.czarodziejka.view.wyszukiwarka.WyszukiwarkaView;
 import gwt.czarodziejka.view.wyszukiwarka.components.SelectMany;
 import gwt.czarodziejka.view.wyszukiwarka.components.SelectOne;
-import gwt.czarodziejka.view.wyszukiwarka.photoFrame.Frame;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -18,7 +15,6 @@ public class WyszukiwarkaModel {
 
     private static WyszukiwarkaModel instance;
     private WyszukiwarkaView view = WyszukiwarkaView.getInstance();
-    private List<Strój> found;
 
     public static WyszukiwarkaModel getInstance() {
         if (instance == null) {
@@ -30,22 +26,10 @@ public class WyszukiwarkaModel {
     private WyszukiwarkaModel() {
     }
 
-    public List<Strój> findMachingRecords() {
+    public ArrayList<Strój> findMachingStroj() {
         Filters data = getFiltry();
-        found = RecordsMatcher.getInstance().match(data);
+        ArrayList<Strój> found = RecordsMatcher.getInstance().match(data);
         return found;
-    }
-
-    public void setFoundRecordsToTable() {
-        Grid tabela = WyszukiwarkaView.getInstance().getResultTable();
-        tabela.clear();
-        tabela.resize((int) Math.ceil(found.size() / 4.), 4);
-
-        for (int i = 0; i < found.size(); i++) {
-            int col = i % 4;
-            int row = (int) Math.floor(i / 4.);
-            tabela.setWidget(row, col, new Frame(found.get(i)));
-        }
     }
 
     private Filters getFiltry() {
@@ -116,7 +100,7 @@ public class WyszukiwarkaModel {
         setValues(view.getOcasion(), Okazja.values());
         view.getOcasion().setSelectedAll();
         WyszukiwarkaPresenter.getInstance().refreshComponents();
-        view.setRecordsCount(WyszukiwarkaModel.getInstance().findMachingRecords().size());
+        view.setRecordsCount(WyszukiwarkaModel.getInstance().findMachingStroj().size());
         view.getClothCountInfo().setInfo(Database.getInstance().getStroje().size());
     }
 

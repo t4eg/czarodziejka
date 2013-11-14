@@ -4,7 +4,6 @@ import com.google.gwt.user.client.Timer;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.*;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 /**
  *
@@ -13,7 +12,7 @@ import java.util.List;
 public class Database {
 
     private static Database instance;
-    private List<Strój> stroje = new ArrayList<Strój>(692);
+    private ArrayList<Strój> stroje = new ArrayList<Strój>(692);
 
     public static Database getInstance() {
         if (instance == null) {
@@ -2926,7 +2925,7 @@ public class Database {
         stroje.add(s);
     }
 
-    public List<Strój> getStroje() {
+    public ArrayList<Strój> getStroje() {
         return stroje;
     }
 }
