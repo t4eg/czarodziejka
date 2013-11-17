@@ -12,17 +12,11 @@ import gwt.czarodziejka.view.wyszukiwarka.photosTable.paginator.Paginator;
 public class PhotosTable extends VerticalPanel {
 
     private PhotosTableModel model = new PhotosTableModel(this);
-    private Paginator paginator;
+    private Paginator topPaginator, bottomPaginator;
     private Grid grid = new Grid();
 
-    public PhotosTable() {
-        add(paginator);
-        add(grid);
-//        add(paginator);
-    }
-
     public Paginator getPaginator() {
-        return paginator;
+        return topPaginator;
     }
 
     public Grid getGrid() {
@@ -33,7 +27,12 @@ public class PhotosTable extends VerticalPanel {
         return model;
     }
 
-    public void createNewPaginator(int size) {
-        paginator = new Paginator(model, size);
+    public void createView(int size) {
+        topPaginator = new Paginator(model, size);
+        bottomPaginator = new Paginator(model, size);
+        super.clear();
+        add(topPaginator);
+        add(grid);
+        add(bottomPaginator);
     }
 }

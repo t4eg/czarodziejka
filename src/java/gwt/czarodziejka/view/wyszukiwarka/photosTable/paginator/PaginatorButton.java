@@ -9,8 +9,9 @@ import gwt.czarodziejka.presenter.wyszukiwarka.photosTable.paginator.PaginatorBu
  * @author Administrator
  */
 class PaginatorButton extends Button {
-
+    
     public PaginatorButton(PhotosTableModel model, int i) {
+        super(Integer.toString(i + 1));
         this.addClickHandler(new PaginatorButtonClickHandler(model, i));
     }
 }

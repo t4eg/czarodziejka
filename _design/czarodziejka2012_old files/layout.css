@@ -1,0 +1,166 @@
+.glowna, .kontakt, .dojazd {
+    font-family: "Comic Sans Ms";
+    font-size: 12pt;
+    text-align: justify;
+}
+
+#tresc a > img {
+    height:200px;
+    width:133px;
+}
+
+li {
+    list-style-type: circle;
+}
+
+ul {
+    margin-top: 3px;
+    margin-bottom: 6px;
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+
+.bg {
+    background-color: #99B7EA;
+}
+
+.tlo {
+    background-image:url('img/tlo.jpg');
+    background-repeat:repeat;
+}
+
+.sto {
+    width:100%;
+    height:100%;
+}
+
+body {
+    margin:0px;
+}
+
+table, td, tr {
+    background-repeat:no-repeat;
+    border:0px;
+    padding:0px;
+}
+
+#lewo {
+    background-image:url('img/lewo.jpg');
+    background-position:right 448px;
+}
+
+#gora {
+    background-image:url('img/gora.jpg');
+}
+
+#srodek {
+    background-position:237px;
+    width:1165px;
+    background-image:url('img/srodek.png');
+    background-repeat:repeat-y;
+}
+
+#menu {
+    width:232px;
+    margin-top:319px;
+    margin-left:3px;
+}
+
+#dol1 {
+    background-image:url('img/dol1.png');
+    background-position:right bottom;
+    vertical-align: top;
+}
+
+#dol2 {
+    background-image:url('img/dol2.jpg');
+    background-position:right;
+}
+
+#dol5 {
+    background-image:url('img/dol5.jpg');
+}
+
+#dol6 {
+    background-image:url('img/dol6.png');
+    background-position:bottom left;
+}
+
+#dol7 {
+    background-image:url('img/dol7.jpg');
+}
+
+#tresc {
+    padding:287px 26px 12px 26px;
+    background-image:url('img/dol3.png');
+    background-position:bottom;
+    vertical-align:top;
+}
+
+#menu * {cursor:pointer;float:right;}
+.dot {background-image:url('img/dot.png');}
+.s0:hover {background-image:url('img/mStr2.jpg');}
+.s1:hover {background-image:url('img/mDzi2.jpg');}
+.s2:hover {background-image:url('img/mDor2.jpg');}
+.s3:hover {background-image:url('img/mWys2.jpg');}
+.s4:hover {background-image:url('img/mDoj2.jpg');}
+.s5:hover {background-image:url('img/mKon2.jpg');}
+
+#godziny {
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #DBE9FF;
+}
+
+#godziny * {
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 2px;
+}
+
+#godziny th {
+    text-align: center;
+    background-color: #EEF4FC;
+}
+
+#godziny caption {
+    text-align: center;
+    margin-bottom: 5px;
+    margin-top: 2px;
+}
+
+#godziny tr > td:first-child {
+    text-align: left;
+    font-family: "Comic Sans Ms";
+    background-color: #F5FAFF;
+}
+
+#godziny td {
+    font-family: "Verdana";
+    text-align: center;
+}
+
+#godziny .min, .min {
+    font-size: 7pt;
+    top: -3pt;
+    padding: 0px;
+    vertical-align: top;
+}
+
+#godziny .highlight {
+    font-weight: bold;
+    text-shadow: #0043CA 0px 0px 5px;
+}
+
+a img {
+    border: 1px solid #00142F;
+    margin: 2px 11px 10px 11px;
+}
+
+a img:hover {
+    border: 3px solid #00142F;
+    margin: 0px 9px 8px 9px;
+}

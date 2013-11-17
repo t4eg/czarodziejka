@@ -16,7 +16,7 @@ public class PhotosTableModel {
 
     private final PhotosTable view;
     private static final int zdjecNaWiersz = 4;
-    private static final int zdjecNaStrone = zdjecNaWiersz * 3;
+    private static final int zdjecNaStrone = zdjecNaWiersz * 4;
     private ArrayList<List<Strój>> pages;
 
     public PhotosTableModel(PhotosTable view) {
@@ -25,7 +25,7 @@ public class PhotosTableModel {
 
     public void setStrojToTable(ArrayList<Strój> found) {
         splitBetweenPages(found);
-        view.createNewPaginator(pages.size());
+        view.createView(pages.size());
         showPage(0);
     }
 
@@ -51,11 +51,11 @@ public class PhotosTableModel {
 
         Grid tabela = view.getGrid();
         tabela.clear();
-        tabela.resize((int) Math.ceil(page.size() / (double) zdjecNaStrone), zdjecNaStrone);
+        tabela.resize((int) Math.ceil(page.size() / (double) zdjecNaWiersz), zdjecNaWiersz);
 
         for (int i = 0; i < page.size(); i++) {
-            int col = i % zdjecNaStrone;
-            int row = (int) Math.floor(i / (double) zdjecNaStrone);
+            int col = i % zdjecNaWiersz;
+            int row = (int) Math.floor(i / (double) zdjecNaWiersz);
             tabela.setWidget(row, col, new Frame(page.get(i)));
         }
         view.getPaginator().setShownPage(number);
