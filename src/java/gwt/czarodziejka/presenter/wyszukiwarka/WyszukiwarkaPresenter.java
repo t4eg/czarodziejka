@@ -59,9 +59,13 @@ public class WyszukiwarkaPresenter {
         if (view.getAdult().getValue()) {
             view.getBeltFrom().setEnabled(true);
             view.getBeltTo().setEnabled(true);
+            view.getForPair().setEnabled(true);
+            view.getNoPair().setEnabled(true);
         } else {
             view.getBeltFrom().setEnabled(false);
             view.getBeltTo().setEnabled(false);
+            view.getForPair().setEnabled(false);
+            view.getNoPair().setEnabled(false);
         }
 
         WyszukiwarkaModel.getInstance().setHeightTo(Integer.valueOf(view.getHeightFrom().getSelected()));

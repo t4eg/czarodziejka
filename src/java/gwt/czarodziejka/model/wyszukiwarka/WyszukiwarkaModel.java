@@ -43,8 +43,8 @@ public class WyszukiwarkaModel {
         filtry.setDorosly(view.getAdult().getValue());
         filtry.setDziecko(view.getChild().getValue());
         filtry.setFemale(view.getFemale().getValue());
-        filtry.setForPair(view.getForPair().getValue());
-        filtry.setNoPair(view.getNoPair().getValue());
+        filtry.setForPair(view.getAdult().getValue() ? view.getForPair().getValue() : true);
+        filtry.setNoPair(view.getAdult().getValue() ? view.getNoPair().getValue() : true);
         filtry.setMale(view.getMale().getValue());
         if (!view.getHeightFrom().getSelected().isEmpty()) {
             filtry.setHeightFrom(Integer.parseInt(view.getHeightFrom().getSelected()));

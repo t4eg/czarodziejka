@@ -14,9 +14,10 @@ import java.util.List;
 public class PhotosTableModel {
 
     private final PhotosTable view;
-    private static final int zdjecNaWiersz = 4;
-    private static final int zdjecNaStrone = zdjecNaWiersz * 3;
+    private final int zdjecNaWiersz = 4;
+    private int zdjecNaStrone;
     private ArrayList<List<Strój>> pages;
+    private ArrayList<Strój> found;
     private int pageCurrentlyShown;
 
     public PhotosTableModel(PhotosTable view) {
@@ -24,6 +25,12 @@ public class PhotosTableModel {
     }
 
     public void setStrojToTable(ArrayList<Strój> found) {
+        this.found = found;
+        refreshPages();
+    }
+
+    public void refreshPages() {
+        zdjecNaStrone = Integer.parseInt(view.getPhotosPerPage().getNumber().getSelected());
         splitBetweenPages(found);
         view.createView(pages.size());
         showPage(0);

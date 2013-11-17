@@ -5,6 +5,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import gwt.czarodziejka.model.wyszukiwarka.WyszukiwarkaModel;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
 import gwt.czarodziejka.view.wyszukiwarka.WyszukiwarkaView;
+import gwt.czarodziejka.view.wyszukiwarka.photosTable.PhotosTable;
 import java.util.ArrayList;
 
 /**
@@ -12,10 +13,11 @@ import java.util.ArrayList;
  * @author Administrator
  */
 public class PokazClickHandler implements ClickHandler {
-    
+
     @Override
     public void onClick(ClickEvent event) {
         ArrayList<Strój> stroje = WyszukiwarkaModel.getInstance().findMachingStroj();
-        WyszukiwarkaView.getInstance().getPhotosTable().getModel().setStrojToTable(stroje);
+        PhotosTable photosTable = WyszukiwarkaView.getInstance().getPhotosTable();
+        photosTable.getModel().setStrojToTable(stroje);
     }
 }
