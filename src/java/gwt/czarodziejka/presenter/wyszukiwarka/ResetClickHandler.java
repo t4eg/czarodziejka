@@ -15,6 +15,6 @@ public class ResetClickHandler implements ClickHandler {
     public void onClick(ClickEvent event) {
         WyszukiwarkaModel.getInstance().clearData();
         WyszukiwarkaModel.getInstance().setData();
-        WyszukiwarkaView.getInstance().getPhotosTable().getGrid().clear();
+        WyszukiwarkaView.getInstance().getPhotosTable().clear();
     }
 }

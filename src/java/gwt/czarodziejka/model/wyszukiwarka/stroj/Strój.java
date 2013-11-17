@@ -15,15 +15,15 @@ public class Strój {
     private Kategoria[] kategoria;
     private Rozmiar[] rozmiar;
     private String order;
-    private boolean długaNazwa;
+    private boolean dlugaNazwa;
     private boolean dlaPary;
 
     public Strój(Integer numer) {
         this.numer = numer;
     }
 
-    public Strój setDługaNazwa() {
-        długaNazwa = true;
+    public Strój setDlugaNazwa() {
+        dlugaNazwa = true;
         return this;
     }
 
@@ -123,8 +123,8 @@ public class Strój {
         return order;
     }
 
-    public boolean isDługaNazwa() {
-        return długaNazwa;
+    public boolean isDlugaNazwa() {
+        return dlugaNazwa;
     }
 
     public boolean isDlaPary() {

@@ -11,7 +11,7 @@ import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
 class ForWho extends HorizontalPanel {
 
     public ForWho(Strój stroj) {
-        if (stroj.isDługaNazwa()) {
+        if (stroj.isDlugaNazwa()) {
             super.setStylePrimaryName("photoForWhoLower");
         } else {
             super.setStylePrimaryName("photoForWho");

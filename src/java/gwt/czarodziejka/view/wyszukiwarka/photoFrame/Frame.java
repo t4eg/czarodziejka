@@ -23,7 +23,7 @@ public class Frame extends DecoratorPanel {
         name.setStylePrimaryName("photoName");
 
         Label number = new Label(Integer.toString(stroj.getNumer()));
-        if (stroj.isDługaNazwa()) {
+        if (stroj.isDlugaNazwa()) {
             number.setStylePrimaryName("photoNumberLower");
         } else {
             number.setStylePrimaryName("photoNumber");
