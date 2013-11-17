@@ -8,18 +8,16 @@ import gwt.czarodziejka.model.wyszukiwarka.photosTable.PhotosTableModel;
  *
  * @author Administrator
  */
-public class PaginatorButtonClickHandler implements ClickHandler {
+public class PreviousClickHandler implements ClickHandler {
 
     private final PhotosTableModel model;
-    private final int pageNumber;
 
-    public PaginatorButtonClickHandler(PhotosTableModel model, int pageNumber) {
+    public PreviousClickHandler(PhotosTableModel model) {
         this.model = model;
-        this.pageNumber = pageNumber;
     }
 
     @Override
     public void onClick(ClickEvent event) {
-        model.showPage(pageNumber);
+        model.showPrevious();
     }
 }

@@ -2730,7 +2730,6 @@ public class Database {
         dodaj(new Strój(722).setZdjęcie(1161).setNazwa("jabłko").setWiek(Wiek.DZIECKO_DOROSŁY).setPłeć(Płeć.DAMSKO_MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Owoce_i_warzywa).setRozmiar(
                 new Rozmiar(Wzrost.cm_128, Wzrost.cm_164)));
 
-
         dodaj(new Strój(724).setZdjęcie(1163).setNazwa("kotka").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Halloween, Okazja.Inne).setKategoria(Kategoria.Sexy).setRozmiar(
                 new Rozmiar(Wzrost.cm_170, Wzrost.cm_176, Pas.S, Pas.M)));
 
@@ -2755,7 +2754,6 @@ public class Database {
 
         dodaj(new Strój(730).setZdjęcie(1318).setNazwa("ananas").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKO_MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Owoce_i_warzywa).setRozmiar(
                 new Rozmiar(Wzrost.cm_170, Wzrost.cm_194, Pas.M, Pas.XXL)));
-
 
         dodaj(new Strój(732).setZdjęcie(1166).setNazwa("policjantka").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).
                 setOkazja(Okazja.Inne).setKategoria(Kategoria.Sexy, Kategoria.Zawody).setRozmiar(
@@ -2811,7 +2809,6 @@ public class Database {
                 Kategoria.Historyczne).setRozmiar(
                 new Rozmiar(Wzrost.cm_176, Pas.M)));
 
-
         dodaj(new Strój(747).setZdjęcie(1321).setNazwa("skinhead").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Lata_70_i_80, Kategoria.Inne).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Pas.XS, Pas.S)));
 
@@ -2849,7 +2846,6 @@ public class Database {
 
         dodaj(new Strój(758).setZdjęcie(1263).setNazwa("strój do samby zielony").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe, Kategoria.Inne).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.XS, Pas.S)));
-
 
         dodaj(new Strój(759).setZdjęcie(1226).setNazwa("kowbojka").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Dziki_zachód, Kategoria.Sexy).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.XS),
@@ -2930,8 +2926,6 @@ public class Database {
                 Kategoria.Film_i_scena, Kategoria.Historyczne).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Pas.M),
                 new Rozmiar(Wzrost.cm_164, Pas.L)));
-
-
 
         dodaj(new Strój(779).setZdjęcie(1172).setNazwa("dama").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki,
                 Kategoria.Film_i_scena, Kategoria.Historyczne).setRozmiar(

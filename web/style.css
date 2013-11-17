@@ -4,6 +4,9 @@
 .clothCountInfo {font-size: 14px;margin-left: 12px;width: 620px;background-color: white;}
 .selectManyCheckbox, .selectManyCheckboxBold {margin-left: 15px;font-size: 14px;}
 .selectManyCheckboxBold {font-weight: bold;}
+.paginator {text-align: center;}
+.paginator button.page {padding: 0px; width: 28px;margin: 2px;}
+.paginator button.big {padding: 0px; width: 70px;margin: 2px;}
 
 .searchBottom {margin-left: auto;font-size: 14px;}
 .recordsCount {margin-top: 4px;}
