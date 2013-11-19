@@ -4,7 +4,6 @@ import gwt.czarodziejka.model.wyszukiwarka.Filters;
 import gwt.czarodziejka.model.wyszukiwarka.RecordsMatcher;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.*;
 import gwt.czarodziejka.view.dorosli.DorosliView;
-import gwt.czarodziejka.view.wyszukiwarka.photoFrame.Frame;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +13,6 @@ import java.util.ArrayList;
 public class DorosliModel {
 
     private DorosliView view;
-    private ArrayList<Strój> matchingRecords;
 
     public DorosliModel(DorosliView view) {
         this.view = view;
@@ -22,18 +20,8 @@ public class DorosliModel {
 
     public void findMachingRecords() {
         Filters data = getFiltry();
-        matchingRecords = RecordsMatcher.getInstance().match(data);
-    }
-
-    public void addRecordsToLayout() {
-        view.clear();
-        view.resize((int) Math.ceil(matchingRecords.size() / 4.), 4);
-
-        for (int i = 0; i < matchingRecords.size(); i++) {
-            int col = i % 4;
-            int row = (int) Math.floor(i / 4.);
-            view.setWidget(row, col, new Frame(matchingRecords.get(i)));
-        }
+        ArrayList<Strój> matchingRecords = RecordsMatcher.getInstance().match(data);
+        view.getPhotosTable().getModel().setStrojToTable(matchingRecords);
     }
 
     private Filters getFiltry() {

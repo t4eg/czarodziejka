@@ -15,7 +15,7 @@ public class PhotosPerPage extends HorizontalPanel {
 
     private SelectOne number = new SelectOne();
     private PhotosPerPageModel model = new PhotosPerPageModel(number);
-    private HTML txt = new HTML("Strojów na stronę&nbsp;");
+    private HTML txt = new HTML("Wyników na stronę&nbsp;");
 
     public PhotosPerPage(PhotosTableModel photosTableModel) {
         PhotosPerPageChangedHandler handler = new PhotosPerPageChangedHandler(photosTableModel);
