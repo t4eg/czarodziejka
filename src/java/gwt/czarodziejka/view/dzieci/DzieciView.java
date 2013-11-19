@@ -23,7 +23,7 @@ public class DzieciView extends VerticalPanel implements CanShow {
     @Override
     public void onShow() {
         if (!isShown) {
-            model.findMachingRecords();
+            model.setData();
             isShown = true;
         }
     }

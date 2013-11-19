@@ -18,7 +18,7 @@ public class DorosliModel {
         this.view = view;
     }
 
-    public void findMachingRecords() {
+    public void setData() {
         Filters data = getFiltry();
         ArrayList<Strój> matchingRecords = RecordsMatcher.getInstance().match(data);
         view.getPhotosTable().getModel().setStrojToTable(matchingRecords);
