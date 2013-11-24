@@ -74,7 +74,9 @@ public class PhotosTableModel {
             tabela.setWidget(row, col, new Frame(page.get(i)));
         }
         this.pageCurrentlyShown = number;
-        view.getPaginator().setShownPage(number);
-        view.getPaginator().getPresenter().refreshComponents(number, pages.size() - 1);
+        view.getTopPaginator().setShownPage(number);
+        view.getTopPaginator().getPresenter().refreshComponents(number, pages.size() - 1);
+        view.getBottomPaginator().setShownPage(number);
+        view.getBottomPaginator().getPresenter().refreshComponents(number, pages.size() - 1);
     }
 }

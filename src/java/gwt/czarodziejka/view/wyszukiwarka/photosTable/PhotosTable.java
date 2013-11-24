@@ -16,8 +16,12 @@ public class PhotosTable extends VerticalPanel {
     private Grid grid = new Grid();
     private PhotosPerPage photosPerPage = new PhotosPerPage(model);
 
-    public Paginator getPaginator() {
+    public Paginator getTopPaginator() {
         return topPaginator;
+    }
+
+    public Paginator getBottomPaginator() {
+        return bottomPaginator;
     }
 
     public Grid getGrid() {
@@ -37,7 +41,9 @@ public class PhotosTable extends VerticalPanel {
             add(photosPerPage);
             add(topPaginator);
         }
-        add(grid);
+        if (pagesCount > 0) {
+            add(grid);
+        }
         if (pagesCount > 1) {
             bottomPaginator = new Paginator(model, pagesCount);
             add(bottomPaginator);

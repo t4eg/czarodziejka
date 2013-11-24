@@ -29,8 +29,6 @@ public class CalendarModel {
     }
 
     private CalendarModel() {
-        specialDays.put("2013.05.30", null);
-        specialDays.put("2013.08.15", null);
         specialDays.put("2013.11.01", null);
         specialDays.put("2013.11.11", null);
         specialDays.put("2013.12.25", null);
@@ -116,6 +114,15 @@ public class CalendarModel {
                 default:
                     return new Time[]{new Time(8, 00), new Time(14, 00)};
             }
+        } else if (isBetween(date, "2013.12.09", "2013.12.24")) {
+            switch (getWeekDay(date)) {
+                case Sat:
+                    return new Time[]{new Time(10, 00), new Time(15, 00)};
+                case Sun:
+                    return null;
+                default:
+                    return new Time[]{new Time(10, 00), new Time(20, 00)};
+            }
         } else {
             switch (getWeekDay(date)) {
                 case Sat:
@@ -138,8 +145,7 @@ public class CalendarModel {
     }
 
     private boolean isCarnival(Date date) {
-        return isBetween(date, "2012.12.25", "2013.02.16")
-                || isBetween(date, "2013.12.25", "2014.03.04");
+        return isBetween(date, "2013.12.25", "2014.03.04");
     }
 
     private boolean isBetween(Date date, String from, String to) {

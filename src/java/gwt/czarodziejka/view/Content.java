@@ -10,8 +10,6 @@ import gwt.czarodziejka.view.dzieci.DzieciView;
 import gwt.czarodziejka.view.glowna.GlownaView;
 import gwt.czarodziejka.view.kontakt.KontaktView;
 import gwt.czarodziejka.view.wyszukiwarka.WyszukiwarkaView;
-import java.util.EnumMap;
-import java.util.Map;
 
 /**
  *
@@ -20,8 +18,13 @@ import java.util.Map;
 public class Content extends FlowPanel {
 
     private static Content instance;
-    private Map<Page, Widget> pages = new EnumMap<Page, Widget>(Page.class);
     private Page shown;
+    private GlownaView glowna;
+    private DzieciView dzieci;
+    private DorosliView dorosli;
+    private WyszukiwarkaView wyszukiwarka;
+    private DojazdView dojazd;
+    private KontaktView kontakt;
 
     public static Content getInstance() {
         if (instance == null) {
@@ -31,15 +34,8 @@ public class Content extends FlowPanel {
     }
 
     private Content() {
-        pages.put(Page.GLOWNA, new GlownaView());
-        pages.put(Page.DLA_DZIECI, new DzieciView());
-        pages.put(Page.DLA_DOROSLYCH, new DorosliView());
-        pages.put(Page.WYSZUKIWARKA, WyszukiwarkaView.getInstance());
-        pages.put(Page.DOJAZD, new DojazdView());
-        pages.put(Page.KONTAKT, new KontaktView());
-
         shown = Page.GLOWNA;
-        super.add(pages.get(shown));
+        super.add(getPageInstance(shown));
     }
 
     public void show(Page page) {
@@ -49,10 +45,47 @@ public class Content extends FlowPanel {
                 WyszukiwarkaModel.getInstance().clearData();
                 WyszukiwarkaModel.getInstance().setData();
             }
-            super.remove(pages.get(shown));
-            super.add(pages.get(page));
-            ((CanShow) pages.get(page)).onShow();
+            super.remove(getPageInstance(shown));
+            super.add(getPageInstance(page));
+            ((CanShow) getPageInstance(page)).onShow();
             shown = page;
+        }
+    }
+
+    private Widget getPageInstance(Page page) {
+        switch (page) {
+            case DLA_DOROSLYCH:
+                if (dorosli == null) {
+                    dorosli = new DorosliView();
+                }
+                return dorosli;
+            case DLA_DZIECI:
+                if (dzieci == null) {
+                    dzieci = new DzieciView();
+                }
+                return dzieci;
+            case DOJAZD:
+                if (dojazd == null) {
+                    dojazd = new DojazdView();
+                }
+                return dojazd;
+            case GLOWNA:
+                if (glowna == null) {
+                    glowna = new GlownaView();
+                }
+                return glowna;
+            case KONTAKT:
+                if (kontakt == null) {
+                    kontakt = new KontaktView();
+                }
+                return kontakt;
+            case WYSZUKIWARKA:
+                if (wyszukiwarka == null) {
+                    wyszukiwarka = WyszukiwarkaView.getInstance();
+                }
+                return wyszukiwarka;
+            default:
+                throw new RuntimeException("Nie ma takiej strony.");
         }
     }
 }
