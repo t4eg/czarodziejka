@@ -9,35 +9,25 @@ import gwt.czarodziejka.view.Page;
  */
 public class Menu extends VerticalPanel {
 
-    private ImageButton main = new ImageButton("Strona główna", Page.GLOWNA);
-    private ImageButton kids = new ImageButton("Dla dzieci", Page.DLA_DZIECI);
-    private ImageButton adults = new ImageButton("Dla dorosłych", Page.DLA_DOROSLYCH);
-    private ImageButton search = new ImageButton("Wyszukiwarka", Page.WYSZUKIWARKA);
-    private ImageButton dojazd = new ImageButton("Dojazd", Page.DOJAZD);
-    private ImageButton contact = new ImageButton("Kontakt", Page.KONTAKT);
+    private MenuLink main = new MenuLink("Strona główna", Page.GLOWNA);
+    private MenuLink dziewczynki = new MenuLink("Dla dziewczynek", Page.DLA_DZIEWCZYNEK);
+    private MenuLink chlopcy = new MenuLink("Dla chłopców", Page.DLA_CHLOPCOW);
+    private MenuLink kobiety = new MenuLink("Dla kobiet", Page.DLA_KOBIET);
+    private MenuLink mezczyzni = new MenuLink("Dla mężczyzn", Page.DLA_MEZCZYZN);
+    private MenuLink pary = new MenuLink("Dla par", Page.DLA_PAR);
+    private MenuLink search = new MenuLink("Wyszukiwarka", Page.WYSZUKIWARKA);
+    private MenuLink regulamin = new MenuLink("Regulamin", Page.REGULAMIN);
+    private MenuLink contact = new MenuLink("Kontakt", Page.KONTAKT);
 
     public Menu() {
         add(main);
-        add(kids);
-        add(adults);
+        add(dziewczynki);
+        add(chlopcy);
+        add(kobiety);
+        add(mezczyzni);
+        add(pary);
         add(search);
-        add(dojazd);
+        add(regulamin);
         add(contact);
-//        add(new VSpace(50));
-//        add(new FacebookLikeButton());
-
-        main.setSize("232px", "47px");
-        kids.setSize("151px", "42px");
-        adults.setSize("221px", "49px");
-        search.setSize("212px", "47px");
-        dojazd.setSize("113px", "45px");
-        contact.setSize("127px", "43px");
-
-        main.setStylePrimaryName("s0");
-        kids.setStylePrimaryName("s1");
-        adults.setStylePrimaryName("s2");
-        search.setStylePrimaryName("s3");
-        dojazd.setStylePrimaryName("s4");
-        contact.setStylePrimaryName("s5");
     }
 }

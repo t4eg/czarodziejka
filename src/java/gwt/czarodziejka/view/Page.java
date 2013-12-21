@@ -7,9 +7,12 @@ package gwt.czarodziejka.view;
 public enum Page {
 
     GLOWNA,
-    DLA_DZIECI,
-    DLA_DOROSLYCH,
+    DLA_DZIEWCZYNEK,
+    DLA_CHLOPCOW,
+    DLA_KOBIET,
+    DLA_MEZCZYZN,
+    DLA_PAR,
     WYSZUKIWARKA,
-    DOJAZD,
+    REGULAMIN,
     KONTAKT;
 }

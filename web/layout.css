@@ -1,3 +1,140 @@
+body {
+  background-image: url('img/nieb.jpg');
+  background-color: #99B7EA;
+  margin: 0px;
+}
+
+body > table {
+  border-collapse: collapse;
+  width: 100%;
+  position: absolute;
+}
+
+#left {
+  background-image: url('img/tlo.jpg');
+  background-position: right -1163px top -496px;
+  background-repeat: no-repeat;
+  margin-top: 496px;
+  height: 282px;
+}
+
+#centerTd {
+  width: 956px;
+}
+
+#centerTd:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 956px;
+  height: 100%;
+  background-position: 252px 0px;
+  background-repeat: repeat-y;
+  background-image: url('img/pas.png');
+}
+
+#centerDiv:before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  width: 956px;
+  top: 0px;
+  height: 838px;
+  background-position: left -111px top;
+  background-repeat: no-repeat;
+  background-image: url('img/tlo.jpg');
+}
+
+
+#content {
+  margin-top: 337px;
+  margin-left: 280px;
+  margin-bottom: -40px;
+  min-height: 541px;
+  width: 650px;
+}
+
+#right {
+  background-image: url('img/tlo.jpg');
+  background-position: left -1067px top;
+  background-repeat: no-repeat;
+  height: 747px;
+}
+
+#dol {
+  margin-left: 96px;
+  height: 318px;
+  background-image: url('img/tlo.jpg');
+  background-position: -207px -838px;
+  background-repeat: no-repeat;
+}
+
+#menu {
+  top: 0px;
+  position:absolute;
+  margin-top: 400px;
+  width: 350px;
+  margin-left: -40px;
+  cursor:pointer;
+}
+
+#menu div {
+  text-align: right;
+}
+
+#menu .napisMenu:hover {
+  text-shadow: 
+  1px 0px 3px black,
+  -1px 0px 3px black,
+  0px 1px 3px black,
+  0px -1px 3px black,
+  0px 0px 30px black,
+  0px 0px 10px white;
+}
+
+#toptytul {
+  top: 0px;
+  margin-top: 110px;
+  margin-left: 320px;
+  width: 700px;
+  text-align: center;
+  position:absolute;
+}
+
+.napisMenu {
+  letter-spacing:5px;
+  font-family: 'Aklatanic tso';
+  font-size:35px;
+  text-shadow: 
+  1px 0px 3px black,
+  -1px 0px 3px black,
+  0px 1px 3px black,
+  0px -1px 3px black,
+  0px 0px 30px black,
+  0px 0px 10px black;
+  color:white;
+  white-space: nowrap;
+  -webkit-transform:scale(0.72, 1.0);
+  -moz-transform:scale(0.72, 1.0);
+  -ms-transform:scale(0.72, 1.0);
+  -o-transform:scale(0.72, 1.0);
+  transform:scale(0.72,1.0);
+}
+
+#menu:hover {
+  text-shadow: 
+  1px 0px 3px black,
+  -1px 0px 3px black,
+  0px 1px 3px black,
+  0px -1px 3px black,
+  0px 0px 30px black,
+  0px 0px 10px white;
+}
+
+
+
+/*** reszta */
+
 .glowna, .kontakt, .dojazd {
     font-family: "Comic Sans Ms";
     font-size: 12pt;
@@ -23,91 +160,50 @@ p {
     margin-bottom: 8px;
 }
 
-.bg {
-    background-color: #99B7EA;
-}
-
-.tlo {
-    background-image:url('img/tlo.jpg');
-    background-repeat:repeat;
-}
-
-.sto {
-    width:100%;
-    height:100%;
-}
-
-body {
-    margin:0px;
-}
-
 table, td, tr {
     background-repeat:no-repeat;
     border:0px;
     padding:0px;
 }
 
-#lewo {
-    background-image:url('img/lewo.jpg');
-    background-position:right 448px;
+@font-face {
+  font-family: 'Magnolia';
+  src: url('Magnolia.ttf');
 }
 
-#gora {
-    background-image:url('img/gora.jpg');
-}
+#menu2 {
+    text-align:right;
+    cursor:pointer;
+    
+    margin-top:290px;
 
-#srodek {
-    background-position:237px;
-    width:1165px;
-    background-image:url('img/srodek.png');
-    background-repeat:repeat-y;
-}
+    letter-spacing:5px;
+    font-family: 'Aklatanic tso';
+    font-size:36px;
 
-#menu {
-    width:232px;
-    margin-top:319px;
-    margin-left:3px;
-}
+    text-shadow: 
 
-#dol1 {
-    background-image:url('img/dol1.png');
-    background-position:right bottom;
-    vertical-align: top;
-}
 
-#dol2 {
-    background-image:url('img/dol2.jpg');
-    background-position:right;
-}
+    1px 0px 3px black,
+    -1px 0px 3px black,
+    0px 1px 3px black,
+    0px -1px 3px black,
 
-#dol5 {
-    background-image:url('img/dol5.jpg');
-}
+    0px 0px 30px black,
+    0px 0px 10px black
+    ;
+color:white;
+white-space: nowrap;
+-webkit-transform:scale(0.72, 1.0);
+-moz-transform:scale(0.72, 1.0);
+-ms-transform:scale(0.72, 1.0);
+-o-transform:scale(0.72, 1.0);
+transform:scale(0.72,1.0);
 
-#dol6 {
-    background-image:url('img/dol6.png');
-    background-position:bottom left;
+position:relative;
+left:-111px;
+width:400px;
 }
-
-#dol7 {
-    background-image:url('img/dol7.jpg');
-}
-
-#tresc {
-    padding:287px 26px 12px 26px;
-    background-image:url('img/dol3.png');
-    background-position:bottom;
-    vertical-align:top;
-}
-
-#menu * {cursor:pointer;float:right;}
-.dot {background-image:url('img/dot.png');}
-.s0:hover {background-image:url('img/mStr2.jpg');}
-.s1:hover {background-image:url('img/mDzi2.jpg');}
-.s2:hover {background-image:url('img/mDor2.jpg');}
-.s3:hover {background-image:url('img/mWys2.jpg');}
-.s4:hover {background-image:url('img/mDoj2.jpg');}
-.s5:hover {background-image:url('img/mKon2.jpg');}
 
 #godziny {
     margin-left: auto;

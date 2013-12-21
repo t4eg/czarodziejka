@@ -31,6 +31,7 @@ public class CalendarModel {
     private CalendarModel() {
         specialDays.put("2013.11.01", null);
         specialDays.put("2013.11.11", null);
+        specialDays.put("2013.12.24", null);
         specialDays.put("2013.12.25", null);
         specialDays.put("2013.12.26", null);
 
@@ -38,7 +39,7 @@ public class CalendarModel {
         specialDays.put("2014.01.06", null);
 //        specialDays.put("2012.12.25", null);
 //        specialDays.put("2012.12.26", null);
-//        specialDays.put("2012.12.31", new Time[]{new Time(10, 00), new Time(15, 00)});
+        specialDays.put("2013.12.31", new Time[]{new Time(10, 00), new Time(15, 00)});
 //        specialDays.put("2013.01.01", null);
 //        specialDays.put("2013.01.06", null);
     }

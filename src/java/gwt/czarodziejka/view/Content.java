@@ -4,11 +4,15 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
 import gwt.czarodziejka.model.wyszukiwarka.WyszukiwarkaModel;
 import gwt.czarodziejka.presenter.wyszukiwarka.WyszukiwarkaPresenter;
-import gwt.czarodziejka.view.dojazd.DojazdView;
-import gwt.czarodziejka.view.dorosli.DorosliView;
-import gwt.czarodziejka.view.dzieci.DzieciView;
+import gwt.czarodziejka.view.chlopcy.ChlopcyView;
+import gwt.czarodziejka.view.dziewczynki.DziewczynkiView;
 import gwt.czarodziejka.view.glowna.GlownaView;
+import gwt.czarodziejka.view.kobiety.KobietyView;
+import gwt.czarodziejka.view.kontakt.DojazdView;
 import gwt.czarodziejka.view.kontakt.KontaktView;
+import gwt.czarodziejka.view.mezczyzni.MezczyzniView;
+import gwt.czarodziejka.view.pary.ParyView;
+import gwt.czarodziejka.view.regulamin.RegulaminView;
 import gwt.czarodziejka.view.wyszukiwarka.WyszukiwarkaView;
 
 /**
@@ -20,11 +24,17 @@ public class Content extends FlowPanel {
     private static Content instance;
     private Page shown;
     private GlownaView glowna;
-    private DzieciView dzieci;
-    private DorosliView dorosli;
+    private ChlopcyView dzieci;
+    private KobietyView dorosli;
     private WyszukiwarkaView wyszukiwarka;
     private DojazdView dojazd;
     private KontaktView kontakt;
+    private RegulaminView regulamin;
+    private DziewczynkiView dziewczynki;
+    private ChlopcyView chlopcy;
+    private KobietyView kobiety;
+    private MezczyzniView mezczyzni;
+    private ParyView pary;
 
     public static Content getInstance() {
         if (instance == null) {
@@ -54,21 +64,31 @@ public class Content extends FlowPanel {
 
     private Widget getPageInstance(Page page) {
         switch (page) {
-            case DLA_DOROSLYCH:
-                if (dorosli == null) {
-                    dorosli = new DorosliView();
+            case DLA_CHLOPCOW:
+                if (chlopcy == null) {
+                    chlopcy = new ChlopcyView();
                 }
-                return dorosli;
-            case DLA_DZIECI:
-                if (dzieci == null) {
-                    dzieci = new DzieciView();
+                return chlopcy;
+            case DLA_DZIEWCZYNEK:
+                if (dziewczynki == null) {
+                    dziewczynki = new DziewczynkiView();
                 }
-                return dzieci;
-            case DOJAZD:
-                if (dojazd == null) {
-                    dojazd = new DojazdView();
+                return dziewczynki;
+            case DLA_KOBIET:
+                if (kobiety == null) {
+                    kobiety = new KobietyView();
                 }
-                return dojazd;
+                return kobiety;
+            case DLA_MEZCZYZN:
+                if (mezczyzni == null) {
+                    mezczyzni = new MezczyzniView();
+                }
+                return mezczyzni;
+            case DLA_PAR:
+                if (pary == null) {
+                    pary = new ParyView();
+                }
+                return pary;
             case GLOWNA:
                 if (glowna == null) {
                     glowna = new GlownaView();
@@ -79,6 +99,11 @@ public class Content extends FlowPanel {
                     kontakt = new KontaktView();
                 }
                 return kontakt;
+            case REGULAMIN:
+                if (regulamin == null) {
+                    regulamin = new RegulaminView();
+                }
+                return regulamin;
             case WYSZUKIWARKA:
                 if (wyszukiwarka == null) {
                     wyszukiwarka = WyszukiwarkaView.getInstance();

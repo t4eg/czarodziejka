@@ -23,6 +23,7 @@ public class KontaktView extends VerticalPanel implements CanShow {
                 + "<li><a href=\"mailto:kontakt@czarodziejka.com.pl\">kontakt@czarodziejka.com.pl</a></li>"
                 + "</ul>"
                 + "</p>"));
+        add(new DojazdView());
     }
 
     @Override
