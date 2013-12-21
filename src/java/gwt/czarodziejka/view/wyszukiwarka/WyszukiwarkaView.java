@@ -34,7 +34,7 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
     private SelectMany ocasion = new SelectMany();
     private SelectMany category = new SelectMany();
     private ClothCountInfo clothCountInfo = new ClothCountInfo();
-    private PhotosTable photosTable = new PhotosTable();
+    private PhotosTable photosTable = new PhotosTable(true);
 
     public static WyszukiwarkaView getInstance() {
         if (instance == null) {

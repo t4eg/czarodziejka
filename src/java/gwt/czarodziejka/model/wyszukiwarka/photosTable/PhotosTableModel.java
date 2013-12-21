@@ -19,9 +19,11 @@ public class PhotosTableModel {
     private ArrayList<List<Strój>> pages;
     private ArrayList<Strój> found;
     private int pageCurrentlyShown;
+    private final boolean showForWho;
 
-    public PhotosTableModel(PhotosTable view) {
+    public PhotosTableModel(PhotosTable view, boolean showForWho) {
         this.view = view;
+        this.showForWho = showForWho;
     }
 
     public void setStrojToTable(ArrayList<Strój> found) {
@@ -71,7 +73,7 @@ public class PhotosTableModel {
         for (int i = 0; i < page.size(); i++) {
             int col = i % zdjecNaWiersz;
             int row = (int) Math.floor(i / (double) zdjecNaWiersz);
-            tabela.setWidget(row, col, new Frame(page.get(i)));
+            tabela.setWidget(row, col, new Frame(page.get(i), showForWho));
         }
         this.pageCurrentlyShown = number;
         view.getTopPaginator().setShownPage(number);

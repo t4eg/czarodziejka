@@ -11,10 +11,15 @@ import gwt.czarodziejka.view.wyszukiwarka.photosTable.paginator.Paginator;
  */
 public class PhotosTable extends VerticalPanel {
 
-    private PhotosTableModel model = new PhotosTableModel(this);
+    private PhotosTableModel model;
     private Paginator topPaginator, bottomPaginator;
     private Grid grid = new Grid();
-    private PhotosPerPage photosPerPage = new PhotosPerPage(model);
+    private PhotosPerPage photosPerPage;
+
+    public PhotosTable(boolean showForWho) {
+        model = new PhotosTableModel(this, showForWho);
+        photosPerPage = new PhotosPerPage(model);
+    }
 
     public Paginator getTopPaginator() {
         return topPaginator;

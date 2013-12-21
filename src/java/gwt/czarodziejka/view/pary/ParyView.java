@@ -12,7 +12,7 @@ import gwt.czarodziejka.view.wyszukiwarka.photosTable.PhotosTable;
 public class ParyView extends VerticalPanel implements CanShow {
 
     private ParyModel model = new ParyModel(this);
-    private PhotosTable photosTable = new PhotosTable();
+    private PhotosTable photosTable = new PhotosTable(true);
     private boolean isShown;
 
     public ParyView() {

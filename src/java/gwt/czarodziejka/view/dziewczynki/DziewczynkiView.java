@@ -12,7 +12,7 @@ import gwt.czarodziejka.view.wyszukiwarka.photosTable.PhotosTable;
 public class DziewczynkiView extends VerticalPanel implements CanShow {
 
     private DziewczynkiModel model = new DziewczynkiModel(this);
-    private PhotosTable photosTable = new PhotosTable();
+    private PhotosTable photosTable = new PhotosTable(false);
     private boolean isShown;
 
     public DziewczynkiView() {

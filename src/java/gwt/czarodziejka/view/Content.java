@@ -8,7 +8,6 @@ import gwt.czarodziejka.view.chlopcy.ChlopcyView;
 import gwt.czarodziejka.view.dziewczynki.DziewczynkiView;
 import gwt.czarodziejka.view.glowna.GlownaView;
 import gwt.czarodziejka.view.kobiety.KobietyView;
-import gwt.czarodziejka.view.kontakt.DojazdView;
 import gwt.czarodziejka.view.kontakt.KontaktView;
 import gwt.czarodziejka.view.mezczyzni.MezczyzniView;
 import gwt.czarodziejka.view.pary.ParyView;
@@ -24,10 +23,7 @@ public class Content extends FlowPanel {
     private static Content instance;
     private Page shown;
     private GlownaView glowna;
-    private ChlopcyView dzieci;
-    private KobietyView dorosli;
     private WyszukiwarkaView wyszukiwarka;
-    private DojazdView dojazd;
     private KontaktView kontakt;
     private RegulaminView regulamin;
     private DziewczynkiView dziewczynki;

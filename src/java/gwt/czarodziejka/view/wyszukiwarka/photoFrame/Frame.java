@@ -15,7 +15,7 @@ public class Frame extends DecoratorPanel {
     private VerticalPanel layout = new VerticalPanel();
     private Label rozmiary = new Label("zobacz rozmiary");
 
-    public Frame(Strój stroj) {
+    public Frame(Strój stroj, boolean showForWho) {
         setWidget(layout);
         super.setStylePrimaryName("photoFrame");
 
@@ -32,7 +32,7 @@ public class Frame extends DecoratorPanel {
         layout.add(name);
         layout.add(number);
         layout.add(new Photo(stroj));
-        if (stroj.getPłeć() != null && stroj.getWiek() != null) {
+        if (showForWho && stroj.getPłeć() != null && stroj.getWiek() != null) {
             layout.add(new ForWho(stroj));
         }
         layout.add(rozmiary);
