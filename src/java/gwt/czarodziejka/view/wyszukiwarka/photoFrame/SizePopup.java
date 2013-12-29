@@ -1,6 +1,9 @@
 package gwt.czarodziejka.view.wyszukiwarka.photoFrame;
 
-import com.google.gwt.user.client.ui.*;
+import com.google.gwt.user.client.ui.DecoratedPopupPanel;
+import com.google.gwt.user.client.ui.Grid;
+import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.VerticalPanel;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Pas;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Rozmiar;
 import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
@@ -17,7 +20,6 @@ public class SizePopup extends DecoratedPopupPanel {
         setWidth("220px");
 
         VerticalPanel panel = new VerticalPanel();
-//        panel.add(new Label("Posiadamy następujące rozmiary:"));
         panel.add(getGrid(stroj.getRozmiar(), stroj.getWiek() != Wiek.DZIECKO));
 
         add(panel);

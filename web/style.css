@@ -1,7 +1,5 @@
 
-.dodajStroj {font-family: 'comic sans ms';font-size: 16px;background-color: white; border: solid 0px;}
-.wyszukiwarka {font-family: 'comic sans ms';font-size: 16px;}
-.clothCountInfo {font-family: 'comic sans ms';font-size: 14px;margin-left: 12px;background-color: white;}
+.clothCountInfo {margin-left: 12px;background-color: white;}
 .selectManyCheckbox, .selectManyCheckboxBold {margin-left: 15px;font-size: 14px;}
 .selectManyCheckboxBold {font-weight: bold;}
 .paginator {text-align: center;}
@@ -12,11 +10,7 @@
 .recordsCount {margin-top: 4px;}
 .row {margin-bottom: 23px;}
 .row3 {margin-bottom: 14px;}
-.inputText {font-family: 'comic sans ms';font-size: 14px;}
-
-.regulamin {font-size: 33px;font-family: 'Tahoma';color: white;text-shadow: 2px 2px 2px black, -1px -1px 2px black;padding-right: 4px;}
-.regulamin:hover {color: #D5D5CD;}
-.regulaminPage ol {list-style-type: decimal;}
+.inputText {font-size: 14px;}
 
 /* suggest box */
 
@@ -102,8 +96,8 @@
 .photoNumberLower {top:226px;}
 .photoPhoto {cursor: pointer;}
 .photoForWho, .photoForWhoLower {float: left;position: absolute; right:5px;height: 28px;}
-.photoForWho {top:198px;}
-.photoForWhoLower {top:218px;}
+.photoForWho {top:202px;}
+.photoForWhoLower {top:222px;}
 .photoForWho td, .photoForWhoLower td {vertical-align: bottom !important;}
 .photoForWho img, .photoForWhoLower img {cursor: pointer;border: 1px solid white;background-color: white;}
 

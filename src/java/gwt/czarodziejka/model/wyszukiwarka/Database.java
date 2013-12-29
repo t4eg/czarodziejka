@@ -179,7 +179,7 @@ public class Database {
         dodaj(new Strój(34).setZdjęcie(34).setNazwa("hipis").setDlaPary().setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Lata_70_i_80, Kategoria.Film_i_scena).setRozmiar(
                 new Rozmiar(Wzrost.cm_182, Wzrost.cm_188, Pas.M, Pas.L)));
 
-        dodaj(new Strój(36).setZdjęcie(36).setNazwa("zombi").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Halloween).setKategoria(Kategoria.Inne).setRozmiar(
+        dodaj(new Strój(36).setZdjęcie(36).setNazwa("zombie").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Halloween).setKategoria(Kategoria.Inne).setRozmiar(
                 new Rozmiar(Wzrost.cm_170, Wzrost.cm_182, Pas.M, Pas.L)));
 
         dodaj(new Strój(37).setZdjęcie(37).setNazwa("duch mężczyzny").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Halloween).setKategoria(Kategoria.Inne).setRozmiar(
@@ -2037,7 +2037,7 @@ public class Database {
                 new Rozmiar(Wzrost.cm_116, Wzrost.cm_122),
                 new Rozmiar(Wzrost.cm_128, Wzrost.cm_134)));
 
-        dodaj(new Strój(558).setZdjęcie(951).setNazwa("zombi").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Halloween).setKategoria(Kategoria.Inne).setRozmiar(
+        dodaj(new Strój(558).setZdjęcie(951).setNazwa("zombie").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Halloween).setKategoria(Kategoria.Inne).setRozmiar(
                 new Rozmiar(Wzrost.cm_104, Wzrost.cm_110),
                 new Rozmiar(Wzrost.cm_116, Wzrost.cm_122),
                 new Rozmiar(Wzrost.cm_128, Wzrost.cm_134)));
@@ -2684,7 +2684,7 @@ public class Database {
         dodaj(new Strój(733).setZdjęcie(1170).setNazwa("hiszpanka").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe).setRozmiar(
                 new Rozmiar(Wzrost.cm_158, Wzrost.cm_164, Pas.S, Pas.M)));
 
-        dodaj(new Strój(734).setZdjęcie(1169).setNazwa("kocica").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Halloween, Okazja.Inne).setKategoria(Kategoria.Sexy).setRozmiar(
+        dodaj(new Strój(734).setZdjęcie(1169, 1418).setNazwa("kocica").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Halloween, Okazja.Inne).setKategoria(Kategoria.Sexy).setRozmiar(
                 new Rozmiar(Wzrost.cm_170, Wzrost.cm_176, Pas.S, Pas.M)));
 
         dodaj(new Strój(735).setZdjęcie(1232).setNazwa("Rzymianin").setDlaPary().setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe).setRozmiar(
@@ -2752,8 +2752,8 @@ public class Database {
         dodaj(new Strój(754).setZdjęcie(1278).setNazwa("Rzymianka").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Historyczne, Kategoria.Narodowościowe).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.S, Pas.M)));
 
-        dodaj(new Strój(755).setZdjęcie(1217).setNazwa("policjantka").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Sexy).setRozmiar(
-                new Rozmiar(Wzrost.cm_170, Pas.S)));
+        dodaj(new Strój(821).setZdjęcie(1378, 1217).setNazwa("Policjantka").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Sexy, Kategoria.Zawody).setRozmiar(
+                new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.XS, Pas.S)));
 
         dodaj(new Strój(756).setZdjęcie(1264, 1265).setNazwa("strój do samby czerwony").setDlugaNazwa().setDlaPary().setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe, Kategoria.Inne).setRozmiar(
                 new Rozmiar(Wzrost.cm_158, Wzrost.cm_170, Pas.XS, Pas.S)));
@@ -3132,7 +3132,7 @@ public class Database {
                 new Rozmiar(Wzrost.cm_176, Wzrost.cm_182, Pas.S, Pas.M),
                 new Rozmiar(Wzrost.cm_176, Wzrost.cm_182, Pas.M, Pas.L)));
 
-        dodaj(new Strój(139).setZdjęcie(1341).setNazwa("Mary Popins").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Film_i_scena).setRozmiar(
+        dodaj(new Strój(139).setZdjęcie(1341).setNazwa("Mary Poppins").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Film_i_scena).setRozmiar(
                 new Rozmiar(Wzrost.cm_170, Wzrost.cm_176, Pas.M),
                 new Rozmiar(Wzrost.cm_170, Wzrost.cm_176, Pas.L),
                 new Rozmiar(Wzrost.cm_170, Wzrost.cm_176, Pas.XXL)));
@@ -3226,9 +3226,8 @@ public class Database {
                 new Rozmiar(Wzrost.cm_170, Wzrost.cm_176, Pas.S, Pas.L),
                 new Rozmiar(Wzrost.cm_182, Wzrost.cm_194, Pas.L, Pas.XXL)));
 
-        dodaj(new Strój(51).setZdjęcie(1215).setNazwa("żołnierz").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Sexy).setRozmiar(
+        dodaj(new Strój(51).setZdjęcie(1422, 1215).setNazwa("żołnierz").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Sexy).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.XS, Pas.S),
-                new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.S, Pas.M),
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.M, Pas.L)));
 
         dodaj(new Strój(49).setZdjęcie(1258).setNazwa("zebra").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Zwierzęta).setRozmiar(
@@ -3292,12 +3291,12 @@ public class Database {
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.XS, Pas.S),
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.L, Pas.XL)));
 
-        dodaj(new Strój(803).setZdjęcie(1349).setNazwa("Evil Mad Hatter").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setDlaPary().setOkazja(Okazja.Halloween).setKategoria(Kategoria.Film_i_scena).setRozmiar(
+        dodaj(new Strój(803).setZdjęcie(1427, 1349).setNazwa("Evil Mad Hatter").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setDlaPary().setOkazja(Okazja.Halloween).setKategoria(Kategoria.Film_i_scena).setRozmiar(
                 new Rozmiar(Wzrost.cm_182, Wzrost.cm_188, Pas.S, Pas.M),
                 new Rozmiar(Wzrost.cm_182, Wzrost.cm_188, Pas.M, Pas.L),
                 new Rozmiar(Wzrost.cm_182, Wzrost.cm_188, Pas.L, Pas.XL)));
 
-        dodaj(new Strój(804).setZdjęcie(1350).setNazwa("Alicja z Krainy Czarów").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Sexy).setRozmiar(
+        dodaj(new Strój(804).setZdjęcie(1350).setNazwa("Alicja z Krainy Czarów").setDlugaNazwa().setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Sexy).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.S, Pas.M),
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.M, Pas.L)));
 
@@ -3308,7 +3307,7 @@ public class Database {
         dodaj(new Strój(806).setZdjęcie(1352).setNazwa("Policjantka").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Sexy, Kategoria.Zawody).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.XL)));
 
-        dodaj(new Strój(807).setZdjęcie(1353, 1354, 1355, 1356).setNazwa("sukienka lata XX-te").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Lata_20_i_30, Kategoria.Sexy).setRozmiar(
+        dodaj(new Strój(807).setZdjęcie(1353, 1354, 1355, 1356).setNazwa("sukienka lata XX-te").setDlugaNazwa().setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Lata_20_i_30, Kategoria.Sexy).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_176, Pas.S),
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_176, Pas.M),
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_176, Pas.L),
@@ -3317,13 +3316,13 @@ public class Database {
         dodaj(new Strój(808).setZdjęcie(1357, 1358).setNazwa("Hipiska").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Lata_70_i_80, Kategoria.Sexy).setRozmiar(
                 new Rozmiar(Wzrost.cm_170, Wzrost.cm_176, Pas.XS, Pas.S),
                 new Rozmiar(Wzrost.cm_170, Wzrost.cm_176, Pas.M, Pas.L)));
-        
-        dodaj(new Strój(809).setZdjęcie(1359, 1360).setNazwa("Drakula").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Halloween).setKategoria(Kategoria.Sexy).setRozmiar(
+
+        dodaj(new Strój(809).setZdjęcie(1359, 1360).setNazwa("Wampirzyca").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Halloween).setKategoria(Kategoria.Sexy).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.XS, Pas.S),
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.S, Pas.M),
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.M, Pas.L)));
 
-        dodaj(new Strój(810).setZdjęcie(1361, 1362).setNazwa("Drakula").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Halloween).setKategoria(Kategoria.Sexy).setRozmiar(
+        dodaj(new Strój(810).setZdjęcie(1361, 1362).setNazwa("Wampirzyca").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Halloween).setKategoria(Kategoria.Sexy).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.XS, Pas.S),
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.M, Pas.L)));
 
@@ -3369,10 +3368,7 @@ public class Database {
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.S, Pas.M),
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.M, Pas.L)));
 
-        dodaj(new Strój(821).setZdjęcie(1378).setNazwa("Policjantka").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Sexy, Kategoria.Zawody).setRozmiar(
-                new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.XS, Pas.S)));
-        
-        dodaj(new Strój(822).setZdjęcie(1379).setNazwa("wojowniczka rzymska").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena, Kategoria.Sexy).setRozmiar(
+        dodaj(new Strój(822).setZdjęcie(1379).setNazwa("wojowniczka rzymska").setDlugaNazwa().setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena, Kategoria.Sexy).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.S, Pas.M),
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.M, Pas.L)));
 
@@ -3412,10 +3408,74 @@ public class Database {
                 new Rozmiar(Wzrost.cm_128),
                 new Rozmiar(Wzrost.cm_140)));
 
-        dodaj(new Strój(832).setZdjęcie(1394).setNazwa("wampirzyca").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Halloween).setKategoria(Kategoria.Bajki, Kategoria.Film_i_scena).setRozmiar(
+        dodaj(new Strój(832).setZdjęcie(1394, 1395).setNazwa("wampirzyca").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Halloween).setKategoria(Kategoria.Bajki, Kategoria.Film_i_scena).setRozmiar(
                 new Rozmiar(Wzrost.cm_146),
                 new Rozmiar(Wzrost.cm_152)));
 
+        dodaj(new Strój(833).setZdjęcie(1396, 1397).setNazwa("piratka").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Pirackie).setRozmiar(
+                new Rozmiar(Wzrost.cm_152)));
+
+        dodaj(new Strój(834).setZdjęcie(1398, 1399).setNazwa("Robin Hood").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena, Kategoria.Sexy).setRozmiar(
+                new Rozmiar(Wzrost.cm_158, Wzrost.cm_164, Pas.S)));
+
+        dodaj(new Strój(835).setZdjęcie(1400).setNazwa("jaskiniowiec").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena).setRozmiar(
+                new Rozmiar(Wzrost.cm_146),
+                new Rozmiar(Wzrost.cm_152)));
+
+        dodaj(new Strój(836).setZdjęcie(1401).setNazwa("czarownica").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Halloween).setKategoria(Kategoria.Bajki).setRozmiar(
+                new Rozmiar(Wzrost.cm_140),
+                new Rozmiar(Wzrost.cm_146)));
+
+        dodaj(new Strój(837).setZdjęcie(1403).setNazwa("Czerwony Kapturek").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Sexy).setRozmiar(
+                new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.S, Pas.M)));
+
+        dodaj(new Strój(838).setZdjęcie(1405).setNazwa("Robin Hood").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Sexy).setRozmiar(
+                new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.S),
+                new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.M),
+                new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.L),
+                new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.XL)));
+
+        dodaj(new Strój(839).setZdjęcie(1406).setNazwa("Panterka").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Sexy, Kategoria.Zwierzęta).setRozmiar(
+                new Rozmiar(Wzrost.cm_170, Pas.S, Pas.M)));
+
+        dodaj(new Strój(840).setZdjęcie(1407).setNazwa("Tygrys").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Sexy, Kategoria.Zwierzęta).setRozmiar(
+                new Rozmiar(Wzrost.cm_170, Pas.S, Pas.M)));
+
+        dodaj(new Strój(841).setZdjęcie(1408).setNazwa("Króliczek").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Sexy).setRozmiar(
+                new Rozmiar(Wzrost.cm_164, Wzrost.cm_176, Pas.XS, Pas.S),
+                new Rozmiar(Wzrost.cm_164, Wzrost.cm_176, Pas.S, Pas.M),
+                new Rozmiar(Wzrost.cm_164, Wzrost.cm_176, Pas.M, Pas.L)));
+
+        dodaj(new Strój(842).setZdjęcie(1409).setNazwa("cyganka").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe, Kategoria.Sexy).setRozmiar(
+                new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.M)));
+
+        dodaj(new Strój(848).setZdjęcie(1424).setNazwa("cigarettes girl").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Sexy).setRozmiar(
+                new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.M)));
+
+        dodaj(new Strój(849).setZdjęcie(1428).setNazwa("Różowy potwór").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Film_i_scena).setRozmiar(
+                new Rozmiar(Wzrost.cm_152)));
+
+        dodaj(new Strój(850).setZdjęcie(1429).setNazwa("Fioletowy potwór").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Film_i_scena).setRozmiar(
+                new Rozmiar(Wzrost.cm_140),
+                new Rozmiar(Wzrost.cm_152)));
+
+        dodaj(new Strój(851).setZdjęcie(1432).setNazwa("Zombie").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Halloween).setKategoria(Kategoria.Inne).setRozmiar(
+                new Rozmiar(Wzrost.cm_140),
+                new Rozmiar(Wzrost.cm_146)));
+
+        dodaj(new Strój(852).setZdjęcie(1435).setNazwa("piratka").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Pirackie).setRozmiar(
+                new Rozmiar(Wzrost.cm_146, Wzrost.cm_152),
+                new Rozmiar(Wzrost.cm_158, Wzrost.cm_164),
+                new Rozmiar(Wzrost.cm_152, Wzrost.cm_158)));
+
+        dodaj(new Strój(853).setZdjęcie(1437).setNazwa("Cyganka").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe).setRozmiar(
+                new Rozmiar(Wzrost.cm_140),
+                new Rozmiar(Wzrost.cm_152)));
+
+        dodaj(new Strój(854).setZdjęcie(1438).setNazwa("Pokojówka").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setDlaPary().setOkazja(Okazja.Inne).setKategoria(Kategoria.Sexy).setRozmiar(
+                new Rozmiar(Wzrost.cm_170, Wzrost.cm_176, Pas.S, Pas.M),
+                new Rozmiar(Wzrost.cm_170, Wzrost.cm_176, Pas.M, Pas.L),
+                new Rozmiar(Wzrost.cm_170, Wzrost.cm_176, Pas.L, Pas.XL)));
 
     }
 

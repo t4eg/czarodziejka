@@ -1,7 +1,12 @@
 @font-face {
-	font-family: 'Dosis';
-	src: url('fonts/Dosis-Regular.otf'),
-             url('fonts/Dosis-SemiBold.otf');
+    font-family: 'Dosis';
+    src: url('fonts/Dosis-Regular.otf'),
+        url('fonts/Dosis-SemiBold.otf');
+}
+
+* {
+    font-family: 'Dosis','comic sans ms';
+    font-size: 17px;
 }
 
 body {
