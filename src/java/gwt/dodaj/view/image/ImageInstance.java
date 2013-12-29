@@ -18,7 +18,7 @@ public class ImageInstance extends VerticalPanel {
     private Image image = new Image("http://czarodziejka.com.pl/img/noPhotoMan.png");
     private TextBox photoNumber = new TextBox();
     private ErrorImage img = new ErrorImage();
-    public static final double POWIEKSZENIE = 1.4;
+    public static final double POWIEKSZENIE = 1.6;
 
     public ImageInstance() {
         HorizontalPanel err = new HorizontalPanel();
