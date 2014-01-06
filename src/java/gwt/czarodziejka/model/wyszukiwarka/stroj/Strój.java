@@ -17,9 +17,31 @@ public class Strój {
     private String order;
     private boolean dlugaNazwa;
     private boolean dlaPary;
+    private int grupaPary;
 
     public Strój(Integer numer) {
         this.numer = numer;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Strój) {
+            Strój strojObj = (Strój) obj;
+            return numer.equals(strojObj.numer);
+        }
+        return super.equals(obj);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 59 * hash + (this.numer != null ? this.numer.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public String toString() {
+        return numer + " " + nazwa;
     }
 
     public Strój setDlugaNazwa() {
@@ -131,8 +153,13 @@ public class Strój {
         return dlaPary;
     }
 
-    public Strój setDlaPary() {
+    public Strój setDlaPary(int grupaPary) {
+        this.grupaPary = grupaPary;
         this.dlaPary = true;
         return this;
+    }
+
+    public int getGrupaPary() {
+        return grupaPary;
     }
 }

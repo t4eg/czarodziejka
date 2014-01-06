@@ -21,7 +21,8 @@ public class ParyModel {
     public void setData() {
         Filters data = getFiltry();
         ArrayList<Strój> matchingRecords = RecordsMatcher.getInstance().match(data);
-        view.getPhotosTable().getModel().setStrojToTable(matchingRecords);
+        ArrayList<Strój> sorted = Sort.group2(matchingRecords);
+        view.getPhotosTable().getModel().setStrojToTable(sorted);
     }
 
     private Filters getFiltry() {

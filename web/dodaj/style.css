@@ -8,3 +8,9 @@
 .row3 {margin-bottom: 14px;}
 .inputText {font-family: 'comic sans ms';font-size: 14px;}
 .error_icon {cursor: pointer;margin-left: 0px;margin-right: 2px;}
+
+#pary {
+    position: fixed;
+    left: 0px;
+    top: 30%;
+}
