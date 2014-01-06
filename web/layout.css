@@ -144,15 +144,6 @@ body > table {
     width:133px;
 }
 
-li {
-    list-style-type: circle;
-}
-
-ul {
-    margin-top: 3px;
-    margin-bottom: 6px;
-}
-
 p {
     margin-top: 0px;
     margin-bottom: 8px;
