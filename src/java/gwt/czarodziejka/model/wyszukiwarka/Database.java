@@ -29,6 +29,7 @@ public class Database {
                 addData3();
                 Collections.sort(instance.stroje, new StrójComparator());
 //                DatabaseTest test = new DatabaseTest(instance.stroje);
+//                new PrintDataForAsia().print(stroje);
             }
         };
         final Timer t2 = new Timer() {
@@ -100,7 +101,7 @@ public class Database {
         dodaj(new Strój(11).setZdjęcie(11).setNazwa("traper").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Dziki_zachód).setRozmiar(
                 new Rozmiar(Wzrost.cm_170, Wzrost.cm_194, Pas.S, Pas.XXL)));
 
-        dodaj(new Strój(12).setZdjęcie(12, 131).setNazwa("Wojownik japoński").setDlaPary(7).setWiek(Wiek.DOROSŁY).setDlugaNazwa().setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe, Kategoria.Film_i_scena, Kategoria.Historyczne).setRozmiar(
+        dodaj(new Strój(12).setZdjęcie(12, 131).setNazwa("Samuraj").setDlaPary(7).setWiek(Wiek.DOROSŁY).setDlugaNazwa().setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe, Kategoria.Film_i_scena, Kategoria.Historyczne).setRozmiar(
                 new Rozmiar(Wzrost.cm_176, Pas.M),
                 new Rozmiar(Wzrost.cm_176, Pas.L),
                 new Rozmiar(Wzrost.cm_176, Pas.S)));
@@ -1287,7 +1288,7 @@ public class Database {
         dodaj(new Strój(339).setZdjęcie(414).setNazwa("pszczoła").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Zwierzęta).setRozmiar(
                 new Rozmiar(Wzrost.cm_116, Wzrost.cm_122)));
 
-        dodaj(new Strój(340).setZdjęcie(415).setNazwa("wojownik japoński").setWiek(Wiek.DZIECKO).setDlugaNazwa().setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe).setRozmiar(
+        dodaj(new Strój(340).setZdjęcie(415).setNazwa("Samuraj").setWiek(Wiek.DZIECKO).setDlugaNazwa().setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe).setRozmiar(
                 new Rozmiar(Wzrost.cm_140)));
 
         dodaj(new Strój(341).setZdjęcie(416).setNazwa("indianin").setWiek(Wiek.DZIECKO).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe, Kategoria.Dziki_zachód).setRozmiar(
@@ -1760,7 +1761,7 @@ public class Database {
         dodaj(new Strój(484).setZdjęcie(848).setNazwa("al capone").setDlaPary(37).setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Inne).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.S, Pas.M)));
 
-        dodaj(new Strój(485).setZdjęcie(849).setNazwa("wojownik japoński").setDlaPary(7).setDlugaNazwa().setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe).setRozmiar(
+        dodaj(new Strój(485).setZdjęcie(849).setNazwa("Samuraj").setDlaPary(7).setDlugaNazwa().setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe).setRozmiar(
                 new Rozmiar(Wzrost.cm_170, Wzrost.cm_176, Pas.S, Pas.M)));
 
         dodaj(new Strój(486).setZdjęcie(850).setNazwa("słonecznik").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Inne).setRozmiar(
@@ -2989,12 +2990,6 @@ public class Database {
         dodaj(new Strój(443).setZdjęcie(1188).setNazwa("gorset").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Sexy).setRozmiar(
                 new Rozmiar(Wzrost.cm_164, Wzrost.cm_170, Pas.XS, Pas.S)));
 
-        dodaj(new Strój(440).setZdjęcie(1209).setNazwa("Czerwony Kapturek").setDlugaNazwa().setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki).setRozmiar(
-                new Rozmiar(Wzrost.cm_104, Wzrost.cm_110),
-                new Rozmiar(Wzrost.cm_116, Wzrost.cm_122),
-                new Rozmiar(Wzrost.cm_128, Wzrost.cm_134),
-                new Rozmiar(Wzrost.cm_140, Wzrost.cm_146)));
-
         dodaj(new Strój(432).setZdjęcie(1182).setNazwa("kotek").setWiek(Wiek.DZIECKO).setPłeć(Płeć.DAMSKI).setOkazja(Okazja.Halloween, Okazja.Inne).setKategoria(Kategoria.Bajki, Kategoria.Zwierzęta).setRozmiar(
                 new Rozmiar(Wzrost.cm_128)));
 
@@ -3160,7 +3155,7 @@ public class Database {
         dodaj(new Strój(126).setZdjęcie(1292).setNazwa("marynarz Papaj").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Bajki).setRozmiar(
                 new Rozmiar(Wzrost.cm_176, Wzrost.cm_182, Pas.S, Pas.L)));
 
-        dodaj(new Strój(124).setZdjęcie(1300).setNazwa("wojownik japoński").setDlugaNazwa().setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setDlaPary(7).setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena, Kategoria.Narodowościowe).setRozmiar(
+        dodaj(new Strój(124).setZdjęcie(1300).setNazwa("Samuraj").setDlugaNazwa().setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setDlaPary(7).setOkazja(Okazja.Inne).setKategoria(Kategoria.Film_i_scena, Kategoria.Narodowościowe).setRozmiar(
                 new Rozmiar(Wzrost.cm_176, Wzrost.cm_182, Pas.M, Pas.L)));
 
         dodaj(new Strój(121).setZdjęcie(1255).setNazwa("Egipcjanin").setWiek(Wiek.DOROSŁY).setPłeć(Płeć.MĘSKI).setOkazja(Okazja.Inne).setKategoria(Kategoria.Narodowościowe).setRozmiar(

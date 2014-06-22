@@ -21,4 +21,9 @@ public class Zdjęcie {
     public boolean getPoziomy() {
         return poziomy;
     }
+
+    @Override
+    public String toString() {
+        return number.toString();
+    }
 }

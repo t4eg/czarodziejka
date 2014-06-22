@@ -29,19 +29,28 @@ public class CalendarModel {
     }
 
     private CalendarModel() {
-        specialDays.put("2013.11.01", null);
-        specialDays.put("2013.11.11", null);
-        specialDays.put("2013.12.24", null);
-        specialDays.put("2013.12.25", null);
-        specialDays.put("2013.12.26", null);
+        specialDays.put("2014.06.19", null);
+        specialDays.put("2014.06.20", null);
+        specialDays.put("2014.06.21", null);
+        specialDays.put("2014.08.15", null);
+        specialDays.put("2014.11.01", null);
+        specialDays.put("2014.12.25", null);
+        specialDays.put("2014.12.26", null);
+        specialDays.put("2014.12.31", new Time[]{new Time(10, 00), new Time(15, 00)});
 
-        specialDays.put("2014.01.01", null);
-        specialDays.put("2014.01.06", null);
-//        specialDays.put("2012.12.25", null);
-//        specialDays.put("2012.12.26", null);
-        specialDays.put("2013.12.31", new Time[]{new Time(10, 00), new Time(15, 00)});
-//        specialDays.put("2013.01.01", null);
-//        specialDays.put("2013.01.06", null);
+        specialDays.put("2015.01.01", null);
+        specialDays.put("2015.01.06", null);
+        specialDays.put("2015.04.06", null);
+        specialDays.put("2015.05.01", null);
+        specialDays.put("2015.05.02", null);
+        specialDays.put("2015.05.03", null);
+        specialDays.put("2015.06.04", null);
+        specialDays.put("2015.08.15", null);
+        specialDays.put("2015.11.01", null);
+        specialDays.put("2015.11.11", null);
+        specialDays.put("2015.12.25", null);
+        specialDays.put("2015.12.26", null);
+        specialDays.put("2015.12.31", new Time[]{new Time(10, 00), new Time(15, 00)});
     }
 
     public void setData(Calendar tabela) {
@@ -112,17 +121,14 @@ public class CalendarModel {
                 case Sat:
                 case Sun:
                     return null;
+                case Mon:
+                case Wed:
+                case Fri:
+                    return new Time[]{new Time(10, 00), new Time(18, 00)};
+                case Tue:
+                case Thu:
                 default:
-                    return new Time[]{new Time(8, 00), new Time(14, 00)};
-            }
-        } else if (isBetween(date, "2013.12.09", "2013.12.24")) {
-            switch (getWeekDay(date)) {
-                case Sat:
-                    return new Time[]{new Time(10, 00), new Time(15, 00)};
-                case Sun:
-                    return null;
-                default:
-                    return new Time[]{new Time(10, 00), new Time(20, 00)};
+                    return new Time[]{new Time(7, 00), new Time(15, 00)};
             }
         } else {
             switch (getWeekDay(date)) {
@@ -146,7 +152,7 @@ public class CalendarModel {
     }
 
     private boolean isCarnival(Date date) {
-        return isBetween(date, "2013.12.25", "2014.03.04");
+        return isBetween(date, "2014.12.25", "2015.02.17");
     }
 
     private boolean isBetween(Date date, String from, String to) {
