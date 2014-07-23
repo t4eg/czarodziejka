@@ -3,7 +3,7 @@ package gwt.czarodziejka.view.wyszukiwarka.photoFrame.popup;
 import com.google.gwt.user.client.ui.HasHorizontalAlignment;
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Label;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Zdjęcie;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Photo;
 import gwt.czarodziejka.presenter.wyszukiwarka.photoFrame.popup.PhotoNumberLinkClickHandler;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -15,10 +15,10 @@ import java.util.Map;
  */
 public class BottomBar extends HorizontalPanel {
 
-    private Map<Zdjęcie, Label> buttons = new HashMap<Zdjęcie, Label>();
+    private Map<Photo, Label> buttons = new HashMap<Photo, Label>();
     private HorizontalPanel content = new HorizontalPanel();
 
-    BottomBar(PhotoPopup parent, Zdjęcie[] photos) {
+    BottomBar(PhotoPopup parent, Photo[] photos) {
         setWidth("100%");
         setHorizontalAlignment(HasHorizontalAlignment.ALIGN_CENTER);
         add(content);
@@ -34,10 +34,10 @@ public class BottomBar extends HorizontalPanel {
         }
     }
 
-    public void setCurrentlyDisplayedImage(Zdjęcie photo) {
-        Iterator<Zdjęcie> it = buttons.keySet().iterator();
+    public void setCurrentlyDisplayedImage(Photo photo) {
+        Iterator<Photo> it = buttons.keySet().iterator();
         while (it.hasNext()) {
-            Zdjęcie loopPhoto = it.next();
+            Photo loopPhoto = it.next();
             if (loopPhoto == photo) {
                 buttons.get(photo).setStylePrimaryName("bottomImgLinkDisabled");
             } else {

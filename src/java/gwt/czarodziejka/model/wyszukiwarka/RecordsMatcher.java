@@ -1,9 +1,9 @@
 package gwt.czarodziejka.model.wyszukiwarka;
 
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Kategoria;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Okazja;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Rozmiar;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Category;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Occasion;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Size;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Costume;
 import java.util.ArrayList;
 
 /**
@@ -14,7 +14,7 @@ public class RecordsMatcher {
 
     private static RecordsMatcher instance;
     private Filters filters;
-    private Strój stroj;
+    private Costume stroj;
 
     public static RecordsMatcher getInstance() {
         if (instance == null) {
@@ -26,11 +26,11 @@ public class RecordsMatcher {
     private RecordsMatcher() {
     }
 
-    public ArrayList<Strój> match(Filters filters) {
+    public ArrayList<Costume> match(Filters filters) {
         this.filters = filters;
-        ArrayList<Strój> result = new ArrayList<Strój>();
-        ArrayList<Strój> stroje = Database.getInstance().getStroje();
-        for (Strój str : stroje) {
+        ArrayList<Costume> result = new ArrayList<Costume>();
+        ArrayList<Costume> stroje = Database.getInstance().getStroje();
+        for (Costume str : stroje) {
             stroj = str;
             if (isCategoryOk()
                     && isNameOk()
@@ -50,9 +50,9 @@ public class RecordsMatcher {
         if (stroj.getKategoria() == null) {
             return true;
         }
-        Kategoria[] filterCategories = filters.getKategoria();
-        for (Kategoria filterCategory : filterCategories) {
-            for (Kategoria strojCategory : stroj.getKategoria()) {
+        Category[] filterCategories = filters.getKategoria();
+        for (Category filterCategory : filterCategories) {
+            for (Category strojCategory : stroj.getKategoria()) {
                 if (strojCategory == filterCategory) {
                     return true;
                 }
@@ -82,9 +82,9 @@ public class RecordsMatcher {
         if (stroj.getOkazja() == null) {
             return true;
         }
-        Okazja[] filterOcasions = filters.getOkazja();
-        for (Okazja filterOcasion : filterOcasions) {
-            for (Okazja strojOcasion : stroj.getOkazja()) {
+        Occasion[] filterOcasions = filters.getOkazja();
+        for (Occasion filterOcasion : filterOcasions) {
+            for (Occasion strojOcasion : stroj.getOkazja()) {
                 if (strojOcasion == filterOcasion) {
                     return true;
                 }
@@ -113,10 +113,10 @@ public class RecordsMatcher {
     }
 
     private boolean isSizeOk() {
-        Rozmiar[] sizes = stroj.getRozmiar();
+        Size[] sizes = stroj.getRozmiar();
         switch (stroj.getWiek()) {
             case DOROSŁY:
-                for (Rozmiar size : sizes) {
+                for (Size size : sizes) {
                     if (isInRange(size.getWzrostOd(), size.getWzrostDo(), filters.getHeightFrom(), filters.getHeightTo())
                             && isInRange(size.getPasOd(), size.getPasDo(), filters.getBeltFrom(), filters.getBeltTo())) {
                         return true;
@@ -124,7 +124,7 @@ public class RecordsMatcher {
                 }
                 break;
             default: //dziecko i miesznay
-                for (Rozmiar size : sizes) {
+                for (Size size : sizes) {
                     if (isInRange(size.getWzrostOd(), size.getWzrostDo(), filters.getHeightFrom(), filters.getHeightTo())) {
                         return true;
                     }

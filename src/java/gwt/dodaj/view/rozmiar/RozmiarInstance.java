@@ -6,8 +6,8 @@ import com.google.gwt.event.dom.client.KeyPressEvent;
 import com.google.gwt.event.dom.client.KeyPressHandler;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HorizontalPanel;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Pas;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Wzrost;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Belt;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Height;
 import gwt.czarodziejka.view.wyszukiwarka.components.SelectOne;
 import gwt.dodaj.view.DodajStrojView;
 import gwt.dodaj.view.components.ErrorImage;
@@ -58,23 +58,23 @@ public class RozmiarInstance extends HorizontalPanel {
         super.add(new HTML("&nbsp;do&nbsp;"));
         super.add(beltTo);
 
-        setValues(beltFrom, Pas.values());
-        setValues(beltTo, Pas.values());
-        setValues(heightFrom, Wzrost.values());
-        setValues(heightTo, Wzrost.values());
+        setValues(beltFrom, Belt.values());
+        setValues(beltTo, Belt.values());
+        setValues(heightFrom, Height.values());
+        setValues(heightTo, Height.values());
 
         beltFrom.addChangeHandler(new ChangeHandler() {
 
             @Override
             public void onChange(ChangeEvent event) {
-                setBeltTo(Pas.getNr(beltFrom.getSelected()));
+                setBeltTo(Belt.getNr(beltFrom.getSelected()));
             }
         });
         beltFrom.addKeyPressHandler(new KeyPressHandler() {
 
             @Override
             public void onKeyPress(KeyPressEvent event) {
-                setBeltTo(Pas.getNr(beltFrom.getSelected()));
+                setBeltTo(Belt.getNr(beltFrom.getSelected()));
             }
         });
 
@@ -127,11 +127,11 @@ public class RozmiarInstance extends HorizontalPanel {
     }
 
     private void setHeightTo(int heightFrom) {
-        Wzrost previouslySelected = heightTo.getSelected().isEmpty() ? null : Wzrost.valueOf(Integer.valueOf(heightTo.getSelected()));
+        Height previouslySelected = heightTo.getSelected().isEmpty() ? null : Height.valueOf(Integer.valueOf(heightTo.getSelected()));
 
-        Wzrost[] values = Wzrost.values();
-        ArrayList<Wzrost> filteredValues = new ArrayList<Wzrost>();
-        for (Wzrost value : values) {
+        Height[] values = Height.values();
+        ArrayList<Height> filteredValues = new ArrayList<Height>();
+        for (Height value : values) {
             if (value.getHeight() >= heightFrom) {
                 filteredValues.add(value);
             }
@@ -148,11 +148,11 @@ public class RozmiarInstance extends HorizontalPanel {
     }
 
     private void setBeltTo(int beltFrom) {
-        Pas previouslySelected = Pas.valueOf(beltTo.getSelected());
+        Belt previouslySelected = Belt.valueOf(beltTo.getSelected());
 
-        Pas[] values = Pas.values();
-        ArrayList<Pas> filteredValues = new ArrayList<Pas>();
-        for (Pas value : values) {
+        Belt[] values = Belt.values();
+        ArrayList<Belt> filteredValues = new ArrayList<Belt>();
+        for (Belt value : values) {
             if (value.getNr() >= beltFrom) {
                 filteredValues.add(value);
             }

@@ -1,10 +1,10 @@
-package gwt.czarodziejka.model.wyszukiwarka.stroj;
+package gwt.czarodziejka.model.wyszukiwarka.costume;
 
 /**
  *
  * @author Administrator
  */
-public enum Pas {
+public enum Belt {
 
     XS(0),
     S(1),
@@ -14,16 +14,16 @@ public enum Pas {
     XXL(5);
     private int nr;
 
-    Pas(int nr) {
+    Belt(int nr) {
         this.nr = nr;
     }
 
     public static int getNr(String name) {
-        return Pas.valueOf(name).nr;
+        return Belt.valueOf(name).nr;
     }
 
     public static String getString(int nr) {
-        for (Pas pas : values()) {
+        for (Belt pas : values()) {
             if (pas.nr == nr) {
                 return pas.toString();
             }

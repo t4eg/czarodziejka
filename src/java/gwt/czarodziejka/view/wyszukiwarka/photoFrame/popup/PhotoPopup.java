@@ -4,8 +4,8 @@ import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.*;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Zdjęcie;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Costume;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Photo;
 
 /**
  *
@@ -17,7 +17,7 @@ public class PhotoPopup extends DecoratedPopupPanel {
     private BottomBar bottomBar;
     private Image bigPhoto;
 
-    public PhotoPopup(Strój stroj) {
+    public PhotoPopup(Costume stroj) {
         setStyleName("center", true);
         VerticalPanel content = new VerticalPanel();
         titleBar = new TitleBar(stroj.getNazwa(), this);
@@ -48,7 +48,7 @@ public class PhotoPopup extends DecoratedPopupPanel {
         updatePopup(stroj.getZdjęcie()[0]);
     }
 
-    public final void updatePopup(Zdjęcie photo) {
+    public final void updatePopup(Photo photo) {
         if (bottomBar != null) {
             bottomBar.setCurrentlyDisplayedImage(photo);
         }

@@ -1,15 +1,15 @@
-package gwt.czarodziejka.model.wyszukiwarka.stroj;
+package gwt.czarodziejka.model.wyszukiwarka.costume;
 
 /**
  *
  * @author Administrator
  */
-public class Zdjęcie {
+public class Photo {
 
     private Integer number;
     private boolean poziomy;
 
-    public Zdjęcie(Integer number, Boolean poziomy) {
+    public Photo(Integer number, Boolean poziomy) {
         this.number = number;
         this.poziomy = poziomy;
     }

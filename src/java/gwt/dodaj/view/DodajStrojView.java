@@ -1,7 +1,7 @@
 package gwt.dodaj.view;
 
 import com.google.gwt.user.client.ui.*;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Kategoria;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Category;
 import gwt.dodaj.model.DodajStrojModel;
 import gwt.dodaj.view.components.SelectManySimple;
 import gwt.dodaj.view.components.TitleVeritcalPanelError;
@@ -87,8 +87,8 @@ public class DodajStrojView extends VerticalPanel {
         if (category.getSelected().length == 0) {
             kategoriaPanel.showError("Zaznacz co najmniej jedną kategorię.");
             result = false;
-        } else if (Arrays.asList(category.getSelected()).contains(Kategoria.Inne.toString()) && category.getSelected().length > 1) {
-            kategoriaPanel.showError("Kategoria '" + Kategoria.Inne.toString() + "' może być zaznaczona tylko jako jedyna.");
+        } else if (Arrays.asList(category.getSelected()).contains(Category.Inne.toString()) && category.getSelected().length > 1) {
+            kategoriaPanel.showError("Kategoria '" + Category.Inne.toString() + "' może być zaznaczona tylko jako jedyna.");
             result = false;
         } else {
             kategoriaPanel.hideError();

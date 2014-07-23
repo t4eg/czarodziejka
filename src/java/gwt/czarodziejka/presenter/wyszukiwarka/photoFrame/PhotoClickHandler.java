@@ -3,7 +3,7 @@ package gwt.czarodziejka.presenter.wyszukiwarka.photoFrame;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.Window;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Costume;
 import gwt.czarodziejka.view.wyszukiwarka.photoFrame.popup.PhotoPopup;
 
 /**
@@ -12,9 +12,9 @@ import gwt.czarodziejka.view.wyszukiwarka.photoFrame.popup.PhotoPopup;
  */
 public class PhotoClickHandler implements ClickHandler {
 
-    private final Strój stroj;
+    private final Costume stroj;
 
-    public PhotoClickHandler(Strój strój) {
+    public PhotoClickHandler(Costume strój) {
         this.stroj = strój;
     }
 

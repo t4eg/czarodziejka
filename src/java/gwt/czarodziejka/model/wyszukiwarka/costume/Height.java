@@ -1,10 +1,10 @@
-package gwt.czarodziejka.model.wyszukiwarka.stroj;
+package gwt.czarodziejka.model.wyszukiwarka.costume;
 
 /**
  *
  * @author Administrator
  */
-public enum Wzrost {
+public enum Height {
 
     cm_86(86),
     cm_92(92),
@@ -27,7 +27,7 @@ public enum Wzrost {
     cm_194(194);
     private int height;
 
-    Wzrost(int height) {
+    Height(int height) {
         this.height = height;
     }
 
@@ -40,16 +40,16 @@ public enum Wzrost {
         return Integer.toString(height);
     }
 
-    public static Wzrost getMin() {
-        return Wzrost.cm_86;
+    public static Height getMin() {
+        return Height.cm_86;
     }
 
-    public static Wzrost getMax() {
-        return Wzrost.cm_194;
+    public static Height getMax() {
+        return Height.cm_194;
     }
 
-    public static Wzrost valueOf(int val) {
-        for (Wzrost w : values()) {
+    public static Height valueOf(int val) {
+        for (Height w : values()) {
             if (w.getHeight() == val) {
                 return w;
             }

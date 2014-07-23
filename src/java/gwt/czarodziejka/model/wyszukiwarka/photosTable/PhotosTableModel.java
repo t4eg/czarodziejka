@@ -1,7 +1,7 @@
 package gwt.czarodziejka.model.wyszukiwarka.photosTable;
 
 import com.google.gwt.user.client.ui.Grid;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Costume;
 import gwt.czarodziejka.view.wyszukiwarka.photoFrame.Frame;
 import gwt.czarodziejka.view.wyszukiwarka.photosTable.PhotosTable;
 import java.util.ArrayList;
@@ -16,8 +16,8 @@ public class PhotosTableModel {
     private final PhotosTable view;
     private final int zdjecNaWiersz = 4;
     private int zdjecNaStrone;
-    private ArrayList<List<Strój>> pages;
-    private ArrayList<Strój> found;
+    private ArrayList<List<Costume>> pages;
+    private ArrayList<Costume> found;
     private int pageCurrentlyShown;
     private final boolean showForWho;
 
@@ -26,7 +26,7 @@ public class PhotosTableModel {
         this.showForWho = showForWho;
     }
 
-    public void setStrojToTable(ArrayList<Strój> found) {
+    public void setStrojToTable(ArrayList<Costume> found) {
         this.found = found;
         refreshPages();
     }
@@ -38,16 +38,16 @@ public class PhotosTableModel {
         showPage(0);
     }
 
-    private void splitBetweenPages(ArrayList<Strój> found) {
+    private void splitBetweenPages(ArrayList<Costume> found) {
         int pagesNumber = (int) Math.ceil(found.size() / (double) zdjecNaStrone);
-        pages = new ArrayList<List<Strój>>(pagesNumber);
+        pages = new ArrayList<List<Costume>>(pagesNumber);
         for (int i = 0; i < pagesNumber; i++) {
             int from = i * zdjecNaStrone;
             int to = (i + 1) * zdjecNaStrone;
             if (to > found.size()) {
                 to = found.size();
             }
-            List<Strój> page = found.subList(from, to);
+            List<Costume> page = found.subList(from, to);
             pages.add(page);
         }
     }
@@ -64,7 +64,7 @@ public class PhotosTableModel {
         if (number < 0 || number > pages.size() - 1) {
             return;
         }
-        List<Strój> page = pages.get(number);
+        List<Costume> page = pages.get(number);
 
         Grid tabela = view.getGrid();
         tabela.clear();

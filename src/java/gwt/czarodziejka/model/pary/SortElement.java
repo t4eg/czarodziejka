@@ -1,13 +1,13 @@
 package gwt.czarodziejka.model.pary;
 
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Costume;
 import java.util.ArrayList;
 
 /**
  *
  * @author Administrator
  */
-public class SortElement extends ArrayList<Strój> {
+public class SortElement extends ArrayList<Costume> {
 
     private int group;
 

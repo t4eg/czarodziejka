@@ -1,4 +1,4 @@
-package gwt.czarodziejka.model.wyszukiwarka.stroj;
+package gwt.czarodziejka.model.wyszukiwarka.costume;
 
 import java.util.ArrayList;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
  *
  * @author Administrator
  */
-public enum Kategoria {
+public enum Category {
 
     Bajki,
     Dziki_zachód,
@@ -29,15 +29,15 @@ public enum Kategoria {
         return super.toString().replace('_', ' ');
     }
 
-    public static Kategoria get(String name) {
+    public static Category get(String name) {
         return valueOf(name.replace(' ', '_'));
     }
 
-    public static Kategoria[] get(String[] name) {
-        ArrayList<Kategoria> result = new ArrayList<Kategoria>();
+    public static Category[] get(String[] name) {
+        ArrayList<Category> result = new ArrayList<Category>();
         for (String s : name) {
             result.add(get(s));
         }
-        return result.toArray(new Kategoria[result.size()]);
+        return result.toArray(new Category[result.size()]);
     }
 }

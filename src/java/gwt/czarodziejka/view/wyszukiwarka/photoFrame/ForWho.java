@@ -2,7 +2,7 @@ package gwt.czarodziejka.view.wyszukiwarka.photoFrame;
 
 import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Image;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Costume;
 
 /**
  *
@@ -10,7 +10,7 @@ import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
  */
 class ForWho extends HorizontalPanel {
 
-    public ForWho(Strój stroj) {
+    public ForWho(Costume stroj) {
         if (stroj.isDlugaNazwa()) {
             super.setStylePrimaryName("photoForWhoLower");
         } else {

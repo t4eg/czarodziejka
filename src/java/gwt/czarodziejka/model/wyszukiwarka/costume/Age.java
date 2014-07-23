@@ -1,10 +1,10 @@
-package gwt.czarodziejka.model.wyszukiwarka.stroj;
+package gwt.czarodziejka.model.wyszukiwarka.costume;
 
 /**
  *
  * @author Administrator
  */
-public enum Wiek {
+public enum Age {
 
     DOROSŁY,
     DZIECKO,

@@ -1,9 +1,9 @@
 package gwt.dodaj.model;
 
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Kategoria;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Okazja;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Płeć;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Wiek;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Category;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Occasion;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Sex;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Age;
 import gwt.dodaj.MainEntryPoint;
 import gwt.dodaj.presenter.DodajStrojPresenter;
 import gwt.dodaj.view.DodajStrojView;
@@ -40,8 +40,8 @@ public class DodajStrojModel {
 
     public void setData() {
         view.getNumber().setValue(strojNumber == null ? null : (++strojNumber).toString());
-        setValues(view.getCategory(), Kategoria.values());
-        setValues(view.getOcasion(), Okazja.values());
+        setValues(view.getCategory(), Category.values());
+        setValues(view.getOcasion(), Occasion.values());
     }
 
     private void setValues(SelectManySimple box, Object[] values) {
@@ -90,11 +90,11 @@ public class DodajStrojModel {
         Boolean adult = view.getAdult().getValue();
         Boolean child = view.getChild().getValue();
         if (adult && child) {
-            return Wiek.DZIECKO_DOROSŁY.toString();
+            return Age.DZIECKO_DOROSŁY.toString();
         } else if (adult) {
-            return Wiek.DOROSŁY.toString();
+            return Age.DOROSŁY.toString();
         } else if (child) {
-            return Wiek.DZIECKO.toString();
+            return Age.DZIECKO.toString();
         }
         return null;
     }
@@ -103,11 +103,11 @@ public class DodajStrojModel {
         Boolean female = view.getFemale().getValue();
         Boolean male = view.getMale().getValue();
         if (female && male) {
-            return Płeć.DAMSKO_MĘSKI.toString();
+            return Sex.DAMSKO_MĘSKI.toString();
         } else if (female) {
-            return Płeć.DAMSKI.toString();
+            return Sex.DAMSKI.toString();
         } else if (male) {
-            return Płeć.MĘSKI.toString();
+            return Sex.MĘSKI.toString();
         }
         return null;
     }

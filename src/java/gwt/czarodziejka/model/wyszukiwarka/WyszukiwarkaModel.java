@@ -1,6 +1,10 @@
 package gwt.czarodziejka.model.wyszukiwarka;
 
-import gwt.czarodziejka.model.wyszukiwarka.stroj.*;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Category;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Height;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Costume;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Belt;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Occasion;
 import gwt.czarodziejka.presenter.wyszukiwarka.WyszukiwarkaPresenter;
 import gwt.czarodziejka.view.wyszukiwarka.WyszukiwarkaView;
 import gwt.czarodziejka.view.wyszukiwarka.components.SelectMany;
@@ -26,19 +30,19 @@ public class WyszukiwarkaModel {
     private WyszukiwarkaModel() {
     }
 
-    public ArrayList<Strój> findMachingStroj() {
+    public ArrayList<Costume> findMachingStroj() {
         Filters data = getFiltry();
-        ArrayList<Strój> found = RecordsMatcher.getInstance().match(data);
+        ArrayList<Costume> found = RecordsMatcher.getInstance().match(data);
         return found;
     }
 
     private Filters getFiltry() {
         Filters filtry = new Filters();
         if (!view.getBeltFrom().getSelected().isEmpty()) {
-            filtry.setBeltFrom(Pas.getNr(view.getBeltFrom().getSelected()));
+            filtry.setBeltFrom(Belt.getNr(view.getBeltFrom().getSelected()));
         }
         if (!view.getBeltTo().getSelected().isEmpty()) {
-            filtry.setBeltTo(Pas.getNr(view.getBeltTo().getSelected()));
+            filtry.setBeltTo(Belt.getNr(view.getBeltTo().getSelected()));
         }
         filtry.setDorosly(view.getAdult().getValue());
         filtry.setDziecko(view.getChild().getValue());
@@ -52,12 +56,12 @@ public class WyszukiwarkaModel {
         if (!view.getHeightTo().getSelected().isEmpty()) {
             filtry.setHeightTo(Integer.parseInt(view.getHeightTo().getSelected()));
         }
-        filtry.setKategoria(Kategoria.get(view.getCategory().getSelected()));
+        filtry.setKategoria(Category.get(view.getCategory().getSelected()));
         filtry.setNazwa(view.getName().getText());
         if (!view.getNumber().getText().isEmpty()) {
             filtry.setNumer(Integer.parseInt(view.getNumber().getText()));
         }
-        filtry.setOkazja(Okazja.get(view.getOcasion().getSelected()));
+        filtry.setOkazja(Occasion.get(view.getOcasion().getSelected()));
         return filtry;
     }
 
@@ -87,17 +91,17 @@ public class WyszukiwarkaModel {
         view.getMale().setValue(true);
         view.getForPair().setValue(true);
         view.getNoPair().setValue(true);
-        setValues(view.getBeltFrom(), Pas.values());
+        setValues(view.getBeltFrom(), Belt.values());
         view.getBeltFrom().setSelectedIndex(0);
-        setValues(view.getBeltTo(), Pas.values());
-        view.getBeltTo().setSelectedIndex(Pas.values().length - 1);
-        setValues(view.getHeightFrom(), Wzrost.values());
+        setValues(view.getBeltTo(), Belt.values());
+        view.getBeltTo().setSelectedIndex(Belt.values().length - 1);
+        setValues(view.getHeightFrom(), Height.values());
         view.getHeightFrom().setSelectedIndex(0);
-        setValues(view.getHeightTo(), Wzrost.values());
-        view.getHeightTo().setSelectedIndex(Wzrost.values().length - 1);
-        setValues(view.getCategory(), Kategoria.values());
+        setValues(view.getHeightTo(), Height.values());
+        view.getHeightTo().setSelectedIndex(Height.values().length - 1);
+        setValues(view.getCategory(), Category.values());
         view.getCategory().setSelectedAll();
-        setValues(view.getOcasion(), Okazja.values());
+        setValues(view.getOcasion(), Occasion.values());
         view.getOcasion().setSelectedAll();
         WyszukiwarkaPresenter.getInstance().refreshComponents();
         view.setRecordsCount(WyszukiwarkaModel.getInstance().findMachingStroj().size());
@@ -117,11 +121,11 @@ public class WyszukiwarkaModel {
     }
 
     public void setHeightTo(int heightFrom) {
-        Wzrost previouslySelected = Wzrost.valueOf(Integer.valueOf(view.getHeightTo().getSelected()));
+        Height previouslySelected = Height.valueOf(Integer.valueOf(view.getHeightTo().getSelected()));
 
-        Wzrost[] values = Wzrost.values();
-        ArrayList<Wzrost> filteredValues = new ArrayList<Wzrost>();
-        for (Wzrost value : values) {
+        Height[] values = Height.values();
+        ArrayList<Height> filteredValues = new ArrayList<Height>();
+        for (Height value : values) {
             if (value.getHeight() >= heightFrom) {
                 filteredValues.add(value);
             }
@@ -138,11 +142,11 @@ public class WyszukiwarkaModel {
     }
 
     public void setBeltTo(int beltFrom) {
-        Pas previouslySelected = Pas.valueOf(view.getBeltTo().getSelected());
+        Belt previouslySelected = Belt.valueOf(view.getBeltTo().getSelected());
 
-        Pas[] values = Pas.values();
-        ArrayList<Pas> filteredValues = new ArrayList<Pas>();
-        for (Pas value : values) {
+        Belt[] values = Belt.values();
+        ArrayList<Belt> filteredValues = new ArrayList<Belt>();
+        for (Belt value : values) {
             if (value.getNr() >= beltFrom) {
                 filteredValues.add(value);
             }

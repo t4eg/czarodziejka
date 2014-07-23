@@ -1,7 +1,7 @@
 package gwt.czarodziejka.model.wyszukiwarka;
 
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Kategoria;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Okazja;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Category;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Occasion;
 
 /**
  *
@@ -21,8 +21,8 @@ public class Filters {
     private Integer heightTo;
     private Integer beltFrom;
     private Integer beltTo;
-    private Okazja[] okazja;
-    private Kategoria[] kategoria;
+    private Occasion[] okazja;
+    private Category[] kategoria;
 
     public Integer getNumer() {
         return numer;
@@ -40,19 +40,19 @@ public class Filters {
         this.nazwa = nazwa.trim();
     }
 
-    public Okazja[] getOkazja() {
+    public Occasion[] getOkazja() {
         return okazja;
     }
 
-    public void setOkazja(Okazja[] okazja) {
+    public void setOkazja(Occasion[] okazja) {
         this.okazja = okazja;
     }
 
-    public Kategoria[] getKategoria() {
+    public Category[] getKategoria() {
         return kategoria;
     }
 
-    public void setKategoria(Kategoria[] kategoria) {
+    public void setKategoria(Category[] kategoria) {
         this.kategoria = kategoria;
     }
 

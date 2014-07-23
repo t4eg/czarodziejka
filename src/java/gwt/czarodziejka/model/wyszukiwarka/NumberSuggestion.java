@@ -1,7 +1,7 @@
 package gwt.czarodziejka.model.wyszukiwarka;
 
 import com.google.gwt.user.client.ui.MultiWordSuggestOracle;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Costume;
 import java.util.ArrayList;
 
 /**
@@ -11,8 +11,8 @@ import java.util.ArrayList;
 public class NumberSuggestion extends MultiWordSuggestOracle {
 
     public NumberSuggestion() {
-        ArrayList<Strój> stroje = Database.getInstance().getStroje();
-        for (Strój stroj : stroje) {
+        ArrayList<Costume> stroje = Database.getInstance().getStroje();
+        for (Costume stroj : stroje) {
             super.add(Integer.toString(stroj.getNumer()));
         }
     }

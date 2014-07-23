@@ -5,9 +5,9 @@ import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
 import gwt.czarodziejka.model.wyszukiwarka.Database;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Pas;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Rozmiar;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Belt;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Costume;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Size;
 import java.util.ArrayList;
 
 /**
@@ -19,7 +19,7 @@ public class MainEntryPoint implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        final ArrayList<Strój> stroje = Database.getInstance().getStroje();
+        final ArrayList<Costume> stroje = Database.getInstance().getStroje();
 
         Timer t = new Timer() {
 
@@ -33,8 +33,8 @@ public class MainEntryPoint implements EntryPoint {
                 sb.append("Pas Od\t");
                 sb.append("Pas Do\t");
                 sb.append("Wiek\n");
-                for (Strój stroj : stroje) {
-                    for (Rozmiar rozm : stroj.getRozmiar()) {
+                for (Costume stroj : stroje) {
+                    for (Size rozm : stroj.getRozmiar()) {
                         sb.append(stroj.getNumer());
                         sb.append("\t");
                         sb.append(stroj.getNazwa());
@@ -43,9 +43,9 @@ public class MainEntryPoint implements EntryPoint {
                         sb.append("\t");
                         sb.append(rozm.getWzrostDo());
                         sb.append("\t");
-                        sb.append(Pas.getString(rozm.getPasOd()));
+                        sb.append(Belt.getString(rozm.getPasOd()));
                         sb.append("\t");
-                        sb.append(Pas.getString(rozm.getPasDo()));
+                        sb.append(Belt.getString(rozm.getPasDo()));
                         sb.append("\t");
                         sb.append(stroj.getWiek());
                         sb.append("\n");

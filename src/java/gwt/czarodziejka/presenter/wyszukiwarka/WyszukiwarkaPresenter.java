@@ -1,7 +1,7 @@
 package gwt.czarodziejka.presenter.wyszukiwarka;
 
 import gwt.czarodziejka.model.wyszukiwarka.WyszukiwarkaModel;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Pas;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Belt;
 import gwt.czarodziejka.view.wyszukiwarka.WyszukiwarkaView;
 
 /**
@@ -69,6 +69,6 @@ public class WyszukiwarkaPresenter {
         }
 
         WyszukiwarkaModel.getInstance().setHeightTo(Integer.valueOf(view.getHeightFrom().getSelected()));
-        WyszukiwarkaModel.getInstance().setBeltTo(Pas.getNr(view.getBeltFrom().getSelected()));
+        WyszukiwarkaModel.getInstance().setBeltTo(Belt.getNr(view.getBeltFrom().getSelected()));
     }
 }

@@ -1,32 +1,32 @@
-package gwt.czarodziejka.model.wyszukiwarka.stroj;
+package gwt.czarodziejka.model.wyszukiwarka.costume;
 
 /**
  *
  * @author Administrator
  */
-public class Strój {
+public class Costume {
 
     private Integer numer;
     private String nazwa;
-    private Płeć płeć;
-    private Wiek wiek;
-    private Zdjęcie[] zdjęcie;
-    private Okazja[] okazja;
-    private Kategoria[] kategoria;
-    private Rozmiar[] rozmiar;
+    private Sex płeć;
+    private Age wiek;
+    private Photo[] zdjęcie;
+    private Occasion[] okazja;
+    private Category[] kategoria;
+    private Size[] rozmiar;
     private String order;
     private boolean dlugaNazwa;
     private boolean dlaPary;
     private int grupaPary;
 
-    public Strój(Integer numer) {
+    public Costume(Integer numer) {
         this.numer = numer;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof Strój) {
-            Strój strojObj = (Strój) obj;
+        if (obj instanceof Costume) {
+            Costume strojObj = (Costume) obj;
             return numer.equals(strojObj.numer);
         }
         return super.equals(obj);
@@ -44,7 +44,7 @@ public class Strój {
         return numer + " " + nazwa;
     }
 
-    public Strój setDlugaNazwa() {
+    public Costume setDlugaNazwa() {
         dlugaNazwa = true;
         return this;
     }
@@ -57,70 +57,70 @@ public class Strój {
         return nazwa;
     }
 
-    public Strój setNazwa(String nazwa) {
+    public Costume setNazwa(String nazwa) {
         this.order = OrderGenerator.getOrder(nazwa);
         this.nazwa = uppercaseFirstLetters(nazwa);
         return this;
     }
 
-    public Płeć getPłeć() {
+    public Sex getPłeć() {
         return płeć;
     }
 
-    public Strój setPłeć(Płeć płeć) {
+    public Costume setPłeć(Sex płeć) {
         this.płeć = płeć;
         return this;
     }
 
-    public Wiek getWiek() {
+    public Age getWiek() {
         return wiek;
     }
 
-    public Strój setWiek(Wiek wiek) {
+    public Costume setWiek(Age wiek) {
         this.wiek = wiek;
         return this;
     }
 
-    public Zdjęcie[] getZdjęcie() {
+    public Photo[] getZdjęcie() {
         return zdjęcie;
     }
 
-    public Strój setZdjęcie(Integer... zdjęcia) {
-        this.zdjęcie = new Zdjęcie[zdjęcia.length];
+    public Costume setZdjęcie(Integer... zdjęcia) {
+        this.zdjęcie = new Photo[zdjęcia.length];
         for (int i = 0; i < zdjęcia.length; i++) {
-            this.zdjęcie[i] = new Zdjęcie(zdjęcia[i], Boolean.FALSE);
+            this.zdjęcie[i] = new Photo(zdjęcia[i], Boolean.FALSE);
         }
         return this;
     }
 
-    public Strój setZdjęcie(Zdjęcie... zdjęcia) {
+    public Costume setZdjęcie(Photo... zdjęcia) {
         this.zdjęcie = zdjęcia;
         return this;
     }
 
-    public Okazja[] getOkazja() {
+    public Occasion[] getOkazja() {
         return okazja;
     }
 
-    public Strój setOkazja(Okazja... okazja) {
+    public Costume setOkazja(Occasion... okazja) {
         this.okazja = okazja;
         return this;
     }
 
-    public Kategoria[] getKategoria() {
+    public Category[] getKategoria() {
         return kategoria;
     }
 
-    public Strój setKategoria(Kategoria... kategoria) {
+    public Costume setKategoria(Category... kategoria) {
         this.kategoria = kategoria;
         return this;
     }
 
-    public Rozmiar[] getRozmiar() {
+    public Size[] getRozmiar() {
         return rozmiar;
     }
 
-    public Strój setRozmiar(Rozmiar... rozmiar) {
+    public Costume setRozmiar(Size... rozmiar) {
         this.rozmiar = rozmiar;
         return this;
     }
@@ -153,7 +153,7 @@ public class Strój {
         return dlaPary;
     }
 
-    public Strój setDlaPary(int grupaPary) {
+    public Costume setDlaPary(int grupaPary) {
         this.grupaPary = grupaPary;
         this.dlaPary = true;
         return this;

@@ -116,7 +116,7 @@ public class CalendarModel {
                 default:
                     return new Time[]{new Time(10, 00), new Time(20, 00)};
             }
-        } else if (isLipiecSierpien(date)) {
+        } else if (isLipiec(date)) {
             switch (getWeekDay(date)) {
                 case Sat:
                 case Sun:
@@ -130,6 +130,8 @@ public class CalendarModel {
                 default:
                     return new Time[]{new Time(7, 00), new Time(15, 00)};
             }
+        }else if (isSierpien(date)){
+            return null;
         } else {
             switch (getWeekDay(date)) {
                 case Sat:
@@ -142,9 +144,13 @@ public class CalendarModel {
         }
     }
 
-    private static boolean isLipiecSierpien(Date date) {
+    private static boolean isLipiec(Date date) {
         String month = monthFormat.format(date);
-        return month.equals("07") || month.equals("08");
+        return month.equals("07");
+    }
+    private static boolean isSierpien(Date date) {
+        String month = monthFormat.format(date);
+        return month.equals("08");
     }
 
     private WeekDay getWeekDay(Date date) {

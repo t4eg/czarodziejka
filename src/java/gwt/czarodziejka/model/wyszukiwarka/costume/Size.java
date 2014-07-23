@@ -1,45 +1,45 @@
-package gwt.czarodziejka.model.wyszukiwarka.stroj;
+package gwt.czarodziejka.model.wyszukiwarka.costume;
 
 /**
  *
  * @author Administrator
  */
-public class Rozmiar {
+public class Size {
 
     private int wzrostOd;
     private int wzrostDo;
     private int pasOd;
     private int pasDo;
 
-    public Rozmiar(Wzrost wzrost) {
+    public Size(Height wzrost) {
         storeWzrost(wzrost, wzrost);
     }
 
-    public Rozmiar(Wzrost wzrostOd, Wzrost wzrostDo) {
+    public Size(Height wzrostOd, Height wzrostDo) {
         storeWzrost(wzrostOd, wzrostDo);
     }
 
-    public Rozmiar(Wzrost wzrost, Pas pas) {
+    public Size(Height wzrost, Belt pas) {
         storeWzrost(wzrost, wzrost);
         storePas(pas, pas);
     }
 
-    public Rozmiar(Wzrost wzrostOd, Wzrost wzrostDo, Pas pas) {
+    public Size(Height wzrostOd, Height wzrostDo, Belt pas) {
         storeWzrost(wzrostOd, wzrostDo);
         storePas(pas, pas);
     }
 
-    public Rozmiar(Wzrost wzrost, Pas pasOd, Pas pasDo) {
+    public Size(Height wzrost, Belt pasOd, Belt pasDo) {
         storeWzrost(wzrost, wzrost);
         storePas(pasOd, pasDo);
     }
 
-    public Rozmiar(Wzrost wzrostOd, Wzrost wzrostDo, Pas pasOd, Pas pasDo) {
+    public Size(Height wzrostOd, Height wzrostDo, Belt pasOd, Belt pasDo) {
         storeWzrost(wzrostOd, wzrostDo);
         storePas(pasOd, pasDo);
     }
 
-    private void storeWzrost(Wzrost from, Wzrost to) {
+    private void storeWzrost(Height from, Height to) {
         this.wzrostOd = from.getHeight();
         this.wzrostDo = to.getHeight();
         if (from.getHeight() > to.getHeight()) {
@@ -47,7 +47,7 @@ public class Rozmiar {
         }
     }
 
-    private void storePas(Pas from, Pas to) {
+    private void storePas(Belt from, Belt to) {
         this.pasOd = from.getNr();
         this.pasDo = to.getNr();
         if (from.getNr() > to.getNr()) {

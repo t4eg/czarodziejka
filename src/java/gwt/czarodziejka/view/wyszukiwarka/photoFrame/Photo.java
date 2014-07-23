@@ -1,10 +1,9 @@
 package gwt.czarodziejka.view.wyszukiwarka.photoFrame;
 
 import com.google.gwt.user.client.ui.Image;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Płeć;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Wiek;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Zdjęcie;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Sex;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Costume;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Age;
 import gwt.czarodziejka.presenter.wyszukiwarka.photoFrame.PhotoClickHandler;
 
 /**
@@ -13,7 +12,7 @@ import gwt.czarodziejka.presenter.wyszukiwarka.photoFrame.PhotoClickHandler;
  */
 class Photo extends Image {
 
-    public Photo(Strój strój) {
+    public Photo(Costume strój) {
         super.setStylePrimaryName("photoPhoto");
         super.setUrl(getPhotoUrl(strój));
         super.setPixelSize(133, 200);
@@ -21,18 +20,18 @@ class Photo extends Image {
         addClickHandler(new PhotoClickHandler(strój));
     }
 
-    private String getPhotoUrl(Strój strój) {
-        Zdjęcie[] zdjecia = strój.getZdjęcie();
+    private String getPhotoUrl(Costume strój) {
+        gwt.czarodziejka.model.wyszukiwarka.costume.Photo[] zdjecia = strój.getZdjęcie();
         if (zdjecia == null || zdjecia.length == 0) {
-            if (strój.getPłeć() == Płeć.DAMSKI && strój.getWiek() == Wiek.DOROSŁY) {
+            if (strój.getPłeć() == Sex.DAMSKI && strój.getWiek() == Age.DOROSŁY) {
                 return "img/noPhotoWoman.png";
-            } else if (strój.getPłeć() == Płeć.DAMSKI && strój.getWiek() == Wiek.DZIECKO) {
+            } else if (strój.getPłeć() == Sex.DAMSKI && strój.getWiek() == Age.DZIECKO) {
                 return "img/noPhotoGirl.png";
-            } else if (strój.getPłeć() == Płeć.MĘSKI && strój.getWiek() == Wiek.DOROSŁY) {
+            } else if (strój.getPłeć() == Sex.MĘSKI && strój.getWiek() == Age.DOROSŁY) {
                 return "img/noPhotoMan.png";
-            } else if (strój.getPłeć() == Płeć.MĘSKI && strój.getWiek() == Wiek.DZIECKO) {
+            } else if (strój.getPłeć() == Sex.MĘSKI && strój.getWiek() == Age.DZIECKO) {
                 return "img/noPhotoBoy.png";
-            } else if (strój.getPłeć() == Płeć.DAMSKI) {
+            } else if (strój.getPłeć() == Sex.DAMSKI) {
                 return "img/noPhotoWoman.png";
             } else { // męski
                 return "img/noPhotoMan.png";

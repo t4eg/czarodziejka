@@ -2,7 +2,7 @@ package gwt.czarodziejka.model.wyszukiwarka;
 
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextArea;
-import gwt.czarodziejka.model.wyszukiwarka.stroj.Strój;
+import gwt.czarodziejka.model.wyszukiwarka.costume.Costume;
 import java.util.ArrayList;
 
 /**
@@ -13,11 +13,11 @@ public class PrintDataForAsia {
 
     private StringBuilder sb = new StringBuilder();
 
-    public void print(ArrayList<Strój> stroje) {
+    public void print(ArrayList<Costume> stroje) {
 
         add(null);
 
-        for (Strój stroj : stroje) {
+        for (Costume stroj : stroje) {
             add(stroj.getNumer());
             add(stroj.getNazwa());
             add(stroj.getPłeć());
