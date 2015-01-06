@@ -29,14 +29,10 @@ public class CalendarModel {
     }
 
     private CalendarModel() {
-        specialDays.put("2014.06.19", null);
-        specialDays.put("2014.06.20", null);
-        specialDays.put("2014.06.21", null);
-        specialDays.put("2014.08.15", null);
-        specialDays.put("2014.11.01", null);
+        specialDays.put("2014.12.24", null);
         specialDays.put("2014.12.25", null);
         specialDays.put("2014.12.26", null);
-        specialDays.put("2014.12.31", new Time[]{new Time(10, 00), new Time(15, 00)});
+        specialDays.put("2014.12.31", new Time[]{new Time(10, 00), new Time(16, 00)});
 
         specialDays.put("2015.01.01", null);
         specialDays.put("2015.01.06", null);
@@ -130,7 +126,16 @@ public class CalendarModel {
                 default:
                     return new Time[]{new Time(7, 00), new Time(15, 00)};
             }
-        }else if (isSierpien(date)){
+        } else if (isGrudzien(date)) {
+            switch (getWeekDay(date)) {
+                case Sat:
+                    return new Time[]{new Time(10, 00), new Time(15, 00)};
+                case Sun:
+                    return null;
+                default:
+                    return new Time[]{new Time(10, 00), new Time(20, 00)};
+            }
+        } else if (isSierpien(date)) {
             return null;
         } else {
             switch (getWeekDay(date)) {
@@ -148,9 +153,15 @@ public class CalendarModel {
         String month = monthFormat.format(date);
         return month.equals("07");
     }
+
     private static boolean isSierpien(Date date) {
         String month = monthFormat.format(date);
         return month.equals("08");
+    }
+
+    private static boolean isGrudzien(Date date) {
+        String month = monthFormat.format(date);
+        return month.equals("12");
     }
 
     private WeekDay getWeekDay(Date date) {
@@ -158,7 +169,7 @@ public class CalendarModel {
     }
 
     private boolean isCarnival(Date date) {
-        return isBetween(date, "2014.12.25", "2015.02.17");
+        return isBetween(date, "2014.12.25", "2015.02.21");
     }
 
     private boolean isBetween(Date date, String from, String to) {
