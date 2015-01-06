@@ -56,6 +56,6 @@ public class MainEntryPoint implements EntryPoint {
                 RootPanel.get().add(new HTML(sb.toString()));
             }
         };
-        t.schedule(100);
+        t.schedule(5000);
     }
 }

@@ -56,19 +56,19 @@ public class DodajStrojModel {
         StringBuilder sb = new StringBuilder(MainEntryPoint.getJavaCode().getValue());
 
         sb.append("dodaj(");
-        sb.append("new Strój(").append(view.getNumber().getValue()).append(")");
+        sb.append("new Costume(").append(view.getNumber().getValue()).append(")");
         String photoNumbers = view.getAddImages().getPhotoNumbers();
         if (!photoNumbers.isEmpty()) {
             sb.append(".setZdjęcie(").append(photoNumbers).append(")");
         }
         sb.append(".setNazwa(\"").append(view.getName().getValue().trim()).append("\")");
-        sb.append(".setWiek(Wiek.").append(getWiek()).append(")");
-        sb.append(".setPłeć(Płeć.").append(getPlec()).append(")");
+        sb.append(".setWiek(Age.").append(getWiek()).append(")");
+        sb.append(".setPłeć(Sex.").append(getPlec()).append(")");
         if (view.getForPair().getValue()) {
             sb.append(".setDlaPary()");
         }
-        sb.append(".setOkazja(").append(getFromArray("Okazja.", view.getOcasion().getSelected())).append(")");
-        sb.append(".setKategoria(").append(getFromArray("Kategoria.", view.getCategory().getSelected())).append(")");
+        sb.append(".setOkazja(").append(getFromArray("Occasion.", view.getOcasion().getSelected())).append(")");
+        sb.append(".setKategoria(").append(getFromArray("Category.", view.getCategory().getSelected())).append(")");
         sb.append(".setRozmiar(\n").append(view.getAddRozmiary().getRozmiary()).append(")");
         sb.append(");\n\n");
 

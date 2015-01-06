@@ -13,7 +13,7 @@ public class ClothCountInfo extends HTML {
     }
 
     public void setInfo(int strojeCount) {
-        super.setText("Do wyszukiwarki dodanych mamy " + getStrojeCountText(strojeCount) + " spośród około 1200 modeli dostępnych w wypożyczalni. "
+        super.setText("Do wyszukiwarki dodanych mamy " + getStrojeCountText(strojeCount) + " spośród około 1300 modeli dostępnych w wypożyczalni. "
                 + "Jeśli nie możecie Państwo znaleść odpowiedniego stroju prosimy o kontakt.");
     }
 

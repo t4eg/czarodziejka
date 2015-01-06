@@ -2048,7 +2048,6 @@ public class Database {
                 new Size(Height.cm_128, Height.cm_134)));
 
         dodaj(new Costume(558).setZdjęcie(951).setNazwa("zombie").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
-                new Size(Height.cm_104, Height.cm_110),
                 new Size(Height.cm_116, Height.cm_122),
                 new Size(Height.cm_128, Height.cm_134)));
 
@@ -2871,7 +2870,7 @@ public class Database {
                 new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M),
                 new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
 
-        dodaj(new Costume(786).setZdjęcie(1304).setNazwa("pink baby").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+        dodaj(new Costume(786).setZdjęcie(1304).setNazwa("pink babe").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
                 new Size(Height.cm_170, Belt.S, Belt.M)));
 
         dodaj(new Costume(787).setZdjęcie(1306).setNazwa("pasterka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(55).setOkazja(Occasion.Jasełka, Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
@@ -3480,6 +3479,18 @@ public class Database {
                 new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M),
                 new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L),
                 new Size(Height.cm_170, Height.cm_176, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(855).setZdjęcie(1440).setNazwa("Cyganka").setWiek(Age.DOROSŁY).setDlaPary(19).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(856).setZdjęcie(1441).setNazwa("Czerwona Królowa").setDlugaNazwa().setWiek(Age.DOROSŁY).setDlaPary(22).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(857).setZdjęcie(1442).setNazwa("Kleopatra").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(65).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(858).setZdjęcie(1443).setNazwa("Czerwony Kapturek").setDlugaNazwa().setWiek(Age.DOROSŁY).setDlaPary(18).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XL, Belt.XXL)));
 
     }
 
