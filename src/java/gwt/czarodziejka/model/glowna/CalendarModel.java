@@ -29,24 +29,14 @@ public class CalendarModel {
     }
 
     private CalendarModel() {
-        specialDays.put("2014.12.24", null);
-        specialDays.put("2014.12.25", null);
-        specialDays.put("2014.12.26", null);
-        specialDays.put("2014.12.31", new Time[]{new Time(10, 00), new Time(16, 00)});
-
-        specialDays.put("2015.01.01", null);
-        specialDays.put("2015.01.06", null);
-        specialDays.put("2015.04.06", null);
-        specialDays.put("2015.05.01", null);
-        specialDays.put("2015.05.02", null);
-        specialDays.put("2015.05.03", null);
         specialDays.put("2015.06.04", null);
         specialDays.put("2015.08.15", null);
+        specialDays.put("2015.08.31", new Time[]{new Time(10), new Time(19)});
         specialDays.put("2015.11.01", null);
         specialDays.put("2015.11.11", null);
         specialDays.put("2015.12.25", null);
         specialDays.put("2015.12.26", null);
-        specialDays.put("2015.12.31", new Time[]{new Time(10, 00), new Time(15, 00)});
+        specialDays.put("2015.12.31", new Time[]{new Time(10), new Time(15)});
     }
 
     public void setData(Calendar tabela) {
@@ -108,9 +98,9 @@ public class CalendarModel {
             switch (getWeekDay(date)) {
                 case Sat:
                 case Sun:
-                    return new Time[]{new Time(10, 00), new Time(15, 00)};
+                    return new Time[]{new Time(10), new Time(15)};
                 default:
-                    return new Time[]{new Time(10, 00), new Time(20, 00)};
+                    return new Time[]{new Time(10), new Time(20)};
             }
         } else if (isLipiec(date)) {
             switch (getWeekDay(date)) {
@@ -118,33 +108,32 @@ public class CalendarModel {
                 case Sun:
                     return null;
                 case Mon:
-                case Wed:
-                case Fri:
-                    return new Time[]{new Time(10, 00), new Time(18, 00)};
                 case Tue:
+                case Wed:
                 case Thu:
+                case Fri:
                 default:
-                    return new Time[]{new Time(7, 00), new Time(15, 00)};
+                    return new Time[]{new Time(10), new Time(18)};
             }
         } else if (isGrudzien(date)) {
             switch (getWeekDay(date)) {
                 case Sat:
-                    return new Time[]{new Time(10, 00), new Time(15, 00)};
+                    return new Time[]{new Time(10), new Time(15)};
                 case Sun:
                     return null;
                 default:
-                    return new Time[]{new Time(10, 00), new Time(20, 00)};
+                    return new Time[]{new Time(10), new Time(20)};
             }
         } else if (isSierpien(date)) {
             return null;
         } else {
             switch (getWeekDay(date)) {
                 case Sat:
-                    return new Time[]{new Time(10, 00), new Time(15, 00)};
+                    return new Time[]{new Time(10), new Time(15)};
                 case Sun:
                     return null;
                 default:
-                    return new Time[]{new Time(10, 00), new Time(19, 00)};
+                    return new Time[]{new Time(10), new Time(19)};
             }
         }
     }
@@ -169,7 +158,7 @@ public class CalendarModel {
     }
 
     private boolean isCarnival(Date date) {
-        return isBetween(date, "2014.12.25", "2015.02.21");
+        return isBetween(date, "2015.12.25", "2016.02.12");
     }
 
     private boolean isBetween(Date date, String from, String to) {
