@@ -1,9 +1,10 @@
-package gwt.czarodziejka.view.glowna;
+package gwt.czarodziejka.components.calendar.v;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import gwt.czarodziejka.model.glowna.CalendarModel;
+import gwt.czarodziejka.components.calendar.m.CalendarModel;
+import gwt.czarodziejka.components.calendar.m.DateUtils;
 import gwt.czarodziejka.model.glowna.Time;
 import java.util.Date;
 
@@ -13,9 +14,11 @@ import java.util.Date;
  */
 public class CalendarCell extends VerticalPanel {
 
-    private DateTimeFormat dayOfMonthFormat = DateTimeFormat.getFormat("dd");
+    private final DateTimeFormat dayOfMonthFormat = DateTimeFormat.getFormat("dd");
+    private final CalendarModel calendarModel;
 
-    public CalendarCell(Date day) {
+    public CalendarCell(CalendarModel calendarModel, Date day) {
+        this.calendarModel = calendarModel;
         super.setStylePrimaryName(getCellStyle(day));
         addDay(day);
         addTime(day);
@@ -23,11 +26,11 @@ public class CalendarCell extends VerticalPanel {
 
     private String getCellStyle(Date day) {
         Date now = new Date();
-        if (CalendarModel.getInstance().isDayEqual(now, day)) {
+        if (DateUtils.isDayEqual(now, day)) {
             return "CalendarToday";
         } else if (day.before(now)) {
             return "CalendarBefore";
-        } else if (CalendarModel.getInstance().isWeekend(day)) {
+        } else if (DateUtils.isWeekend(day)) {
             return "CalendarWeekend";
         } else {
             return "CalendarAfter";
@@ -41,7 +44,7 @@ public class CalendarCell extends VerticalPanel {
     }
 
     private void addTime(Date day) {
-        Time[] opened = CalendarModel.getInstance().getOpenedTimeFor(day);
+        Time[] opened = calendarModel.getOpenedTimeFor(day);
         String timeContent;
         if (opened == null) {
             timeContent = "nieczynne";
