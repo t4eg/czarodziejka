@@ -6,7 +6,10 @@ import gwt.czarodziejka.model.wyszukiwarka.costume.Size;
 import gwt.czarodziejka.model.wyszukiwarka.costume.Costume;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
+import java.util.Map.Entry;
 
 /**
  *
@@ -36,9 +39,33 @@ public class DatabaseTest {
         testCzyNieJedynaKategoriaInne(stroje);
         testCzyNieJedynaOkazjaInne(stroje);
         testCzyNazwaSieTrimuje(stroje);
+        testCzyNazwaSieTrimuje(stroje);
+        testCzyDlaParyMaPare(stroje);
 
         String rap = raport.toString();
         rap = null;
+    }
+
+    private void testCzyDlaParyMaPare(ArrayList<Costume> stroje) {
+        raport.append("======start testDlaParyMaPare\n");
+        Map<Integer, Integer> nrCount = new HashMap<>();
+        for (Costume stroj : stroje) {
+            int nr = stroj.getGrupaPary();
+            if (nrCount.containsKey(nr)) {
+                nrCount.put(nr, nrCount.get(nr) + 1);
+            } else {
+                nrCount.put(nr, 1);
+            }
+        }
+        for (Entry<Integer, Integer> row : nrCount.entrySet()) {
+            if (row.getValue() == 1) {
+                raport.append("Para ");
+                raport.append(row.getKey());
+                raport.append(" ma tylko jeden element! Trzeba usunąć parę");
+                raport.append("\n");
+            }
+        }
+        raport.append("======stop testDlaParyMaPare\n");
     }
 
     private void testNiewykorzystanyNrStroju(ArrayList<Costume> stroje) {
