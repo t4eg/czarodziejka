@@ -1,6 +1,5 @@
 package gwt.czarodziejka.components.calendar.m;
 
-import com.google.gwt.i18n.client.DateTimeFormat;
 import gwt.czarodziejka.components.calendar.v.MonthView;
 import gwt.czarodziejka.model.glowna.Time;
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ import com.google.gwt.user.datepicker.client.CalendarUtil;
 public class CalendarModel {
 
     private final List<MonthView> months;
-    private final Date today = new Date();
+    public final Date today = new Date();
     public static final Map<String, Time[]> specialDays = new HashMap<>();
 
     static {
@@ -26,22 +25,37 @@ public class CalendarModel {
         specialDays.put("2015.08.31", new Time[]{new Time(10), new Time(19)});
         specialDays.put("2015.11.01", null);
         specialDays.put("2015.11.11", null);
+        specialDays.put("2015.12.24", null);
         specialDays.put("2015.12.25", null);
         specialDays.put("2015.12.26", null);
-        specialDays.put("2015.12.31", new Time[]{new Time(10), new Time(15)});
+        specialDays.put("2015.12.31", new Time[]{new Time(10), new Time(16)});
+
+        specialDays.put("2016.01.01", null);
+        specialDays.put("2016.01.06", null);
+        specialDays.put("2016.03.27", null);
+        specialDays.put("2016.05.01", null);
+        specialDays.put("2016.05.03", null);
+        specialDays.put("2016.05.15", null);
+        specialDays.put("2016.05.26", null);
+        specialDays.put("2016.08.15", null);
+        specialDays.put("2016.11.01", null);
+        specialDays.put("2016.11.11", null);
+        specialDays.put("2016.12.24", null);
+        specialDays.put("2016.12.25", null);
+        specialDays.put("2016.12.26", null);
+        specialDays.put("2016.12.31", new Time[]{new Time(10), new Time(16)});
     }
 
     public CalendarModel() {
         int monthsToShow = 2;
-        months = new ArrayList<>(1);
+        months = new ArrayList<>(monthsToShow);
 
+        Date loopDate = CalendarUtil.copyDate(today);
         for (int i = 0; i < monthsToShow; i++) {
-            months.add(new MonthView(this, CalendarUtil.copyDate(today)));
-            CalendarUtil.addMonthsToDate(today, 1);
+            months.add(new MonthView(this, CalendarUtil.copyDate(loopDate)));
+            DateUtils.addMonths(loopDate, 1);
         }
     }
-
-    DateTimeFormat dayInMonthPattern = DateTimeFormat.getFormat("d");
 
     public Time[] getOpenedTimeFor(Date date) {
         String dateStr = DateUtils.dateFormat.format(date);

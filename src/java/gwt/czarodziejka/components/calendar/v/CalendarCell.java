@@ -3,6 +3,7 @@ package gwt.czarodziejka.components.calendar.v;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.datepicker.client.CalendarUtil;
 import gwt.czarodziejka.components.calendar.m.CalendarModel;
 import gwt.czarodziejka.components.calendar.m.DateUtils;
 import gwt.czarodziejka.model.glowna.Time;
@@ -25,7 +26,7 @@ public class CalendarCell extends VerticalPanel {
     }
 
     private String getCellStyle(Date day) {
-        Date now = new Date();
+        Date now = CalendarUtil.copyDate(calendarModel.today);
         if (DateUtils.isDayEqual(now, day)) {
             return "CalendarToday";
         } else if (day.before(now)) {

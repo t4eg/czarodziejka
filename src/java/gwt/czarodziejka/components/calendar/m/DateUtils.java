@@ -6,6 +6,7 @@
 package gwt.czarodziejka.components.calendar.m;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.user.datepicker.client.CalendarUtil;
 import gwt.czarodziejka.model.glowna.WeekDay;
 import java.util.Date;
 
@@ -61,5 +62,10 @@ public class DateUtils {
             default:
                 return false;
         }
+    }
+
+    public static void addMonths(Date date, int count) {
+        CalendarUtil.setToFirstDayOfMonth(date);
+        CalendarUtil.addMonthsToDate(date, count);
     }
 }

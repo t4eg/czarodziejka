@@ -31,8 +31,6 @@ public class MonthModel {
     }
 
     public void setData(Date month) {
-        CalendarUtil.resetTime(month);
-
         v.getGrid().clear();
         v.getGrid().resize(5, 7); //5 -> at least 4 weeks
         v.addHeader();
@@ -53,7 +51,7 @@ public class MonthModel {
             thisDay++;
         }
 
-        Date workDay = new Date();
+        Date workDay = CalendarUtil.copyDate(calendarModel.today);
         CalendarUtil.addDaysToDate(workDay, -getDayOfWeek(new Date()));
         for (int week = 0; week < weeksToShow; week++) {
             for (int day = 0; day < 7; day++) {
