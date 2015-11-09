@@ -1,0 +1,84 @@
+package pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.photosTable;
+
+import com.google.gwt.user.client.ui.Grid;
+import pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.costume.Costume;
+import pl.com.czarodziejka.czarodziejka.client.view.wyszukiwarka.photoFrame.Frame;
+import pl.com.czarodziejka.czarodziejka.client.view.wyszukiwarka.photosTable.PhotosTable;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author Administrator
+ */
+public class PhotosTableModel {
+
+    private final PhotosTable view;
+    private final int zdjecNaWiersz = 4;
+    private int zdjecNaStrone;
+    private ArrayList<List<Costume>> pages;
+    private ArrayList<Costume> found;
+    private int pageCurrentlyShown;
+    private final boolean showForWho;
+
+    public PhotosTableModel(PhotosTable view, boolean showForWho) {
+        this.view = view;
+        this.showForWho = showForWho;
+    }
+
+    public void setStrojToTable(ArrayList<Costume> found) {
+        this.found = found;
+        refreshPages();
+    }
+
+    public void refreshPages() {
+        zdjecNaStrone = Integer.parseInt(view.getPhotosPerPage().getNumber().getSelected());
+        splitBetweenPages(found);
+        view.createView(pages.size());
+        showPage(0);
+    }
+
+    private void splitBetweenPages(ArrayList<Costume> found) {
+        int pagesNumber = (int) Math.ceil(found.size() / (double) zdjecNaStrone);
+        pages = new ArrayList<List<Costume>>(pagesNumber);
+        for (int i = 0; i < pagesNumber; i++) {
+            int from = i * zdjecNaStrone;
+            int to = (i + 1) * zdjecNaStrone;
+            if (to > found.size()) {
+                to = found.size();
+            }
+            List<Costume> page = found.subList(from, to);
+            pages.add(page);
+        }
+    }
+
+    public void showNext() {
+        showPage(pageCurrentlyShown + 1);
+    }
+
+    public void showPrevious() {
+        showPage(pageCurrentlyShown - 1);
+    }
+
+    public void showPage(int number) {
+        if (number < 0 || number > pages.size() - 1) {
+            return;
+        }
+        List<Costume> page = pages.get(number);
+
+        Grid tabela = view.getGrid();
+        tabela.clear();
+        tabela.resize((int) Math.ceil(page.size() / (double) zdjecNaWiersz), zdjecNaWiersz);
+
+        for (int i = 0; i < page.size(); i++) {
+            int col = i % zdjecNaWiersz;
+            int row = (int) Math.floor(i / (double) zdjecNaWiersz);
+            tabela.setWidget(row, col, new Frame(page.get(i), showForWho));
+        }
+        this.pageCurrentlyShown = number;
+        view.getTopPaginator().setShownPage(number);
+        view.getTopPaginator().getPresenter().refreshComponents(number, pages.size() - 1);
+        view.getBottomPaginator().setShownPage(number);
+        view.getBottomPaginator().getPresenter().refreshComponents(number, pages.size() - 1);
+    }
+}
