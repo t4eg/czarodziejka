@@ -11,7 +11,9 @@ public enum Belt {
     M(2),
     L(3),
     XL(4),
-    XXL(5);
+    XXL(5),
+    XXXL(6),
+    XXXXL(7);
     private int nr;
 
     Belt(int nr) {

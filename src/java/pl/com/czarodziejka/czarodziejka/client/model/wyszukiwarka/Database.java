@@ -1846,7 +1846,7 @@ public class Database {
         dodaj(new Costume(544).setZdjęcie(935).setNazwa("Albus Dumbledore").setDlugaNazwa().setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
                 new Size(Height.cm_134)));
 
-        dodaj(new Costume(545).setZdjęcie(936).setNazwa("bawarka").setDlaPary(41).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+        dodaj(new Costume(545).setZdjęcie(936).setNazwa("Bawarka").setDlaPary(41).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
                 new Size(Height.cm_164, Height.cm_170, Belt.XS),
                 new Size(Height.cm_164, Height.cm_170, Belt.L)));
 
@@ -3280,6 +3280,44 @@ public class Database {
         dodaj(new Costume(858).setZdjęcie(1443).setNazwa("Czerwony Kapturek").setDlugaNazwa().setWiek(Age.DOROSŁY).setDlaPary(18).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
                 new Size(Height.cm_164, Height.cm_176, Belt.XL, Belt.XXL)));
 
+        dodaj(new Costume(859).setZdjęcie(1444).setNazwa("Spartanka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Sexy).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S)));
+
+        dodaj(new Costume(860).setZdjęcie(1445).setNazwa("Bawarka").setDlaPary(41).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S),
+                new Size(Height.cm_164, Height.cm_176, Belt.M),
+                new Size(Height.cm_164, Height.cm_176, Belt.L)));
+        
+        dodaj(new Costume(861).setZdjęcie(1446).setNazwa("sukienka lata 20-te").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+        
+        dodaj(new Costume(862).setZdjęcie(1447).setNazwa("sukienka lata 20-te").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XXL),
+                new Size(Height.cm_164, Height.cm_170, Belt.XXXXL)));
+        
+        dodaj(new Costume(853).setZdjęcie(1448).setNazwa("Gotycki Czerwony Kapturek").setDlugaNazwa().setWiek(Age.DOROSŁY).setDlaPary(18).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L),
+                new Size(Height.cm_164, Height.cm_176, Belt.L, Belt.XL),
+                new Size(Height.cm_164, Height.cm_176, Belt.XXL, Belt.XXXL),
+                new Size(Height.cm_164, Height.cm_176, Belt.XXXL, Belt.XXXXL)));
+        
+        dodaj(new Costume(864).setZdjęcie(1449).setNazwa("sukienka lata 20-te").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+        
+        dodaj(new Costume(865).setZdjęcie(1450).setNazwa("Wampirzyca").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(9).setOkazja(Occasion.Halloween).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XXL, Belt.XXXL)));
+        
+        dodaj(new Costume(866).setZdjęcie(1451, 1452).setNazwa("Wojowniczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(39).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XXL),
+                new Size(Height.cm_164, Height.cm_176, Belt.XXXL)));
+        
+        dodaj(new Costume(867).setZdjęcie(1453).setNazwa("Wojowniczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(39).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S),
+                new Size(Height.cm_164, Height.cm_176, Belt.L)));
+        
+        dodaj(new Costume(868).setZdjęcie(1454).setNazwa("Pielęgniarka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XXL)));
     }
 
     private void dodaj(Costume s) {
