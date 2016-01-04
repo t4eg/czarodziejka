@@ -8,6 +8,7 @@ import pl.com.czarodziejka.admin.client.view.components.TitleVeritcalPanelError;
 import pl.com.czarodziejka.admin.client.view.image.AddImages;
 import pl.com.czarodziejka.admin.client.view.rozmiar.AddRozmiary;
 import java.util.Arrays;
+import pl.com.czarodziejka.czarodziejka.client.view.wyszukiwarka.components.SelectOne;
 
 /**
  *
@@ -23,7 +24,7 @@ public class DodajStrojView extends VerticalPanel {
     private CheckBox adult = new CheckBox("dorosłego");
     private CheckBox male = new CheckBox("męski");
     private CheckBox female = new CheckBox("damski");
-    private CheckBox forPair = new CheckBox("dla pary");
+    private SelectOne forPair = new SelectOne();
     private SelectManySimple ocasion = new SelectManySimple();
     private SelectManySimple category = new SelectManySimple();
     private Button save = new Button();
@@ -34,6 +35,7 @@ public class DodajStrojView extends VerticalPanel {
     private TitleVeritcalPanelError numberPanel = new TitleVeritcalPanelError("Numer", number);
     private TitleVeritcalPanelError namePanel = new TitleVeritcalPanelError("Nazwa", name);
     private TitleVeritcalPanelError okazjaPanel = new TitleVeritcalPanelError("Okazja", ocasion);
+    private TitleVeritcalPanelError dlaparyPanel = new TitleVeritcalPanelError("Dla pary", forPair);
     private TitleVeritcalPanelError kategoriaPanel = new TitleVeritcalPanelError("Kategoria", category);
     private TitleVeritcalPanelError wiekPanel = new TitleVeritcalPanelError("Dla", agePanel);
     private TitleVeritcalPanelError plecPanel = new TitleVeritcalPanelError("Strój", sexPanel);
@@ -125,6 +127,7 @@ public class DodajStrojView extends VerticalPanel {
         numberPanel.hideError();
         namePanel.hideError();
         okazjaPanel.hideError();
+        dlaparyPanel.hideError();
         kategoriaPanel.hideError();
         wiekPanel.hideError();
         plecPanel.hideError();
@@ -190,9 +193,7 @@ public class DodajStrojView extends VerticalPanel {
 
         VerticalPanel pairsPanel = new VerticalPanel();
         pairsPanel.setStylePrimaryName("row");
-        pairsPanel.add(new HTML("Pary:"));
-        pairsPanel.add(forPair);
-        forPair.setStylePrimaryName("selectManyCheckbox");
+        pairsPanel.add(dlaparyPanel);
         result.add(pairsPanel);
 
         return result;
@@ -230,7 +231,7 @@ public class DodajStrojView extends VerticalPanel {
         return female;
     }
 
-    public CheckBox getForPair() {
+    public SelectOne getForPair() {
         return forPair;
     }
 

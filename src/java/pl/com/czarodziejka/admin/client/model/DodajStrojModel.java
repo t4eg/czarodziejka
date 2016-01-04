@@ -1,5 +1,6 @@
 package pl.com.czarodziejka.admin.client.model;
 
+import java.util.Map;
 import pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.costume.Category;
 import pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.costume.Occasion;
 import pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.costume.Sex;
@@ -8,6 +9,7 @@ import pl.com.czarodziejka.admin.client.MainEntryPoint;
 import pl.com.czarodziejka.admin.client.presenter.DodajStrojPresenter;
 import pl.com.czarodziejka.admin.client.view.DodajStrojView;
 import pl.com.czarodziejka.admin.client.view.components.SelectManySimple;
+import pl.com.czarodziejka.czarodziejka.client.view.wyszukiwarka.components.SelectOne;
 
 /**
  *
@@ -33,7 +35,7 @@ public class DodajStrojModel {
         view.getFemale().setValue(false);
         view.getMale().setValue(false);
         view.getOcasion().clear();
-        view.getForPair().setValue(false);
+        view.getForPair().clear();
         view.getCategory().clear();
         view.getAddRozmiary().reset();
     }
@@ -42,6 +44,13 @@ public class DodajStrojModel {
         view.getNumber().setValue(strojNumber == null ? null : (++strojNumber).toString());
         setValues(view.getCategory(), Category.values());
         setValues(view.getOcasion(), Occasion.values());
+        setValues(view.getForPair(), ParyList.map);
+    }
+
+    private void setValues(SelectOne box, Map<Integer, String> data) {
+        for (Map.Entry<Integer, String> entry : data.entrySet()) {
+            box.addItem(entry.getValue());
+        }
     }
 
     private void setValues(SelectManySimple box, Object[] values) {
@@ -64,8 +73,8 @@ public class DodajStrojModel {
         sb.append(".setNazwa(\"").append(view.getName().getValue().trim()).append("\")");
         sb.append(".setWiek(Age.").append(getWiek()).append(")");
         sb.append(".setPłeć(Sex.").append(getPlec()).append(")");
-        if (view.getForPair().getValue()) {
-            sb.append(".setDlaPary()");
+        if (!view.getForPair().getSelected().isEmpty()) {
+            sb.append(".setDlaPary(").append(ParyList.getIndex(view.getForPair().getSelected())).append(")");
         }
         sb.append(".setOkazja(").append(getFromArray("Occasion.", view.getOcasion().getSelected())).append(")");
         sb.append(".setKategoria(").append(getFromArray("Category.", view.getCategory().getSelected())).append(")");

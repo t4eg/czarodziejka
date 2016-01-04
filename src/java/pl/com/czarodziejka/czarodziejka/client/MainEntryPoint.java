@@ -15,8 +15,14 @@ public class MainEntryPoint implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        RootPanel.get("content").add(Content.getInstance());
-        RootPanel.get("menu").add(new Menu());
+        RootPanel contentPanel = RootPanel.get("content");
+        if (contentPanel != null) {
+            contentPanel.add(Content.getInstance());
+        }
+        RootPanel menuPanel = RootPanel.get("menu");
+        if (menuPanel != null) {
+            menuPanel.add(new Menu());
+        }
         Database.getInstance(); // wczytaj stroje
     }
 }
