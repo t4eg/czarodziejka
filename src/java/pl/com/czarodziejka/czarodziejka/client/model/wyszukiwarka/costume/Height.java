@@ -6,6 +6,7 @@ package pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.costume;
  */
 public enum Height {
 
+    cm_80(80),
     cm_86(86),
     cm_92(92),
     cm_98(98),
