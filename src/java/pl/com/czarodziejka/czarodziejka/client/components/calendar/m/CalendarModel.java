@@ -20,19 +20,9 @@ public class CalendarModel {
     public static final Map<String, Time[]> specialDays = new HashMap<>();
 
     static {
-        specialDays.put("2015.06.04", null);
-        specialDays.put("2015.08.15", null);
-        specialDays.put("2015.08.31", new Time[]{new Time(10), new Time(19)});
-        specialDays.put("2015.11.01", null);
-        specialDays.put("2015.11.11", null);
-        specialDays.put("2015.12.24", null);
-        specialDays.put("2015.12.25", null);
-        specialDays.put("2015.12.26", null);
-        specialDays.put("2015.12.31", new Time[]{new Time(10), new Time(16)});
-
-        specialDays.put("2016.01.01", null);
-        specialDays.put("2016.01.06", null);
+        specialDays.put("2016.03.26", null);
         specialDays.put("2016.03.27", null);
+        specialDays.put("2016.03.28", null);
         specialDays.put("2016.05.01", null);
         specialDays.put("2016.05.03", null);
         specialDays.put("2016.05.15", null);

@@ -40,7 +40,7 @@ public class DateUtils {
     }
 
     public static boolean isCarnival(Date date) {
-        return isBetween(date, "2015.12.25", "2016.02.12");
+        return isBetween(date, "2015.12.25", "2016.02.10");
     }
 
     public static boolean isBetween(Date date, String from, String to) {
