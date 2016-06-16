@@ -6,7 +6,7 @@ import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.datepicker.client.CalendarUtil;
 import pl.com.czarodziejka.czarodziejka.client.components.calendar.m.CalendarModel;
 import pl.com.czarodziejka.czarodziejka.client.components.calendar.m.DateUtils;
-import pl.com.czarodziejka.czarodziejka.client.model.glowna.Time;
+import pl.com.czarodziejka.czarodziejka.client.pages.main.Time;
 import java.util.Date;
 
 /**

@@ -1,15 +1,15 @@
 package pl.com.czarodziejka.admin.client.model;
 
 import java.util.Map;
-import pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.costume.Category;
-import pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.costume.Occasion;
-import pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.costume.Sex;
-import pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.costume.Age;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Category;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Occasion;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Sex;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Age;
 import pl.com.czarodziejka.admin.client.MainEntryPoint;
 import pl.com.czarodziejka.admin.client.presenter.DodajStrojPresenter;
 import pl.com.czarodziejka.admin.client.view.DodajStrojView;
 import pl.com.czarodziejka.admin.client.view.components.SelectManySimple;
-import pl.com.czarodziejka.czarodziejka.client.view.wyszukiwarka.components.SelectOne;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.v.components.SelectOne;
 
 /**
  *

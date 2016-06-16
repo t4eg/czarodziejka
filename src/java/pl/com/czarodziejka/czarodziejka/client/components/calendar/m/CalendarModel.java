@@ -1,7 +1,7 @@
 package pl.com.czarodziejka.czarodziejka.client.components.calendar.m;
 
 import pl.com.czarodziejka.czarodziejka.client.components.calendar.v.MonthView;
-import pl.com.czarodziejka.czarodziejka.client.model.glowna.Time;
+import pl.com.czarodziejka.czarodziejka.client.pages.main.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;

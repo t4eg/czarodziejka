@@ -7,7 +7,7 @@ package pl.com.czarodziejka.czarodziejka.client.components.calendar.m;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.user.datepicker.client.CalendarUtil;
-import pl.com.czarodziejka.czarodziejka.client.model.glowna.WeekDay;
+import pl.com.czarodziejka.czarodziejka.client.pages.main.WeekDay;
 import java.util.Date;
 
 /**

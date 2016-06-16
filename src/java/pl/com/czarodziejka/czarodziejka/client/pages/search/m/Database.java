@@ -1,0 +1,3988 @@
+package pl.com.czarodziejka.czarodziejka.client.pages.search.m;
+
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Category;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Height;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.CostumeComparator;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Costume;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Age;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Belt;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Photo;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Occasion;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Size;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Sex;
+import com.google.gwt.user.client.Timer;
+import java.util.ArrayList;
+import java.util.Collections;
+
+/**
+ *
+ * @author Administrator
+ */
+public class Database {
+
+    private static Database instance;
+    private ArrayList<Costume> stroje = new ArrayList<>();
+
+    public static Database getInstance() {
+        if (instance == null) {
+            instance = new Database();
+        }
+        return instance;
+    }
+
+    private Database() {
+        final Timer t3 = new Timer() {
+
+            @Override
+            public void run() {
+                addData3();
+                Collections.sort(instance.stroje, new CostumeComparator());
+//                DatabaseTest test = new DatabaseTest(instance.stroje);
+//                new PrintDataForAsia().print(stroje);
+            }
+        };
+        final Timer t2 = new Timer() {
+
+            @Override
+            public void run() {
+                addData2();
+                t3.schedule(10);
+            }
+        };
+        final Timer t1 = new Timer() {
+
+            @Override
+            public void run() {
+                addData1();
+                t2.schedule(10);
+            }
+        };
+        t1.schedule(10);
+    }
+
+    private void addData1() {
+        dodaj(new Costume(1).setZdjęcie(1).setNazwa("pirat").setDlaPary(1).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.L),
+                new Size(Height.cm_176, Height.cm_182, Belt.M),
+                new Size(Height.cm_176, Height.cm_182, Belt.S)));
+
+        dodaj(new Costume(2).setZdjęcie(2).setNazwa("pirat").setDlaPary(1).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.S),
+                new Size(Height.cm_182, Height.cm_188, Belt.M)));
+
+        dodaj(new Costume(3).setZdjęcie(3).setNazwa("muszkieter").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Belt.S),
+                new Size(Height.cm_170, Belt.XL)));
+
+        dodaj(new Costume(5).setZdjęcie(5).setNazwa("indianin").setDlaPary(2).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M),
+                new Size(Height.cm_182, Height.cm_188, Belt.L),
+                new Size(Height.cm_182, Height.cm_188, Belt.XL),
+                new Size(Height.cm_182, Height.cm_188, Belt.XXL)));
+
+        dodaj(new Costume(6).setZdjęcie(6).setNazwa("Meksykanin").setDlaPary(4).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.S, Belt.XXL)));
+
+        dodaj(new Costume(8).setZdjęcie(8).setNazwa("Arab").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(9).setZdjęcie(9).setNazwa("Żołnierz Rzymski").setDlaPary(39).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.M),
+                new Size(Height.cm_170, Height.cm_182, Belt.L),
+                new Size(Height.cm_170, Height.cm_182, Belt.XL),
+                new Size(Height.cm_170, Height.cm_182, Belt.S)));
+
+        dodaj(new Costume(10).setZdjęcie(10).setNazwa("Kowboj").setDlaPary(2).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Film_i_scena, Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.M),
+                new Size(Height.cm_176, Height.cm_182, Belt.L),
+                new Size(Height.cm_176, Height.cm_182, Belt.S)));
+
+        dodaj(new Costume(11).setZdjęcie(11).setNazwa("traper").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_170, Height.cm_194, Belt.S, Belt.XXL)));
+
+        dodaj(new Costume(12).setZdjęcie(12, 131).setNazwa("Samuraj").setDlaPary(7).setWiek(Age.DOROSŁY).setDlugaNazwa().setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_176, Belt.M),
+                new Size(Height.cm_176, Belt.L),
+                new Size(Height.cm_176, Belt.S)));
+
+        dodaj(new Costume(13).setZdjęcie(13).setNazwa("rycerz").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.M),
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L),
+                new Size(Height.cm_176, Height.cm_182, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(16).setZdjęcie(16).setNazwa("diabeł").setDlaPary(8).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween, Occasion.Jasełka).setKategoria(Category.Film_i_scena, Category.Bajki).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.L)));
+
+        dodaj(new Costume(17).setZdjęcie(17).setNazwa("Drakula").setDlaPary(9).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.L)));
+
+        dodaj(new Costume(18).setZdjęcie(18).setNazwa("truskawka").setWiek(Age.DZIECKO_DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Owoce_i_warzywa).setRozmiar(
+                new Size(Height.cm_116, Height.cm_158, Belt.S, Belt.L)));
+
+        dodaj(new Costume(19).setZdjęcie(19).setNazwa("Drakula").setDlaPary(9).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.S),
+                new Size(Height.cm_170, Height.cm_182, Belt.M),
+                new Size(Height.cm_170, Height.cm_182, Belt.L),
+                new Size(Height.cm_170, Height.cm_176, Belt.XL)));
+
+        dodaj(new Costume(20).setZdjęcie(20).setNazwa("burak").setWiek(Age.DZIECKO_DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Owoce_i_warzywa).setRozmiar(
+                new Size(Height.cm_128, Height.cm_170, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(21).setZdjęcie(21).setNazwa("Śmierć").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.S, Belt.XXL)));
+
+        dodaj(new Costume(22).setZdjęcie(22).setNazwa("Fiona").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.S),
+                new Size(Height.cm_158, Height.cm_164, Belt.XL)));
+
+        dodaj(new Costume(23).setZdjęcie(23).setNazwa("Józef").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.S, Belt.XXL),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(24).setZdjęcie(24).setNazwa("mnich").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Film_i_scena, Category.Zawody).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.L, Belt.XXL),
+                new Size(Height.cm_170, Height.cm_182, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(25).setZdjęcie(25).setNazwa("ksiądz").setDlaPary(10).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Film_i_scena, Category.Zawody).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(26).setZdjęcie(26).setNazwa("książe wschodni").setDlaPary(11).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XXL),
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(27).setZdjęcie(27).setNazwa("clown").setDlaPary(12).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_182, Height.cm_194, Belt.L, Belt.XXL),
+                new Size(Height.cm_182, Height.cm_194, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(28).setZdjęcie(28).setNazwa("Batman").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Super_bohaterowie).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.L),
+                new Size(Height.cm_176, Height.cm_188, Belt.M),
+                new Size(Height.cm_176, Height.cm_188, Belt.S),
+                new Size(Height.cm_176, Height.cm_188, Belt.XL)));
+
+        dodaj(new Costume(29).setZdjęcie(29).setNazwa("Spiderman").setDlaPary(33).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Super_bohaterowie).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.S, Belt.M)));
+
+        dodaj(new Costume(31).setZdjęcie(31).setNazwa("hipis").setDlaPary(14).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S),
+                new Size(Height.cm_182, Height.cm_194, Belt.M)));
+
+        dodaj(new Costume(36).setZdjęcie(36).setNazwa("zombie").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(39).setZdjęcie(39).setNazwa("jaskiniowiec").setDlaPary(17).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(40).setZdjęcie(40, 41).setNazwa("zając").setWiek(Age.DOROSŁY).setDlaPary(18).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_158, Height.cm_164, Belt.S, Belt.M),
+                new Size(Height.cm_170, Height.cm_182, Belt.XXL)));
+
+        dodaj(new Costume(44).setZdjęcie(44).setNazwa("tancerka turecka").setDlaPary(11).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(45).setZdjęcie(45, 46).setNazwa("tygrys").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(47).setZdjęcie(47).setNazwa("lew").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(48).setZdjęcie(48).setNazwa("sowa").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.XXL),
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(50).setZdjęcie(50).setNazwa("Żaba").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.XL),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.L),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.XL),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(53).setZdjęcie(53).setNazwa("czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Halloween).setKategoria(Category.Film_i_scena, Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(55).setZdjęcie(55).setNazwa("wiosna").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(56).setZdjęcie(56).setNazwa("czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Andrzejki).setKategoria(Category.Film_i_scena, Category.Bajki).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.S),
+                new Size(Height.cm_158, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(59).setZdjęcie(59).setNazwa("hipiska").setDlaPary(14).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.L)));
+
+        dodaj(new Costume(60).setZdjęcie(60).setNazwa("hipiska").setDlaPary(14).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.L)));
+
+        dodaj(new Costume(62).setZdjęcie(62).setNazwa("mieszczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(64).setZdjęcie(64).setNazwa("Disco").setDlaPary(20).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+
+        dodaj(new Costume(66).setZdjęcie(66).setNazwa("czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Halloween).setKategoria(Category.Film_i_scena, Category.Bajki).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.L),
+                new Size(Height.cm_170, Height.cm_176, Belt.XL)));
+
+        dodaj(new Costume(67).setZdjęcie(67).setNazwa("czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Halloween).setKategoria(Category.Film_i_scena, Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(68).setZdjęcie(68).setNazwa("Królewna Śnieżka").setDlaPary(21).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.L),
+                new Size(Height.cm_164, Height.cm_170, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.XL)));
+
+        dodaj(new Costume(69).setZdjęcie(1032).setNazwa("dama").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M)));
+
+        dodaj(new Costume(70).setZdjęcie(1138).setNazwa("dama").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S)));
+
+        dodaj(new Costume(71).setZdjęcie(71).setNazwa("szlachecki").setDlaPary(15).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Film_i_scena, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S),
+                new Size(Height.cm_164, Height.cm_176, Belt.M),
+                new Size(Height.cm_164, Height.cm_176, Belt.L),
+                new Size(Height.cm_164, Height.cm_176, Belt.XL)));
+
+        dodaj(new Costume(73).setZdjęcie(73).setNazwa("suknia z Dzikiego zachodu").setWiek(Age.DOROSŁY).setDlugaNazwa().setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(75).setZdjęcie(75).setNazwa("cyganka").setDlaPary(19).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Bajki).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.S)));
+
+        dodaj(new Costume(82).setZdjęcie(82).setNazwa("anioł").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.L),
+                new Size(Height.cm_164, Height.cm_170, Belt.M),
+                new Size(Height.cm_158, Height.cm_164, Belt.S),
+                new Size(Height.cm_158, Height.cm_164, Belt.M)));
+
+        dodaj(new Costume(86).setZdjęcie(86).setNazwa("clown").setDlaPary(12).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(90).setZdjęcie(90).setNazwa("spódnica rock and roll").setWiek(Age.DOROSŁY).setDlugaNazwa().setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_50_i_60).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.L)));
+
+        dodaj(new Costume(92).setZdjęcie(92).setNazwa("hinduska").setDlaPary(23).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(93).setZdjęcie(93).setNazwa("hipiska").setDlaPary(14).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(96).setZdjęcie(96).setNazwa("czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Halloween).setKategoria(Category.Film_i_scena, Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+
+        dodaj(new Costume(102).setZdjęcie(102).setNazwa("tancerka turecka").setDlaPary(11).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.M)));
+
+        dodaj(new Costume(104).setZdjęcie(1141).setNazwa("szlachecki").setDlaPary(15).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.S)));
+
+        dodaj(new Costume(112).setZdjęcie(112).setNazwa("cyganka").setDlaPary(19).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(122).setZdjęcie(122).setNazwa("cyganka").setDlaPary(19).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(123).setZdjęcie(1150).setNazwa("dama").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(130).setZdjęcie(129).setNazwa("kontusz szlachecki").setDlaPary(15).setDlugaNazwa().setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(146).setZdjęcie(148, 150).setNazwa("Michael Jackson").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(147).setZdjęcie(149).setNazwa("cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Bajki).setRozmiar(
+                new Size(Height.cm_146, Height.cm_152)));
+
+        dodaj(new Costume(148).setZdjęcie(151).setNazwa("pastuszek").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(149).setZdjęcie(153).setNazwa("pastuszek").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(150).setZdjęcie(154).setNazwa("Józef").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(151).setZdjęcie(152).setNazwa("diablica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Jasełka).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(152).setZdjęcie(155, 156).setNazwa("król").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122)));
+
+        dodaj(new Costume(153).setZdjęcie(157, 158).setNazwa("szlachcic").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_158),
+                new Size(Height.cm_164)));
+
+        dodaj(new Costume(154).setZdjęcie(159).setNazwa("książe").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(155).setZdjęcie(160).setNazwa("kosmonauta").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(156).setZdjęcie(161).setNazwa("strażak").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(157).setZdjęcie(162, 163).setNazwa("anioł").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(158).setZdjęcie(164).setNazwa("duch").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(159).setZdjęcie(165, 166).setNazwa("Piotruś Pan").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(160).setZdjęcie(167, 168).setNazwa("król").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(161).setZdjęcie(169, 170).setNazwa("dworzanin").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(162).setZdjęcie(171, 172).setNazwa("diabeł").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_134),
+                new Size(Height.cm_122)));
+
+        dodaj(new Costume(163).setZdjęcie(173).setNazwa("superman").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki, Category.Super_bohaterowie).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(164).setZdjęcie(174).setNazwa("góral").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Narodowościowe, Category.Bajki).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(165).setZdjęcie(175).setNazwa("góral").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Narodowościowe, Category.Bajki).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(166).setZdjęcie(176, 177).setNazwa("krakowiak").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(167).setZdjęcie(178, 179).setNazwa("król").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(168).setZdjęcie(180, 181).setNazwa("król").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(169).setZdjęcie(182, 183).setNazwa("zając").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(170).setZdjęcie(184, 185).setNazwa("rycerz").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_104),
+                new Size(Height.cm_110)));
+
+        dodaj(new Costume(172).setZdjęcie(189).setNazwa("rekin").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122)));
+
+        dodaj(new Costume(173).setZdjęcie(190, 191, 192, 193).setNazwa("wilk").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122)));
+
+        dodaj(new Costume(174).setZdjęcie(194, 195).setNazwa("małpka").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(176).setZdjęcie(196).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122)));
+
+        dodaj(new Costume(177).setZdjęcie(197, 198).setNazwa("lis").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(178).setZdjęcie(199, 200).setNazwa("syrenka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(181).setZdjęcie(203).setNazwa("gąska").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_122)));
+
+        dodaj(new Costume(182).setZdjęcie(204, 205).setNazwa("kurczątko").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(183).setZdjęcie(206, 208, 313).setNazwa("hiszpanka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(187).setZdjęcie(211).setNazwa("Jasmina").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(189).setZdjęcie(213).setNazwa("ninja").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(190).setZdjęcie(214, 216).setNazwa("dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_140),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(191).setZdjęcie(217).setNazwa("suknia wizytowa").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(193).setZdjęcie(218).setNazwa("diablica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(194).setZdjęcie(219).setNazwa("hiszpanka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(195).setZdjęcie(220, 222).setNazwa("Łabędź").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_140, Height.cm_158)));
+
+        dodaj(new Costume(196).setZdjęcie(221).setNazwa("suknia wizytowa").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(197).setZdjęcie(224, 226).setNazwa("diablica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(198).setZdjęcie(225).setNazwa("suknia wizytowa").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(221).setZdjęcie(228).setNazwa("indyk").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(201).setZdjęcie(231).setNazwa("dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(202).setZdjęcie(232, 234).setNazwa("krówka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_122, Height.cm_128)));
+
+        dodaj(new Costume(203).setZdjęcie(236).setNazwa("wróżka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(205).setZdjęcie(238, 240).setNazwa("kura").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(207).setZdjęcie(242).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(208).setZdjęcie(243).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(209).setZdjęcie(244).setNazwa("pająk").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_104)));
+
+        dodaj(new Costume(211).setZdjęcie(246).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(212).setZdjęcie(247).setNazwa("cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_146, Height.cm_152)));
+
+        dodaj(new Costume(214).setZdjęcie(248, 250).setNazwa("bocian").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(216).setZdjęcie(252).setNazwa("byk").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(217).setZdjęcie(254, 256).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(218).setZdjęcie(255).setNazwa("disco").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(219).setZdjęcie(257, 328).setNazwa("motyl").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(220).setZdjęcie(259).setNazwa("piratka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(222).setZdjęcie(new Photo(262, false), new Photo(264, true)).setNazwa("niedźwiadek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(223).setZdjęcie(263).setNazwa("piratka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie).setRozmiar(
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(225).setZdjęcie(261).setNazwa("Disco").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(226).setZdjęcie(266, 268).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(227).setZdjęcie(267).setNazwa("syrenka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(229).setZdjęcie(270).setNazwa("Żaba").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(230).setZdjęcie(271).setNazwa("sukienka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(231).setZdjęcie(272, 274).setNazwa("lew").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(232).setZdjęcie(273).setNazwa("hiszpanka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(233).setZdjęcie(275).setNazwa("cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(234).setZdjęcie(277).setNazwa("jasmina").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(235).setZdjęcie(281).setNazwa("jasmina").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(237).setZdjęcie(278).setNazwa("orzeł").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(238).setZdjęcie(279).setNazwa("disco").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(239).setZdjęcie(280, 282).setNazwa("wiosna").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(240).setZdjęcie(283).setNazwa("disco").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_146),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(241).setZdjęcie(new Photo(284, Boolean.TRUE), new Photo(286, Boolean.FALSE)).setNazwa("wąż").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(242).setZdjęcie(285).setNazwa("dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(243).setZdjęcie(287).setNazwa("królowa").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(244).setZdjęcie(288).setNazwa("wróżka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(245).setZdjęcie(289).setNazwa("dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(247).setZdjęcie(297).setNazwa("dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(248).setZdjęcie(290, 292).setNazwa("indianka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(249).setZdjęcie(291).setNazwa("królowa").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(250).setZdjęcie(294, 296).setNazwa("Disco").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_122)));
+
+        dodaj(new Costume(251).setZdjęcie(295).setNazwa("syrenka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(252).setZdjęcie(298, 300).setNazwa("motyl").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(253).setZdjęcie(299).setNazwa("dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(254).setZdjęcie(301).setNazwa("dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(256).setZdjęcie(303).setNazwa("szlachcianka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_140),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(257).setZdjęcie(305).setNazwa("szlachcianka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(258).setZdjęcie(306).setNazwa("disco").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(260).setZdjęcie(311).setNazwa("indianka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(259).setZdjęcie(307).setNazwa("indianka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(261).setZdjęcie(315).setNazwa("indianka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(262).setZdjęcie(308).setNazwa("pielęgniarka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(263).setZdjęcie(309).setNazwa("piratka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(264).setZdjęcie(310, 312, 314).setNazwa("suknia do walca").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(265).setZdjęcie(316).setNazwa("Maryja").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(266).setZdjęcie(317).setNazwa("cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(267).setZdjęcie(318).setNazwa("Anioł").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(268).setZdjęcie(320).setNazwa("księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(270).setZdjęcie(322).setNazwa("syrenka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(271).setZdjęcie(323).setNazwa("cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(274).setZdjęcie(329).setNazwa("cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(275).setZdjęcie(324).setNazwa("Królewna Śnieżka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(276).setZdjęcie(325).setNazwa("Królewna").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(279).setZdjęcie(330, 331).setNazwa("księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(280).setZdjęcie(332).setNazwa("księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(281).setZdjęcie(337, 338).setNazwa("księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(282).setZdjęcie(333, 346, 347).setNazwa("Roszpunka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_122),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(284).setZdjęcie(335, 336).setNazwa("królowa").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(285).setZdjęcie(339, 340).setNazwa("księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(286).setZdjęcie(341).setNazwa("krakowianka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(287).setZdjęcie(342, 413).setNazwa("pszczółka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_110, Height.cm_116),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(291).setZdjęcie(348, 349).setNazwa("kotek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122)));
+
+        dodaj(new Costume(292).setZdjęcie(new Photo(350, Boolean.TRUE)).setNazwa("myszka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122)));
+
+        dodaj(new Costume(293).setZdjęcie(new Photo(351, Boolean.FALSE), new Photo(352, Boolean.TRUE)).setNazwa("wiewiórka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(294).setZdjęcie(353, 354, 355).setNazwa("Łabędź").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(295).setZdjęcie(356, 357).setNazwa("tancerka turecka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(296).setZdjęcie(358, 359).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(297).setZdjęcie(360, 361, 362).setNazwa("cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(298).setZdjęcie(363).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(299).setZdjęcie(364).setNazwa("sukienka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(300).setZdjęcie(365).setNazwa("Lady Safari").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(301).setZdjęcie(366).setNazwa("diablica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(302).setZdjęcie(368).setNazwa("dalmatyńczyk").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(304).setZdjęcie(370).setNazwa("królik").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(305).setZdjęcie(1007).setNazwa("traper").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(306).setZdjęcie(372).setNazwa("kowboj").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_134),
+                new Size(Height.cm_122)));
+
+        dodaj(new Costume(307).setZdjęcie(373).setNazwa("indianin").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_134),
+                new Size(Height.cm_122)));
+
+        dodaj(new Costume(308).setZdjęcie(374).setNazwa("Fazi z Ulicy Sezamkowej").setDlugaNazwa().setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_110, Height.cm_116)));
+
+        dodaj(new Costume(310).setZdjęcie(376).setNazwa("cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_146, Height.cm_152)));
+
+        dodaj(new Costume(311).setZdjęcie(377).setNazwa("cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(312).setZdjęcie(378).setNazwa("cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(313).setZdjęcie(380).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(316).setZdjęcie(381, 388).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_146, Height.cm_152)));
+
+        dodaj(new Costume(317).setZdjęcie(384).setNazwa("spiderman").setDlaPary(33).setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Super_bohaterowie).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_110)));
+
+        dodaj(new Costume(318).setZdjęcie(385).setNazwa("czarodziejka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_110),
+                new Size(Height.cm_134),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(319).setZdjęcie(386).setNazwa("wróżka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_152),
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(321).setZdjęcie(389).setNazwa("księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(322).setZdjęcie(390).setNazwa("disco").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_146, Height.cm_158)));
+
+        dodaj(new Costume(323).setZdjęcie(391).setNazwa("cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(325).setZdjęcie(394).setNazwa("czirliderki").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(326).setZdjęcie(395).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(327).setZdjęcie(new Photo(396, Boolean.TRUE)).setNazwa("sarenka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(328).setZdjęcie(397).setNazwa("stańczyk").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(329).setZdjęcie(398).setNazwa("wróżka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(330).setZdjęcie(399).setNazwa("czarodziejka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_110),
+                new Size(Height.cm_134),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+    }
+
+    private void addData2() {
+
+        dodaj(new Costume(333).setZdjęcie(403).setNazwa("legionista rzymski").setWiek(Age.DZIECKO).setDlugaNazwa().setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(334).setZdjęcie(404).setNazwa("suknia").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_116),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(335).setZdjęcie(405).setNazwa("tygrys").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(336).setZdjęcie(407).setNazwa("miś").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110)));
+
+        dodaj(new Costume(337).setZdjęcie(408).setNazwa("kotek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(338).setZdjęcie(409).setNazwa("clown").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_110)));
+
+        dodaj(new Costume(339).setZdjęcie(414).setNazwa("pszczoła").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122)));
+
+        dodaj(new Costume(340).setZdjęcie(415).setNazwa("Samuraj").setWiek(Age.DZIECKO).setDlugaNazwa().setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(341).setZdjęcie(416).setNazwa("indianin").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(343).setZdjęcie(418).setNazwa("chińczyk").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_134, Height.cm_140)));
+
+        dodaj(new Costume(345).setZdjęcie(420).setNazwa("karateka").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(346).setZdjęcie(421).setNazwa("kowboj").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(347).setZdjęcie(422).setNazwa("japonka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_122)));
+
+        dodaj(new Costume(348).setZdjęcie(423).setNazwa("indianin").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(352).setZdjęcie(430).setNazwa("dworzanin").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110)));
+
+        dodaj(new Costume(353).setZdjęcie(436).setNazwa("indianin").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(355).setZdjęcie(438).setNazwa("ułan").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(357).setZdjęcie(441).setNazwa("indianin").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_86),
+                new Size(Height.cm_92),
+                new Size(Height.cm_98)));
+
+        dodaj(new Costume(361).setZdjęcie(445).setNazwa("kapitan Hak").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_98, Height.cm_104),
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(362).setZdjęcie(447).setNazwa("król").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(364).setZdjęcie(700).setNazwa("dzięcioł").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_188, Belt.XS, Belt.XL)));
+
+        dodaj(new Costume(365).setZdjęcie(701).setNazwa("papuga").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XS, Belt.XL)));
+
+        dodaj(new Costume(366).setZdjęcie(702).setNazwa("słowik").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_188, Belt.XS, Belt.XL)));
+
+        dodaj(new Costume(367).setZdjęcie(703).setNazwa("zebra").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(372).setZdjęcie(710).setNazwa("kaczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(373).setZdjęcie(711).setNazwa("kogut").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(374).setZdjęcie(712, 713).setNazwa("konik morski").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.XXL)));
+
+        dodaj(new Costume(41).setZdjęcie(715).setNazwa("grzyb kania").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Owoce_i_warzywa).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(376).setZdjęcie(718, 719).setNazwa("łabędź").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_182, Belt.S, Belt.L)));
+
+        dodaj(new Costume(378).setZdjęcie(721).setNazwa("gąska").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.S, Belt.L)));
+
+        dodaj(new Costume(379).setZdjęcie(722).setNazwa("Słowik").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(381).setZdjęcie(724).setNazwa("kura").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(385).setZdjęcie(728).setNazwa("kukułka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.L)));
+
+        dodaj(new Costume(389).setZdjęcie(732).setNazwa("wiewiórka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.L)));
+
+        dodaj(new Costume(390).setZdjęcie(733).setNazwa("mysz").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.L)));
+
+        dodaj(new Costume(392).setZdjęcie(736).setNazwa("rak").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.S, Belt.L)));
+
+        dodaj(new Costume(394).setZdjęcie(1160).setNazwa("piratka").setDlaPary(1).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Pirackie, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_182, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(395).setZdjęcie(1159).setNazwa("piratka").setDlaPary(1).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Pirackie, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_182, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(397).setZdjęcie(1027).setNazwa("kopciuszek").setDlaPary(26).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(399).setZdjęcie(743).setNazwa("meksykanka").setDlaPary(4).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.S, Belt.L)));
+
+        dodaj(new Costume(400).setZdjęcie(746).setNazwa("meksykanka").setDlaPary(4).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.S, Belt.L)));
+
+        dodaj(new Costume(402).setZdjęcie(974).setNazwa("szkot").setDlaPary(27).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(407).setZdjęcie(751).setNazwa("szata").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.L)));
+
+        dodaj(new Costume(414).setZdjęcie(759).setNazwa("śnieżynka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Jasełka, Occasion.Mikołajki).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(415).setZdjęcie(760).setNazwa("milicjant").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(416).setZdjęcie(990).setNazwa("marynarz").setDlaPary(28).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_170, Belt.S),
+                new Size(Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(417).setZdjęcie(762).setNazwa("duch").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(418).setZdjęcie(980).setNazwa("szkotka").setDlaPary(27).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Belt.S),
+                new Size(Height.cm_170, Belt.L)));
+
+        dodaj(new Costume(419).setZdjęcie(1084).setNazwa("piratka").setDlaPary(1).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(422).setZdjęcie(773).setNazwa("papuga").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128, Belt.S, Belt.L),
+                new Size(Height.cm_140, Belt.S, Belt.L)));
+
+        dodaj(new Costume(423).setZdjęcie(774).setNazwa("japonka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_122, Belt.S, Belt.L)));
+
+        dodaj(new Costume(425).setZdjęcie(776).setNazwa("dwórka").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_152, Height.cm_158, Belt.S)));
+
+        dodaj(new Costume(426).setZdjęcie(778).setNazwa("policjant").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(428).setZdjęcie(780).setNazwa("bokser").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(429).setZdjęcie(782).setNazwa("muszkieterka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116, Belt.S, Belt.M),
+                new Size(Height.cm_128, Belt.S, Belt.M)));
+
+        dodaj(new Costume(430).setZdjęcie(803).setNazwa("kierowca rajdowy").setDlugaNazwa().setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110, Belt.S, Belt.M),
+                new Size(Height.cm_116, Height.cm_122, Belt.S, Belt.M),
+                new Size(Height.cm_128, Height.cm_134, Belt.S, Belt.M),
+                new Size(Height.cm_140, Height.cm_146, Belt.S, Belt.M)));
+
+        dodaj(new Costume(431).setZdjęcie(785).setNazwa("disco").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_116, Belt.S, Belt.L),
+                new Size(Height.cm_128, Belt.S, Belt.L),
+                new Size(Height.cm_140, Belt.S, Belt.L),
+                new Size(Height.cm_152, Belt.S, Belt.L),
+                new Size(Height.cm_164, Belt.S, Belt.L)));
+
+        dodaj(new Costume(433).setZdjęcie(787).setNazwa("Śnieżynka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Mikołajki).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(434).setZdjęcie(788, 789).setNazwa("disco").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152),
+                new Size(Height.cm_164)));
+
+        dodaj(new Costume(435).setZdjęcie(791).setNazwa("muszkieterka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122)));
+
+        dodaj(new Costume(436).setZdjęcie(792).setNazwa("calineczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S)));
+
+        dodaj(new Costume(437).setZdjęcie(793).setNazwa("policjant").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(438).setZdjęcie(794).setNazwa("kwiatek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(439).setZdjęcie(795).setNazwa("piotruś pan").setDlaPary(32).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(442).setZdjęcie(799).setNazwa("harry potter").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(448).setZdjęcie(1077).setNazwa("piratka").setDlaPary(1).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(450).setZdjęcie(807).setNazwa("wiosna").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(451).setZdjęcie(808).setNazwa("wiking").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(452).setZdjęcie(809).setNazwa("gąska").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.S)));
+
+        dodaj(new Costume(453).setZdjęcie(811).setNazwa("napoleon").setDlaPary(34).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(455).setZdjęcie(959).setNazwa("Ślimak").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(456).setZdjęcie(814).setNazwa("Żyrafa").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(458).setZdjęcie(816, 817).setNazwa("Żółw").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_110, Height.cm_116),
+                new Size(Height.cm_122, Height.cm_128),
+                new Size(Height.cm_134, Height.cm_140)));
+
+        dodaj(new Costume(459).setZdjęcie(818).setNazwa("księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(460).setZdjęcie(819).setNazwa("ułan").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.S, Belt.M)));
+
+        dodaj(new Costume(462).setZdjęcie(821, 822, 823).setNazwa("spiderman").setDlaPary(33).setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Super_bohaterowie).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(463).setZdjęcie(824).setNazwa("drakulaura").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_134),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(465).setZdjęcie(826).setNazwa("Śmierć").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween, Occasion.Jasełka).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.S, Belt.L)));
+
+        dodaj(new Costume(466).setZdjęcie(827).setNazwa("myszka mini").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_104)));
+
+        dodaj(new Costume(467).setZdjęcie(829).setNazwa("hawajka").setDlaPary(35).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.XS, Belt.M)));
+
+        dodaj(new Costume(468).setZdjęcie(830).setNazwa("Kościotrup").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.XS, Belt.M)));
+
+        dodaj(new Costume(469).setZdjęcie(831).setNazwa("obi wan kenobi").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152),
+                new Size(Height.cm_164)));
+
+        dodaj(new Costume(470).setZdjęcie(832).setNazwa("clawdeen wolf").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(471).setZdjęcie(836).setNazwa("frankie stein").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(472).setZdjęcie(833).setNazwa("suknia empire").setDlaPary(34).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L),
+                new Size(Height.cm_158, Height.cm_164, Belt.XS, Belt.M)));
+
+        dodaj(new Costume(473).setZdjęcie(837).setNazwa("suknia empire").setDlaPary(34).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(476).setZdjęcie(835).setNazwa("anakin").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(477).setZdjęcie(840).setNazwa("anakin").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(479).setZdjęcie(842).setNazwa("cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(480).setZdjęcie(843).setNazwa("diabeł").setDlaPary(8).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween, Occasion.Jasełka).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_194, Belt.M, Belt.XXL)));
+
+        dodaj(new Costume(482).setZdjęcie(845, 851, 853).setNazwa("Darth Vader").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(483).setZdjęcie(847).setNazwa("niezapominajka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_122)));
+
+        dodaj(new Costume(484).setZdjęcie(848).setNazwa("al capone").setDlaPary(37).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(485).setZdjęcie(849).setNazwa("Samuraj").setDlaPary(7).setDlugaNazwa().setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(486).setZdjęcie(850).setNazwa("słonecznik").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_122, Height.cm_128)));
+
+        dodaj(new Costume(89).setZdjęcie(new Photo(857, Boolean.FALSE), new Photo(113, Boolean.FALSE), new Photo(854, Boolean.TRUE)).setNazwa("teletubiś").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.L)));
+
+        dodaj(new Costume(91).setZdjęcie(new Photo(855, Boolean.FALSE), new Photo(854, Boolean.TRUE)).setNazwa("teletubiś").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.L)));
+
+        dodaj(new Costume(94).setZdjęcie(new Photo(856, Boolean.FALSE), new Photo(854, Boolean.TRUE)).setNazwa("teletubiś").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.L),
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.L)));
+
+        dodaj(new Costume(488).setZdjęcie(new Photo(858, Boolean.FALSE), new Photo(854, Boolean.TRUE)).setNazwa("teletubiś").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.L)));
+
+        dodaj(new Costume(490).setZdjęcie(862, 864).setNazwa("krasnoludek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(491).setZdjęcie(863, 864).setNazwa("krasnoludek").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(492).setZdjęcie(new Photo(865, Boolean.FALSE), new Photo(869, Boolean.TRUE)).setDlaPary(21).setNazwa("krasnoludek").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.L)));
+
+        dodaj(new Costume(493).setZdjęcie(new Photo(867, Boolean.FALSE), new Photo(869, Boolean.TRUE)).setDlaPary(21).setNazwa("krasnoludek").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.L)));
+
+        dodaj(new Costume(494).setZdjęcie(new Photo(868, Boolean.FALSE), new Photo(869, Boolean.TRUE)).setDlaPary(21).setNazwa("krasnoludek").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.M)));
+
+        dodaj(new Costume(495).setZdjęcie(870).setNazwa("klon").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(496).setZdjęcie(871).setNazwa("kankan").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_122, Height.cm_134)));
+
+        dodaj(new Costume(497).setZdjęcie(874).setNazwa("kankan").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_122, Height.cm_134)));
+
+        dodaj(new Costume(498).setZdjęcie(876).setNazwa("kankan").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_134, Height.cm_146)));
+
+        dodaj(new Costume(499).setZdjęcie(878).setNazwa("kankan").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_134, Height.cm_146)));
+
+        dodaj(new Costume(501).setZdjęcie(872).setNazwa("wojownik").setDlaPary(39).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(502).setZdjęcie(879).setNazwa("pirat").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(503).setZdjęcie(881).setNazwa("kankan").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_134, Height.cm_146)));
+
+        dodaj(new Costume(504).setZdjęcie(883).setNazwa("kwiatek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_122, Height.cm_134)));
+
+        dodaj(new Costume(506).setZdjęcie(887).setNazwa("kleopatra").setDlaPary(65).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(507).setZdjęcie(888).setNazwa("biały niedźwiedź").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(508).setZdjęcie(889).setNazwa("koń").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(513).setZdjęcie(894).setNazwa("buzz astral").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(514).setZdjęcie(896).setNazwa("książę wschodni").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(515).setZdjęcie(897).setNazwa("barbie").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_134, Height.cm_146)));
+
+        dodaj(new Costume(516).setZdjęcie(898).setNazwa("Kierowca Rajdowy").setDlugaNazwa().setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(517).setZdjęcie(900, 901).setNazwa("batman").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Super_bohaterowie).setRozmiar(
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(518).setZdjęcie(902).setNazwa("lisiczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(520).setZdjęcie(906).setNazwa("kleopatra").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(521).setZdjęcie(908).setNazwa("diabeł").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween, Occasion.Jasełka).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_152, Height.cm_158),
+                new Size(Height.cm_164, Height.cm_170)));
+
+        dodaj(new Costume(523).setZdjęcie(910).setNazwa("czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Andrzejki).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(524).setZdjęcie(911).setNazwa("królewna śnieżka").setDlaPary(21).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(525).setZdjęcie(912).setNazwa("pilot").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(526).setZdjęcie(913).setNazwa("czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Andrzejki).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(527).setZdjęcie(914).setNazwa("Żołnierz rzymski").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(528).setZdjęcie(915).setNazwa("hipiska").setDlaPary(14).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(529).setZdjęcie(917).setNazwa("dzwoneczek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(530).setZdjęcie(918).setNazwa("strażak").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(531).setZdjęcie(920).setNazwa("Żołnierz rzymski").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(532).setZdjęcie(922).setNazwa("czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Andrzejki).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(533).setZdjęcie(923).setNazwa("marylin monroe").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(534).setZdjęcie(924).setNazwa("król").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(536).setZdjęcie(926).setNazwa("marynarz").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(537).setZdjęcie(927).setNazwa("królowa").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(538).setZdjęcie(929).setNazwa("Śmierć").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka, Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(539).setZdjęcie(930).setNazwa("kowbojka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_140),
+                new Size(Height.cm_128),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(540).setZdjęcie(931).setNazwa("babcia").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(541).setZdjęcie(932).setNazwa("robin hood").setDlaPary(3).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+
+        dodaj(new Costume(542).setZdjęcie(933).setNazwa("indianka").setDlaPary(2).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+
+        dodaj(new Costume(543).setZdjęcie(934).setNazwa("hipiska").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_140),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(544).setZdjęcie(935).setNazwa("Albus Dumbledore").setDlugaNazwa().setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(545).setZdjęcie(936).setNazwa("Bawarka").setDlaPary(41).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS),
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+
+        dodaj(new Costume(546).setZdjęcie(937).setNazwa("sukienka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_50_i_60).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS),
+                new Size(Height.cm_164, Height.cm_170, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(547).setZdjęcie(938).setNazwa("krokodyl").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(549).setZdjęcie(940).setNazwa("kaczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(550).setZdjęcie(941).setNazwa("sukienka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_50_i_60).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(551).setZdjęcie(943).setNazwa("rak").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(552).setZdjęcie(944).setNazwa("muszkietarka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(553).setZdjęcie(945).setNazwa("indianka").setDlaPary(2).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(554).setZdjęcie(946).setNazwa("Żołnierz").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(556).setZdjęcie(947).setNazwa("bałwan").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(557).setZdjęcie(950).setNazwa("zebra").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(559).setZdjęcie(952).setNazwa("dworzanin").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.M),
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L)));
+
+        dodaj(new Costume(560).setZdjęcie(953).setNazwa("kangur").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_122, Height.cm_128),
+                new Size(Height.cm_134, Height.cm_140)));
+
+        dodaj(new Costume(561).setZdjęcie(954).setNazwa("kubuś puchatek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_110, Height.cm_116),
+                new Size(Height.cm_122, Height.cm_128),
+                new Size(Height.cm_134, Height.cm_140)));
+
+        dodaj(new Costume(562).setZdjęcie(955).setNazwa("dworzanin").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L)));
+
+        dodaj(new Costume(563).setZdjęcie(956).setNazwa("sarenka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(564).setZdjęcie(957).setNazwa("jelonek").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(565).setZdjęcie(958).setNazwa("owieczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(566).setZdjęcie(961).setNazwa("cytryna").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Owoce_i_warzywa).setRozmiar(
+                new Size(Height.cm_110, Height.cm_152)));
+
+        dodaj(new Costume(568).setZdjęcie(963).setNazwa("pippi").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_122, Height.cm_140)));
+
+        dodaj(new Costume(569).setZdjęcie(964, 965).setNazwa("smerf").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(570).setZdjęcie(965).setNazwa("smerfetka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(571).setZdjęcie(966).setNazwa("sułtan").setDlaPary(43).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Bajki).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L)));
+
+        dodaj(new Costume(572).setZdjęcie(967).setNazwa("aladyn").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_128, Height.cm_140)));
+
+        dodaj(new Costume(573).setZdjęcie(968).setNazwa("słoneczko").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_122, Height.cm_134)));
+
+        dodaj(new Costume(574).setZdjęcie(969, 970).setNazwa("bokser").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_128, Height.cm_140)));
+
+        dodaj(new Costume(576).setZdjęcie(972).setNazwa("wróbelek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(577).setZdjęcie(973).setNazwa("ptak").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128, Height.cm_146)));
+
+        dodaj(new Costume(578).setZdjęcie(975).setNazwa("mak").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(579).setZdjęcie(977).setNazwa("kaczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(580).setZdjęcie(978).setNazwa("jaskiniowiec").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(581).setZdjęcie(979, 981).setNazwa("diabeł").setDlaPary(8).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween, Occasion.Jasełka).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_194, Belt.M, Belt.L),
+                new Size(Height.cm_176, Height.cm_188, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(582).setZdjęcie(982).setNazwa("duch").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(583).setZdjęcie(983).setNazwa("koziołek matołek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_110, Height.cm_116)));
+
+        dodaj(new Costume(584).setZdjęcie(984).setNazwa("dama").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(585).setZdjęcie(985).setNazwa("królowa").setDlaPary(22).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(586).setZdjęcie(986).setNazwa("zielony groszek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Owoce_i_warzywa).setRozmiar(
+                new Size(Height.cm_122, Height.cm_134)));
+
+        dodaj(new Costume(587).setZdjęcie(987).setNazwa("disco").setDlaPary(20).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(590).setZdjęcie(991).setNazwa("disco").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.M),
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L),
+                new Size(Height.cm_176, Height.cm_182, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(591).setZdjęcie(994).setNazwa("disco").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.M),
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L),
+                new Size(Height.cm_176, Height.cm_182, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(592).setZdjęcie(1024).setNazwa("disco").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.M),
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L),
+                new Size(Height.cm_176, Height.cm_182, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(593).setZdjęcie(992).setNazwa("laguna blue").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(594).setZdjęcie(993).setNazwa("kominiarz").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_122, Height.cm_128)));
+
+        dodaj(new Costume(595).setZdjęcie(995).setNazwa("piratka").setDlaPary(1).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(596).setZdjęcie(996, 1023).setNazwa("suknia empire").setDlaPary(34).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(61).setZdjęcie(997).setNazwa("pirat").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_152, Height.cm_158),
+                new Size(Height.cm_164)));
+
+        dodaj(new Costume(598).setZdjęcie(999).setNazwa("gwiazdka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_122, Height.cm_140)));
+
+        dodaj(new Costume(599).setZdjęcie(1000).setNazwa("pirat").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_110),
+                new Size(Height.cm_122)));
+
+        dodaj(new Costume(600).setZdjęcie(1002, 1001).setNazwa("sexy lady").setDlaPary(44).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(601).setZdjęcie(1003, 1001).setNazwa("sutener").setDlaPary(44).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.M),
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L),
+                new Size(Height.cm_176, Height.cm_182, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(602).setZdjęcie(1005).setNazwa("rumianek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(603).setZdjęcie(1006, 1008).setDlaPary(22).setNazwa("królowa").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(604).setZdjęcie(1008, 1009).setNazwa("król").setDlaPary(22).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_182, Height.cm_194, Belt.S, Belt.M),
+                new Size(Height.cm_182, Height.cm_194, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(46).setZdjęcie(1010, 1158).setNazwa("muszkieter").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_110)));
+
+        dodaj(new Costume(605).setZdjęcie(1012).setNazwa("Elvis Presley").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M)));
+
+        dodaj(new Costume(607).setZdjęcie(1014).setNazwa("dama").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(608).setZdjęcie(1017).setNazwa("chinka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(609).setZdjęcie(1018).setNazwa("dr. watson").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(610).setZdjęcie(1020).setNazwa("al capone").setDlaPary(37).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.L),
+                new Size(Height.cm_182, Height.cm_188, Belt.XXL),
+                new Size(Height.cm_182, Height.cm_188, Belt.XL),
+                new Size(Height.cm_182, Height.cm_188, Belt.M)));
+
+        dodaj(new Costume(611).setZdjęcie(1019).setNazwa("kan-kan").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Lata_20_i_30).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.L),
+                new Size(Height.cm_164, Height.cm_176, Belt.M)));
+
+        dodaj(new Costume(612).setZdjęcie(1021).setNazwa("czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Andrzejki).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_158, Height.cm_176, Belt.L),
+                new Size(Height.cm_158, Height.cm_176, Belt.S)));
+
+        dodaj(new Costume(613).setZdjęcie(1025).setNazwa("dama").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S)));
+
+        dodaj(new Costume(614).setZdjęcie(1026).setNazwa("disco").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.M),
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L),
+                new Size(Height.cm_176, Height.cm_182, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(615).setZdjęcie(1028).setNazwa("smerfetka").setDlaPary(46).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(616).setZdjęcie(1029).setNazwa("byk").setDlaPary(25).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(617).setZdjęcie(1031).setNazwa("marynarz").setDlaPary(28).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.M)));
+
+        dodaj(new Costume(618).setZdjęcie(1033).setNazwa("dunka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.S),
+                new Size(Height.cm_158, Height.cm_170, Belt.XS)));
+
+        dodaj(new Costume(619).setZdjęcie(1034).setNazwa("jesień").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XS, Belt.M)));
+
+        dodaj(new Costume(620).setZdjęcie(1035).setNazwa("sułtanka").setDlaPary(43).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.XS, Belt.M)));
+
+        dodaj(new Costume(621).setZdjęcie(1036).setNazwa("mak").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.L)));
+
+        dodaj(new Costume(622).setZdjęcie(1037).setNazwa("Żółw").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(623).setZdjęcie(1038).setNazwa("hipiska").setDlaPary(14).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(625).setZdjęcie(1040).setNazwa("syrena").setWiek(Age.DOROSŁY).setDlaPary(53).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.XS)));
+
+        dodaj(new Costume(626).setZdjęcie(1042).setNazwa("czirliderka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(627).setZdjęcie(1044).setNazwa("kominiarz").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.M)));
+
+        dodaj(new Costume(628).setZdjęcie(1045).setNazwa("piratka").setDlaPary(1).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(630).setZdjęcie(1047).setNazwa("topielica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(631).setZdjęcie(1048).setNazwa("muszkieter").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.M)));
+
+        dodaj(new Costume(632).setZdjęcie(1049).setNazwa("rzymianka").setDlaPary(39).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(633).setZdjęcie(1050).setNazwa("Sherlock Holmes").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(635).setZdjęcie(1052).setNazwa("wilk").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_110, Height.cm_116),
+                new Size(Height.cm_122, Height.cm_128),
+                new Size(Height.cm_134, Height.cm_140)));
+
+        dodaj(new Costume(636).setZdjęcie(1053).setNazwa("dinozaur").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122)));
+
+        dodaj(new Costume(637).setZdjęcie(1054).setNazwa("kucharz").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.L),
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.L),
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XXL)));
+
+        dodaj(new Costume(638).setZdjęcie(1056).setNazwa("myszka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(639).setZdjęcie(1057).setNazwa("słoń").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(641).setZdjęcie(1059).setNazwa("Świnka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(642).setZdjęcie(1060).setNazwa("rycerz").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_140),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(643).setZdjęcie(1061).setNazwa("zając").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_140),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(644).setZdjęcie(1062).setNazwa("suknia do walca").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_122)));
+
+        dodaj(new Costume(645).setZdjęcie(1063).setNazwa("stokrotka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(646).setZdjęcie(1064).setNazwa("pirat Jack Sparrow").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(647).setZdjęcie(1065).setNazwa("panterka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_140),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(648).setZdjęcie(1066).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Andrzejki).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_140),
+                new Size(Height.cm_128),
+                new Size(Height.cm_116),
+                new Size(Height.cm_104)));
+
+        dodaj(new Costume(649).setZdjęcie(1067).setNazwa("czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Andrzejki).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+
+        dodaj(new Costume(650).setZdjęcie(1068).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Andrzejki).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(651).setZdjęcie(1069).setNazwa("mnich").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.L)));
+
+        dodaj(new Costume(652).setZdjęcie(1070).setNazwa("kwiatek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_122, Height.cm_128),
+                new Size(Height.cm_134, Height.cm_140)));
+
+        dodaj(new Costume(653).setZdjęcie(1072).setNazwa("dominikanin").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L)));
+
+        dodaj(new Costume(654).setZdjęcie(1075).setNazwa("diablica").setDlaPary(8).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(655).setZdjęcie(1076).setNazwa("krasnoludek").setDlaPary(21).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.M, Belt.L)));
+
+        dodaj(new Costume(656).setZdjęcie(1078).setNazwa("biskup").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L)));
+
+        dodaj(new Costume(657).setZdjęcie(1079).setNazwa("kan-kan").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Lata_20_i_30).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(658).setZdjęcie(1080).setNazwa("król").setDlaPary(22).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L)));
+
+        dodaj(new Costume(660).setZdjęcie(1082).setNazwa("mikołaj").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Mikołajki).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_188, Height.cm_194, Belt.M, Belt.XXL),
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.XXL),
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.XXL),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(661).setZdjęcie(1086).setNazwa("hawajka").setDlaPary(35).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(662).setZdjęcie(1087).setNazwa("szeherezada").setDlaPary(11).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(663).setZdjęcie(1085).setNazwa("dama").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(664).setZdjęcie(1074).setNazwa("muszkieter").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(665).setZdjęcie(1071).setNazwa("czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(667).setZdjęcie(1041).setNazwa("cyganka").setDlaPary(19).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.XS, Belt.S)));
+    }
+
+    private void addData3() {
+        dodaj(new Costume(668).setZdjęcie(1088).setNazwa("szop").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_122, Height.cm_128)));
+
+        dodaj(new Costume(669).setZdjęcie(1089).setNazwa("hindus").setDlaPary(23).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(670).setZdjęcie(1091).setNazwa("tygrys").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_122, Height.cm_128)));
+
+        dodaj(new Costume(672).setZdjęcie(1093).setNazwa("mikołaj").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Mikołajki).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_140, Height.cm_152),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(674).setZdjęcie(1095).setNazwa("dama").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.L)));
+
+        dodaj(new Costume(84).setZdjęcie(1096).setNazwa("wilk").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_122, Height.cm_128)));
+
+        dodaj(new Costume(676).setZdjęcie(1098).setNazwa("król").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.M)));
+
+        dodaj(new Costume(677).setZdjęcie(1099, 1100).setNazwa("krokodyl").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122)));
+
+        dodaj(new Costume(679).setZdjęcie(1103).setNazwa("duch").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.M)));
+
+        dodaj(new Costume(680).setZdjęcie(1104).setNazwa("myśliwy").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(681).setZdjęcie(1105).setNazwa("nietoperz").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(682).setZdjęcie(1106).setNazwa("hipiska").setDlaPary(14).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(683).setZdjęcie(1115).setNazwa("hipiska").setDlaPary(14).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(684).setZdjęcie(1107).setNazwa("piesek").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(685).setZdjęcie(1108).setNazwa("avatar neytiri").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(686).setZdjęcie(1109).setNazwa("świnka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(687).setZdjęcie(1110).setNazwa("kotek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(688).setZdjęcie(1111).setNazwa("avatar jake sully").setDlaPary(49).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(689).setZdjęcie(1112).setNazwa("lew").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(690).setZdjęcie(1113).setNazwa("król").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(691).setZdjęcie(1114).setNazwa("batman").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(692).setZdjęcie(1116).setNazwa("kot w butach").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(693).setZdjęcie(1117, 1118).setNazwa("zebra").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_122, Height.cm_128)));
+
+        dodaj(new Costume(694).setZdjęcie(1119).setNazwa("wróżka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(697).setZdjęcie(1126).setNazwa("śnieżynka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(698).setZdjęcie(1127, 1111).setNazwa("avatar neytiri").setDlaPary(49).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(87).setZdjęcie(1122).setNazwa("superman").setDlaPary(33).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Super_bohaterowie).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L)));
+
+        dodaj(new Costume(699).setZdjęcie(1122).setNazwa("supergirl").setDlaPary(33).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Super_bohaterowie).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(701).setZdjęcie(1128).setNazwa("hiszpanka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(702).setZdjęcie(1129).setNazwa("gandalf").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_188, Height.cm_194, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(704).setZdjęcie(1131).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(705).setZdjęcie(1134).setNazwa("tygrys").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(707).setZdjęcie(1136, 1137).setNazwa("Żyrafa").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(708).setZdjęcie(1139, 1140).setNazwa("lis").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_122, Height.cm_128)));
+
+        dodaj(new Costume(709).setZdjęcie(1142).setNazwa("elf").setDlaPary(32).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S)));
+
+        dodaj(new Costume(710).setZdjęcie(1143).setNazwa("leia").setDlaPary(5).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(711).setZdjęcie(1144).setNazwa("konik").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110)));
+
+        dodaj(new Costume(712).setZdjęcie(1145).setNazwa("małpka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110)));
+
+        dodaj(new Costume(713).setZdjęcie(1146).setNazwa("łoś").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110)));
+
+        dodaj(new Costume(715).setZdjęcie(1151).setNazwa("tygrysek").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110)));
+
+        dodaj(new Costume(716).setZdjęcie(1147, 1148).setNazwa("anioł").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(717).setZdjęcie(1156).setNazwa("sukienka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_50_i_60).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(719).setZdjęcie(1154).setNazwa("król").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(720).setZdjęcie(1155).setNazwa("król").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(721).setZdjęcie(1157).setNazwa("diabełek").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(722).setZdjęcie(1161).setNazwa("jabłko").setWiek(Age.DZIECKO_DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Owoce_i_warzywa).setRozmiar(
+                new Size(Height.cm_128, Height.cm_164)));
+
+        dodaj(new Costume(725).setZdjęcie(1168).setNazwa("pszczółka").setDlaPary(13).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(726).setZdjęcie(1234).setNazwa("suknia").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(37).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_158, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_158, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(727).setZdjęcie(1236).setNazwa("suknia").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(37).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_158, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_158, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(728).setZdjęcie(1237).setNazwa("Papa Smurf").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(46).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.S, Belt.L)));
+
+        dodaj(new Costume(729).setZdjęcie(1332).setNazwa("Turek").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(11).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(730).setZdjęcie(1318).setNazwa("ananas").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Owoce_i_warzywa).setRozmiar(
+                new Size(Height.cm_170, Height.cm_194, Belt.M, Belt.XXL)));
+
+        dodaj(new Costume(732).setZdjęcie(1166).setNazwa("policjantka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy, Category.Zawody).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS),
+                new Size(Height.cm_164, Height.cm_170, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(733).setZdjęcie(1170).setNazwa("hiszpanka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(52).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.S, Belt.M)));
+
+        dodaj(new Costume(734).setZdjęcie(1169, 1418).setNazwa("kocica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(735).setZdjęcie(1232).setNazwa("Rzymianin").setDlaPary(39).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.L)));
+
+        dodaj(new Costume(736).setZdjęcie(1235).setNazwa("Posejdon").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(53).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_188, Belt.S, Belt.L)));
+
+        dodaj(new Costume(737).setZdjęcie(1233).setNazwa("pszczółka").setDlaPary(13).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.M)));
+
+        dodaj(new Costume(739).setZdjęcie(1230).setNazwa("Leprechaun").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_152, Belt.XS),
+                new Size(Height.cm_158, Belt.L),
+                new Size(Height.cm_164, Belt.M)));
+
+        dodaj(new Costume(740).setZdjęcie(1242, 1243).setNazwa("Lady Marion").setDlaPary(3).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(741).setZdjęcie(1313).setNazwa("truskawka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Owoce_i_warzywa).setRozmiar(
+                new Size(Height.cm_164, Height.cm_182, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(742).setZdjęcie(1326).setNazwa("pastuszek").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(55).setOkazja(Occasion.Jasełka, Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(743).setZdjęcie(1314).setNazwa("smoking").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Lata_20_i_30).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(744).setZdjęcie(1315).setNazwa("marchewka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Owoce_i_warzywa).setRozmiar(
+                new Size(Height.cm_176, Height.cm_194, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(745).setZdjęcie(1328).setNazwa("dworzanin").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_176, Belt.M)));
+
+        dodaj(new Costume(748).setZdjęcie(1323).setNazwa("biedronka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(749).setZdjęcie(1319).setNazwa("smoking").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Lata_20_i_30).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(750).setZdjęcie(1240).setNazwa("Wilma Flinstone").setDlaPary(17).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.M),
+                new Size(Height.cm_164, Height.cm_176, Belt.L),
+                new Size(Height.cm_164, Height.cm_176, Belt.XL)));
+
+        dodaj(new Costume(751).setZdjęcie(1251).setNazwa("cyganka").setDlaPary(19).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M)));
+
+        dodaj(new Costume(752).setZdjęcie(1252).setNazwa("cyganka").setDlaPary(19).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(753).setZdjęcie(1288).setNazwa("hipiska").setDlaPary(14).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(754).setZdjęcie(1278).setNazwa("Rzymianka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(39).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(821).setZdjęcie(1378, 1217).setNazwa("Policjantka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(29).setOkazja(Occasion.Inne).setKategoria(Category.Sexy, Category.Zawody).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(756).setZdjęcie(1264, 1265).setNazwa("strój do samby czerwony").setDlugaNazwa().setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Inne).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(757).setZdjęcie(1265).setNazwa("strój do samby czarny").setDlugaNazwa().setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(758).setZdjęcie(1263).setNazwa("strój do samby zielony").setDlugaNazwa().setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(759).setZdjęcie(1226).setNazwa("kowbojka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(2).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS),
+                new Size(Height.cm_164, Height.cm_170, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+
+        dodaj(new Costume(760).setZdjęcie(1162).setNazwa("jabłko").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Owoce_i_warzywa).setRozmiar(
+                new Size(Height.cm_116, Height.cm_158)));
+
+        dodaj(new Costume(761).setZdjęcie(1320).setNazwa("Wiking").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(762).setZdjęcie(1277).setNazwa("Japonka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(7).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.L)));
+
+        dodaj(new Costume(763).setZdjęcie(1305).setNazwa("hipiska").setDlaPary(14).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(764).setZdjęcie(1283).setNazwa("chinka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(765).setZdjęcie(1299).setNazwa("hinduska").setDlaPary(23).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(766).setZdjęcie(1261, 1267).setNazwa("biedronka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.XS, Belt.S),
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(767).setZdjęcie(1190, 1201).setNazwa("dama").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.S, Belt.M),
+                new Size(Height.cm_158, Height.cm_164, Belt.M, Belt.L)));
+
+        dodaj(new Costume(768).setZdjęcie(1174).setNazwa("skinhead").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.L)));
+
+        dodaj(new Costume(769).setZdjęcie(1293).setNazwa("turczynka").setDlaPary(11).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.S, Belt.M)));
+
+        dodaj(new Costume(770).setZdjęcie(1211).setNazwa("czarny anioł").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(8).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(773).setZdjęcie(1286, 1290).setNazwa("szkotka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(27).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M)));
+
+        dodaj(new Costume(775).setZdjęcie(1296).setNazwa("mieszczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L),
+                new Size(Height.cm_170, Height.cm_176, Belt.L, Belt.XL),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(777).setZdjęcie(1173).setNazwa("dama").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Belt.L)));
+
+        dodaj(new Costume(778).setZdjęcie(1171).setNazwa("dama").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Belt.M),
+                new Size(Height.cm_164, Belt.L)));
+
+        dodaj(new Costume(779).setZdjęcie(1172, 841).setNazwa("dama").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_158, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(780).setZdjęcie(1193).setNazwa("dama").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_158, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(781).setZdjęcie(1284).setNazwa("dama").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(782).setZdjęcie(1280).setNazwa("dama").setDlaPary(16).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_176, Belt.XL)));
+
+        dodaj(new Costume(784).setZdjęcie(1333, 1334).setNazwa("kowbojka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(2).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(785).setZdjęcie(1301).setNazwa("agentka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(787).setZdjęcie(1306).setNazwa("pasterka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(55).setOkazja(Occasion.Jasełka, Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_170, Height.cm_176, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(789).setZdjęcie(1247, 1246).setNazwa("hiszpanka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(52).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S),
+                new Size(Height.cm_170, Height.cm_176, Belt.M),
+                new Size(Height.cm_170, Height.cm_176, Belt.L)));
+
+        dodaj(new Costume(790).setZdjęcie(1228, 1229).setNazwa("zakonnica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(10).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Zawody, Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+
+        dodaj(new Costume(792).setZdjęcie(1274, 1273).setNazwa("hinduska").setDlaPary(23).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S),
+                new Size(Height.cm_170, Height.cm_176, Belt.M),
+                new Size(Height.cm_170, Height.cm_176, Belt.L),
+                new Size(Height.cm_170, Height.cm_176, Belt.XL)));
+
+        dodaj(new Costume(794).setZdjęcie(1181).setNazwa("pokojówka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(795).setZdjęcie(1189).setNazwa("czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Halloween).setKategoria(Category.Bajki, Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(796).setZdjęcie(1178).setNazwa("wilk").setDlaPary(18).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.S, Belt.L)));
+
+        dodaj(new Costume(797).setZdjęcie(1266).setNazwa("ośmiornica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(798).setZdjęcie(1302).setNazwa("toga akademicka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(799).setZdjęcie(1196).setNazwa("biedronka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(800).setZdjęcie(1208).setNazwa("chomik").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.L)));
+
+        dodaj(new Costume(801).setZdjęcie(1294).setNazwa("lis").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.L)));
+
+        dodaj(new Costume(802).setZdjęcie(1262).setNazwa("wilk").setDlaPary(18).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne, Occasion.Halloween).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.L)));
+
+        dodaj(new Costume(629).setZdjęcie(1290).setNazwa("szkot").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(27).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S),
+                new Size(Height.cm_176, Height.cm_182, Belt.L)));
+
+        dodaj(new Costume(535).setZdjęcie(1260).setNazwa("wilk").setDlaPary(18).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.L)));
+
+        dodaj(new Costume(505).setZdjęcie(1272).setNazwa("jesienne liście").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+
+        dodaj(new Costume(487).setZdjęcie(1308).setNazwa("Morticia").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_176, Belt.S)));
+
+        dodaj(new Costume(363).setZdjęcie(1309).setNazwa("panterka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M)));
+
+        dodaj(new Costume(746).setZdjęcie(1224).setNazwa("Robin Hood damski").setDlugaNazwa().setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(3).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(731).setZdjęcie(1224, 1243).setNazwa("Robin Hood męski").setDlugaNazwa().setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(3).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.XS),
+                new Size(Height.cm_176, Height.cm_182, Belt.S),
+                new Size(Height.cm_176, Height.cm_182, Belt.M),
+                new Size(Height.cm_176, Height.cm_182, Belt.L),
+                new Size(Height.cm_176, Height.cm_182, Belt.XL)));
+
+        dodaj(new Costume(723).setZdjęcie(1256).setNazwa("Morticia").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(678).setZdjęcie(1275).setNazwa("Hermes").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.XS, Belt.M)));
+
+        dodaj(new Costume(511).setZdjęcie(1185).setNazwa("króliczek").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(500).setZdjęcie(1184).setNazwa("króliczek").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(475).setZdjęcie(1209).setNazwa("Czerwony Kapturek").setWiek(Age.DZIECKO).setDlugaNazwa().setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(474).setZdjęcie(1271).setNazwa("Stańczyk").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(454).setZdjęcie(1192).setNazwa("gorset").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(446).setZdjęcie(1194).setNazwa("gorset").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(443).setZdjęcie(1188).setNazwa("gorset").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(432).setZdjęcie(1182).setNazwa("kotek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(427).setZdjęcie(1175).setNazwa("Monster High Skelita").setDlugaNazwa().setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(424).setZdjęcie(1176).setNazwa("Monster High Frankie Stein").setDlugaNazwa().setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(411).setZdjęcie(1200).setNazwa("Monster High Drakulaura Sweet").setDlugaNazwa().setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(410).setZdjęcie(1340).setNazwa("Szkot").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(27).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(408).setZdjęcie(1186).setNazwa("Monster High Cleo De Nile").setDlugaNazwa().setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(405).setZdjęcie(1179).setNazwa("Monster High Abby").setDlugaNazwa().setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(404).setZdjęcie(1216).setNazwa("rybka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_134, Height.cm_140)));
+
+        dodaj(new Costume(403).setZdjęcie(1167).setNazwa("owieczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(398).setZdjęcie(1164).setNazwa("kościotrup").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(396).setZdjęcie(1183).setNazwa("biedronka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(393).setZdjęcie(1187).setNazwa("Hello Kitty").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(380).setZdjęcie(1203).setNazwa("pszczółka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_110),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(368).setZdjęcie(1198, 1197).setNazwa("dynia").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(360).setZdjęcie(1195).setNazwa("czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(324).setZdjęcie(1205).setNazwa("muchomor").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(314).setZdjęcie(1214).setNazwa("ptak").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_110, Height.cm_146)));
+
+        dodaj(new Costume(272).setZdjęcie(1180).setNazwa("biedronka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(236).setZdjęcie(1191).setNazwa("biedronka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(215).setZdjęcie(1218).setNazwa("Zorro").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(213).setZdjęcie(1213).setNazwa("rybka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(192).setZdjęcie(1269).setNazwa("Czerwony Kapturek").setDlaPary(18).setDlugaNazwa().setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_152, Height.cm_158, Belt.XS, Belt.S),
+                new Size(Height.cm_158, Height.cm_164, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.L),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(186).setZdjęcie(1291).setNazwa("Królewna").setDlaPary(22).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Belt.S),
+                new Size(Height.cm_170, Belt.L)));
+
+        dodaj(new Costume(185).setZdjęcie(1253, 1254).setNazwa("kombinezon").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(175).setZdjęcie(1282).setNazwa("Kapitan").setDlaPary(28).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Zawody).setRozmiar(
+                new Size(Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(145).setZdjęcie(1250, 1249).setNazwa("więzień").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(29).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_182, Height.cm_194, Belt.S, Belt.M),
+                new Size(Height.cm_182, Height.cm_194, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(144).setZdjęcie(1229).setNazwa("Ksiądz").setDlaPary(10).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Film_i_scena, Category.Zawody).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S),
+                new Size(Height.cm_176, Height.cm_182, Belt.M),
+                new Size(Height.cm_182, Height.cm_188, Belt.L)));
+
+        dodaj(new Costume(143).setZdjęcie(1289).setNazwa("kocica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Halloween).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(142).setZdjęcie(1339).setNazwa("kotek").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Halloween).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.L)));
+
+        dodaj(new Costume(141).setZdjęcie(1241, 1239).setNazwa("Fred Flinstone").setDlaPary(17).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_182, Height.cm_194, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(140).setZdjęcie(1334, 1331).setNazwa("kowboj").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(2).setOkazja(Occasion.Inne).setKategoria(Category.Dziki_zachód, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.XS, Belt.S),
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.M),
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(139).setZdjęcie(1341).setNazwa("Mary Poppins").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M),
+                new Size(Height.cm_170, Height.cm_176, Belt.L),
+                new Size(Height.cm_170, Height.cm_176, Belt.XXL)));
+
+        dodaj(new Costume(138).setZdjęcie(1347).setNazwa("kufel piwa").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(133).setZdjęcie(1345).setNazwa("disco").setDlaPary(20).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S),
+                new Size(Height.cm_176, Height.cm_182, Belt.M)));
+
+        dodaj(new Costume(132).setZdjęcie(1343).setNazwa("Meksykanin").setDlaPary(4).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_182, Belt.S, Belt.M)));
+
+        dodaj(new Costume(131).setZdjęcie(1338).setNazwa("Cezar").setDlaPary(39).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(128).setZdjęcie(1335).setNazwa("Egipcjanin").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(65).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(127).setZdjęcie(1324).setNazwa("kierowca rajdowy").setDlugaNazwa().setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.S, Belt.M),
+                new Size(Height.cm_170, Height.cm_182, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(126).setZdjęcie(1292).setNazwa("marynarz Papaj").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.L)));
+
+        dodaj(new Costume(124).setZdjęcie(1300).setNazwa("Samuraj").setDlugaNazwa().setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(7).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(121).setZdjęcie(1255).setNazwa("Egipcjanin").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(119).setZdjęcie(1245, 1246).setNazwa("Hiszpan").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(52).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Narodowościowe, Category.Zawody).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.M),
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(117).setZdjęcie(1257).setNazwa("lis").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(116).setZdjęcie(1281).setNazwa("Spiderman").setDlaPary(33).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Super_bohaterowie).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.S, Belt.L)));
+
+        dodaj(new Costume(115).setZdjęcie(1298).setNazwa("Aladyn").setDlaPary(11).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(113).setZdjęcie(1344).setNazwa("disco").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(20).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.M)));
+
+        dodaj(new Costume(111).setZdjęcie(1287).setNazwa("Grabarz").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.S, Belt.M),
+                new Size(Height.cm_176, Height.cm_188, Belt.L)));
+
+        dodaj(new Costume(107).setZdjęcie(1337).setNazwa("lekarz").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.S, Belt.M)));
+
+        dodaj(new Costume(106).setZdjęcie(1285).setNazwa("pilot").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(30).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(105).setZdjęcie(1317).setNazwa("król").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(22).setOkazja(Occasion.Jasełka).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_194, Belt.L, Belt.XXL)));
+
+        dodaj(new Costume(100).setZdjęcie(1348).setNazwa("dozorca").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(99).setZdjęcie(1307).setNazwa("Pinokio").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_182, Height.cm_194, Belt.M, Belt.L)));
+
+        dodaj(new Costume(95).setZdjęcie(1310).setNazwa("Żołnierz").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(85).setZdjęcie(1248, 1249).setNazwa("policjantka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(29).setOkazja(Occasion.Inne).setKategoria(Category.Sexy, Category.Zawody).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.XS, Belt.S),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(77).setZdjęcie(1222, 1221, 1223).setNazwa("Hawajczyk").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(35).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.XS, Belt.S),
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.L),
+                new Size(Height.cm_182, Height.cm_194, Belt.L, Belt.XXL)));
+
+        dodaj(new Costume(51).setZdjęcie(1422, 1215).setNazwa("Żołnierz").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(49).setZdjęcie(1258).setNazwa("zebra").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.L)));
+
+        dodaj(new Costume(42).setZdjęcie(1330).setNazwa("ptak").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.L)));
+
+        dodaj(new Costume(35).setZdjęcie(1322).setNazwa("policjant").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(29).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(32).setZdjęcie(1312).setNazwa("Elvis Presley").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(15).setZdjęcie(1311).setNazwa("Szewc Dratewka").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_188, Height.cm_194, Belt.L, Belt.XXL)));
+
+        dodaj(new Costume(290).setZdjęcie(1043).setNazwa("Żołnierz Rzymski").setDlaPary(39).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Belt.S)));
+
+        dodaj(new Costume(273).setZdjęcie(1083).setNazwa("piratka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(1).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(224).setZdjęcie(1016).setNazwa("cygan").setDlaPary(19).setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.S, Belt.M),
+                new Size(Height.cm_176, Height.cm_188, Belt.M, Belt.L),
+                new Size(Height.cm_176, Height.cm_188, Belt.L, Belt.XL),
+                new Size(Height.cm_176, Height.cm_188, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(188).setZdjęcie(960).setNazwa("Książe").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(16).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.M),
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(179).setZdjęcie(1011).setNazwa("piratka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(1).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XS, Belt.M)));
+
+        dodaj(new Costume(134).setZdjęcie(1015).setNazwa("piratka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(1).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XS, Belt.M)));
+
+        dodaj(new Costume(464).setZdjęcie(1273).setNazwa("hindus").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(23).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.M),
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L),
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(65).setZdjęcie(1244).setNazwa("pirat").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(1).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Historyczne, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L),
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XL),
+                new Size(Height.cm_182, Height.cm_188, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(118).setZdjęcie(1244).setNazwa("piratka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(1).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Historyczne, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(120).setZdjęcie(1227).setNazwa("bawarczyk").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(41).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.S, Belt.M),
+                new Size(Height.cm_170, Height.cm_182, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(444).setZdjęcie(1227).setNazwa("bawarka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(41).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(803).setZdjęcie(1427, 1349).setNazwa("Evil Mad Hatter").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(9).setOkazja(Occasion.Halloween).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.M),
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L),
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(804).setZdjęcie(1350).setNazwa("Alicja z Krainy Czarów").setDlugaNazwa().setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(805).setZdjęcie(1351).setNazwa("Piratka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(1).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(806).setZdjęcie(1352).setNazwa("Policjantka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(29).setOkazja(Occasion.Inne).setKategoria(Category.Sexy, Category.Zawody).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XL)));
+
+        dodaj(new Costume(807).setZdjęcie(1353, 1354, 1355, 1356).setNazwa("sukienka lata XX-te").setDlugaNazwa().setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(37).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S),
+                new Size(Height.cm_164, Height.cm_176, Belt.M),
+                new Size(Height.cm_164, Height.cm_176, Belt.L),
+                new Size(Height.cm_164, Height.cm_176, Belt.XL)));
+
+        dodaj(new Costume(808).setZdjęcie(1357, 1358).setNazwa("Hipiska").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(14).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80, Category.Sexy).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.XS, Belt.S),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(809).setZdjęcie(1359, 1360).setNazwa("Wampirzyca").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(9).setOkazja(Occasion.Halloween).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(810).setZdjęcie(1361, 1362).setNazwa("Wampirzyca").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(9).setOkazja(Occasion.Halloween).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(812).setZdjęcie(1367).setNazwa("Greczynka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Sexy).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(813).setZdjęcie(1368).setNazwa("Wojowniczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(39).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Sexy).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(814).setZdjęcie(1369).setNazwa("Ninja").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Sexy).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(815).setZdjęcie(1370).setNazwa("Smoczyca").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(816).setZdjęcie(1371, 1372).setNazwa("Motyl").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(818).setZdjęcie(1374, 1375).setNazwa("Jaskiniowiec").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(17).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(819).setZdjęcie(1376).setNazwa("Piratka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(1).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(820).setZdjęcie(1377).setNazwa("greczynka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(76).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(822).setZdjęcie(1379).setNazwa("wojowniczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(39).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(823).setZdjęcie(1380).setNazwa("smok").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(824).setZdjęcie(1381, 1382).setNazwa("smok").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(825).setZdjęcie(1383).setNazwa("piratka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(1).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(826).setZdjęcie(1384).setNazwa("mieszczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(827).setZdjęcie(1385).setNazwa("greczynka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(76).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(828).setZdjęcie(1386, 1387).setNazwa("smok").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_110, Height.cm_116),
+                new Size(Height.cm_122, Height.cm_128)));
+
+        dodaj(new Costume(829).setZdjęcie(1388, 1389).setNazwa("zebra").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_122, Height.cm_128),
+                new Size(Height.cm_134, Height.cm_140),
+                new Size(Height.cm_146, Height.cm_152)));
+
+        dodaj(new Costume(830).setZdjęcie(1390).setNazwa("policjantka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_110, Height.cm_116),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(831).setZdjęcie(1391, 1392, 1393).setNazwa("lew").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(832).setZdjęcie(1394, 1395).setNazwa("wampirzyca").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_146),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(833).setZdjęcie(1396, 1397).setNazwa("piratka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie).setRozmiar(
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(834).setZdjęcie(1398, 1399).setNazwa("Robin Hood").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(3).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Sexy).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.S)));
+
+        dodaj(new Costume(835).setZdjęcie(1400).setNazwa("jaskiniowiec").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_146),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(837).setZdjęcie(1403).setNazwa("Czerwony Kapturek").setWiek(Age.DOROSŁY).setDlugaNazwa().setPłeć(Sex.DAMSKI).setDlaPary(18).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(838).setZdjęcie(1405).setNazwa("Robin Hood").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(3).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.L),
+                new Size(Height.cm_164, Height.cm_170, Belt.XL)));
+
+        dodaj(new Costume(839).setZdjęcie(1406).setNazwa("Panterka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(840).setZdjęcie(1407).setNazwa("Tygrys").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(841).setZdjęcie(1408).setNazwa("Króliczek").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(842).setZdjęcie(1409).setNazwa("cyganka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(19).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(848).setZdjęcie(1424).setNazwa("cigarettes girl").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(849).setZdjęcie(1428).setNazwa("Różowy potwór").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(850).setZdjęcie(1429).setNazwa("Fioletowy potwór").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(851).setZdjęcie(1432).setNazwa("Zombie").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_140),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(852).setZdjęcie(1435).setNazwa("piratka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Pirackie).setRozmiar(
+                new Size(Height.cm_146, Height.cm_152),
+                new Size(Height.cm_158, Height.cm_164),
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(853).setZdjęcie(1437).setNazwa("Cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(854).setZdjęcie(1438).setNazwa("Pokojówka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L),
+                new Size(Height.cm_170, Height.cm_176, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(855).setZdjęcie(1440).setNazwa("Cyganka").setWiek(Age.DOROSŁY).setDlaPary(19).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(856).setZdjęcie(1441).setNazwa("Czerwona Królowa").setDlugaNazwa().setWiek(Age.DOROSŁY).setDlaPary(22).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(857).setZdjęcie(1442).setNazwa("Kleopatra").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(65).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(858).setZdjęcie(1443).setNazwa("Czerwony Kapturek").setDlugaNazwa().setWiek(Age.DOROSŁY).setDlaPary(18).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(859).setZdjęcie(1444).setNazwa("Spartanka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Sexy).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S)));
+
+        dodaj(new Costume(860).setZdjęcie(1445).setNazwa("Bawarka").setDlaPary(41).setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S),
+                new Size(Height.cm_164, Height.cm_176, Belt.M),
+                new Size(Height.cm_164, Height.cm_176, Belt.L)));
+
+        dodaj(new Costume(861).setZdjęcie(1446).setNazwa("sukienka lata 20-te").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+
+        dodaj(new Costume(862).setZdjęcie(1447).setNazwa("sukienka lata 20-te").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XXL),
+                new Size(Height.cm_164, Height.cm_170, Belt.XXXXL)));
+
+        dodaj(new Costume(863).setZdjęcie(1448).setNazwa("Gotycki Czerwony Kapturek").setDlugaNazwa().setWiek(Age.DOROSŁY).setDlaPary(18).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L),
+                new Size(Height.cm_164, Height.cm_176, Belt.L, Belt.XL),
+                new Size(Height.cm_164, Height.cm_176, Belt.XXL, Belt.XXXL),
+                new Size(Height.cm_164, Height.cm_176, Belt.XXXL, Belt.XXXXL)));
+
+        dodaj(new Costume(864).setZdjęcie(1449).setNazwa("sukienka lata 20-te").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(865).setZdjęcie(1450).setNazwa("Wampirzyca").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(9).setOkazja(Occasion.Halloween).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XXL, Belt.XXXL)));
+
+        dodaj(new Costume(866).setZdjęcie(1451, 1452).setNazwa("Wojowniczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(39).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XXL),
+                new Size(Height.cm_164, Height.cm_176, Belt.XXXL)));
+
+        dodaj(new Costume(867).setZdjęcie(1453).setNazwa("Wojowniczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(39).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S),
+                new Size(Height.cm_164, Height.cm_176, Belt.L)));
+
+        dodaj(new Costume(868).setZdjęcie(1454).setNazwa("Pielęgniarka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.XXL)));
+
+        dodaj(new Costume(869).setZdjęcie(1455).setNazwa("księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(870).setZdjęcie(1456).setNazwa("suknia").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176)));
+
+        dodaj(new Costume(871).setZdjęcie(1457, 1458).setNazwa("szata grecka").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188)));
+
+        dodaj(new Costume(872).setZdjęcie(1459).setNazwa("Duszek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110)));
+
+        dodaj(new Costume(873).setZdjęcie(1460).setNazwa("Biedronka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_86, Height.cm_98)));
+
+        dodaj(new Costume(874).setZdjęcie(1461).setNazwa("Pszczółka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_86, Height.cm_98)));
+
+        dodaj(new Costume(875).setZdjęcie(1462).setNazwa("Lord Vader").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L),
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(876).setZdjęcie(1463).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_110, Height.cm_116)));
+
+        dodaj(new Costume(877).setZdjęcie(1464, 1465).setNazwa("Szop").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_182, Height.cm_194)));
+
+        dodaj(new Costume(878).setZdjęcie(1466).setNazwa("Kopciuszek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(879).setZdjęcie(1467).setNazwa("Kurczak").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(880).setZdjęcie(1713, 1468).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(881).setZdjęcie(1469).setNazwa("Kubuś Puchatek").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_152, Height.cm_158, Belt.XS, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.XL),
+                new Size(Height.cm_188, Height.cm_194, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(882).setZdjęcie(1470).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(883).setZdjęcie(1471).setNazwa("Konik polny").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_182, Height.cm_194)));
+
+        dodaj(new Costume(884).setZdjęcie(1472, 1707).setNazwa("Bella").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(885).setZdjęcie(1473).setNazwa("Rekin").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.XL),
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.XL),
+                new Size(Height.cm_188, Height.cm_194, Belt.L, Belt.XXL)));
+
+        dodaj(new Costume(886).setZdjęcie(1474).setNazwa("Wilk").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(887).setZdjęcie(1475).setNazwa("Jesienny Elf").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110)));
+
+        dodaj(new Costume(888).setZdjęcie(1476).setNazwa("Pszczółka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_122)));
+
+        dodaj(new Costume(889).setZdjęcie(1477).setNazwa("Bocian").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_182, Height.cm_194, Belt.L, Belt.XXL),
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.L)));
+
+        dodaj(new Costume(890).setZdjęcie(1478).setNazwa("Pszczółka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(891).setZdjęcie(1479).setNazwa("pszczółka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_98, Height.cm_110)));
+
+        dodaj(new Costume(892).setZdjęcie(1480).setNazwa("Pies").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_182, Height.cm_194)));
+
+        dodaj(new Costume(893).setZdjęcie(1481).setNazwa("Wilk").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.M)));
+
+        dodaj(new Costume(894).setZdjęcie(1482).setNazwa("Królowa").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Jasełka, Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.XS, Belt.M),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(895).setZdjęcie(1483).setNazwa("Biedronka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(896).setZdjęcie(1484).setNazwa("Klakier").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(897).setZdjęcie(1485).setNazwa("Świnka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Belt.M, Belt.XL),
+                new Size(Height.cm_170, Belt.XS, Belt.M),
+                new Size(Height.cm_188, Belt.XL, Belt.XXXL)));
+
+        dodaj(new Costume(898).setZdjęcie(1486).setNazwa("Biedronka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_98, Height.cm_110)));
+
+        dodaj(new Costume(899).setZdjęcie(1487).setNazwa("Suknia").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Belt.M)));
+
+        dodaj(new Costume(900).setZdjęcie(1489).setNazwa("Koń").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XXXL)));
+
+        dodaj(new Costume(901).setZdjęcie(1490).setNazwa("Gargamel").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(902).setZdjęcie(1491).setNazwa("Krasnoludek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_152),
+                new Size(Height.cm_158)));
+
+        dodaj(new Costume(903).setZdjęcie(1492).setNazwa("Kret").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.L)));
+
+        dodaj(new Costume(904).setZdjęcie(1493).setNazwa("Pirat").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(905).setZdjęcie(1494, 1495).setNazwa("Indyk").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(906).setZdjęcie(1496).setNazwa("Wilk").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Belt.S, Belt.L)));
+
+        dodaj(new Costume(907).setZdjęcie(1497).setNazwa("Robin Hood").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M),
+                new Size(Height.cm_182, Height.cm_188, Belt.L),
+                new Size(Height.cm_182, Height.cm_188, Belt.XL),
+                new Size(Height.cm_182, Height.cm_188, Belt.XXL)));
+
+        dodaj(new Costume(908).setZdjęcie(1498).setNazwa("Suknia").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(909).setZdjęcie(1499).setNazwa("Obi Wan Kenobi").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_170, Belt.S, Belt.L),
+                new Size(Height.cm_176, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(910).setZdjęcie(1500).setNazwa("Jack Sparrow").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M),
+                new Size(Height.cm_182, Height.cm_188, Belt.L),
+                new Size(Height.cm_182, Height.cm_188, Belt.XL),
+                new Size(Height.cm_182, Height.cm_188, Belt.XXL)));
+
+        dodaj(new Costume(911).setZdjęcie(1501).setNazwa("Kapitan Hak").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(912).setZdjęcie(1502).setNazwa("Superman").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Super_bohaterowie).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L),
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XXL)));
+
+        dodaj(new Costume(913).setZdjęcie(1503).setNazwa("Kościotrup").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(914).setZdjęcie(1504).setNazwa("Rycerz").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(915).setZdjęcie(1505).setNazwa("Szecherezada").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(916).setZdjęcie(1506).setNazwa("Miś").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.S, Belt.L),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.XL),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.XXL),
+                new Size(Height.cm_176, Height.cm_182, Belt.M, Belt.XXL),
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XXXL),
+                new Size(Height.cm_188, Height.cm_194, Belt.XL, Belt.XXXXL)));
+
+        dodaj(new Costume(917).setZdjęcie(1507).setNazwa("Mrówka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.XS, Belt.M)));
+
+        dodaj(new Costume(918).setZdjęcie(1508).setNazwa("Hipis").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(919).setZdjęcie(1509).setNazwa("Wąż").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.XS, Belt.M)));
+
+        dodaj(new Costume(920).setZdjęcie(1510).setNazwa("Syrena").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(921).setZdjęcie(1511).setNazwa("Syrena").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(922).setZdjęcie(1512).setNazwa("Królowa Zima").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(923).setZdjęcie(1513).setNazwa("Syrena").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.M)));
+
+        dodaj(new Costume(925).setZdjęcie(1514).setNazwa("Wróżka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Belt.L)));
+
+        dodaj(new Costume(926).setZdjęcie(1515).setNazwa("Księżniczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(927).setZdjęcie(1516).setNazwa("Turczynka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
+
+        dodaj(new Costume(928).setZdjęcie(1517).setNazwa("Lord Vader").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_152),
+                new Size(Height.cm_158)));
+
+        dodaj(new Costume(929).setZdjęcie(1518).setNazwa("Stewardessa").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_164, Belt.L)));
+
+        dodaj(new Costume(930).setZdjęcie(1519).setNazwa("Krówka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.L, Belt.XXL)));
+
+        dodaj(new Costume(931).setZdjęcie(1520).setNazwa("Dworzanin").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Belt.S, Belt.M),
+                new Size(Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(932).setZdjęcie(1521).setNazwa("Clown").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Zawody).setRozmiar(
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(933).setZdjęcie(1522).setNazwa("Jaskiniowiec").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.L)));
+
+        dodaj(new Costume(934).setZdjęcie(1523).setNazwa("Syrena").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.S, Belt.M)));
+
+        dodaj(new Costume(935).setZdjęcie(1524).setNazwa("Clown").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Zawody).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(936).setZdjęcie(1525).setNazwa("Ptak").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.XL)));
+
+        dodaj(new Costume(937).setZdjęcie(1526).setNazwa("Bella").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(938).setZdjęcie(1527).setNazwa("Zombie").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_158)));
+
+        dodaj(new Costume(939).setZdjęcie(1528).setNazwa("suknia lata XX-te").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Lata_20_i_30).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.L)));
+
+        dodaj(new Costume(940).setZdjęcie(1529).setNazwa("Brzydkie Kaczątko").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.L)));
+
+        dodaj(new Costume(941).setZdjęcie(1530).setNazwa("Więzień").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_146)));
+        dodaj(new Costume(942).setZdjęcie(1531, 1532).setNazwa("suknia").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_164, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(943).setZdjęcie(1533).setNazwa("Spidermanka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Super_bohaterowie).setRozmiar(
+                new Size(Height.cm_164, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(944).setZdjęcie(1534).setNazwa("Kopciuszek").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Belt.S, Belt.M),
+                new Size(Height.cm_164, Belt.M, Belt.L)));
+
+        dodaj(new Costume(945).setZdjęcie(1535).setNazwa("Syrena").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(946).setZdjęcie(1536).setNazwa("Straszydło").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(947).setZdjęcie(1537).setNazwa("Żyrafa").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(948).setZdjęcie(1538).setNazwa("Szara Śmierć").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_158)));
+
+        dodaj(new Costume(949).setZdjęcie(1539).setNazwa("Wiosna").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.S, Belt.L)));
+
+        dodaj(new Costume(950).setZdjęcie(1540).setNazwa("Supermanka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Sexy, Category.Super_bohaterowie).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+        dodaj(new Costume(951).setZdjęcie(1541, 1542).setNazwa("Czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(952).setZdjęcie(1543).setNazwa("Obi Wan Kenobi").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_152),
+                new Size(Height.cm_164)));
+
+        dodaj(new Costume(953).setZdjęcie(1544).setNazwa("Wiosna").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.XS, Belt.L)));
+
+        dodaj(new Costume(954).setZdjęcie(1545).setNazwa("Robin Hood").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_80),
+                new Size(Height.cm_92),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152),
+                new Size(Height.cm_164)));
+
+        dodaj(new Costume(955).setZdjęcie(1546).setNazwa("Czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M)));
+
+        dodaj(new Costume(956).setZdjęcie(1547).setNazwa("Jaszczurka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(957).setZdjęcie(1548).setNazwa("Hipiska").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(958).setZdjęcie(1549).setNazwa("Rycerz").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(959).setZdjęcie(1550).setNazwa("Diablica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(960).setZdjęcie(1551).setNazwa("Żołnierz").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(961).setZdjęcie(1552, 1553).setNazwa("Wonder Woman").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(33).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Narodowościowe, Category.Sexy).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.M, Belt.L)));
+
+        dodaj(new Costume(962).setZdjęcie(1554).setNazwa("Kierowca rajdowy").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(963).setZdjęcie(1555).setNazwa("Rycerz").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(964).setZdjęcie(1556).setNazwa("Policjantka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(29).setOkazja(Occasion.Inne).setKategoria(Category.Sexy, Category.Zawody).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(965).setZdjęcie(1557).setNazwa("Bawarka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(966).setZdjęcie(1558).setNazwa("Ninja").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_152),
+                new Size(Height.cm_158),
+                new Size(Height.cm_164)));
+
+        dodaj(new Costume(967).setZdjęcie(1559).setNazwa("Uczennica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(968).setZdjęcie(1560).setNazwa("Książę").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(969).setZdjęcie(1561).setNazwa("Torreador").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(52).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(970).setZdjęcie(1562).setNazwa("Sułtan").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(971).setZdjęcie(1563).setNazwa("Księżniczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(26).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(972).setZdjęcie(1564).setNazwa("Bałwanek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Mikołajki, Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_92, Height.cm_110)));
+
+        dodaj(new Costume(973).setZdjęcie(1565).setNazwa("Barbie").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S)));
+
+        dodaj(new Costume(974).setZdjęcie(1566, 1567).setNazwa("Małpka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_80, Height.cm_104)));
+
+        dodaj(new Costume(975).setZdjęcie(1568, 1569).setNazwa("Dynia").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_92, Height.cm_104)));
+
+        dodaj(new Costume(976).setZdjęcie(1570).setNazwa("Śnieżynka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Mikołajki).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(977).setZdjęcie(1571).setNazwa("Suknia").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(978).setZdjęcie(1572, 1573).setNazwa("Smok").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_74)));
+
+        dodaj(new Costume(979).setZdjęcie(1574, 1575).setNazwa("Pingwin").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_80),
+                new Size(Height.cm_92)));
+
+        dodaj(new Costume(980).setZdjęcie(1576).setNazwa("Arlekin").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.XS, Belt.S),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(981).setZdjęcie(1577).setNazwa("Miś").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_80, Height.cm_104)));
+
+        dodaj(new Costume(982).setZdjęcie(1578).setNazwa("Renifer").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Mikołajki).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_176, Height.cm_188, Belt.M, Belt.XXL)));
+
+        dodaj(new Costume(983).setZdjęcie(1579).setNazwa("Renifer").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Mikołajki).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_158, Height.cm_170, Belt.XS, Belt.L)));
+
+        dodaj(new Costume(984).setZdjęcie(1580).setNazwa("Renifery").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Mikołajki).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_158, Height.cm_188, Belt.XS, Belt.XXL)));
+
+        dodaj(new Costume(995).setZdjęcie(1593).setNazwa("Diablica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(8).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+
+        dodaj(new Costume(996).setZdjęcie(1594).setNazwa("Szejk").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(997).setZdjęcie(1595).setNazwa("Kontusz Szlachecki").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setDlaPary(15).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L)));
+
+        dodaj(new Costume(998).setZdjęcie(1597, 1598).setNazwa("Suknia").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.S, Belt.M)));
+
+        dodaj(new Costume(999).setZdjęcie(1599).setNazwa("Kotek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(1000).setZdjęcie(1600).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_80),
+                new Size(Height.cm_86),
+                new Size(Height.cm_98)));
+
+        dodaj(new Costume(1001).setZdjęcie(1601).setNazwa("Pirat").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_152),
+                new Size(Height.cm_158)));
+
+        dodaj(new Costume(1002).setZdjęcie(1602).setNazwa("Diablica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(1003).setZdjęcie(1603).setNazwa("Kontusz Szlachecki").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.L)));
+
+        dodaj(new Costume(1004).setZdjęcie(1604).setNazwa("Robin Hood").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(3).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.L),
+                new Size(Height.cm_164, Height.cm_170, Belt.XL),
+                new Size(Height.cm_164, Height.cm_170, Belt.XXL)));
+
+        dodaj(new Costume(1005).setZdjęcie(1605).setNazwa("Królowa Zima").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_110),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(1006).setZdjęcie(1606).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_86)));
+
+        dodaj(new Costume(1007).setZdjęcie(1607).setNazwa("Żołnierz").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(1008).setZdjęcie(1608).setNazwa("Sukienka lata XX-te").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Lata_20_i_30, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        dodaj(new Costume(1009).setZdjęcie(1610).setNazwa("Śnieżynka-Mikołajka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Mikołajki).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L),
+                new Size(Height.cm_164, Height.cm_176, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(1018).setZdjęcie(1621).setNazwa("suknia lata XX-te").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(37).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30).setRozmiar(
+                new Size(Height.cm_170, Belt.M)));
+
+        dodaj(new Costume(1019).setZdjęcie(1622).setNazwa("Elf").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(1020).setZdjęcie(1623).setNazwa("Michel Jackson").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_152, Height.cm_158),
+                new Size(Height.cm_164, Height.cm_170)));
+
+        dodaj(new Costume(1021).setZdjęcie(1624).setNazwa("Pielęgniarka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(1022).setZdjęcie(1625).setNazwa("Król").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XXL)));
+
+        dodaj(new Costume(1023).setZdjęcie(1626).setNazwa("Michael Jackson").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_152, Height.cm_158),
+                new Size(Height.cm_164, Height.cm_170)));
+
+        dodaj(new Costume(1024).setZdjęcie(1627).setNazwa("Czarownica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(1025).setZdjęcie(1628).setNazwa("Michael Jackson").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_152, Height.cm_158),
+                new Size(Height.cm_164, Height.cm_170)));
+
+        dodaj(new Costume(1026).setZdjęcie(1629).setNazwa("księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(1027).setZdjęcie(1630).setNazwa("Król").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne).setRozmiar(
+                new Size(Height.cm_188, Height.cm_194, Belt.L, Belt.XXL)));
+
+        dodaj(new Costume(1028).setZdjęcie(1631).setNazwa("Kocica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Bajki, Category.Sexy, Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(1029).setZdjęcie(1632).setNazwa("Kopciuszek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(1030).setZdjęcie(1633).setNazwa("Krasnal").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_146, Height.cm_152)));
+
+        dodaj(new Costume(1031).setZdjęcie(1634).setNazwa("Król").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.L, Belt.XXL)));
+
+        dodaj(new Costume(1032).setZdjęcie(1635).setNazwa("Syrena").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(1033).setZdjęcie(1636).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(1034).setZdjęcie(1637).setNazwa("Krasnal").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146),
+                new Size(Height.cm_152, Height.cm_158)));
+
+        dodaj(new Costume(1035).setZdjęcie(1638).setNazwa("Król").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.L, Belt.XXL)));
+
+        dodaj(new Costume(1036).setZdjęcie(1639).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(1037).setZdjęcie(1642).setNazwa("Smok").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(1038).setZdjęcie(1643).setNazwa("tancerka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(1039).setZdjęcie(1644).setNazwa("Hipopotam").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(1040).setZdjęcie(1645).setNazwa("Król").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.L, Belt.XXL)));
+
+        dodaj(new Costume(1041).setZdjęcie(1646).setNazwa("Miś Coala").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(1042).setZdjęcie(1647).setNazwa("Diablica").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_158, Height.cm_164, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(1043).setZdjęcie(1648).setNazwa("Piratka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Pirackie).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(1044).setZdjęcie(1649).setNazwa("Król").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.XL, Belt.XXXL)));
+
+        dodaj(new Costume(1045).setZdjęcie(1650).setNazwa("Diabeł").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.XXL)));
+
+        dodaj(new Costume(1046).setZdjęcie(1651).setNazwa("Pingwin").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_122, Height.cm_128),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(1047).setZdjęcie(1652).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(1048).setZdjęcie(1653).setNazwa("Kombinezon").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Belt.S, Belt.M)));
+
+        dodaj(new Costume(1049).setZdjęcie(1654).setNazwa("Król").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XXL)));
+
+        dodaj(new Costume(1050).setZdjęcie(1655).setNazwa("Kombinezon").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Belt.XS, Belt.S)));
+
+        dodaj(new Costume(1051).setZdjęcie(1656).setNazwa("Smok").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(1052).setZdjęcie(1657).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(1053).setZdjęcie(1658).setNazwa("Kombinezon").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Belt.S, Belt.M)));
+
+        dodaj(new Costume(1054).setZdjęcie(1659).setNazwa("Dinozaur").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_146, Height.cm_152)));
+
+        dodaj(new Costume(1055).setZdjęcie(1661).setNazwa("Królewna").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(1056).setZdjęcie(1662).setNazwa("Kombinezon").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Belt.S, Belt.M)));
+
+        dodaj(new Costume(1057).setZdjęcie(1663).setNazwa("Król").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(1058).setZdjęcie(1664).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(1059).setZdjęcie(1665).setNazwa("Kombinezon").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_164, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        dodaj(new Costume(1061).setZdjęcie(1667).setNazwa("Anna").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(1062).setZdjęcie(1668).setNazwa("Elsa").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(1063).setZdjęcie(1669).setNazwa("Banan").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Owoce_i_warzywa).setRozmiar(
+                new Size(Height.cm_176, Height.cm_194, Belt.M, Belt.XL)));
+
+        dodaj(new Costume(1064).setZdjęcie(1670).setNazwa("Księżniczka Zosia").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(993).setZdjęcie(1671).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(992).setZdjęcie(1672).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(991).setZdjęcie(1673).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(990).setZdjęcie(1674).setNazwa("Elf").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(989).setZdjęcie(1675).setNazwa("Dzwoneczek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(988).setZdjęcie(1676).setNazwa("Elf").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(987).setZdjęcie(1677).setNazwa("Elf").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(986).setZdjęcie(1678).setNazwa("Elf").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(985).setZdjęcie(1679).setNazwa("Cyganka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104)));
+
+        dodaj(new Costume(924).setZdjęcie(1680).setNazwa("Księżniczka").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(847).setZdjęcie(1681).setNazwa("Dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(846).setZdjęcie(1682).setNazwa("Suknia").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(845).setZdjęcie(1683).setNazwa("Śnieżynka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Mikołajki).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140),
+                new Size(Height.cm_152),
+                new Size(Height.cm_158)));
+
+        dodaj(new Costume(844).setZdjęcie(1684).setNazwa("Suknia").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_170, Height.cm_182, Belt.L, Belt.XL),
+                new Size(Height.cm_170, Height.cm_182, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(843).setZdjęcie(1685).setNazwa("Dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_134),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(793).setZdjęcie(1686).setNazwa("suknia grecka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Historyczne, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(791).setZdjęcie(1687).setNazwa("Czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(788).setZdjęcie(1688).setNazwa("Marynarz").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zawody).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(786).setZdjęcie(1689).setNazwa("Diablica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(774).setZdjęcie(1690).setNazwa("dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_146, Height.cm_152)));
+
+        dodaj(new Costume(755).setZdjęcie(1691).setNazwa("Dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(747).setZdjęcie(1692).setNazwa("Renifer").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Jasełka).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(738).setZdjęcie(1693).setNazwa("Dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(706).setZdjęcie(1697).setNazwa("Lodowa Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(696).setZdjęcie(1695).setNazwa("Suknia lata XX-te").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_20_i_30).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.XL, Belt.XXL)));
+
+        dodaj(new Costume(659).setZdjęcie(1696).setNazwa("Tancerka Turecka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(624).setZdjęcie(1698).setNazwa("Dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(606).setZdjęcie(1699).setNazwa("Śnieżynka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Mikołajki).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(575).setZdjęcie(1700).setNazwa("Śnieżna Wróżka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Andrzejki, Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_110),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(522).setZdjęcie(1701).setNazwa("Czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(519).setZdjęcie(1592, 1702).setNazwa("Królowa Śniegu").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_110),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(512).setZdjęcie(1703).setNazwa("Czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_140, Height.cm_152)));
+
+        dodaj(new Costume(510).setZdjęcie(1704).setNazwa("Królowa Zima").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_110),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(489).setZdjęcie(1705).setNazwa("Czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_140),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(481).setZdjęcie(1706).setNazwa("Piratka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_152)));
+
+        dodaj(new Costume(440).setZdjęcie(1708).setNazwa("Panterka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_110, Height.cm_116),
+                new Size(Height.cm_122, Height.cm_128),
+                new Size(Height.cm_134, Height.cm_140),
+                new Size(Height.cm_146, Height.cm_152)));
+
+        dodaj(new Costume(409).setZdjęcie(1709).setNazwa("Dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(359).setZdjęcie(1710).setNazwa("Tygrys").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_122, Height.cm_128),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(350).setZdjęcie(1711).setNazwa("Dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(349).setZdjęcie(1712).setNazwa("Dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_116),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(320).setZdjęcie(1715).setNazwa("Księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_128),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(309).setZdjęcie(1716).setNazwa("Dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(303).setZdjęcie(1717).setNazwa("Dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(289).setZdjęcie(1719).setNazwa("Dama").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_134),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(278).setZdjęcie(1720).setNazwa("Czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_140),
+                new Size(Height.cm_146)));
+
+        dodaj(new Costume(277).setZdjęcie(1721).setNazwa("Czarownica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(269).setZdjęcie(1722).setNazwa("Mysz").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(255).setZdjęcie(1723).setNazwa("Kościotrup").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134)));
+
+        dodaj(new Costume(246).setZdjęcie(1724).setNazwa("Turczynka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_128)));
+
+        dodaj(new Costume(228).setZdjęcie(1725).setNazwa("Pokemon").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_140)));
+
+        dodaj(new Costume(210).setZdjęcie(1726).setNazwa("Śnieżynka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Jasełka, Occasion.Mikołajki, Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(206).setZdjęcie(1727).setNazwa("Hipis").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_134, Height.cm_140)));
+
+        dodaj(new Costume(204).setZdjęcie(1728).setNazwa("księżniczka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_116)));
+
+        dodaj(new Costume(200).setZdjęcie(1729).setNazwa("Cleo").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Sexy).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(199).setZdjęcie(1730).setNazwa("Tancerka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(180).setZdjęcie(1731).setNazwa("Hipis").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Lata_70_i_80).setRozmiar(
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(171).setZdjęcie(1732).setNazwa("Kotek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_110)));
+
+        dodaj(new Costume(129).setZdjęcie(1733, 1734).setNazwa("Żółw Ninja").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        dodaj(new Costume(125).setZdjęcie(1735).setNazwa("Smok").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Halloween, Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_98, Height.cm_104)));
+
+        dodaj(new Costume(110).setZdjęcie(1736).setNazwa("Książe").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena, Category.Historyczne).setRozmiar(
+                new Size(Height.cm_134, Height.cm_140)));
+
+        dodaj(new Costume(109).setZdjęcie(1737).setNazwa("Dinozaur").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_104, Height.cm_110)));
+
+        dodaj(new Costume(108).setZdjęcie(1738).setNazwa("Gandalf").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Andrzejki).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_128, Height.cm_134)));
+
+        dodaj(new Costume(101).setZdjęcie(1739).setNazwa("Dinozaur").setWiek(Age.DZIECKO).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_98, Height.cm_104)));
+
+        dodaj(new Costume(98).setZdjęcie(1740).setNazwa("Gąsienica").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKO_MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122)));
+
+        dodaj(new Costume(97).setZdjęcie(1741).setNazwa("Kotek").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Zwierzęta).setRozmiar(
+                new Size(Height.cm_110, Height.cm_116)));
+
+        dodaj(new Costume(80).setZdjęcie(1742, 1743).setNazwa("Kowbojka").setWiek(Age.DZIECKO).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Dziki_zachód, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_116, Height.cm_122)));
+
+        dodaj(new Costume(76).setZdjęcie(1744, 1746).setNazwa("Jesień").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setOkazja(Occasion.Inne).setKategoria(Category.Bajki).setRozmiar(
+                new Size(Height.cm_164, Height.cm_176, Belt.M, Belt.L)));
+
+        dodaj(new Costume(58).setZdjęcie(1745).setNazwa("Statua Wolności").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Film_i_scena, Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_182, Height.cm_194, Belt.L, Belt.XXXXL)));
+
+        dodaj(new Costume(57).setZdjęcie(1747).setNazwa("Wenus").setWiek(Age.DOROSŁY).setPłeć(Sex.DAMSKI).setDlaPary(5).setOkazja(Occasion.Inne).setKategoria(Category.Bajki, Category.Film_i_scena).setRozmiar(
+                new Size(Height.cm_170, Height.cm_176, Belt.M)));
+
+        dodaj(new Costume(38).setZdjęcie(1748).setNazwa("Duch Mężczyzny").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Halloween).setKategoria(Category.Inne).setRozmiar(
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.M),
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XL)));
+
+        dodaj(new Costume(14).setZdjęcie(1666).setNazwa("Sułtan").setWiek(Age.DOROSŁY).setPłeć(Sex.MĘSKI).setOkazja(Occasion.Inne).setKategoria(Category.Narodowościowe).setRozmiar(
+                new Size(Height.cm_176, Height.cm_182, Belt.S, Belt.M),
+                new Size(Height.cm_176, Height.cm_182, Belt.L, Belt.XL)));
+
+    }
+
+    private void dodaj(Costume s) {
+        stroje.add(s);
+    }
+
+    public ArrayList<Costume> getStroje() {
+        return stroje;
+    }
+}

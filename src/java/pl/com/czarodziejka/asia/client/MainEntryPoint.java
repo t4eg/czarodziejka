@@ -4,10 +4,10 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
-import pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.Database;
-import pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.costume.Belt;
-import pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.costume.Costume;
-import pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.costume.Size;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.Database;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Belt;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Costume;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Size;
 import java.util.ArrayList;
 
 /**

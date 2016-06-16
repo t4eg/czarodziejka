@@ -1,14 +1,14 @@
 package pl.com.czarodziejka.admin.client.view;
 
 import com.google.gwt.user.client.ui.*;
-import pl.com.czarodziejka.czarodziejka.client.model.wyszukiwarka.costume.Category;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Category;
 import pl.com.czarodziejka.admin.client.model.DodajStrojModel;
 import pl.com.czarodziejka.admin.client.view.components.SelectManySimple;
 import pl.com.czarodziejka.admin.client.view.components.TitleVeritcalPanelError;
 import pl.com.czarodziejka.admin.client.view.image.AddImages;
 import pl.com.czarodziejka.admin.client.view.rozmiar.AddRozmiary;
 import java.util.Arrays;
-import pl.com.czarodziejka.czarodziejka.client.view.wyszukiwarka.components.SelectOne;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.v.components.SelectOne;
 
 /**
  *

@@ -6,7 +6,7 @@ import com.google.gwt.user.client.ui.HorizontalPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
-import pl.com.czarodziejka.czarodziejka.client.presenter.wyszukiwarka.NumberChangedHandler;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.p.NumberChangedHandler;
 import pl.com.czarodziejka.admin.client.view.components.ErrorImage;
 
 /**
