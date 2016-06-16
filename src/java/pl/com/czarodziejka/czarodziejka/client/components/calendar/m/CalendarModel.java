@@ -24,6 +24,7 @@ public class CalendarModel {
         specialDays.put("2016.03.27", null);
         specialDays.put("2016.03.28", null);
         specialDays.put("2016.05.01", null);
+        specialDays.put("2016.05.02", null);
         specialDays.put("2016.05.03", null);
         specialDays.put("2016.05.15", null);
         specialDays.put("2016.05.26", null);
