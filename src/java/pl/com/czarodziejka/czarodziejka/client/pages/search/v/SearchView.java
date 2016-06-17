@@ -11,7 +11,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.Photos
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class SearchView extends VerticalPanel implements CanShow {
 

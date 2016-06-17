@@ -2,7 +2,7 @@ package pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class Costume {
 

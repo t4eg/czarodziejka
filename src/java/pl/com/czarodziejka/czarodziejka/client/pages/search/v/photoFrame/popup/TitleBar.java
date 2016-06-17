@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.Label;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class TitleBar extends HorizontalPanel {
 

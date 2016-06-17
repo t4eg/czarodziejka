@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class PrintDataForAsia {
 

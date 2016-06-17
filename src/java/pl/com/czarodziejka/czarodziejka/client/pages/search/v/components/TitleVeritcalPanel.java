@@ -6,7 +6,7 @@ import com.google.gwt.user.client.ui.Widget;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class TitleVeritcalPanel extends VerticalPanel {
     

@@ -4,7 +4,7 @@ import com.google.gwt.event.dom.client.KeyPressEvent;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class NumberChangedHandler extends FilterChangedHandler {
 

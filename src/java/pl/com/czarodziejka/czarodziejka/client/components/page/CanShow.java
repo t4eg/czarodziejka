@@ -2,7 +2,7 @@ package pl.com.czarodziejka.czarodziejka.client.components.page;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public interface CanShow {
 

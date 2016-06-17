@@ -16,7 +16,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.SearchView;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class Content extends FlowPanel {
 
@@ -106,7 +106,7 @@ public class Content extends FlowPanel {
                 }
                 return search;
             default:
-                throw new RuntimeException("There is no such page.");
+                throw new RuntimeException("There is no such page * @author Adam Mazur.");
         }
     }
 }

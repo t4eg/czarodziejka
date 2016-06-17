@@ -5,7 +5,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Occasion;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class Filters {
 

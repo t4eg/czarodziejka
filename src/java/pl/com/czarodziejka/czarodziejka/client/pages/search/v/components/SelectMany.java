@@ -9,7 +9,7 @@ import java.util.*;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class SelectMany extends VerticalPanel {
 

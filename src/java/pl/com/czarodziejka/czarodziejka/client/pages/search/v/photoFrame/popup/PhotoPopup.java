@@ -9,7 +9,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Photo;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class PhotoPopup extends DecoratedPopupPanel {
 

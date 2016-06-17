@@ -9,7 +9,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.components.SelectO
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class PhotosPerPage extends HorizontalPanel {
 

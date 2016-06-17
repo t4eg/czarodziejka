@@ -11,7 +11,7 @@ import java.util.Date;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class CalendarCell extends VerticalPanel {
 

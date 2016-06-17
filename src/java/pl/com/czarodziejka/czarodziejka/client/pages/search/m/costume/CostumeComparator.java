@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class CostumeComparator implements Comparator<Costume> {
 

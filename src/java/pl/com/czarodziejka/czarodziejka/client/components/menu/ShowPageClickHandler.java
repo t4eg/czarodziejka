@@ -7,7 +7,7 @@ import pl.com.czarodziejka.czarodziejka.client.components.page.Page;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class ShowPageClickHandler implements ClickHandler {
 

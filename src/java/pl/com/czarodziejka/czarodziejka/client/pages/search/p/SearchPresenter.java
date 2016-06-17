@@ -6,7 +6,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.SearchView;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class SearchPresenter {
 

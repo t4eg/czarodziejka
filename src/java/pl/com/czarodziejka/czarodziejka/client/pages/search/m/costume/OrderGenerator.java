@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class OrderGenerator {
 

@@ -7,7 +7,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.pagina
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class PhotosTable extends VerticalPanel {
 

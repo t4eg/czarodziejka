@@ -12,7 +12,7 @@ import java.util.Date;
 
 /**
  *
- * @author admin
+ * @author Adam Mazur
  */
 public class DateUtils {
 

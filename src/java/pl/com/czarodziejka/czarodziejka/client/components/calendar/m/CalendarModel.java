@@ -11,7 +11,7 @@ import com.google.gwt.user.datepicker.client.CalendarUtil;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class CalendarModel {
 

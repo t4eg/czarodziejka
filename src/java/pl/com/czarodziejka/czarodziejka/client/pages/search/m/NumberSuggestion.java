@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class NumberSuggestion extends MultiWordSuggestOracle {
 

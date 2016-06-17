@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class BottomBar extends HorizontalPanel {
 

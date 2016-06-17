@@ -2,7 +2,7 @@ package pl.com.czarodziejka.czarodziejka.client.pages.main;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class Time {
 

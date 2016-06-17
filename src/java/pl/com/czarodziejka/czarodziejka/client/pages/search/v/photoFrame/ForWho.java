@@ -6,7 +6,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Costume;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 class ForWho extends HorizontalPanel {
 

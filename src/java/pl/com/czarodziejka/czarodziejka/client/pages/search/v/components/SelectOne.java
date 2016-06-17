@@ -4,7 +4,7 @@ import com.google.gwt.user.client.ui.ListBox;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class SelectOne extends ListBox {
 

@@ -13,7 +13,7 @@ import java.util.Map.Entry;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class DatabaseTest {
 

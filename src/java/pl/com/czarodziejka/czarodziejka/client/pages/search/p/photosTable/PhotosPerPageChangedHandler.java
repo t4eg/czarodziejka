@@ -8,7 +8,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.m.photosTable.Photos
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class PhotosPerPageChangedHandler implements KeyPressHandler, ChangeHandler {
 

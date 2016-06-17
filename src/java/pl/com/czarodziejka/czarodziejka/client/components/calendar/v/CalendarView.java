@@ -5,7 +5,7 @@ import pl.com.czarodziejka.czarodziejka.client.components.calendar.m.CalendarMod
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class CalendarView extends VerticalPanel {
 

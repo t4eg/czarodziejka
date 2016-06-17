@@ -11,7 +11,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Age;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class SizePopup extends DecoratedPopupPanel {
 

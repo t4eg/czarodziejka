@@ -7,7 +7,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.Photos
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class PairsView extends VerticalPanel implements CanShow {
 

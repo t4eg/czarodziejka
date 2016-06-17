@@ -4,7 +4,7 @@ import com.google.gwt.user.client.ui.HTML;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class FacebookLikeButton extends HTML {
 

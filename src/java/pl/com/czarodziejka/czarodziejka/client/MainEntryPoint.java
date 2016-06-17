@@ -9,7 +9,7 @@ import pl.com.czarodziejka.czarodziejka.client.components.menu.Menu;
 /**
  * Main entry point.
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class MainEntryPoint implements EntryPoint {
 

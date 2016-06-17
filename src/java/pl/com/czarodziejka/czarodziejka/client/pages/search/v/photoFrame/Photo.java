@@ -8,7 +8,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.p.photoFrame.PhotoCl
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 class Photo extends Image {
 

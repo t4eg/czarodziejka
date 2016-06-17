@@ -16,7 +16,7 @@ import java.util.Collections;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class Database {
 

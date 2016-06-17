@@ -8,7 +8,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photoFrame.popup.P
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class PhotoClickHandler implements ClickHandler {
 

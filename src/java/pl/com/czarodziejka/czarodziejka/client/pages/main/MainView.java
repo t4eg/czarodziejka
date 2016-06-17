@@ -7,7 +7,7 @@ import pl.com.czarodziejka.czarodziejka.client.components.page.CanShow;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class MainView extends VerticalPanel implements CanShow {
 

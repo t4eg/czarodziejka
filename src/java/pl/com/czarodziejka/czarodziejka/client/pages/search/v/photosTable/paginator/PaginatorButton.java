@@ -6,7 +6,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.p.photosTable.pagina
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class PaginatorButton extends Button {
 

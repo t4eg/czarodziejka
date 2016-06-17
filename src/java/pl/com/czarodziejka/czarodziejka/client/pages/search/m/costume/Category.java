@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public enum Category {
 

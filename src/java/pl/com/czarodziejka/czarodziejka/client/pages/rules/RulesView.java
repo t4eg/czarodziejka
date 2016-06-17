@@ -6,7 +6,7 @@ import pl.com.czarodziejka.czarodziejka.client.components.page.CanShow;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class RulesView extends VerticalPanel implements CanShow {
 

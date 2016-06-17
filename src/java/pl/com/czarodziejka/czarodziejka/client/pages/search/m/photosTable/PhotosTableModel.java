@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class PhotosTableModel {
 

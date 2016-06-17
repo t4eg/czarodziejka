@@ -9,7 +9,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photoFrame.SizePop
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class SizesClickHandler implements ClickHandler {
 

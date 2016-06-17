@@ -6,7 +6,7 @@ import java.util.LinkedList;
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class Sort {
 

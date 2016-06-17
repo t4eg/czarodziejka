@@ -8,7 +8,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.p.photoFrame.SizesCl
 
 /**
  *
- * @author Administrator
+ * @author Adam Mazur
  */
 public class Frame extends DecoratorPanel {
 
