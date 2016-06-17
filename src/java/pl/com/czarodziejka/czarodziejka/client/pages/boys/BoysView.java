@@ -1,4 +1,4 @@
-package pl.com.czarodziejka.czarodziejka.client.pages.girls;
+package pl.com.czarodziejka.czarodziejka.client.pages.boys;
 
 import com.google.gwt.user.client.ui.VerticalPanel;
 import pl.com.czarodziejka.czarodziejka.client.components.page.CanShow;
@@ -8,13 +8,13 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.Photos
  *
  * @author Administrator
  */
-public class DziewczynkiView extends VerticalPanel implements CanShow {
+public class BoysView extends VerticalPanel implements CanShow {
 
-    private DziewczynkiModel model = new DziewczynkiModel(this);
+    private BoysModel model = new BoysModel(this);
     private PhotosTable photosTable = new PhotosTable(false);
     private boolean isShown;
 
-    public DziewczynkiView() {
+    public BoysView() {
         add(photosTable);
     }
 

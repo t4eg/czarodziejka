@@ -18,14 +18,14 @@ public class PaginatorPresenter {
 
     public void refreshComponents(int shownPage, int lastPage) {
         if (shownPage == 0) {
-            view.getPoprzednia().setEnabled(false);
+            view.getPrevious().setEnabled(false);
         } else {
-            view.getPoprzednia().setEnabled(true);
+            view.getPrevious().setEnabled(true);
         }
         if (shownPage == lastPage) {
-            view.getNastepna().setEnabled(false);
+            view.getNext().setEnabled(false);
         } else {
-            view.getNastepna().setEnabled(true);
+            view.getNext().setEnabled(true);
         }
         ArrayList<PaginatorButton> buttons = view.getButtons();
         for (int i = 0; i < buttons.size(); i++) {

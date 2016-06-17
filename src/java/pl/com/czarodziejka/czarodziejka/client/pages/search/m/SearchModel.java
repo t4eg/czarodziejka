@@ -5,8 +5,8 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Height;
 import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Costume;
 import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Belt;
 import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Occasion;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.p.WyszukiwarkaPresenter;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.v.WyszukiwarkaView;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.p.SearchPresenter;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.v.SearchView;
 import pl.com.czarodziejka.czarodziejka.client.pages.search.v.components.SelectMany;
 import pl.com.czarodziejka.czarodziejka.client.pages.search.v.components.SelectOne;
 import java.util.ArrayList;
@@ -15,37 +15,37 @@ import java.util.ArrayList;
  *
  * @author Administrator
  */
-public class WyszukiwarkaModel {
+public class SearchModel {
 
-    private static WyszukiwarkaModel instance;
-    private WyszukiwarkaView view = WyszukiwarkaView.getInstance();
+    private static SearchModel instance;
+    private SearchView view = SearchView.getInstance();
 
-    public static WyszukiwarkaModel getInstance() {
+    public static SearchModel getInstance() {
         if (instance == null) {
-            instance = new WyszukiwarkaModel();
+            instance = new SearchModel();
         }
         return instance;
     }
 
-    private WyszukiwarkaModel() {
+    private SearchModel() {
     }
 
-    public ArrayList<Costume> findMachingStroj() {
-        Filters data = getFiltry();
-        ArrayList<Costume> found = RecordsMatcher.getInstance().match(data);
+    public ArrayList<Costume> findMachingCostume() {
+        Filters filters = getFilters();
+        ArrayList<Costume> found = RecordsMatcher.getInstance().match(filters);
         return found;
     }
 
-    private Filters getFiltry() {
+    private Filters getFilters() {
         Filters filtry = new Filters();
         if (!view.getBeltFrom().getSelected().isEmpty()) {
-            filtry.setBeltFrom(Belt.getNr(view.getBeltFrom().getSelected()));
+            filtry.setBeltFrom(Belt.getId(view.getBeltFrom().getSelected()));
         }
         if (!view.getBeltTo().getSelected().isEmpty()) {
-            filtry.setBeltTo(Belt.getNr(view.getBeltTo().getSelected()));
+            filtry.setBeltTo(Belt.getId(view.getBeltTo().getSelected()));
         }
-        filtry.setDorosly(view.getAdult().getValue());
-        filtry.setDziecko(view.getChild().getValue());
+        filtry.setAdult(view.getAdult().getValue());
+        filtry.setChild(view.getChild().getValue());
         filtry.setFemale(view.getFemale().getValue());
         filtry.setForPair(view.getAdult().getValue() ? view.getForPair().getValue() : true);
         filtry.setNoPair(view.getAdult().getValue() ? view.getNoPair().getValue() : true);
@@ -56,12 +56,12 @@ public class WyszukiwarkaModel {
         if (!view.getHeightTo().getSelected().isEmpty()) {
             filtry.setHeightTo(Integer.parseInt(view.getHeightTo().getSelected()));
         }
-        filtry.setKategoria(Category.get(view.getCategory().getSelected()));
-        filtry.setNazwa(view.getName().getText());
+        filtry.setCategories(Category.get(view.getCategory().getSelected()));
+        filtry.setName(view.getName().getText());
         if (!view.getNumber().getText().isEmpty()) {
-            filtry.setNumer(Integer.parseInt(view.getNumber().getText()));
+            filtry.setNumber(Integer.parseInt(view.getNumber().getText()));
         }
-        filtry.setOkazja(Occasion.get(view.getOcasion().getSelected()));
+        filtry.setOccasions(Occasion.get(view.getOcasion().getSelected()));
         return filtry;
     }
 
@@ -103,9 +103,9 @@ public class WyszukiwarkaModel {
         view.getCategory().setSelectedAll();
         setValues(view.getOcasion(), Occasion.values());
         view.getOcasion().setSelectedAll();
-        WyszukiwarkaPresenter.getInstance().refreshComponents();
-        view.setRecordsCount(WyszukiwarkaModel.getInstance().findMachingStroj().size());
-        view.getClothCountInfo().setInfo(Database.getInstance().getStroje().size());
+        SearchPresenter.getInstance().refreshComponents();
+        view.setRecordsCount(SearchModel.getInstance().findMachingCostume().size());
+        view.getClothCountInfo().setInfo(Database.getInstance().getCostumes().size());
     }
 
     private void setValues(SelectOne box, Object[] values) {
@@ -147,7 +147,7 @@ public class WyszukiwarkaModel {
         Belt[] values = Belt.values();
         ArrayList<Belt> filteredValues = new ArrayList<Belt>();
         for (Belt value : values) {
-            if (value.getNr() >= beltFrom) {
+            if (value.getId() >= beltFrom) {
                 filteredValues.add(value);
             }
         }

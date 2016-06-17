@@ -12,32 +12,32 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.p.photoFrame.PhotoCl
  */
 class Photo extends Image {
 
-    public Photo(Costume strój) {
+    public Photo(Costume costume) {
         super.setStylePrimaryName("photoPhoto");
-        super.setUrl(getPhotoUrl(strój));
+        super.setUrl(getPhotoUrl(costume));
         super.setPixelSize(133, 200);
-        super.setAltText(strój.getNazwa());
-        addClickHandler(new PhotoClickHandler(strój));
+        super.setAltText(costume.getName());
+        addClickHandler(new PhotoClickHandler(costume));
     }
 
-    private String getPhotoUrl(Costume strój) {
-        pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Photo[] zdjecia = strój.getZdjęcie();
-        if (zdjecia == null || zdjecia.length == 0) {
-            if (strój.getPłeć() == Sex.DAMSKI && strój.getWiek() == Age.DOROSŁY) {
+    private String getPhotoUrl(Costume costume) {
+        pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Photo[] photos = costume.getPhotos();
+        if (photos == null || photos.length == 0) {
+            if (costume.getSex() == Sex.FEMALE && costume.getAge() == Age.ADULT) {
                 return "img/noPhotoWoman.png";
-            } else if (strój.getPłeć() == Sex.DAMSKI && strój.getWiek() == Age.DZIECKO) {
+            } else if (costume.getSex() == Sex.FEMALE && costume.getAge() == Age.CHILD) {
                 return "img/noPhotoGirl.png";
-            } else if (strój.getPłeć() == Sex.MĘSKI && strój.getWiek() == Age.DOROSŁY) {
+            } else if (costume.getSex() == Sex.MALE && costume.getAge() == Age.ADULT) {
                 return "img/noPhotoMan.png";
-            } else if (strój.getPłeć() == Sex.MĘSKI && strój.getWiek() == Age.DZIECKO) {
+            } else if (costume.getSex() == Sex.MALE && costume.getAge() == Age.CHILD) {
                 return "img/noPhotoBoy.png";
-            } else if (strój.getPłeć() == Sex.DAMSKI) {
+            } else if (costume.getSex() == Sex.FEMALE) {
                 return "img/noPhotoWoman.png";
             } else { // męski
                 return "img/noPhotoMan.png";
             }
         } else {
-            return "zdjecia/" + zdjecia[0].getNumber() + "_small.jpg";
+            return "zdjecia/" + photos[0].getNumber() + "_small.jpg";
         }
     }
 }

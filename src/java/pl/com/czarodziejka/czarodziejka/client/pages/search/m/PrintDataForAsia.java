@@ -18,12 +18,12 @@ public class PrintDataForAsia {
         add(null);
 
         for (Costume stroj : stroje) {
-            add(stroj.getNumer());
-            add(stroj.getNazwa());
-            add(stroj.getPłeć());
-            add(stroj.getWiek());
-            add(toString(stroj.getZdjęcie()));
-            add(stroj.isDlaPary());
+            add(stroj.getNumber());
+            add(stroj.getName());
+            add(stroj.getSex());
+            add(stroj.getAge());
+            add(toString(stroj.getPhotos()));
+            add(stroj.isForPair());
         }
 
 

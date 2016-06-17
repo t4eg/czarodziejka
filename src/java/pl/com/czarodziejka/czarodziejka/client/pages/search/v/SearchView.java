@@ -13,9 +13,9 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.Photos
  *
  * @author Administrator
  */
-public class WyszukiwarkaView extends VerticalPanel implements CanShow {
+public class SearchView extends VerticalPanel implements CanShow {
 
-    private static WyszukiwarkaView instance;
+    private static SearchView instance;
     private Label recordsCount = new Label();
     private Button show = new Button();
     private Button reset = new Button();
@@ -36,14 +36,14 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
     private ClothCountInfo clothCountInfo = new ClothCountInfo();
     private PhotosTable photosTable = new PhotosTable(true);
 
-    public static WyszukiwarkaView getInstance() {
+    public static SearchView getInstance() {
         if (instance == null) {
-            instance = new WyszukiwarkaView();
+            instance = new SearchView();
         }
         return instance;
     }
 
-    private WyszukiwarkaView() {
+    private SearchView() {
         setStylePrimaryName("wyszukiwarka");
         show.setPixelSize(70, 24);
         show.setText("Pokaż");
@@ -170,9 +170,9 @@ public class WyszukiwarkaView extends VerticalPanel implements CanShow {
 
     private VerticalPanel getCol3() {
         VerticalPanel result = new VerticalPanel();
-        TitleVeritcalPanel okazja = new TitleVeritcalPanel("Okazja", ocasion);
-        okazja.setStylePrimaryName("row3");
-        result.add(okazja);
+        TitleVeritcalPanel ocasionPanel = new TitleVeritcalPanel("Okazja", ocasion);
+        ocasionPanel.setStylePrimaryName("row3");
+        result.add(ocasionPanel);
 
         VerticalPanel pairsPanel = new VerticalPanel();
         pairsPanel.setStylePrimaryName("row");

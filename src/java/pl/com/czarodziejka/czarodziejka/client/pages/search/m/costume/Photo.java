@@ -7,19 +7,19 @@ package pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume;
 public class Photo {
 
     private Integer number;
-    private boolean poziomy;
+    private boolean isHorizontal;
 
-    public Photo(Integer number, Boolean poziomy) {
+    public Photo(Integer number, Boolean isHorizontal) {
         this.number = number;
-        this.poziomy = poziomy;
+        this.isHorizontal = isHorizontal;
     }
 
     public Integer getNumber() {
         return number;
     }
 
-    public boolean getPoziomy() {
-        return poziomy;
+    public boolean isHorizontal() {
+        return isHorizontal;
     }
 
     @Override

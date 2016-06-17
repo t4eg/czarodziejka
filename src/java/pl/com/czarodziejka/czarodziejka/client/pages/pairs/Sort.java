@@ -13,18 +13,18 @@ public class Sort {
     static ArrayList<Costume> group2(ArrayList<Costume> records) {
         LinkedList<Costume> list = new LinkedList<Costume>();
 
-        for (Costume stroj : records) {
-            int indexOfGroup = getFirstIndexOfGroup(list, stroj.getGrupaPary());
+        for (Costume c : records) {
+            int indexOfGroup = getFirstIndexOfGroup(list, c.getGrupaPary());
             if (indexOfGroup == -1) {
-                list.add(stroj);
+                list.add(c);
             } else {
-                list.add(indexOfGroup + 1, stroj);
+                list.add(indexOfGroup + 1, c);
             }
         }
 
         ArrayList<Costume> result = new ArrayList<Costume>(records.size());
-        for (Costume stroj : list) {
-            result.add(stroj);
+        for (Costume c : list) {
+            result.add(c);
         }
         return result;
     }

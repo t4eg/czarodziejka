@@ -15,12 +15,12 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Age;
  */
 public class SizePopup extends DecoratedPopupPanel {
 
-    public SizePopup(Costume stroj) {
+    public SizePopup(Costume costume) {
         super(true);
         setWidth("220px");
 
         VerticalPanel panel = new VerticalPanel();
-        panel.add(getGrid(stroj.getRozmiar(), stroj.getWiek() != Age.DZIECKO));
+        panel.add(getGrid(costume.getSizes(), costume.getAge() != Age.CHILD));
 
         add(panel);
     }
@@ -34,19 +34,19 @@ public class SizePopup extends DecoratedPopupPanel {
             Size size = sizes[i];
 
             String heightTxt;
-            if (size.getWzrostDo() == size.getWzrostOd()) {
-                heightTxt = Integer.toString(size.getWzrostOd());
+            if (size.getSizeTo() == size.getSizeFrom()) {
+                heightTxt = Integer.toString(size.getSizeFrom());
             } else {
-                heightTxt = size.getWzrostOd() + " - " + size.getWzrostDo();
+                heightTxt = size.getSizeFrom() + " - " + size.getSizeTo();
             }
             result.setWidget(i + 1, 0, new HTML(heightTxt));
 
             if (isAdult) {
                 String beltTxt;
-                if (size.getPasOd() == size.getPasDo()) {
-                    beltTxt = Belt.getString(size.getPasOd());
+                if (size.getBeltFrom() == size.getBeltTo()) {
+                    beltTxt = Belt.getString(size.getBeltFrom());
                 } else {
-                    beltTxt = Belt.getString(size.getPasOd()) + " - " + Belt.getString(size.getPasDo());
+                    beltTxt = Belt.getString(size.getBeltFrom()) + " - " + Belt.getString(size.getBeltTo());
                 }
                 result.setWidget(i + 1, 1, new HTML(beltTxt));
             }

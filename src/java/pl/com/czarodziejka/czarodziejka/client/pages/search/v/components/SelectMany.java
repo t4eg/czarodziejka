@@ -13,16 +13,16 @@ import java.util.*;
  */
 public class SelectMany extends VerticalPanel {
 
-    private Map<String, CheckBox> map = new HashMap<String, CheckBox>();
+    private final Map<String, CheckBox> map = new HashMap<>();
+    private final SelectManyAnyChangedHandler refreshAll = new SelectManyAnyChangedHandler();
+    private final CheckBox all = new CheckBox("[wszystkie]");
     private FilterChangedHandler handler;
-    private SelectManyAnyChangedHandler refreshWszystkie = new SelectManyAnyChangedHandler();
-    private CheckBox wszystkie = new CheckBox("[wszystkie]");
 
     public SelectMany() {
-        wszystkie.setValue(Boolean.TRUE);
-        wszystkie.setStylePrimaryName("selectManyCheckboxBold");
-        wszystkie.addValueChangeHandler(new SelectManyWszystkieChangedHandler());
-        super.add(wszystkie);
+        all.setValue(Boolean.TRUE);
+        all.setStylePrimaryName("selectManyCheckboxBold");
+        all.addValueChangeHandler(new SelectManyAllChangedHandler());
+        super.add(all);
     }
 
     public final void add(String item) {
@@ -31,13 +31,13 @@ public class SelectMany extends VerticalPanel {
         if (handler != null) {
             itemCheckbox.addValueChangeHandler(handler);
         }
-        itemCheckbox.addValueChangeHandler(refreshWszystkie);
+        itemCheckbox.addValueChangeHandler(refreshAll);
         map.put(item, itemCheckbox);
         super.add(itemCheckbox);
     }
 
     public String[] getSelected() {
-        List<String> result = new ArrayList<String>();
+        List<String> result = new ArrayList<>();
         Set<String> keys = map.keySet();
         for (String key : keys) {
             CheckBox c = map.get(key);
@@ -72,7 +72,7 @@ public class SelectMany extends VerticalPanel {
 
     @Override
     public void clear() {
-        wszystkie.setValue(Boolean.TRUE);
+        all.setValue(Boolean.TRUE);
         Set<String> keys = map.keySet();
         for (String key : keys) {
             super.remove(map.get(key));
@@ -84,9 +84,9 @@ public class SelectMany extends VerticalPanel {
         @Override
         public void onValueChange(ValueChangeEvent<Boolean> vce) {
             if (isAllSelected()) {
-                wszystkie.setValue(Boolean.TRUE);
+                all.setValue(Boolean.TRUE);
             } else {
-                wszystkie.setValue(Boolean.FALSE);
+                all.setValue(Boolean.FALSE);
             }
         }
 
@@ -101,7 +101,7 @@ public class SelectMany extends VerticalPanel {
         }
     }
 
-    private class SelectManyWszystkieChangedHandler implements ValueChangeHandler<Boolean> {
+    private class SelectManyAllChangedHandler implements ValueChangeHandler<Boolean> {
 
         @Override
         public void onValueChange(ValueChangeEvent<Boolean> vce) {

@@ -6,68 +6,68 @@ package pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume;
  */
 public class Size {
 
-    private int wzrostOd;
-    private int wzrostDo;
-    private int pasOd;
-    private int pasDo;
+    private int sizeFrom;
+    private int sizeTo;
+    private int beltFrom;
+    private int beltTo;
 
-    public Size(Height wzrost) {
-        storeWzrost(wzrost, wzrost);
+    public Size(Height height) {
+        storeHeight(height, height);
     }
 
-    public Size(Height wzrostOd, Height wzrostDo) {
-        storeWzrost(wzrostOd, wzrostDo);
+    public Size(Height heightFrom, Height heightTo) {
+        storeHeight(heightFrom, heightTo);
     }
 
-    public Size(Height wzrost, Belt pas) {
-        storeWzrost(wzrost, wzrost);
-        storePas(pas, pas);
+    public Size(Height height, Belt belt) {
+        storeHeight(height, height);
+        storeBelt(belt, belt);
     }
 
-    public Size(Height wzrostOd, Height wzrostDo, Belt pas) {
-        storeWzrost(wzrostOd, wzrostDo);
-        storePas(pas, pas);
+    public Size(Height heightFrom, Height heightTo, Belt belt) {
+        storeHeight(heightFrom, heightTo);
+        storeBelt(belt, belt);
     }
 
-    public Size(Height wzrost, Belt pasOd, Belt pasDo) {
-        storeWzrost(wzrost, wzrost);
-        storePas(pasOd, pasDo);
+    public Size(Height h, Belt beltFrom, Belt beltTo) {
+        storeHeight(h, h);
+        storeBelt(beltFrom, beltTo);
     }
 
-    public Size(Height wzrostOd, Height wzrostDo, Belt pasOd, Belt pasDo) {
-        storeWzrost(wzrostOd, wzrostDo);
-        storePas(pasOd, pasDo);
+    public Size(Height heightFrom, Height heightTo, Belt beltFrom, Belt beltTo) {
+        storeHeight(heightFrom, heightTo);
+        storeBelt(beltFrom, beltTo);
     }
 
-    private void storeWzrost(Height from, Height to) {
-        this.wzrostOd = from.getHeight();
-        this.wzrostDo = to.getHeight();
+    private void storeHeight(Height from, Height to) {
+        this.sizeFrom = from.getHeight();
+        this.sizeTo = to.getHeight();
         if (from.getHeight() > to.getHeight()) {
             throw new RuntimeException("Height 'From' is higher than 'To'.");
         }
     }
 
-    private void storePas(Belt from, Belt to) {
-        this.pasOd = from.getNr();
-        this.pasDo = to.getNr();
-        if (from.getNr() > to.getNr()) {
+    private void storeBelt(Belt from, Belt to) {
+        this.beltFrom = from.getId();
+        this.beltTo = to.getId();
+        if (from.getId() > to.getId()) {
             throw new RuntimeException("Belt 'From' is higher than 'To'.");
         }
     }
 
-    public int getWzrostOd() {
-        return wzrostOd;
+    public int getSizeFrom() {
+        return sizeFrom;
     }
 
-    public int getWzrostDo() {
-        return wzrostDo;
+    public int getSizeTo() {
+        return sizeTo;
     }
 
-    public int getPasOd() {
-        return pasOd;
+    public int getBeltFrom() {
+        return beltFrom;
     }
 
-    public int getPasDo() {
-        return pasDo;
+    public int getBeltTo() {
+        return beltTo;
     }
 }

@@ -11,9 +11,9 @@ import java.util.ArrayList;
 public class NumberSuggestion extends MultiWordSuggestOracle {
 
     public NumberSuggestion() {
-        ArrayList<Costume> stroje = Database.getInstance().getStroje();
+        ArrayList<Costume> stroje = Database.getInstance().getCostumes();
         for (Costume stroj : stroje) {
-            super.add(Integer.toString(stroj.getNumer()));
+            super.add(Integer.toString(stroj.getNumber()));
         }
     }
 }

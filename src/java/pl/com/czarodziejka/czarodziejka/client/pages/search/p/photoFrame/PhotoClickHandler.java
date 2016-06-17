@@ -12,15 +12,15 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photoFrame.popup.P
  */
 public class PhotoClickHandler implements ClickHandler {
 
-    private final Costume stroj;
+    private final Costume costume;
 
-    public PhotoClickHandler(Costume strój) {
-        this.stroj = strój;
+    public PhotoClickHandler(Costume costume) {
+        this.costume = costume;
     }
 
     @Override
     public void onClick(ClickEvent event) {
-        PhotoPopup box = new PhotoPopup(stroj);
+        PhotoPopup box = new PhotoPopup(costume);
         box.show();
     }
 

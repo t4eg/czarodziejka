@@ -13,34 +13,34 @@ import java.util.ArrayList;
  *
  * @author Administrator
  */
-public class MezczyzniModel {
+public class MenModel {
 
-    private MezczyzniView view;
+    private MenView view;
 
-    public MezczyzniModel(MezczyzniView view) {
+    public MenModel(MenView view) {
         this.view = view;
     }
 
     public void setData() {
-        Filters data = getFiltry();
+        Filters data = getFilters();
         ArrayList<Costume> matchingRecords = RecordsMatcher.getInstance().match(data);
-        view.getPhotosTable().getModel().setStrojToTable(matchingRecords);
+        view.getPhotosTable().getModel().setData(matchingRecords);
     }
 
-    private Filters getFiltry() {
-        Filters filtry = new Filters();
-        filtry.setBeltFrom(Belt.XS.getNr());
-        filtry.setBeltTo(Belt.XXL.getNr());
-        filtry.setDorosly(true);
-        filtry.setDziecko(false);
-        filtry.setFemale(false);
-        filtry.setMale(true);
-        filtry.setForPair(true);
-        filtry.setNoPair(true);
-        filtry.setHeightFrom(Height.getMin().getHeight());
-        filtry.setHeightTo(Height.getMax().getHeight());
-        filtry.setKategoria(Category.values());
-        filtry.setOkazja(Occasion.values());
-        return filtry;
+    private Filters getFilters() {
+        Filters filters = new Filters();
+        filters.setBeltFrom(Belt.XS.getId());
+        filters.setBeltTo(Belt.XXL.getId());
+        filters.setAdult(true);
+        filters.setChild(false);
+        filters.setFemale(false);
+        filters.setMale(true);
+        filters.setForPair(true);
+        filters.setNoPair(true);
+        filters.setHeightFrom(Height.getMin().getHeight());
+        filters.setHeightTo(Height.getMax().getHeight());
+        filters.setCategories(Category.values());
+        filters.setOccasions(Occasion.values());
+        return filters;
     }
 }

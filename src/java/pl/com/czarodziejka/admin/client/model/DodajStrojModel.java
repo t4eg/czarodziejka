@@ -99,11 +99,11 @@ public class DodajStrojModel {
         Boolean adult = view.getAdult().getValue();
         Boolean child = view.getChild().getValue();
         if (adult && child) {
-            return Age.DZIECKO_DOROSŁY.toString();
+            return Age.CHILD_ADULT.toString();
         } else if (adult) {
-            return Age.DOROSŁY.toString();
+            return Age.ADULT.toString();
         } else if (child) {
-            return Age.DZIECKO.toString();
+            return Age.CHILD.toString();
         }
         return null;
     }
@@ -112,11 +112,11 @@ public class DodajStrojModel {
         Boolean female = view.getFemale().getValue();
         Boolean male = view.getMale().getValue();
         if (female && male) {
-            return Sex.DAMSKO_MĘSKI.toString();
+            return Sex.BOTH.toString();
         } else if (female) {
-            return Sex.DAMSKI.toString();
+            return Sex.FEMALE.toString();
         } else if (male) {
-            return Sex.MĘSKI.toString();
+            return Sex.MALE.toString();
         }
         return null;
     }

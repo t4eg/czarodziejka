@@ -89,8 +89,8 @@ public class DodajStrojView extends VerticalPanel {
         if (category.getSelected().length == 0) {
             kategoriaPanel.showError("Zaznacz co najmniej jedną kategorię.");
             result = false;
-        } else if (Arrays.asList(category.getSelected()).contains(Category.Inne.toString()) && category.getSelected().length > 1) {
-            kategoriaPanel.showError("Kategoria '" + Category.Inne.toString() + "' może być zaznaczona tylko jako jedyna.");
+        } else if (Arrays.asList(category.getSelected()).contains(Category.OTHERS.toString()) && category.getSelected().length > 1) {
+            kategoriaPanel.showError("Kategoria '" + Category.OTHERS.toString() + "' może być zaznaczona tylko jako jedyna.");
             result = false;
         } else {
             kategoriaPanel.hideError();

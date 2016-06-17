@@ -8,9 +8,9 @@ import pl.com.czarodziejka.czarodziejka.client.components.page.CanShow;
  *
  * @author Administrator
  */
-public class KontaktView extends VerticalPanel implements CanShow {
+public class ContactView extends VerticalPanel implements CanShow {
 
-    public KontaktView() {
+    public ContactView() {
         setStylePrimaryName("kontakt");
         add(new HTML("<p>"
                 + "Telefon:<br/>"

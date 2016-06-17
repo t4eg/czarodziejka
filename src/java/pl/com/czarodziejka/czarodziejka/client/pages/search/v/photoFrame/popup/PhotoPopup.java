@@ -17,10 +17,10 @@ public class PhotoPopup extends DecoratedPopupPanel {
     private BottomBar bottomBar;
     private Image bigPhoto;
 
-    public PhotoPopup(Costume stroj) {
+    public PhotoPopup(Costume costume) {
         setStyleName("center", true);
         VerticalPanel content = new VerticalPanel();
-        titleBar = new TitleBar(stroj.getNazwa(), this);
+        titleBar = new TitleBar(costume.getName(), this);
         content.add(titleBar);
 
         bigPhoto = new Image();
@@ -36,8 +36,8 @@ public class PhotoPopup extends DecoratedPopupPanel {
         });
         content.add(bigPhoto);
 
-        if (stroj.getZdjęcie().length > 1) {
-            bottomBar = new BottomBar(this, stroj.getZdjęcie());
+        if (costume.getPhotos().length > 1) {
+            bottomBar = new BottomBar(this, costume.getPhotos());
             content.add(bottomBar);
         }
 
@@ -45,7 +45,7 @@ public class PhotoPopup extends DecoratedPopupPanel {
         this.setAnimationEnabled(true);
         this.setWidget(content);
         
-        updatePopup(stroj.getZdjęcie()[0]);
+        updatePopup(costume.getPhotos()[0]);
     }
 
     public final void updatePopup(Photo photo) {
@@ -57,7 +57,7 @@ public class PhotoPopup extends DecoratedPopupPanel {
         double maxWidth = (Window.getClientWidth() - 35) * 0.9;
         int imgWidth;
         int imgHeight;
-        if (photo.getPoziomy()) {
+        if (photo.isHorizontal()) {
             imgWidth = 900;
             imgHeight = 600;
         } else {

@@ -14,26 +14,26 @@ public enum Belt {
     XXL(5),
     XXXL(6),
     XXXXL(7);
-    private int nr;
+    private final int id;
 
-    Belt(int nr) {
-        this.nr = nr;
+    Belt(int id) {
+        this.id = id;
     }
 
-    public static int getNr(String name) {
-        return Belt.valueOf(name).nr;
+    public static int getId(String name) {
+        return Belt.valueOf(name).id;
     }
 
     public static String getString(int nr) {
         for (Belt pas : values()) {
-            if (pas.nr == nr) {
+            if (pas.id == nr) {
                 return pas.toString();
             }
         }
         return "";
     }
 
-    public int getNr() {
-        return nr;
+    public int getId() {
+        return id;
     }
 }

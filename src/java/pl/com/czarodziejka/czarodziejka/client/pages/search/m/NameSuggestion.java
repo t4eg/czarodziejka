@@ -11,9 +11,9 @@ import java.util.ArrayList;
 public class NameSuggestion extends MultiWordSuggestOracle {
 
     public NameSuggestion() {
-        ArrayList<Costume> stroje = Database.getInstance().getStroje();
-        for (Costume stroj : stroje) {
-            super.add(stroj.getNazwa());
+        ArrayList<Costume> costumes = Database.getInstance().getCostumes();
+        for (Costume c : costumes) {
+            super.add(c.getName());
         }
     }
 }

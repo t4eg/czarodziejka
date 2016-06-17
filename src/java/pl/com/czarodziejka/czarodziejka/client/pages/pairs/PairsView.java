@@ -1,7 +1,7 @@
-package pl.com.czarodziejka.czarodziejka.client.pages.boys;
+package pl.com.czarodziejka.czarodziejka.client.pages.pairs;
 
 import com.google.gwt.user.client.ui.VerticalPanel;
-import pl.com.czarodziejka.czarodziejka.client.pages.boys.ChlopcyModel;
+import pl.com.czarodziejka.czarodziejka.client.pages.pairs.PairsModel;
 import pl.com.czarodziejka.czarodziejka.client.components.page.CanShow;
 import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.PhotosTable;
 
@@ -9,13 +9,13 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.Photos
  *
  * @author Administrator
  */
-public class ChlopcyView extends VerticalPanel implements CanShow {
+public class PairsView extends VerticalPanel implements CanShow {
 
-    private ChlopcyModel model = new ChlopcyModel(this);
-    private PhotosTable photosTable = new PhotosTable(false);
+    private PairsModel model = new PairsModel(this);
+    private PhotosTable photosTable = new PhotosTable(true);
     private boolean isShown;
 
-    public ChlopcyView() {
+    public PairsView() {
         add(photosTable);
     }
 

@@ -14,7 +14,7 @@ public class RecordsMatcher {
 
     private static RecordsMatcher instance;
     private Filters filters;
-    private Costume stroj;
+    private Costume costume;
 
     public static RecordsMatcher getInstance() {
         if (instance == null) {
@@ -29,9 +29,9 @@ public class RecordsMatcher {
     public ArrayList<Costume> match(Filters filters) {
         this.filters = filters;
         ArrayList<Costume> result = new ArrayList<Costume>();
-        ArrayList<Costume> stroje = Database.getInstance().getStroje();
+        ArrayList<Costume> stroje = Database.getInstance().getCostumes();
         for (Costume str : stroje) {
-            stroj = str;
+            costume = str;
             if (isCategoryOk()
                     && isNameOk()
                     && isNumberOk()
@@ -40,19 +40,19 @@ public class RecordsMatcher {
                     && isPairOk()
                     && isSizeOk()
                     && isAgeOk()) {
-                result.add(stroj);
+                result.add(costume);
             }
         }
         return result;
     }
 
     private boolean isCategoryOk() {
-        if (stroj.getKategoria() == null) {
+        if (costume.getCategories() == null) {
             return true;
         }
-        Category[] filterCategories = filters.getKategoria();
+        Category[] filterCategories = filters.getCategories();
         for (Category filterCategory : filterCategories) {
-            for (Category strojCategory : stroj.getKategoria()) {
+            for (Category strojCategory : costume.getCategories()) {
                 if (strojCategory == filterCategory) {
                     return true;
                 }
@@ -62,29 +62,29 @@ public class RecordsMatcher {
     }
 
     private boolean isNameOk() {
-        String name = filters.getNazwa();
+        String name = filters.getName();
         if (name == null || name.isEmpty()) {
             return true;
         } else {
-            return stroj.getNazwa().toLowerCase().startsWith(name.toLowerCase());
+            return costume.getName().toLowerCase().startsWith(name.toLowerCase());
         }
     }
 
     private boolean isNumberOk() {
-        if (filters.getNumer() == null || stroj.getNumer() == null) {
+        if (filters.getNumber() == null || costume.getNumber() == null) {
             return true;
         } else {
-            return stroj.getNumer() == filters.getNumer().intValue();
+            return costume.getNumber() == filters.getNumber().intValue();
         }
     }
 
     private boolean isOcasionOk() {
-        if (stroj.getOkazja() == null) {
+        if (costume.getOccasions() == null) {
             return true;
         }
-        Occasion[] filterOcasions = filters.getOkazja();
+        Occasion[] filterOcasions = filters.getOccasions();
         for (Occasion filterOcasion : filterOcasions) {
-            for (Occasion strojOcasion : stroj.getOkazja()) {
+            for (Occasion strojOcasion : costume.getOccasions()) {
                 if (strojOcasion == filterOcasion) {
                     return true;
                 }
@@ -94,38 +94,38 @@ public class RecordsMatcher {
     }
 
     private boolean isSexOk() {
-        if (stroj.getPłeć() == null) {
+        if (costume.getSex() == null) {
             return true;
         }
-        switch (stroj.getPłeć()) {
-            case DAMSKI:
+        switch (costume.getSex()) {
+            case FEMALE:
                 return filters.getFemale();
-            case DAMSKO_MĘSKI:
+            case BOTH:
                 return filters.getMale() || filters.getFemale();
-            case MĘSKI:
+            case MALE:
                 return filters.getMale();
         }
         return true;
     }
 
     private boolean isPairOk() {
-        return (stroj.isDlaPary() && filters.getForPair()) || (!stroj.isDlaPary() && filters.getNoPair());
+        return (costume.isForPair() && filters.getForPair()) || (!costume.isForPair() && filters.getNoPair());
     }
 
     private boolean isSizeOk() {
-        Size[] sizes = stroj.getRozmiar();
-        switch (stroj.getWiek()) {
-            case DOROSŁY:
+        Size[] sizes = costume.getSizes();
+        switch (costume.getAge()) {
+            case ADULT:
                 for (Size size : sizes) {
-                    if (isInRange(size.getWzrostOd(), size.getWzrostDo(), filters.getHeightFrom(), filters.getHeightTo())
-                            && isInRange(size.getPasOd(), size.getPasDo(), filters.getBeltFrom(), filters.getBeltTo())) {
+                    if (isInRange(size.getSizeFrom(), size.getSizeTo(), filters.getHeightFrom(), filters.getHeightTo())
+                            && isInRange(size.getBeltFrom(), size.getBeltTo(), filters.getBeltFrom(), filters.getBeltTo())) {
                         return true;
                     }
                 }
                 break;
             default: //dziecko i miesznay
                 for (Size size : sizes) {
-                    if (isInRange(size.getWzrostOd(), size.getWzrostDo(), filters.getHeightFrom(), filters.getHeightTo())) {
+                    if (isInRange(size.getSizeFrom(), size.getSizeTo(), filters.getHeightFrom(), filters.getHeightTo())) {
                         return true;
                     }
                 }
@@ -140,16 +140,16 @@ public class RecordsMatcher {
     }
 
     private boolean isAgeOk() {
-        if (stroj.getWiek() == null) {
+        if (costume.getAge() == null) {
             return true;
         }
-        switch (stroj.getWiek()) {
-            case DOROSŁY:
-                return filters.getDorosly();
-            case DZIECKO:
-                return filters.getDziecko();
-            case DZIECKO_DOROSŁY:
-                return filters.getDorosly() || filters.getDziecko();
+        switch (costume.getAge()) {
+            case ADULT:
+                return filters.getAdult();
+            case CHILD:
+                return filters.getChild();
+            case CHILD_ADULT:
+                return filters.getAdult() || filters.getChild();
         }
         return true;
     }

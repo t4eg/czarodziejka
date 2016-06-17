@@ -14,8 +14,8 @@ import java.util.List;
 public class PhotosTableModel {
 
     private final PhotosTable view;
-    private final int zdjecNaWiersz = 4;
-    private int zdjecNaStrone;
+    private final int photosPerRow = 4;
+    private int photosPerPage;
     private ArrayList<List<Costume>> pages;
     private ArrayList<Costume> found;
     private int pageCurrentlyShown;
@@ -26,24 +26,24 @@ public class PhotosTableModel {
         this.showForWho = showForWho;
     }
 
-    public void setStrojToTable(ArrayList<Costume> found) {
+    public void setData(ArrayList<Costume> found) {
         this.found = found;
         refreshPages();
     }
 
     public void refreshPages() {
-        zdjecNaStrone = Integer.parseInt(view.getPhotosPerPage().getNumber().getSelected());
+        photosPerPage = Integer.parseInt(view.getPhotosPerPage().getNumber().getSelected());
         splitBetweenPages(found);
         view.createView(pages.size());
         showPage(0);
     }
 
     private void splitBetweenPages(ArrayList<Costume> found) {
-        int pagesNumber = (int) Math.ceil(found.size() / (double) zdjecNaStrone);
+        int pagesNumber = (int) Math.ceil(found.size() / (double) photosPerPage);
         pages = new ArrayList<List<Costume>>(pagesNumber);
         for (int i = 0; i < pagesNumber; i++) {
-            int from = i * zdjecNaStrone;
-            int to = (i + 1) * zdjecNaStrone;
+            int from = i * photosPerPage;
+            int to = (i + 1) * photosPerPage;
             if (to > found.size()) {
                 to = found.size();
             }
@@ -66,14 +66,14 @@ public class PhotosTableModel {
         }
         List<Costume> page = pages.get(number);
 
-        Grid tabela = view.getGrid();
-        tabela.clear();
-        tabela.resize((int) Math.ceil(page.size() / (double) zdjecNaWiersz), zdjecNaWiersz);
+        Grid table = view.getGrid();
+        table.clear();
+        table.resize((int) Math.ceil(page.size() / (double) photosPerRow), photosPerRow);
 
         for (int i = 0; i < page.size(); i++) {
-            int col = i % zdjecNaWiersz;
-            int row = (int) Math.floor(i / (double) zdjecNaWiersz);
-            tabela.setWidget(row, col, new Frame(page.get(i), showForWho));
+            int col = i % photosPerRow;
+            int row = (int) Math.floor(i / (double) photosPerRow);
+            table.setWidget(row, col, new Frame(page.get(i), showForWho));
         }
         this.pageCurrentlyShown = number;
         view.getTopPaginator().setShownPage(number);

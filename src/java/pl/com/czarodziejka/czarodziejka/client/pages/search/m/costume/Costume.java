@@ -6,28 +6,28 @@ package pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume;
  */
 public class Costume {
 
-    private Integer numer;
-    private String nazwa;
-    private Sex płeć;
-    private Age wiek;
-    private Photo[] zdjęcie;
-    private Occasion[] okazja;
-    private Category[] kategoria;
-    private Size[] rozmiar;
+    private final Integer number;
+    private String name;
+    private Sex sex;
+    private Age age;
+    private Photo[] photos;
+    private Occasion[] occasions;
+    private Category[] categories;
+    private Size[] sizes;
     private String order;
-    private boolean dlugaNazwa;
-    private boolean dlaPary;
-    private int grupaPary;
+    private boolean isLongName;
+    private boolean isForPair;
+    private int pairGroup;
 
-    public Costume(Integer numer) {
-        this.numer = numer;
+    public Costume(Integer number) {
+        this.number = number;
     }
 
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Costume) {
-            Costume strojObj = (Costume) obj;
-            return numer.equals(strojObj.numer);
+            Costume costumeObj = (Costume) obj;
+            return number.equals(costumeObj.number);
         }
         return super.equals(obj);
     }
@@ -35,93 +35,93 @@ public class Costume {
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 59 * hash + (this.numer != null ? this.numer.hashCode() : 0);
+        hash = 59 * hash + (this.number != null ? this.number.hashCode() : 0);
         return hash;
     }
 
     @Override
     public String toString() {
-        return numer + " " + nazwa;
+        return number + " " + name;
     }
 
-    public Costume setDlugaNazwa() {
-        dlugaNazwa = true;
+    public Costume setIsLongName() {
+        isLongName = true;
         return this;
     }
 
-    public Integer getNumer() {
-        return numer;
+    public Integer getNumber() {
+        return number;
     }
 
-    public String getNazwa() {
-        return nazwa;
+    public String getName() {
+        return name;
     }
 
-    public Costume setNazwa(String nazwa) {
-        this.order = OrderGenerator.getOrder(nazwa);
-        this.nazwa = uppercaseFirstLetters(nazwa);
+    public Costume setName(String name) {
+        this.order = OrderGenerator.getOrder(name);
+        this.name = uppercaseFirstLetters(name);
         return this;
     }
 
-    public Sex getPłeć() {
-        return płeć;
+    public Sex getSex() {
+        return sex;
     }
 
-    public Costume setPłeć(Sex płeć) {
-        this.płeć = płeć;
+    public Costume setSex(Sex sex) {
+        this.sex = sex;
         return this;
     }
 
-    public Age getWiek() {
-        return wiek;
+    public Age getAge() {
+        return age;
     }
 
-    public Costume setWiek(Age wiek) {
-        this.wiek = wiek;
+    public Costume setAge(Age age) {
+        this.age = age;
         return this;
     }
 
-    public Photo[] getZdjęcie() {
-        return zdjęcie;
+    public Photo[] getPhotos() {
+        return photos;
     }
 
-    public Costume setZdjęcie(Integer... zdjęcia) {
-        this.zdjęcie = new Photo[zdjęcia.length];
-        for (int i = 0; i < zdjęcia.length; i++) {
-            this.zdjęcie[i] = new Photo(zdjęcia[i], Boolean.FALSE);
+    public Costume setPhotos(Integer... photos) {
+        this.photos = new Photo[photos.length];
+        for (int i = 0; i < photos.length; i++) {
+            this.photos[i] = new Photo(photos[i], Boolean.FALSE);
         }
         return this;
     }
 
-    public Costume setZdjęcie(Photo... zdjęcia) {
-        this.zdjęcie = zdjęcia;
+    public Costume setPhotos(Photo... photos) {
+        this.photos = photos;
         return this;
     }
 
-    public Occasion[] getOkazja() {
-        return okazja;
+    public Occasion[] getOccasions() {
+        return occasions;
     }
 
-    public Costume setOkazja(Occasion... okazja) {
-        this.okazja = okazja;
+    public Costume setOccasions(Occasion... okazja) {
+        this.occasions = okazja;
         return this;
     }
 
-    public Category[] getKategoria() {
-        return kategoria;
+    public Category[] getCategories() {
+        return categories;
     }
 
-    public Costume setKategoria(Category... kategoria) {
-        this.kategoria = kategoria;
+    public Costume setCategories(Category... categories) {
+        this.categories = categories;
         return this;
     }
 
-    public Size[] getRozmiar() {
-        return rozmiar;
+    public Size[] getSizes() {
+        return sizes;
     }
 
-    public Costume setRozmiar(Size... rozmiar) {
-        this.rozmiar = rozmiar;
+    public Costume setSizes(Size... sizes) {
+        this.sizes = sizes;
         return this;
     }
 
@@ -145,21 +145,21 @@ public class Costume {
         return order;
     }
 
-    public boolean isDlugaNazwa() {
-        return dlugaNazwa;
+    public boolean isLongName() {
+        return isLongName;
     }
 
-    public boolean isDlaPary() {
-        return dlaPary;
+    public boolean isForPair() {
+        return isForPair;
     }
 
-    public Costume setDlaPary(int grupaPary) {
-        this.grupaPary = grupaPary;
-        this.dlaPary = true;
+    public Costume setForPair(int pairGroup) {
+        this.pairGroup = pairGroup;
+        this.isForPair = true;
         return this;
     }
 
     public int getGrupaPary() {
-        return grupaPary;
+        return pairGroup;
     }
 }

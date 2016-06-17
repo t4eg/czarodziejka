@@ -2,17 +2,17 @@ package pl.com.czarodziejka.czarodziejka.client.components.page;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.m.WyszukiwarkaModel;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.p.WyszukiwarkaPresenter;
-import pl.com.czarodziejka.czarodziejka.client.pages.boys.ChlopcyView;
-import pl.com.czarodziejka.czarodziejka.client.pages.girls.DziewczynkiView;
-import pl.com.czarodziejka.czarodziejka.client.pages.main.GlownaView;
-import pl.com.czarodziejka.czarodziejka.client.pages.women.KobietyView;
-import pl.com.czarodziejka.czarodziejka.client.pages.contact.KontaktView;
-import pl.com.czarodziejka.czarodziejka.client.pages.men.MezczyzniView;
-import pl.com.czarodziejka.czarodziejka.client.pages.pairs.ParyView;
-import pl.com.czarodziejka.czarodziejka.client.pages.rules.RegulaminView;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.v.WyszukiwarkaView;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.SearchModel;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.p.SearchPresenter;
+import pl.com.czarodziejka.czarodziejka.client.pages.boys.BoysView;
+import pl.com.czarodziejka.czarodziejka.client.pages.girls.GirlsView;
+import pl.com.czarodziejka.czarodziejka.client.pages.main.MainView;
+import pl.com.czarodziejka.czarodziejka.client.pages.women.WomenView;
+import pl.com.czarodziejka.czarodziejka.client.pages.contact.ContactView;
+import pl.com.czarodziejka.czarodziejka.client.pages.men.MenView;
+import pl.com.czarodziejka.czarodziejka.client.pages.pairs.PairsView;
+import pl.com.czarodziejka.czarodziejka.client.pages.rules.RulesView;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.v.SearchView;
 
 /**
  *
@@ -22,15 +22,15 @@ public class Content extends FlowPanel {
 
     private static Content instance;
     private Page shown;
-    private GlownaView glowna;
-    private WyszukiwarkaView wyszukiwarka;
-    private KontaktView kontakt;
-    private RegulaminView regulamin;
-    private DziewczynkiView dziewczynki;
-    private ChlopcyView chlopcy;
-    private KobietyView kobiety;
-    private MezczyzniView mezczyzni;
-    private ParyView pary;
+    private MainView main;
+    private SearchView search;
+    private ContactView contact;
+    private RulesView rules;
+    private GirlsView girls;
+    private BoysView boys;
+    private WomenView women;
+    private MenView men;
+    private PairsView pairs;
 
     public static Content getInstance() {
         if (instance == null) {
@@ -40,16 +40,16 @@ public class Content extends FlowPanel {
     }
 
     private Content() {
-        shown = Page.GLOWNA;
+        shown = Page.MAIN;
         super.add(getPageInstance(shown));
     }
 
     public void show(Page page) {
         if (page != shown) {
-            if (page == Page.WYSZUKIWARKA) {
-                WyszukiwarkaPresenter.getInstance();
-                WyszukiwarkaModel.getInstance().clearData();
-                WyszukiwarkaModel.getInstance().setData();
+            if (page == Page.SEARCH) {
+                SearchPresenter.getInstance();
+                SearchModel.getInstance().clearData();
+                SearchModel.getInstance().setData();
             }
             super.remove(getPageInstance(shown));
             super.add(getPageInstance(page));
@@ -60,53 +60,53 @@ public class Content extends FlowPanel {
 
     private Widget getPageInstance(Page page) {
         switch (page) {
-            case DLA_CHLOPCOW:
-                if (chlopcy == null) {
-                    chlopcy = new ChlopcyView();
+            case FOR_BOYS:
+                if (boys == null) {
+                    boys = new BoysView();
                 }
-                return chlopcy;
-            case DLA_DZIEWCZYNEK:
-                if (dziewczynki == null) {
-                    dziewczynki = new DziewczynkiView();
+                return boys;
+            case FOR_GIRLS:
+                if (girls == null) {
+                    girls = new GirlsView();
                 }
-                return dziewczynki;
-            case DLA_KOBIET:
-                if (kobiety == null) {
-                    kobiety = new KobietyView();
+                return girls;
+            case FOR_WOMEN:
+                if (women == null) {
+                    women = new WomenView();
                 }
-                return kobiety;
-            case DLA_MEZCZYZN:
-                if (mezczyzni == null) {
-                    mezczyzni = new MezczyzniView();
+                return women;
+            case FOR_MEN:
+                if (men == null) {
+                    men = new MenView();
                 }
-                return mezczyzni;
-            case DLA_PAR:
-                if (pary == null) {
-                    pary = new ParyView();
+                return men;
+            case FOR_PAIRS:
+                if (pairs == null) {
+                    pairs = new PairsView();
                 }
-                return pary;
-            case GLOWNA:
-                if (glowna == null) {
-                    glowna = new GlownaView();
+                return pairs;
+            case MAIN:
+                if (main == null) {
+                    main = new MainView();
                 }
-                return glowna;
-            case KONTAKT:
-                if (kontakt == null) {
-                    kontakt = new KontaktView();
+                return main;
+            case CONTACT:
+                if (contact == null) {
+                    contact = new ContactView();
                 }
-                return kontakt;
-            case REGULAMIN:
-                if (regulamin == null) {
-                    regulamin = new RegulaminView();
+                return contact;
+            case RULES:
+                if (rules == null) {
+                    rules = new RulesView();
                 }
-                return regulamin;
-            case WYSZUKIWARKA:
-                if (wyszukiwarka == null) {
-                    wyszukiwarka = WyszukiwarkaView.getInstance();
+                return rules;
+            case SEARCH:
+                if (search == null) {
+                    search = SearchView.getInstance();
                 }
-                return wyszukiwarka;
+                return search;
             default:
-                throw new RuntimeException("Nie ma takiej strony.");
+                throw new RuntimeException("There is no such page.");
         }
     }
 }

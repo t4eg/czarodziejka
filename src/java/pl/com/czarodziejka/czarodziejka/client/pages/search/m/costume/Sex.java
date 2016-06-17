@@ -10,7 +10,7 @@ package pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume;
  */
 public enum Sex {
 
-    MĘSKI,
-    DAMSKI,
-    DAMSKO_MĘSKI;
+    MALE,
+    FEMALE,
+    BOTH;
 }

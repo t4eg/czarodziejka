@@ -2,7 +2,6 @@ package pl.com.czarodziejka.czarodziejka.client.pages.search.p.photosTable.pagin
 
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.user.client.Window;
 import pl.com.czarodziejka.czarodziejka.client.pages.search.m.photosTable.PhotosTableModel;
 
 /**

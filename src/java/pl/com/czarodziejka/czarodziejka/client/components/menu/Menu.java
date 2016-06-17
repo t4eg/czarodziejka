@@ -9,25 +9,25 @@ import pl.com.czarodziejka.czarodziejka.client.components.page.Page;
  */
 public class Menu extends VerticalPanel {
 
-    private MenuLink main = new MenuLink("Strona główna", Page.GLOWNA);
-    private MenuLink dziewczynki = new MenuLink("Dla dziewczynek", Page.DLA_DZIEWCZYNEK);
-    private MenuLink chlopcy = new MenuLink("Dla chłopców", Page.DLA_CHLOPCOW);
-    private MenuLink kobiety = new MenuLink("Dla kobiet", Page.DLA_KOBIET);
-    private MenuLink mezczyzni = new MenuLink("Dla mężczyzn", Page.DLA_MEZCZYZN);
-    private MenuLink pary = new MenuLink("Dla par", Page.DLA_PAR);
-    private MenuLink search = new MenuLink("Wyszukiwarka", Page.WYSZUKIWARKA);
-    private MenuLink regulamin = new MenuLink("Regulamin", Page.REGULAMIN);
-    private MenuLink contact = new MenuLink("Kontakt", Page.KONTAKT);
+    private final MenuLink main = new MenuLink("Strona główna", Page.MAIN);
+    private final MenuLink girls = new MenuLink("Dla dziewczynek", Page.FOR_GIRLS);
+    private final MenuLink boys = new MenuLink("Dla chłopców", Page.FOR_BOYS);
+    private final MenuLink women = new MenuLink("Dla kobiet", Page.FOR_WOMEN);
+    private final MenuLink men = new MenuLink("Dla mężczyzn", Page.FOR_MEN);
+    private final MenuLink pairs = new MenuLink("Dla par", Page.FOR_PAIRS);
+    private final MenuLink search = new MenuLink("Wyszukiwarka", Page.SEARCH);
+    private final MenuLink rules = new MenuLink("Regulamin", Page.RULES);
+    private final MenuLink contact = new MenuLink("Kontakt", Page.CONTACT);
 
     public Menu() {
         add(main);
-        add(dziewczynki);
-        add(chlopcy);
-        add(kobiety);
-        add(mezczyzni);
-        add(pary);
+        add(girls);
+        add(boys);
+        add(women);
+        add(men);
+        add(pairs);
         add(search);
-        add(regulamin);
+        add(rules);
         add(contact);
     }
 }

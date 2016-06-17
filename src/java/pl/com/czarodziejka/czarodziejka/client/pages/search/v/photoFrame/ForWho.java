@@ -10,52 +10,52 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Costume;
  */
 class ForWho extends HorizontalPanel {
 
-    public ForWho(Costume stroj) {
-        if (stroj.isDlugaNazwa()) {
+    public ForWho(Costume costume) {
+        if (costume.isLongName()) {
             super.setStylePrimaryName("photoForWhoLower");
         } else {
             super.setStylePrimaryName("photoForWho");
         }
-        switch (stroj.getPłeć()) {
-            case DAMSKI:
-                switch (stroj.getWiek()) {
-                    case DOROSŁY:
+        switch (costume.getSex()) {
+            case FEMALE:
+                switch (costume.getAge()) {
+                    case ADULT:
                         addWoman();
                         break;
-                    case DZIECKO:
+                    case CHILD:
                         addGirl();
                         break;
-                    case DZIECKO_DOROSŁY:
+                    case CHILD_ADULT:
                         addGirl();
                         addWoman();
                         break;
                 }
                 break;
-            case MĘSKI:
-                switch (stroj.getWiek()) {
-                    case DOROSŁY:
+            case MALE:
+                switch (costume.getAge()) {
+                    case ADULT:
                         addMan();
                         break;
-                    case DZIECKO:
+                    case CHILD:
                         addBoy();
                         break;
-                    case DZIECKO_DOROSŁY:
+                    case CHILD_ADULT:
                         addBoy();
                         addMan();
                         break;
                 }
                 break;
-            case DAMSKO_MĘSKI:
-                switch (stroj.getWiek()) {
-                    case DOROSŁY:
+            case BOTH:
+                switch (costume.getAge()) {
+                    case ADULT:
                         addWoman();
                         addMan();
                         break;
-                    case DZIECKO:
+                    case CHILD:
                         addGirl();
                         addBoy();
                         break;
-                    case DZIECKO_DOROSŁY:
+                    case CHILD_ADULT:
                         addGirl();
                         addBoy();
                         addWoman();

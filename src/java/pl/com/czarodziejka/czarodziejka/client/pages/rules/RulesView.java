@@ -8,9 +8,9 @@ import pl.com.czarodziejka.czarodziejka.client.components.page.CanShow;
  *
  * @author Administrator
  */
-public class RegulaminView extends VerticalPanel implements CanShow {
+public class RulesView extends VerticalPanel implements CanShow {
 
-    public RegulaminView() {
+    public RulesView() {
         add(new HTML("<ol>"
                 + "<li>Wypożyczalnia strojów jest czynna przez cały rok.</li>"
                 + "<li>Aktualne godziny pracy wypożyczalni są zamieszczone na stronie internetowej z wyprzedzeniem jednego miesiąca.</li>"

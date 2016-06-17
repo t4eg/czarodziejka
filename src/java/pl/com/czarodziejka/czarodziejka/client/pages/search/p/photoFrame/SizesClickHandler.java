@@ -11,12 +11,12 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photoFrame.SizePop
  *
  * @author Administrator
  */
-public class RozmiaryClickHandler implements ClickHandler {
+public class SizesClickHandler implements ClickHandler {
 
     private final Costume stroj;
     private SizePopup popup;
 
-    public RozmiaryClickHandler(Costume stroj) {
+    public SizesClickHandler(Costume stroj) {
         this.stroj = stroj;
     }
 

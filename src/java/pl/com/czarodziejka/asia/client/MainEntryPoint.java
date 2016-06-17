@@ -19,7 +19,7 @@ public class MainEntryPoint implements EntryPoint {
 
     @Override
     public void onModuleLoad() {
-        final ArrayList<Costume> stroje = Database.getInstance().getStroje();
+        final ArrayList<Costume> stroje = Database.getInstance().getCostumes();
 
         Timer t = new Timer() {
 
@@ -34,20 +34,20 @@ public class MainEntryPoint implements EntryPoint {
                 sb.append("Pas Do\t");
                 sb.append("Wiek\n");
                 for (Costume stroj : stroje) {
-                    for (Size rozm : stroj.getRozmiar()) {
-                        sb.append(stroj.getNumer());
+                    for (Size rozm : stroj.getSizes()) {
+                        sb.append(stroj.getNumber());
                         sb.append("\t");
-                        sb.append(stroj.getNazwa());
+                        sb.append(stroj.getName());
                         sb.append("\t");
-                        sb.append(rozm.getWzrostOd());
+                        sb.append(rozm.getSizeFrom());
                         sb.append("\t");
-                        sb.append(rozm.getWzrostDo());
+                        sb.append(rozm.getSizeTo());
                         sb.append("\t");
-                        sb.append(Belt.getString(rozm.getPasOd()));
+                        sb.append(Belt.getString(rozm.getBeltFrom()));
                         sb.append("\t");
-                        sb.append(Belt.getString(rozm.getPasDo()));
+                        sb.append(Belt.getString(rozm.getBeltTo()));
                         sb.append("\t");
-                        sb.append(stroj.getWiek());
+                        sb.append(stroj.getAge());
                         sb.append("\n");
                     }
                 }

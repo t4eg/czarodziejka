@@ -67,14 +67,14 @@ public class RozmiarInstance extends HorizontalPanel {
 
             @Override
             public void onChange(ChangeEvent event) {
-                setBeltTo(Belt.getNr(beltFrom.getSelected()));
+                setBeltTo(Belt.getId(beltFrom.getSelected()));
             }
         });
         beltFrom.addKeyPressHandler(new KeyPressHandler() {
 
             @Override
             public void onKeyPress(KeyPressEvent event) {
-                setBeltTo(Belt.getNr(beltFrom.getSelected()));
+                setBeltTo(Belt.getId(beltFrom.getSelected()));
             }
         });
 
@@ -153,7 +153,7 @@ public class RozmiarInstance extends HorizontalPanel {
         Belt[] values = Belt.values();
         ArrayList<Belt> filteredValues = new ArrayList<Belt>();
         for (Belt value : values) {
-            if (value.getNr() >= beltFrom) {
+            if (value.getId() >= beltFrom) {
                 filteredValues.add(value);
             }
         }

@@ -1,7 +1,6 @@
 package pl.com.czarodziejka.czarodziejka.client.components.menu;
 
 import com.google.gwt.user.client.ui.HTML;
-import pl.com.czarodziejka.czarodziejka.client.components.menu.ShowPageClickHandler;
 import pl.com.czarodziejka.czarodziejka.client.components.page.Page;
 
 /**

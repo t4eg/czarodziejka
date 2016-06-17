@@ -5,7 +5,6 @@
 package pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume;
 
 import java.util.ArrayList;
-import java.util.ArrayList;
 
 /**
  *

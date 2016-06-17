@@ -9,10 +9,10 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Occasion;
  */
 public class Filters {
 
-    private Integer numer;
-    private String nazwa;
-    private Boolean dziecko;
-    private Boolean dorosly;
+    private Integer number;
+    private String name;
+    private Boolean child;
+    private Boolean adult;
     private Boolean male;
     private Boolean female;
     private Boolean forPair;
@@ -21,55 +21,55 @@ public class Filters {
     private Integer heightTo;
     private Integer beltFrom;
     private Integer beltTo;
-    private Occasion[] okazja;
-    private Category[] kategoria;
+    private Occasion[] occasions;
+    private Category[] categories;
 
-    public Integer getNumer() {
-        return numer;
+    public Integer getNumber() {
+        return number;
     }
 
-    public void setNumer(Integer numer) {
-        this.numer = numer;
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
-    public String getNazwa() {
-        return nazwa;
+    public String getName() {
+        return name;
     }
 
-    public void setNazwa(String nazwa) {
-        this.nazwa = nazwa.trim();
+    public void setName(String name) {
+        this.name = name.trim();
     }
 
-    public Occasion[] getOkazja() {
-        return okazja;
+    public Occasion[] getOccasions() {
+        return occasions;
     }
 
-    public void setOkazja(Occasion[] okazja) {
-        this.okazja = okazja;
+    public void setOccasions(Occasion[] occasions) {
+        this.occasions = occasions;
     }
 
-    public Category[] getKategoria() {
-        return kategoria;
+    public Category[] getCategories() {
+        return categories;
     }
 
-    public void setKategoria(Category[] kategoria) {
-        this.kategoria = kategoria;
+    public void setCategories(Category[] categories) {
+        this.categories = categories;
     }
 
-    public Boolean getDziecko() {
-        return dziecko;
+    public Boolean getChild() {
+        return child;
     }
 
-    public void setDziecko(Boolean dziecko) {
-        this.dziecko = dziecko;
+    public void setChild(Boolean child) {
+        this.child = child;
     }
 
-    public Boolean getDorosly() {
-        return dorosly;
+    public Boolean getAdult() {
+        return adult;
     }
 
-    public void setDorosly(Boolean dorosly) {
-        this.dorosly = dorosly;
+    public void setAdult(Boolean adult) {
+        this.adult = adult;
     }
 
     public Boolean getMale() {

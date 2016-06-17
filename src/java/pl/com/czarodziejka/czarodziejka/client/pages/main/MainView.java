@@ -9,9 +9,9 @@ import pl.com.czarodziejka.czarodziejka.client.components.page.CanShow;
  *
  * @author Administrator
  */
-public class GlownaView extends VerticalPanel implements CanShow {
+public class MainView extends VerticalPanel implements CanShow {
 
-    public GlownaView() {
+    public MainView() {
         setStylePrimaryName("glowna");
         add(new HTML("<p style=\"text-indent: 45px;\">Zapraszamy Państwa do skorzystania z oferty naszej wypożyczalni. Posiadamy stroje karnawałowe, teatralne, na Jasełka i Haloween w rozmiarach od 80 cm dla dzieci do rozmiarów XXL dla dorosłych.</p>"
                 + "<p>Spora część kostiumów to własne wzory uwzględniające sugestie i potrzeby klientów.</p>"

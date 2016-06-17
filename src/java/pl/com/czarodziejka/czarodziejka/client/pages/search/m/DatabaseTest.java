@@ -73,10 +73,10 @@ public class DatabaseTest {
         Integer maxNumer = 0;
         HashSet<Integer> all = new HashSet<Integer>();
         for (Costume stroj : stroje) {
-            if (stroj.getNumer() > maxNumer) {
-                maxNumer = stroj.getNumer();
+            if (stroj.getNumber() > maxNumer) {
+                maxNumer = stroj.getNumber();
             }
-            all.add(stroj.getNumer());
+            all.add(stroj.getNumber());
         }
         for (int i = 1; i < maxNumer; i++) {
             if (!all.contains(i)) {
@@ -91,10 +91,10 @@ public class DatabaseTest {
     private void testCzyNieJedynaOkazjaInne(ArrayList<Costume> stroje) {
         raport.append("======start testCzyNieJedynaOkazjaInne\n");
         for (Costume stroj : stroje) {
-            Occasion[] kat = stroj.getOkazja();
+            Occasion[] kat = stroj.getOccasions();
             if (kat.length > 1 && Arrays.asList(kat).contains(Occasion.Inne)) {
                 raport.append("Okazja Inne dopisana jako nie jedyna dla stroju: ");
-                raport.append(stroj.getNumer());
+                raport.append(stroj.getNumber());
                 raport.append("\n");
             }
         }
@@ -104,10 +104,10 @@ public class DatabaseTest {
     private void testCzyNieJedynaKategoriaInne(ArrayList<Costume> stroje) {
         raport.append("======start testCzyNieJedynaKategoriaInne\n");
         for (Costume stroj : stroje) {
-            Category[] kat = stroj.getKategoria();
-            if (kat.length > 1 && Arrays.asList(kat).contains(Category.Inne)) {
+            Category[] kat = stroj.getCategories();
+            if (kat.length > 1 && Arrays.asList(kat).contains(Category.OTHERS)) {
                 raport.append("Kategoria Inne dopisana jako nie jedyna dla stroju: ");
-                raport.append(stroj.getNumer());
+                raport.append(stroj.getNumber());
                 raport.append("\n");
             }
         }
@@ -140,13 +140,13 @@ public class DatabaseTest {
         raport.append("======start testCzyOkazjaSiePowtarza\n");
         for (Costume stroj : stroje) {
             HashSet<String> set = new HashSet<String>();
-            Occasion[] rozmiary = stroj.getOkazja();
+            Occasion[] rozmiary = stroj.getOccasions();
             for (Occasion r : rozmiary) {
                 if (set.contains(r.toString())) {
                     raport.append("powtórzona okazja stroju: ");
-                    raport.append(stroj.getNumer());
+                    raport.append(stroj.getNumber());
                     raport.append(". nazwa:");
-                    raport.append(stroj.getNazwa());
+                    raport.append(stroj.getName());
                     raport.append("\n");
                 } else {
                     set.add(r.toString());
@@ -160,13 +160,13 @@ public class DatabaseTest {
         raport.append("======start testCzyKategoriaSiePowtarza\n");
         for (Costume stroj : stroje) {
             HashSet<String> set = new HashSet<String>();
-            Category[] rozmiary = stroj.getKategoria();
+            Category[] rozmiary = stroj.getCategories();
             for (Category r : rozmiary) {
                 if (set.contains(r.toString())) {
                     raport.append("powtórzona kategoria stroju: ");
-                    raport.append(stroj.getNumer());
+                    raport.append(stroj.getNumber());
                     raport.append(". nazwa:");
-                    raport.append(stroj.getNazwa());
+                    raport.append(stroj.getName());
                     raport.append("\n");
                 } else {
                     set.add(r.toString());
@@ -180,14 +180,14 @@ public class DatabaseTest {
         raport.append("======start testCzyRozmiarSiePowtarza\n");
         for (Costume stroj : stroje) {
             HashSet<String> set = new HashSet<String>();
-            Size[] rozmiary = stroj.getRozmiar();
+            Size[] rozmiary = stroj.getSizes();
             for (Size r : rozmiary) {
-                String zmergowanyRozmiar = r.getWzrostOd() + "" + r.getWzrostDo() + "" + r.getPasOd() + "" + r.getPasDo();
+                String zmergowanyRozmiar = r.getSizeFrom() + "" + r.getSizeTo() + "" + r.getBeltFrom() + "" + r.getBeltTo();
                 if (set.contains(zmergowanyRozmiar)) {
                     raport.append("powtórzony rozmiar stroju: ");
-                    raport.append(stroj.getNumer());
+                    raport.append(stroj.getNumber());
                     raport.append(". nazwa:");
-                    raport.append(stroj.getNazwa());
+                    raport.append(stroj.getName());
                     raport.append("\n");
                 } else {
                     set.add(zmergowanyRozmiar);
@@ -201,14 +201,14 @@ public class DatabaseTest {
         raport.append("======start testCzyNumberSiePowtarza\n");
         HashSet<Integer> set = new HashSet<Integer>(stroje.size());
         for (Costume stroj : stroje) {
-            if (set.contains(stroj.getNumer())) {
+            if (set.contains(stroj.getNumber())) {
                 raport.append("powtórzony numer stroju: ");
-                raport.append(stroj.getNumer());
+                raport.append(stroj.getNumber());
                 raport.append(". nazwa:");
-                raport.append(stroj.getNazwa());
+                raport.append(stroj.getName());
                 raport.append("\n");
             } else {
-                set.add(stroj.getNumer());
+                set.add(stroj.getNumber());
             }
         }
         raport.append("======stop testCzyNumberSiePowtarza\n\n");
@@ -217,9 +217,9 @@ public class DatabaseTest {
     private void testCzyNazwaSieTrimuje(ArrayList<Costume> stroje) {
         raport.append("======start testCzyNazwaSieTrimuje\n");
         for (Costume stroj : stroje) {
-            if (stroj.getNazwa().length() != stroj.getNazwa().trim().length()) {
+            if (stroj.getName().length() != stroj.getName().trim().length()) {
                 raport.append("nazwa '");
-                raport.append(stroj.getNazwa());
+                raport.append(stroj.getName());
                 raport.append("' ma spacja na poczatku lub koncu\n");
             }
         }
@@ -229,9 +229,9 @@ public class DatabaseTest {
     private void testCzyJestUstawionaKategoria(ArrayList<Costume> stroje) {
         raport.append("======start testCzyJestUstawionaKategoria\n");
         for (Costume stroj : stroje) {
-            if (stroj.getKategoria() == null || stroj.getKategoria().length == 0) {
+            if (stroj.getCategories() == null || stroj.getCategories().length == 0) {
                 raport.append("kategoria dla stroju nr ");
-                raport.append(stroj.getNumer());
+                raport.append(stroj.getNumber());
                 raport.append(" nie jest ustawiona\n");
             }
         }
@@ -241,9 +241,9 @@ public class DatabaseTest {
     private void testCzyJestUstawionaOkazja(ArrayList<Costume> stroje) {
         raport.append("======start testCzyJestUstawionaOkazja\n");
         for (Costume stroj : stroje) {
-            if (stroj.getOkazja() == null || stroj.getOkazja().length == 0) {
+            if (stroj.getOccasions() == null || stroj.getOccasions().length == 0) {
                 raport.append("okazja dla stroju nr ");
-                raport.append(stroj.getNumer());
+                raport.append(stroj.getNumber());
                 raport.append(" nie jest ustawiona\n");
             }
         }
@@ -253,9 +253,9 @@ public class DatabaseTest {
     private void testCzyJestUstawionyRozmiar(ArrayList<Costume> stroje) {
         raport.append("======start testCzyJestUstawionyRozmiar\n");
         for (Costume stroj : stroje) {
-            if (stroj.getRozmiar() == null || stroj.getRozmiar().length == 0) {
+            if (stroj.getSizes() == null || stroj.getSizes().length == 0) {
                 raport.append("rozmiar dla stroju nr ");
-                raport.append(stroj.getNumer());
+                raport.append(stroj.getNumber());
                 raport.append(" nie jest ustawiony\n");
             }
         }
@@ -265,9 +265,9 @@ public class DatabaseTest {
     private void testCzyJestUstawionaPlec(ArrayList<Costume> stroje) {
         raport.append("======start testCzyJestUstawionaPlec\n");
         for (Costume stroj : stroje) {
-            if (stroj.getPłeć() == null) {
+            if (stroj.getSex() == null) {
                 raport.append("plec dla stroju nr ");
-                raport.append(stroj.getNumer());
+                raport.append(stroj.getNumber());
                 raport.append(" nie jest ustawiona\n");
             }
         }
@@ -277,9 +277,9 @@ public class DatabaseTest {
     private void testCzyJestUstawionyWiek(ArrayList<Costume> stroje) {
         raport.append("======start testCzyJestUstawionyWiek\n");
         for (Costume stroj : stroje) {
-            if (stroj.getWiek() == null) {
+            if (stroj.getAge() == null) {
                 raport.append("wiek dla stroju nr ");
-                raport.append(stroj.getNumer());
+                raport.append(stroj.getNumber());
                 raport.append(" nie jest ustawiony\n");
             }
         }
@@ -289,9 +289,9 @@ public class DatabaseTest {
     private void testCzyJestUstawionaNazwa(ArrayList<Costume> stroje) {
         raport.append("======start testCzyJestUstawionaNazwa\n");
         for (Costume stroj : stroje) {
-            if (stroj.getNazwa() == null) {
+            if (stroj.getName() == null) {
                 raport.append("nazwa dla stroju nr ");
-                raport.append(stroj.getNumer());
+                raport.append(stroj.getNumber());
                 raport.append(" nie jest ustawiona\n");
             }
         }
@@ -301,9 +301,9 @@ public class DatabaseTest {
     private void testCzyJestUstawioneZdjecie(ArrayList<Costume> stroje) {
         raport.append("======start testCzyJestUstawioneZdjecie\n");
         for (Costume stroj : stroje) {
-            if (stroj.getZdjęcie() == null || stroj.getZdjęcie().length == 0) {
+            if (stroj.getPhotos() == null || stroj.getPhotos().length == 0) {
                 raport.append("zdjecie dla stroju nr ");
-                raport.append(stroj.getNumer());
+                raport.append(stroj.getNumber());
                 raport.append(" nie jest ustawione\n");
             }
         }

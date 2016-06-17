@@ -1,26 +1,26 @@
 package pl.com.czarodziejka.czarodziejka.client.pages.search.p;
 
-import pl.com.czarodziejka.czarodziejka.client.pages.search.m.WyszukiwarkaModel;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.SearchModel;
 import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Belt;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.v.WyszukiwarkaView;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.v.SearchView;
 
 /**
  *
  * @author Administrator
  */
-public class WyszukiwarkaPresenter {
+public class SearchPresenter {
 
-    private WyszukiwarkaView view = WyszukiwarkaView.getInstance();
-    private static WyszukiwarkaPresenter instance;
+    private SearchView view = SearchView.getInstance();
+    private static SearchPresenter instance;
 
-    public static WyszukiwarkaPresenter getInstance() {
+    public static SearchPresenter getInstance() {
         if (instance == null) {
-            instance = new WyszukiwarkaPresenter();
+            instance = new SearchPresenter();
         }
         return instance;
     }
 
-    private WyszukiwarkaPresenter() {
+    private SearchPresenter() {
         FilterChangedHandler filterChanged = new FilterChangedHandler();
         view.getName().addValueChangeHandler(filterChanged);
         view.getName().addKeyPressHandler(filterChanged);
@@ -52,7 +52,7 @@ public class WyszukiwarkaPresenter {
         view.getCategory().addValueChangeHandler(filterChanged);
 
         view.getReset().addClickHandler(new ResetClickHandler());
-        view.getSearch().addClickHandler(new PokazClickHandler());
+        view.getSearch().addClickHandler(new SearchClickHandler());
     }
 
     public final void refreshComponents() {
@@ -68,7 +68,7 @@ public class WyszukiwarkaPresenter {
             view.getNoPair().setEnabled(false);
         }
 
-        WyszukiwarkaModel.getInstance().setHeightTo(Integer.valueOf(view.getHeightFrom().getSelected()));
-        WyszukiwarkaModel.getInstance().setBeltTo(Belt.getNr(view.getBeltFrom().getSelected()));
+        SearchModel.getInstance().setHeightTo(Integer.valueOf(view.getHeightFrom().getSelected()));
+        SearchModel.getInstance().setBeltTo(Belt.getId(view.getBeltFrom().getSelected()));
     }
 }

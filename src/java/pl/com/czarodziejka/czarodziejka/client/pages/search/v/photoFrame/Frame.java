@@ -4,7 +4,7 @@ import com.google.gwt.user.client.ui.DecoratorPanel;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Costume;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.p.photoFrame.RozmiaryClickHandler;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.p.photoFrame.SizesClickHandler;
 
 /**
  *
@@ -13,17 +13,17 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.p.photoFrame.Rozmiar
 public class Frame extends DecoratorPanel {
 
     private VerticalPanel layout = new VerticalPanel();
-    private Label rozmiary = new Label("zobacz rozmiary");
+    private Label sizes = new Label("zobacz rozmiary");
 
-    public Frame(Costume stroj, boolean showForWho) {
+    public Frame(Costume costume, boolean showForWho) {
         setWidget(layout);
         super.setStylePrimaryName("photoFrame");
 
-        Label name = new Label(stroj.getNazwa());
+        Label name = new Label(costume.getName());
         name.setStylePrimaryName("photoName");
 
-        Label number = new Label(Integer.toString(stroj.getNumer()));
-        if (stroj.isDlugaNazwa()) {
+        Label number = new Label(Integer.toString(costume.getNumber()));
+        if (costume.isLongName()) {
             number.setStylePrimaryName("photoNumberLower");
         } else {
             number.setStylePrimaryName("photoNumber");
@@ -31,16 +31,16 @@ public class Frame extends DecoratorPanel {
 
         layout.add(name);
         layout.add(number);
-        layout.add(new Photo(stroj));
-        if (showForWho && stroj.getPłeć() != null && stroj.getWiek() != null) {
-            layout.add(new ForWho(stroj));
+        layout.add(new Photo(costume));
+        if (showForWho && costume.getSex() != null && costume.getAge() != null) {
+            layout.add(new ForWho(costume));
         }
-        layout.add(rozmiary);
-        rozmiary.setStylePrimaryName("frameRozmiary");
-        rozmiary.addClickHandler(new RozmiaryClickHandler(stroj));
+        layout.add(sizes);
+        sizes.setStylePrimaryName("frameRozmiary");
+        sizes.addClickHandler(new SizesClickHandler(costume));
     }
 
-    public Label getRozmiary() {
-        return rozmiary;
+    public Label getSizes() {
+        return sizes;
     }
 }

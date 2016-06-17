@@ -16,18 +16,18 @@ public class Paginator extends FlowPanel {
 
     private ArrayList<PaginatorButton> buttons;
     private PaginatorPresenter presenter = new PaginatorPresenter(this);
-    private Button poprzednia = new Button("poprzednia");
-    private Button nastepna = new Button("następna");
+    private Button previous = new Button("poprzednia");
+    private Button next = new Button("następna");
 
     public Paginator(PhotosTableModel model, int pagesCount) {
         super.setWidth("647px");
         super.setStylePrimaryName("paginator");
 
-        poprzednia.addClickHandler(new PreviousClickHandler(model));
-        nastepna.addClickHandler(new NextClickHandler(model));
+        previous.addClickHandler(new PreviousClickHandler(model));
+        next.addClickHandler(new NextClickHandler(model));
 
-        poprzednia.setStylePrimaryName("big");
-        nastepna.setStylePrimaryName("big");
+        previous.setStylePrimaryName("big");
+        next.setStylePrimaryName("big");
 
         buttons = new ArrayList<PaginatorButton>();
         for (int i = 0; i < pagesCount; i++) {
@@ -37,11 +37,11 @@ public class Paginator extends FlowPanel {
 
     public void setShownPage(int number) {
         super.clear();
-        super.add(poprzednia);
+        super.add(previous);
         for (Button b : buttons) {
             super.add(b);
         }
-        super.add(nastepna);
+        super.add(next);
     }
 
     public PaginatorPresenter getPresenter() {
@@ -52,11 +52,11 @@ public class Paginator extends FlowPanel {
         return buttons;
     }
 
-    public Button getPoprzednia() {
-        return poprzednia;
+    public Button getPrevious() {
+        return previous;
     }
 
-    public Button getNastepna() {
-        return nastepna;
+    public Button getNext() {
+        return next;
     }
 }

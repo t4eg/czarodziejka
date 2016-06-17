@@ -10,8 +10,8 @@ import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
 import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.SuggestOracle;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.m.WyszukiwarkaModel;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.v.WyszukiwarkaView;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.m.SearchModel;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.v.SearchView;
 
 /**
  *
@@ -27,13 +27,13 @@ public class FilterChangedHandler implements KeyPressHandler, ChangeHandler, Val
         @Override
         public void run() {
             refreshRecordsCount();
-            WyszukiwarkaPresenter.getInstance().refreshComponents();
+            SearchPresenter.getInstance().refreshComponents();
             isActive = false;
         }
 
         private void refreshRecordsCount() {
-            int recordsCount = WyszukiwarkaModel.getInstance().findMachingStroj().size();
-            WyszukiwarkaView.getInstance().setRecordsCount(recordsCount);
+            int recordsCount = SearchModel.getInstance().findMachingCostume().size();
+            SearchView.getInstance().setRecordsCount(recordsCount);
         }
 
         @Override
