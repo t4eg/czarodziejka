@@ -27,7 +27,7 @@ public enum Height {
     cm_182(182),
     cm_188(188),
     cm_194(194);
-    private int height;
+    private final int height;
 
     Height(int height) {
         this.height = height;

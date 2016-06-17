@@ -13,9 +13,9 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.components.SelectO
  */
 public class PhotosPerPage extends HorizontalPanel {
 
-    private SelectOne number = new SelectOne();
-    private PhotosPerPageModel model = new PhotosPerPageModel(number);
-    private HTML txt = new HTML("Wyników na stronę&nbsp;");
+    private final SelectOne number = new SelectOne();
+    private final PhotosPerPageModel model = new PhotosPerPageModel(number);
+    private final HTML txt = new HTML("Wyników na stronę&nbsp;");
 
     public PhotosPerPage(PhotosTableModel photosTableModel) {
         PhotosPerPageChangedHandler handler = new PhotosPerPageChangedHandler(photosTableModel);

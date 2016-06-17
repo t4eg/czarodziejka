@@ -10,8 +10,8 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.Photos
  */
 public class GirlsView extends VerticalPanel implements CanShow {
 
-    private GirlsModel model = new GirlsModel(this);
-    private PhotosTable photosTable = new PhotosTable(false);
+    private final GirlsModel model = new GirlsModel(this);
+    private final PhotosTable photosTable = new PhotosTable(false);
     private boolean isShown;
 
     public GirlsView() {

@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class GirlsModel {
 
-    private GirlsView view;
+    private final GirlsView view;
 
     public GirlsModel(GirlsView view) {
         this.view = view;

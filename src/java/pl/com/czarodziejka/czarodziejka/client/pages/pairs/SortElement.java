@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class SortElement extends ArrayList<Costume> {
 
-    private int group;
+    private final int group;
 
     SortElement(int group) {
         this.group = group;

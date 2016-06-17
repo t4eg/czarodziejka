@@ -20,7 +20,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.SearchView;
 public class FilterChangedHandler implements KeyPressHandler, ChangeHandler, ValueChangeHandler, SelectionHandler<SuggestOracle.Suggestion> {
 
     private static final int SCHEDULE_DELAY = 25;
-    private Timer timer = new Timer() {
+    private final Timer timer = new Timer() {
 
         private boolean isActive = false;
 

@@ -71,7 +71,7 @@ public class DatabaseTest {
     private void testNiewykorzystanyNrStroju(ArrayList<Costume> stroje) {
         raport.append("======start testNiewykorzystanyNrStroju\n");
         Integer maxNumer = 0;
-        HashSet<Integer> all = new HashSet<Integer>();
+        HashSet<Integer> all = new HashSet<>();
         for (Costume stroj : stroje) {
             if (stroj.getNumber() > maxNumer) {
                 maxNumer = stroj.getNumber();
@@ -116,7 +116,7 @@ public class DatabaseTest {
 
     private void testCzyZdjecieSiePowtarza(ArrayList<Costume> stroje) { //w calej bazie
         raport.append("======start testCzyZdjecieSiePowtarza\n");
-        HashSet<Integer> set = new HashSet<Integer>();
+        HashSet<Integer> set = new HashSet<>();
         for (Costume stroj : stroje) { //TODO: zakomentowalem to bo nie chcialo mi sie poprawiac errorow
 //            int[] zdjecia = stroj.getZdjęcie();
 //            if (zdjecia != null) {
@@ -139,7 +139,7 @@ public class DatabaseTest {
     private void testCzyOkazjaSiePowtarza(ArrayList<Costume> stroje) {
         raport.append("======start testCzyOkazjaSiePowtarza\n");
         for (Costume stroj : stroje) {
-            HashSet<String> set = new HashSet<String>();
+            HashSet<String> set = new HashSet<>();
             Occasion[] rozmiary = stroj.getOccasions();
             for (Occasion r : rozmiary) {
                 if (set.contains(r.toString())) {
@@ -159,7 +159,7 @@ public class DatabaseTest {
     private void testCzyKategoriaSiePowtarza(ArrayList<Costume> stroje) {
         raport.append("======start testCzyKategoriaSiePowtarza\n");
         for (Costume stroj : stroje) {
-            HashSet<String> set = new HashSet<String>();
+            HashSet<String> set = new HashSet<>();
             Category[] rozmiary = stroj.getCategories();
             for (Category r : rozmiary) {
                 if (set.contains(r.toString())) {
@@ -179,7 +179,7 @@ public class DatabaseTest {
     private void testCzyRozmiarSiePowtarza(ArrayList<Costume> stroje) {
         raport.append("======start testCzyRozmiarSiePowtarza\n");
         for (Costume stroj : stroje) {
-            HashSet<String> set = new HashSet<String>();
+            HashSet<String> set = new HashSet<>();
             Size[] rozmiary = stroj.getSizes();
             for (Size r : rozmiary) {
                 String zmergowanyRozmiar = r.getSizeFrom() + "" + r.getSizeTo() + "" + r.getBeltFrom() + "" + r.getBeltTo();
@@ -199,7 +199,7 @@ public class DatabaseTest {
 
     private void testCzyNumberSiePowtarza(ArrayList<Costume> stroje) {
         raport.append("======start testCzyNumberSiePowtarza\n");
-        HashSet<Integer> set = new HashSet<Integer>(stroje.size());
+        HashSet<Integer> set = new HashSet<>(stroje.size());
         for (Costume stroj : stroje) {
             if (set.contains(stroj.getNumber())) {
                 raport.append("powtórzony numer stroju: ");

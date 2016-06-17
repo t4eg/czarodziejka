@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class SearchModel {
 
     private static SearchModel instance;
-    private SearchView view = SearchView.getInstance();
+    private final SearchView view = SearchView.getInstance();
 
     public static SearchModel getInstance() {
         if (instance == null) {
@@ -124,7 +124,7 @@ public class SearchModel {
         Height previouslySelected = Height.valueOf(Integer.valueOf(view.getHeightTo().getSelected()));
 
         Height[] values = Height.values();
-        ArrayList<Height> filteredValues = new ArrayList<Height>();
+        ArrayList<Height> filteredValues = new ArrayList<>();
         for (Height value : values) {
             if (value.getHeight() >= heightFrom) {
                 filteredValues.add(value);
@@ -145,7 +145,7 @@ public class SearchModel {
         Belt previouslySelected = Belt.valueOf(view.getBeltTo().getSelected());
 
         Belt[] values = Belt.values();
-        ArrayList<Belt> filteredValues = new ArrayList<Belt>();
+        ArrayList<Belt> filteredValues = new ArrayList<>();
         for (Belt value : values) {
             if (value.getId() >= beltFrom) {
                 filteredValues.add(value);

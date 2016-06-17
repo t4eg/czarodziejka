@@ -16,25 +16,25 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.Photos
 public class SearchView extends VerticalPanel implements CanShow {
 
     private static SearchView instance;
-    private Label recordsCount = new Label();
-    private Button show = new Button();
-    private Button reset = new Button();
-    private SuggestBox number = new SuggestBox(new NumberSuggestion());
-    private SuggestBox name = new SuggestBox(new NameSuggestion());
-    private CheckBox child = new CheckBox("dziecka");
-    private CheckBox adult = new CheckBox("dorosłego");
-    private CheckBox male = new CheckBox("męski");
-    private CheckBox female = new CheckBox("damski");
-    private CheckBox forPair = new CheckBox("dla pary");
-    private CheckBox noPair = new CheckBox("bez pary");
-    private SelectOne heightFrom = new SelectOne();
-    private SelectOne heightTo = new SelectOne();
-    private SelectOne beltFrom = new SelectOne();
-    private SelectOne beltTo = new SelectOne();
-    private SelectMany ocasion = new SelectMany();
-    private SelectMany category = new SelectMany();
-    private ClothCountInfo clothCountInfo = new ClothCountInfo();
-    private PhotosTable photosTable = new PhotosTable(true);
+    private final Label recordsCount = new Label();
+    private final Button show = new Button();
+    private final Button reset = new Button();
+    private final SuggestBox number = new SuggestBox(new NumberSuggestion());
+    private final SuggestBox name = new SuggestBox(new NameSuggestion());
+    private final CheckBox child = new CheckBox("dziecka");
+    private final CheckBox adult = new CheckBox("dorosłego");
+    private final CheckBox male = new CheckBox("męski");
+    private final CheckBox female = new CheckBox("damski");
+    private final CheckBox forPair = new CheckBox("dla pary");
+    private final CheckBox noPair = new CheckBox("bez pary");
+    private final SelectOne heightFrom = new SelectOne();
+    private final SelectOne heightTo = new SelectOne();
+    private final SelectOne beltFrom = new SelectOne();
+    private final SelectOne beltTo = new SelectOne();
+    private final SelectMany ocasion = new SelectMany();
+    private final SelectMany category = new SelectMany();
+    private final ClothCountInfo clothCountInfo = new ClothCountInfo();
+    private final PhotosTable photosTable = new PhotosTable(true);
 
     public static SearchView getInstance() {
         if (instance == null) {

@@ -40,7 +40,7 @@ public class PhotosTableModel {
 
     private void splitBetweenPages(ArrayList<Costume> found) {
         int pagesNumber = (int) Math.ceil(found.size() / (double) photosPerPage);
-        pages = new ArrayList<List<Costume>>(pagesNumber);
+        pages = new ArrayList<>(pagesNumber);
         for (int i = 0; i < pagesNumber; i++) {
             int from = i * photosPerPage;
             int to = (i + 1) * photosPerPage;

@@ -23,6 +23,6 @@ public class MainEntryPoint implements EntryPoint {
         if (menuPanel != null) {
             menuPanel.add(new Menu());
         }
-        Database.getInstance(); // wczytaj stroje
+        Database.getInstance(); // load costumes
     }
 }

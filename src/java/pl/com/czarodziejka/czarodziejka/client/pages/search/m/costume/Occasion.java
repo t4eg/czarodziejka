@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume;
 
 import java.util.ArrayList;
@@ -23,7 +19,7 @@ public enum Occasion {
     }
 
     public static Occasion[] get(String[] name) {
-        ArrayList<Occasion> result = new ArrayList<Occasion>();
+        ArrayList<Occasion> result = new ArrayList<>();
         for (String s : name) {
             result.add(valueOf(s));
         }

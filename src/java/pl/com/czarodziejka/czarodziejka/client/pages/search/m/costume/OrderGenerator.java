@@ -8,7 +8,7 @@ import java.util.HashMap;
  */
 public class OrderGenerator {
 
-    private static final HashMap<Character, String> map = new HashMap<Character, String>();
+    private static final HashMap<Character, String> map = new HashMap<>();
 
     static {
         map.put(' ', "00");

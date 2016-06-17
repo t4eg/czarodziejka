@@ -28,7 +28,7 @@ public class RecordsMatcher {
 
     public ArrayList<Costume> match(Filters filters) {
         this.filters = filters;
-        ArrayList<Costume> result = new ArrayList<Costume>();
+        ArrayList<Costume> result = new ArrayList<>();
         ArrayList<Costume> stroje = Database.getInstance().getCostumes();
         for (Costume str : stroje) {
             costume = str;

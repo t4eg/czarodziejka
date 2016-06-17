@@ -6,8 +6,8 @@ package pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume;
  */
 public class Photo {
 
-    private Integer number;
-    private boolean isHorizontal;
+    private final Integer number;
+    private final boolean isHorizontal;
 
     public Photo(Integer number, Boolean isHorizontal) {
         this.number = number;

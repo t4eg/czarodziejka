@@ -12,8 +12,8 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.p.photoFrame.SizesCl
  */
 public class Frame extends DecoratorPanel {
 
-    private VerticalPanel layout = new VerticalPanel();
-    private Label sizes = new Label("zobacz rozmiary");
+    private final VerticalPanel layout = new VerticalPanel();
+    private final Label sizes = new Label("zobacz rozmiary");
 
     public Frame(Costume costume, boolean showForWho) {
         setWidget(layout);

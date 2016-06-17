@@ -11,7 +11,7 @@ import java.util.LinkedList;
 public class Sort {
 
     static ArrayList<Costume> group2(ArrayList<Costume> records) {
-        LinkedList<Costume> list = new LinkedList<Costume>();
+        LinkedList<Costume> list = new LinkedList<>();
 
         for (Costume c : records) {
             int indexOfGroup = getFirstIndexOfGroup(list, c.getGrupaPary());
@@ -22,7 +22,7 @@ public class Sort {
             }
         }
 
-        ArrayList<Costume> result = new ArrayList<Costume>(records.size());
+        ArrayList<Costume> result = new ArrayList<>(records.size());
         for (Costume c : list) {
             result.add(c);
         }

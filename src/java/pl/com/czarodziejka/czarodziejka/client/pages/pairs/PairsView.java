@@ -1,7 +1,6 @@
 package pl.com.czarodziejka.czarodziejka.client.pages.pairs;
 
 import com.google.gwt.user.client.ui.VerticalPanel;
-import pl.com.czarodziejka.czarodziejka.client.pages.pairs.PairsModel;
 import pl.com.czarodziejka.czarodziejka.client.components.page.CanShow;
 import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.PhotosTable;
 
@@ -11,8 +10,8 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.Photos
  */
 public class PairsView extends VerticalPanel implements CanShow {
 
-    private PairsModel model = new PairsModel(this);
-    private PhotosTable photosTable = new PhotosTable(true);
+    private final PairsModel model = new PairsModel(this);
+    private final PhotosTable photosTable = new PhotosTable(true);
     private boolean isShown;
 
     public PairsView() {

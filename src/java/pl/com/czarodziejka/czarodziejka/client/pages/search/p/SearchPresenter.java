@@ -10,7 +10,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.SearchView;
  */
 public class SearchPresenter {
 
-    private SearchView view = SearchView.getInstance();
+    private final SearchView view = SearchView.getInstance();
     private static SearchPresenter instance;
 
     public static SearchPresenter getInstance() {

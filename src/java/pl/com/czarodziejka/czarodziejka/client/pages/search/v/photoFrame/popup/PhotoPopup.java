@@ -13,9 +13,9 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Photo;
  */
 public class PhotoPopup extends DecoratedPopupPanel {
 
-    private TitleBar titleBar;
+    private final TitleBar titleBar;
+    private final Image bigPhoto;
     private BottomBar bottomBar;
-    private Image bigPhoto;
 
     public PhotoPopup(Costume costume) {
         setStyleName("center", true);

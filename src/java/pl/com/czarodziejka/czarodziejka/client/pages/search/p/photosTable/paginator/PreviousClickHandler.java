@@ -18,9 +18,6 @@ public class PreviousClickHandler implements ClickHandler {
 
     @Override
     public void onClick(ClickEvent event) {
-//        if (Window.getScrollTop() > 370) {
-//            Window.scrollTo(0, 331);
-//        }
         model.showPrevious();
     }
 }

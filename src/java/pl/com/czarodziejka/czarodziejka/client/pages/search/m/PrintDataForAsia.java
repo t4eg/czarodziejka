@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class PrintDataForAsia {
 
-    private StringBuilder sb = new StringBuilder();
+    private final StringBuilder sb = new StringBuilder();
 
     public void print(ArrayList<Costume> stroje) {
 

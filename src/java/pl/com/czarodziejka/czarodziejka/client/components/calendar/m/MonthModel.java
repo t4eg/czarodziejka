@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pl.com.czarodziejka.czarodziejka.client.components.calendar.m;
 
 import com.google.gwt.i18n.client.DateTimeFormat;
@@ -23,7 +18,6 @@ public class MonthModel {
     private final MonthView v;
     private final static DateTimeFormat monthPattern = DateTimeFormat.getFormat("M");
     private final static DateTimeFormat dayOfWeekPattern = DateTimeFormat.getFormat("c");
-    private final static DateTimeFormat weekInYearPattern = DateTimeFormat.getFormat("w");
 
     public MonthModel(CalendarModel calendarModel, MonthView v) {
         this.calendarModel = calendarModel;

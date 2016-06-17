@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class PairsModel {
 
-    private PairsView view;
+    private final PairsView view;
 
     public PairsModel(PairsView view) {
         this.view = view;

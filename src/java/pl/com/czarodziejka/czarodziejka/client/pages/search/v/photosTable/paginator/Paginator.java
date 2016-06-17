@@ -14,10 +14,10 @@ import java.util.ArrayList;
  */
 public class Paginator extends FlowPanel {
 
-    private ArrayList<PaginatorButton> buttons;
-    private PaginatorPresenter presenter = new PaginatorPresenter(this);
-    private Button previous = new Button("poprzednia");
-    private Button next = new Button("następna");
+    private final ArrayList<PaginatorButton> buttons;
+    private final PaginatorPresenter presenter = new PaginatorPresenter(this);
+    private final Button previous = new Button("poprzednia");
+    private final Button next = new Button("następna");
 
     public Paginator(PhotosTableModel model, int pagesCount) {
         super.setWidth("647px");
@@ -29,7 +29,7 @@ public class Paginator extends FlowPanel {
         previous.setStylePrimaryName("big");
         next.setStylePrimaryName("big");
 
-        buttons = new ArrayList<PaginatorButton>();
+        buttons = new ArrayList<>();
         for (int i = 0; i < pagesCount; i++) {
             buttons.add(new PaginatorButton(model, i));
         }

@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class BoysModel {
 
-    private BoysView view;
+    private final BoysView view;
 
     public BoysModel(BoysView view) {
         this.view = view;

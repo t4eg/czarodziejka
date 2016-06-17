@@ -15,8 +15,8 @@ import java.util.Map;
  */
 public class BottomBar extends HorizontalPanel {
 
-    private Map<Photo, Label> buttons = new HashMap<Photo, Label>();
-    private HorizontalPanel content = new HorizontalPanel();
+    private final Map<Photo, Label> buttons = new HashMap<>();
+    private final HorizontalPanel content = new HorizontalPanel();
 
     BottomBar(PhotoPopup parent, Photo[] photos) {
         setWidth("100%");

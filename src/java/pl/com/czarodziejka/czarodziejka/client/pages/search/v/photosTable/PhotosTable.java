@@ -11,10 +11,10 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.pagina
  */
 public class PhotosTable extends VerticalPanel {
 
-    private PhotosTableModel model;
+    private final PhotosTableModel model;
+    private final Grid grid = new Grid();
+    private final PhotosPerPage photosPerPage;
     private Paginator topPaginator, bottomPaginator;
-    private Grid grid = new Grid();
-    private PhotosPerPage photosPerPage;
 
     public PhotosTable(boolean showForWho) {
         model = new PhotosTableModel(this, showForWho);
