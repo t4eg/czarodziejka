@@ -1,6 +1,6 @@
 package pl.com.czarodziejka.admin.client.presenter;
 
-import pl.com.czarodziejka.czarodziejka.client.pages.search.p.NumberChangedHandler;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.NumberChangedHandler;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import pl.com.czarodziejka.admin.client.view.DodajStrojView;

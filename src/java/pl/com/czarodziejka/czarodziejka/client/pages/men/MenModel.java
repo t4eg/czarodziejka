@@ -1,12 +1,12 @@
 package pl.com.czarodziejka.czarodziejka.client.pages.men;
 
-import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Category;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Height;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Costume;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Belt;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Occasion;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.m.Filters;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.m.RecordsMatcher;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.database.costume.Category;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.database.costume.Height;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.database.costume.Costume;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.database.costume.Belt;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.database.costume.Occasion;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.Filters;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.RecordsMatcher;
 import java.util.ArrayList;
 
 /**

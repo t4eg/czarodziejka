@@ -2,7 +2,7 @@ package pl.com.czarodziejka.czarodziejka.client.pages.men;
 
 import com.google.gwt.user.client.ui.VerticalPanel;
 import pl.com.czarodziejka.czarodziejka.client.components.page.CanShow;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.PhotosTable;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.photosTable.PhotosTableView;
 
 /**
  *
@@ -11,7 +11,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.search.v.photosTable.Photos
 public class MenView extends VerticalPanel implements CanShow {
 
     private final MenModel model = new MenModel(this);
-    private final PhotosTable photosTable = new PhotosTable(false);
+    private final PhotosTableView photosTable = new PhotosTableView(false);
     private boolean isShown;
 
     public MenView() {
@@ -26,7 +26,7 @@ public class MenView extends VerticalPanel implements CanShow {
         }
     }
 
-    public PhotosTable getPhotosTable() {
+    public PhotosTableView getPhotosTable() {
         return photosTable;
     }
 }

@@ -1,6 +1,6 @@
 package pl.com.czarodziejka.czarodziejka.client.pages.pairs;
 
-import pl.com.czarodziejka.czarodziejka.client.pages.search.m.costume.Costume;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.database.costume.Costume;
 import java.util.ArrayList;
 import java.util.LinkedList;
 

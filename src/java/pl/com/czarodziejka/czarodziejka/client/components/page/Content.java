@@ -2,8 +2,8 @@ package pl.com.czarodziejka.czarodziejka.client.components.page;
 
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Widget;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.m.SearchModel;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.p.SearchPresenter;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.SearchModel;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.SearchPresenter;
 import pl.com.czarodziejka.czarodziejka.client.pages.boys.BoysView;
 import pl.com.czarodziejka.czarodziejka.client.pages.girls.GirlsView;
 import pl.com.czarodziejka.czarodziejka.client.pages.main.MainView;
@@ -12,7 +12,7 @@ import pl.com.czarodziejka.czarodziejka.client.pages.contact.ContactView;
 import pl.com.czarodziejka.czarodziejka.client.pages.men.MenView;
 import pl.com.czarodziejka.czarodziejka.client.pages.pairs.PairsView;
 import pl.com.czarodziejka.czarodziejka.client.pages.rules.RulesView;
-import pl.com.czarodziejka.czarodziejka.client.pages.search.v.SearchView;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.SearchView;
 
 /**
  *
