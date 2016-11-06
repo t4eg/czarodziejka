@@ -20,14 +20,6 @@ public class CalendarModel {
     public static final Map<String, Time[]> specialDays = new HashMap<>();
 
     static {
-        specialDays.put("2016.03.26", null);
-        specialDays.put("2016.03.27", null);
-        specialDays.put("2016.03.28", null);
-        specialDays.put("2016.05.01", null);
-        specialDays.put("2016.05.02", null);
-        specialDays.put("2016.05.03", null);
-        specialDays.put("2016.05.15", null);
-        specialDays.put("2016.05.26", null);
         specialDays.put("2016.08.15", null);
         specialDays.put("2016.11.01", null);
         specialDays.put("2016.11.11", null);
@@ -62,26 +54,11 @@ public class CalendarModel {
                 default:
                     return new Time[]{new Time(10), new Time(20)};
             }
-        } else if (DateUtils.isBetween(date, "2015.07.11", "2015.08.19")) {
-            return null;
-        } else if (DateUtils.isBetween(date, "2015.08.20", "2015.08.30")) {
+        } else if (DateUtils.isBetween(date, "2016.07.01", "2016.08.31")) {
             switch (DateUtils.getWeekDay(date)) {
                 case Sat:
                 case Sun:
                     return null;
-                default:
-                    return new Time[]{new Time(10), new Time(18)};
-            }
-        } else if (DateUtils.isLipiec(date)) {
-            switch (DateUtils.getWeekDay(date)) {
-                case Sat:
-                case Sun:
-                    return null;
-                case Mon:
-                case Tue:
-                case Wed:
-                case Thu:
-                case Fri:
                 default:
                     return new Time[]{new Time(10), new Time(18)};
             }
