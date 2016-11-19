@@ -3990,10 +3990,10 @@ public class Database {
                 new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
                 new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M)));
 
-        add(new Costume(1069).setPhotos(1584, 1585).setName("Tygrysek").setAge(Age.CHILD).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.ANIMALS).setSizes(
+        add(new Costume(1069).setPhotos(1585, 1584).setName("Tygrysek").setAge(Age.CHILD).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.ANIMALS).setSizes(
                 new Size(Height.cm_86)));
 
-        add(new Costume(1070).setPhotos(1586, 1587).setName("Pirat").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.HISTORICAL).setSizes(
+        add(new Costume(1070).setPhotos(1587, 1586).setName("Pirat").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.HISTORICAL).setSizes(
                 new Size(Height.cm_176, Height.cm_188, Belt.M, Belt.L),
                 new Size(Height.cm_176, Height.cm_188, Belt.L, Belt.XL)));
 
