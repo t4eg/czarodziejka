@@ -61,16 +61,16 @@ public class Database {
     }
 
     private void addData1() {
-        add(new Costume(1).setPhotos(1).setName("pirat").setForPair(1).setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.PIRATES).setSizes(
+        add(new Costume(1).setPhotos(1).setName("Pirat").setForPair(1).setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.PIRATES).setSizes(
                 new Size(Height.cm_176, Height.cm_182, Belt.L),
                 new Size(Height.cm_176, Height.cm_182, Belt.M),
                 new Size(Height.cm_176, Height.cm_182, Belt.S)));
 
-        add(new Costume(2).setPhotos(2).setName("pirat").setForPair(1).setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.PIRATES).setSizes(
+        add(new Costume(2).setPhotos(2).setName("Pirat").setForPair(1).setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.PIRATES).setSizes(
                 new Size(Height.cm_182, Height.cm_188, Belt.S),
                 new Size(Height.cm_182, Height.cm_188, Belt.M)));
 
-        add(new Costume(3).setPhotos(3).setName("muszkieter").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.HISTORICAL).setSizes(
+        add(new Costume(3).setPhotos(3).setName("Muszkieter").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.HISTORICAL).setSizes(
                 new Size(Height.cm_170, Belt.S),
                 new Size(Height.cm_170, Belt.XL)));
 
@@ -3620,7 +3620,7 @@ public class Database {
                 new Size(Height.cm_128),
                 new Size(Height.cm_140)));
 
-        add(new Costume(1038).setPhotos(1643).setName("tancerka").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.OTHERS).setSizes(
+        add(new Costume(1038).setPhotos(1643).setName("Tancerka").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.OTHERS).setSizes(
                 new Size(Height.cm_116)));
 
         add(new Costume(1039).setPhotos(1644).setName("Hipopotam").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.ANIMALS).setSizes(
@@ -3629,7 +3629,7 @@ public class Database {
         add(new Costume(1040).setPhotos(1645).setName("Król").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Jasełka).setCategories(Category.FAIRY_TALES, Category.HISTORICAL).setSizes(
                 new Size(Height.cm_176, Height.cm_182, Belt.L, Belt.XXL)));
 
-        add(new Costume(1041).setPhotos(1646).setName("Miś Coala").setAge(Age.CHILD).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.ANIMALS).setSizes(
+        add(new Costume(1041).setPhotos(1646).setName("Miś Koala").setAge(Age.CHILD).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.ANIMALS).setSizes(
                 new Size(Height.cm_140, Height.cm_146)));
 
         add(new Costume(1042).setPhotos(1647).setName("Diablica").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Halloween).setCategories(Category.FAIRY_TALES).setSizes(
