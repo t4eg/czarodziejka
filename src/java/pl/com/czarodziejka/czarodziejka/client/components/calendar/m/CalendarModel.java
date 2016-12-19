@@ -26,7 +26,12 @@ public class CalendarModel {
         specialDays.put("2016.12.24", null);
         specialDays.put("2016.12.25", null);
         specialDays.put("2016.12.26", null);
-        specialDays.put("2016.12.31", new Time[]{new Time(10), new Time(16)});
+        specialDays.put("2016.12.31", new Time[]{new Time(10), new Time(15)});
+        
+        specialDays.put("2017.01.01", null);
+        specialDays.put("2017.01.06", null);
+        specialDays.put("2017.04.16", null);
+        specialDays.put("2017.04.17", null);
     }
 
     public CalendarModel() {
@@ -53,14 +58,6 @@ public class CalendarModel {
                     return new Time[]{new Time(10), new Time(15)};
                 default:
                     return new Time[]{new Time(10), new Time(20)};
-            }
-        } else if (DateUtils.isBetween(date, "2016.07.01", "2016.08.31")) {
-            switch (DateUtils.getWeekDay(date)) {
-                case Sat:
-                case Sun:
-                    return null;
-                default:
-                    return new Time[]{new Time(10), new Time(18)};
             }
         } else if (DateUtils.isGrudzien(date)) {
             switch (DateUtils.getWeekDay(date)) {
