@@ -31,14 +31,22 @@ public class Database {
     }
 
     private Database() {
+        final Timer t4 = new Timer() {
+
+            @Override
+            public void run() {
+                addData4();
+                Collections.sort(instance.costumes, new CostumeComparator());
+//                DatabaseTest test = new DatabaseTest(instance.stroje);
+//                new PrintDataForAsia().print(stroje);
+            }
+        };
         final Timer t3 = new Timer() {
 
             @Override
             public void run() {
                 addData3();
-                Collections.sort(instance.costumes, new CostumeComparator());
-//                DatabaseTest test = new DatabaseTest(instance.stroje);
-//                new PrintDataForAsia().print(stroje);
+                t4.schedule(10);
             }
         };
         final Timer t2 = new Timer() {
@@ -58,14 +66,6 @@ public class Database {
             }
         };
         t1.schedule(10);
-    }
-
-    private static String getMany(Object[] arr) {
-        String s = "";
-        for (Object ss : arr) {
-            s += ss.toString() + "|";
-        }
-        return s.substring(0, s.length() - 1);
     }
 
     private void addData1() {
@@ -4062,7 +4062,9 @@ public class Database {
                 new Size(Height.cm_98),
                 new Size(Height.cm_104),
                 new Size(Height.cm_140)));
+    }
 
+    private void addData4() {
         add(new Costume(1088).setPhotos(1749, 1750).setName("Kotek").setAge(Age.CHILD).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.ANIMALS).setSizes(
                 new Size(Height.cm_80),
                 new Size(Height.cm_86),
@@ -4246,27 +4248,27 @@ public class Database {
         add(new Costume(1130).setPhotos(1793).setName("Strój Lata 70-te").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
                 new Size(Height.cm_188, Height.cm_194, Belt.XL)));
 
-        add(new Costume(1148).setPhotos(1794).setName("Disco").setAge(Age.ADULT).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+        add(new Costume(1131).setPhotos(1794).setName("Disco").setAge(Age.ADULT).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
                 new Size(Height.cm_170, Height.cm_176, Belt.L),
                 new Size(Height.cm_182, Height.cm_188, Belt.L)));
 
-        add(new Costume(1149).setPhotos(1795).setName("Disco").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+        add(new Costume(1132).setPhotos(1795).setName("Disco").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
                 new Size(Height.cm_170, Height.cm_176, Belt.L, Belt.XL)));
 
-        add(new Costume(1150).setPhotos(1796).setName("Disco").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+        add(new Costume(1133).setPhotos(1796).setName("Disco").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
                 new Size(Height.cm_182, Height.cm_188, Belt.M),
                 new Size(Height.cm_182, Height.cm_188, Belt.L),
                 new Size(Height.cm_188, Height.cm_194, Belt.XL, Belt.XXL)));
 
-        add(new Costume(1151).setPhotos(1797).setName("Disco").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+        add(new Costume(1134).setPhotos(1797).setName("Disco").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
                 new Size(Height.cm_182, Height.cm_188, Belt.M),
                 new Size(Height.cm_182, Height.cm_188, Belt.L),
                 new Size(Height.cm_188, Height.cm_194, Belt.XL, Belt.XXL)));
 
-        add(new Costume(1152).setPhotos(1798).setName("Disco").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+        add(new Costume(1135).setPhotos(1798).setName("Disco").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
                 new Size(Height.cm_164, Height.cm_170, Belt.XL)));
 
-        add(new Costume(1153).setPhotos(1799).setName("Disco").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+        add(new Costume(1136).setPhotos(1799).setName("Disco").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
                 new Size(Height.cm_188, Height.cm_194, Belt.XL, Belt.XXL)));
 
         add(new Costume(1137).setPhotos(1800).setName("Szalony Kapelusznik").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Halloween, Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.SEXY).setSizes(
