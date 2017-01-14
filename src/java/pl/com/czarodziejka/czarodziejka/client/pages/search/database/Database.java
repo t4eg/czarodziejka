@@ -60,6 +60,14 @@ public class Database {
         t1.schedule(10);
     }
 
+    private static String getMany(Object[] arr) {
+        String s = "";
+        for (Object ss : arr) {
+            s += ss.toString() + "|";
+        }
+        return s.substring(0, s.length() - 1);
+    }
+
     private void addData1() {
         add(new Costume(1).setPhotos(1).setName("Pirat").setForPair(1).setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.PIRATES).setSizes(
                 new Size(Height.cm_176, Height.cm_182, Belt.L),
@@ -4054,6 +4062,249 @@ public class Database {
                 new Size(Height.cm_98),
                 new Size(Height.cm_104),
                 new Size(Height.cm_140)));
+
+        add(new Costume(1088).setPhotos(1749, 1750).setName("Kotek").setAge(Age.CHILD).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.ANIMALS).setSizes(
+                new Size(Height.cm_80),
+                new Size(Height.cm_86),
+                new Size(Height.cm_92)));
+
+        add(new Costume(1089).setPhotos(1751).setName("Różowy Potwór").setAge(Age.CHILD).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_86),
+                new Size(Height.cm_92)));
+
+        add(new Costume(1090).setPhotos(1752).setName("Dama Fioletowa").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.HISTORICAL).setSizes(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        add(new Costume(1091).setPhotos(1753).setName("Turkusowy Potwór").setAge(Age.CHILD).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_80)));
+
+        add(new Costume(1092).setPhotos(1754).setName("Piesek").setAge(Age.CHILD).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.ANIMALS).setSizes(
+                new Size(Height.cm_80),
+                new Size(Height.cm_86),
+                new Size(Height.cm_92)));
+
+        add(new Costume(1093).setPhotos(1755).setName("Księżniczka").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.HISTORICAL).setSizes(
+                new Size(Height.cm_122)));
+
+        add(new Costume(1094).setPhotos(1756).setName("Błękitna Królewna").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.HISTORICAL).setSizes(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        add(new Costume(1095).setPhotos(1757).setName("Miodek").setAge(Age.CHILD).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_92)));
+
+        add(new Costume(1096).setPhotos(1758).setName("Księżniczka Zosia").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116)));
+
+        add(new Costume(1097).setPhotos(1759).setName("Kubuś Puchatek").setAge(Age.CHILD).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_92)));
+
+        add(new Costume(1098).setPhotos(1760).setName("Muszkieterka").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.HISTORICAL).setSizes(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        add(new Costume(1099).setPhotos(1761).setName("Żółw").setAge(Age.CHILD).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.ANIMALS).setSizes(
+                new Size(Height.cm_80),
+                new Size(Height.cm_92)));
+
+        add(new Costume(1100).setPhotos(1762).setName("Smok").setAge(Age.CHILD).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.ANIMALS).setSizes(
+                new Size(Height.cm_92)));
+
+        add(new Costume(1101).setPhotos(1763).setName("Królewna").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_104),
+                new Size(Height.cm_110),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134)));
+
+        add(new Costume(1102).setPhotos(1764).setName("Jednorożec").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104)));
+
+        add(new Costume(1103).setPhotos(1765).setName("Syrenka").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_110)));
+
+        add(new Costume(1104).setPhotos(1766).setName("Syrenka").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        add(new Costume(1105).setPhotos(1767).setName("Dama").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.HISTORICAL).setSizes(
+                new Size(Height.cm_92),
+                new Size(Height.cm_98)));
+
+        add(new Costume(1106).setPhotos(1768).setName("Kleopatra").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE, Category.HISTORICAL).setSizes(
+                new Size(Height.cm_110),
+                new Size(Height.cm_122),
+                new Size(Height.cm_146)));
+
+        add(new Costume(1107).setPhotos(1769).setName("Strój Tyrolski").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.NATIONALISTIC).setSizes(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        add(new Costume(1108).setPhotos(1770).setName("Dzwoneczek").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_86),
+                new Size(Height.cm_92)));
+
+        add(new Costume(1109).setPhotos(1771).setName("Myszka Mini").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116)));
+
+        add(new Costume(1110).setPhotos(1772).setName("Królowa Zima").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Mikołajki, Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE).setSizes(
+                new Size(Height.cm_110),
+                new Size(Height.cm_128)));
+
+        add(new Costume(1111).setPhotos(1773).setName("Sukienka Wizytowa").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.OTHERS).setSizes(
+                new Size(Height.cm_92)));
+
+        add(new Costume(1112).setPhotos(1774).setName("Motyl").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Halloween, Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE).setSizes(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        add(new Costume(1113).setPhotos(1775).setName("Sukienka Wizytowa").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.OTHERS).setSizes(
+                new Size(Height.cm_92)));
+
+        add(new Costume(1114).setPhotos(1776).setName("Diabolina").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Halloween, Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE).setSizes(
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134),
+                new Size(Height.cm_140, Height.cm_146)));
+
+        add(new Costume(1115).setPhotos(1778).setName("Czarownica").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Halloween).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        add(new Costume(1116).setPhotos(1779).setName("Czarownica").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Halloween).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        add(new Costume(1117).setPhotos(1780).setName("Królowa").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Halloween, Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.MOVIE_STAGE).setSizes(
+                new Size(Height.cm_104),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        add(new Costume(1118).setPhotos(1781).setName("Czarownica").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Halloween).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_116)));
+
+        add(new Costume(1119).setPhotos(1782).setName("Czarny Smok").setAge(Age.CHILD).setSex(Sex.MALE).setOccasions(Occasion.Halloween, Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_98),
+                new Size(Height.cm_104),
+                new Size(Height.cm_110)));
+
+        add(new Costume(1120).setPhotos(1783).setName("Straszny Nietoperz").setAge(Age.CHILD).setSex(Sex.MALE).setOccasions(Occasion.Halloween).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_104, Height.cm_110),
+                new Size(Height.cm_116, Height.cm_122),
+                new Size(Height.cm_128, Height.cm_134)));
+
+        add(new Costume(1121).setPhotos(1784).setName("Wróżka").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Andrzejki, Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_128)));
+
+        add(new Costume(1122).setPhotos(1785).setName("Śpiąca Królewna").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.FAIRY_TALES).setSizes(
+                new Size(Height.cm_110),
+                new Size(Height.cm_128)));
+
+        add(new Costume(1123).setPhotos(1786).setName("Hiszpanka").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.MOVIE_STAGE, Category.NATIONALISTIC).setSizes(
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140),
+                new Size(Height.cm_146)));
+
+        add(new Costume(1124).setPhotos(1787).setName("Kierowca Rajdowy").setAge(Age.CHILD).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.PROFESSIONS).setSizes(
+                new Size(Height.cm_110)));
+
+        add(new Costume(1125).setPhotos(1788).setName("Flamenco").setAge(Age.CHILD).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.NATIONALISTIC).setSizes(
+                new Size(Height.cm_110),
+                new Size(Height.cm_116),
+                new Size(Height.cm_122),
+                new Size(Height.cm_128),
+                new Size(Height.cm_134),
+                new Size(Height.cm_140)));
+
+        add(new Costume(1126).setPhotos(1789).setName("Sukienka Lata 70-te").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+
+        add(new Costume(1127).setPhotos(1790).setName("Sukienka Lata 70-te").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        add(new Costume(1128).setPhotos(1791).setName("Spadochroniarz").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.PROFESSIONS).setSizes(
+                new Size(Height.cm_182, Height.cm_188, Belt.S, Belt.M),
+                new Size(Height.cm_182, Height.cm_188, Belt.L, Belt.XL)));
+
+        add(new Costume(1129).setPhotos(1792).setName("Strój Lata 70-te").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_170, Height.cm_176, Belt.L)));
+
+        add(new Costume(1130).setPhotos(1793).setName("Strój Lata 70-te").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_188, Height.cm_194, Belt.XL)));
+
+        add(new Costume(1148).setPhotos(1794).setName("Disco").setAge(Age.ADULT).setSex(Sex.BOTH).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_170, Height.cm_176, Belt.L),
+                new Size(Height.cm_182, Height.cm_188, Belt.L)));
+
+        add(new Costume(1149).setPhotos(1795).setName("Disco").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_170, Height.cm_176, Belt.L, Belt.XL)));
+
+        add(new Costume(1150).setPhotos(1796).setName("Disco").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_182, Height.cm_188, Belt.M),
+                new Size(Height.cm_182, Height.cm_188, Belt.L),
+                new Size(Height.cm_188, Height.cm_194, Belt.XL, Belt.XXL)));
+
+        add(new Costume(1151).setPhotos(1797).setName("Disco").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_182, Height.cm_188, Belt.M),
+                new Size(Height.cm_182, Height.cm_188, Belt.L),
+                new Size(Height.cm_188, Height.cm_194, Belt.XL, Belt.XXL)));
+
+        add(new Costume(1152).setPhotos(1798).setName("Disco").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_164, Height.cm_170, Belt.XL)));
+
+        add(new Costume(1153).setPhotos(1799).setName("Disco").setAge(Age.ADULT).setSex(Sex.MALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_188, Height.cm_194, Belt.XL, Belt.XXL)));
+
+        add(new Costume(1137).setPhotos(1800).setName("Szalony Kapelusznik").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Halloween, Occasion.Inne).setCategories(Category.FAIRY_TALES, Category.SEXY).setSizes(
+                new Size(Height.cm_164, Height.cm_170, Belt.M),
+                new Size(Height.cm_164, Height.cm_170, Belt.L)));
+
+        add(new Costume(1138).setPhotos(1801).setName("Disco").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        add(new Costume(1139).setPhotos(1802).setName("Disco").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        add(new Costume(1140).setPhotos(1803).setName("Disco").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        add(new Costume(1141).setPhotos(1804).setName("Disco").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_164, Height.cm_170, Belt.M, Belt.L)));
+
+        add(new Costume(1142).setPhotos(1805).setName("Disco").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_164, Height.cm_170, Belt.XS, Belt.S),
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        add(new Costume(1143).setPhotos(1806).setName("Policjantka").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.PROFESSIONS).setSizes(
+                new Size(Height.cm_170, Height.cm_176, Belt.S, Belt.M),
+                new Size(Height.cm_170, Height.cm_176, Belt.M, Belt.L),
+                new Size(Height.cm_170, Height.cm_176, Belt.L, Belt.XL)));
+
+        add(new Costume(1144).setPhotos(1807).setName("Wojowniczka").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.MOVIE_STAGE, Category.SEXY).setSizes(
+                new Size(Height.cm_164, Height.cm_170, Belt.M)));
+
+        add(new Costume(1145).setPhotos(1808).setName("Sukienka Lata 80-te").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_164, Height.cm_170, Belt.S, Belt.M)));
+
+        add(new Costume(1146).setPhotos(1809).setName("Sukienka Lata 80-te").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_164, Belt.S)));
+
+        add(new Costume(1147).setPhotos(1810).setName("Sukienka Lata 80-te").setAge(Age.ADULT).setSex(Sex.FEMALE).setOccasions(Occasion.Inne).setCategories(Category.YEARS_70_80).setSizes(
+                new Size(Height.cm_164, Belt.S)));
 
     }
 
