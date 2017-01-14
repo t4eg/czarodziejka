@@ -10,6 +10,8 @@ import pl.com.czarodziejka.admin.client.presenter.DodajStrojPresenter;
 import pl.com.czarodziejka.admin.client.view.DodajStrojView;
 import pl.com.czarodziejka.admin.client.view.components.SelectManySimple;
 import pl.com.czarodziejka.czarodziejka.client.components.form.SelectOne;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.database.Database;
+import pl.com.czarodziejka.czarodziejka.client.pages.search.database.costume.Costume;
 
 /**
  *
@@ -64,21 +66,21 @@ public class DodajStrojModel {
 
         StringBuilder sb = new StringBuilder(MainEntryPoint.getJavaCode().getValue());
 
-        sb.append("dodaj(");
+        sb.append("add(");
         sb.append("new Costume(").append(view.getNumber().getValue()).append(")");
         String photoNumbers = view.getAddImages().getPhotoNumbers();
         if (!photoNumbers.isEmpty()) {
-            sb.append(".setZdjęcie(").append(photoNumbers).append(")");
+            sb.append(".setPhotos(").append(photoNumbers).append(")");
         }
-        sb.append(".setNazwa(\"").append(view.getName().getValue().trim()).append("\")");
-        sb.append(".setWiek(Age.").append(getWiek()).append(")");
-        sb.append(".setPłeć(Sex.").append(getPlec()).append(")");
+        sb.append(".setName(\"").append(view.getName().getValue().trim()).append("\")");
+        sb.append(".setAge(Age.").append(getWiek()).append(")");
+        sb.append(".setSex(Sex.").append(getPlec()).append(")");
         if (!view.getForPair().getSelected().isEmpty()) {
-            sb.append(".setDlaPary(").append(ParyList.getIndex(view.getForPair().getSelected())).append(")");
+            sb.append(".setForPair(").append(ParyList.getIndex(view.getForPair().getSelected())).append(")");
         }
-        sb.append(".setOkazja(").append(getFromArray("Occasion.", view.getOcasion().getSelected())).append(")");
-        sb.append(".setKategoria(").append(getFromArray("Category.", view.getCategory().getSelected())).append(")");
-        sb.append(".setRozmiar(\n").append(view.getAddRozmiary().getRozmiary()).append(")");
+        sb.append(".setOccasions(").append(getFromArray(Occasion.class.getSimpleName() + ".", view.getOcasion().getSelected())).append(")");
+        sb.append(".setCategories(").append(getFromArray(Category.class.getSimpleName() + ".", view.getCategory().getSelected())).append(")");
+        sb.append(".setSizes(\n").append(view.getAddRozmiary().getRozmiary()).append(")");
         sb.append(");\n\n");
 
         MainEntryPoint.getJavaCode().setValue(sb.toString());
